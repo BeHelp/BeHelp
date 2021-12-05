@@ -1,31 +1,70 @@
-# GROUP PROJECT
+# Services for newcomers
+
+## Final project app at HYF Belgium
+
+The application connects international protection seekers with volunteers and organizations that can help them with adaptation and integration into society.
+
+## Table of contents
+
+- [General info](#general-info)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Features](#features)
+- [Status](#status)
+- [Inspiration](#inspiration)
+- [Authors](#authors)
+
+## General info
+
+When a newcomer arrives in Belgium, he/she may face a need for various services and have a problem with a language barrier and/or lack of financial resources to afford such services. We will create an application that gathers information about organizations and volunteers ready to help with providing the following services:
+
+- translation
+- legal advice
+- psychotherapists/coaches
+- host families for refugees
+- education services (language classes, etc.)
+- social assistance (medical assistance, services)
+
+The application will include the search tool that will filter organization/services by service, geographical region, type of service provider (organization/volunteer), language. It will also include the tool to contact the chosen volunteer via the website and give information on how to contact the organization.
 
 ---
-### Description
 
-__What the project is about in a couple of sentences__
+## Authors
 
-Application that allows parents to subscribe their kids to daycare activities in a simple way, and allows the school to organize the process of subscription to such activities.
+#### Project manager
 
+- [Ekaterina](https://github.com/katsmamina)
+- [Daniel (deputy)](https://github.com/danielhalasz)
 
-__What problem are we trying to solve__
+#### Wireframes/Design/UX
 
-Lack of organization in the process of subscribing kids to the daycare activities:
-- the school has to manually process the data, receiving many calls and emails;
-- parents’ don’t see availability in the calendar;
-- the parents have to either spend time on the telephone or send an email without knowing whether the child was actually subscribed;
-- language barrier between parents and teachers.
+- [Katia (lead)](https://github.com/Dabrytskaya)
+- [Francis](https://github.com/Osimef849)
+- [Walter](https://github.com/WalterAlvar)
 
----
-### Research
+#### Frontend
 
-Smartschool Home https://www.smartschool.be
+- [Emely (lead)](https://github.com/emelysalmeron)
 
-https://www.heist-op-den-berg.be/buitenschoolse-kinderopvang
+#### Backend
 
-https://www.hasselt.be/nl/buitenschoolse-opvang-stad-hasselt
+- [Daniel (lead)](https://github.com/danielhalasz)
 
-### Group Member Responsibilities
-- ...
-- ...
+#### Full stack (Backend/Frontend)
+
+- [Tugba](https://github.com/yildiztugba)
+- [Senait](https://github.com/Senait-coding)
+- [Tatsiana](https://github.com/TatsianaRud)
+- [Ekaterina](https://github.com/katsmamina)
+- [Francis](https://github.com/Osimef849)
+- [Michael](https://github.com/Mika215)
+- [Deepa](https://github.com/deepa-thomas)
+- [Walter](https://github.com/WalterAlvar)
+
+#### Devops
+
+- [Tugba](https://github.com/yildiztugba)
+- [Anthony Meirlaen](https://github.com/Toinne)
+
 ---
