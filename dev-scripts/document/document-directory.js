@@ -16,11 +16,11 @@ const documentDirectory = async (
     ignore = [],
     maxDepth = Infinity,
     graphPrefix = title,
-  }
+  },
 ) => {
   const SOURCE_DIR = path.normalize(path.join(__dirname, '..', '..', dirName));
   const DOCS_PATH = path.normalize(
-    path.join(__dirname, '..', '..', 'docs', `${fileName}.md`)
+    path.join(__dirname, '..', '..', 'docs', `${fileName}.md`),
   );
 
   try {
@@ -192,7 +192,7 @@ const documentDirectory = async (
     DOCS_PATH,
     formattedDocs,
     'utf-8',
-    (err) => err && console.error(err)
+    (err) => err && console.error(err),
   );
 };
 

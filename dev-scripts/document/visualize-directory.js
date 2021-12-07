@@ -19,11 +19,11 @@ const visualizeDirectory = async (
       exclude: '(sandbox.js|(\\S)+.spec.js|dev-scripts|dev.js)',
     },
     filePrefix = safeFileName(dirName),
-  }
+  },
 ) => {
   const SOURCE_DIR = path.normalize(path.join(__dirname, '..', '..', dirName));
   const GRAPH_PATH = path.normalize(
-    path.join(__dirname, '..', '..', 'docs', filePrefix)
+    path.join(__dirname, '..', '..', 'docs', filePrefix),
   );
 
   try {
@@ -43,8 +43,8 @@ const visualizeDirectory = async (
         path.join(`${GRAPH_PATH}.svg`),
         svgGraph,
         'utf-8',
-        (err) => err && console.err(err)
-      )
+        (err) => err && console.err(err),
+      ),
     )
     .catch((err) => console.error(err));
 

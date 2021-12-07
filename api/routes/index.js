@@ -1,14 +1,17 @@
 'use strict';
+const channelRoutes = require('./channels.js');
+const messageRoutes = require('./messages.js');
+// const registerRoutes = require('./register.js');
+// const loginRoutes = require('./login.js');
 
 const express = require('express');
 
-const routes = express.Router();
-
 // require routes files
-const resourceRoutes = require('./resource');
 
-// use them with this router
-routes.use('/resource', resourceRoutes);
+const router = express.Router();
+router.use('/channels', channelRoutes);
+router.use('/', messageRoutes);
+// router.use('/register', registerRoutes);
+// router.use('/login', loginRoutes);
 
-// export the routes
-module.exports = routes;
+module.exports = router;

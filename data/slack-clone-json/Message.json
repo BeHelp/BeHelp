@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "message": "Hi random,  my name is yoshi",
+    "userId": "1",
+    "channelId": 2,
+    "timestamp": 1632049292371
+  },
+  {
+    "id": 2,
+    "message": "Hi General! my name is Yoshi!",
+    "userId": "1",
+    "channelId": 1,
+    "timestamp": 1632049337238
+  },
+  {
+    "id": 3,
+    "message": "Hi  HYF,  my name is Yoshi! Nice to meet you!",
+    "userId": "1",
+    "channelId": 3,
+    "timestamp": 1632049418687
+  },
+  {
+    "id": 4,
+    "message": "Hi Yoshi,  nice to meet you!",
+    "userId": "3",
+    "channelId": 1,
+    "timestamp": 1632049475793
+  },
+  {
+    "id": 5,
+    "message": "I have a question about relational databases, can someone please help me?",
+    "userId": "1",
+    "channelId": 3,
+    "timestamp": 1632049679486
+  },
+  {
+    "id": 6,
+    "message": "Sure, call me on zoom and I will answer your questions",
+    "userId": "2",
+    "channelId": 3,
+    "timestamp": 1632049719448
+  },
+  {
+    "id": 7,
+    "message": "Check out this cool expressJS tutorial: https://www.youtube.com/watch?v=SccSCuHhOw0",
+    "userId": "3",
+    "channelId": 1,
+    "timestamp": 1632049877465
+  }
+]

@@ -3,6 +3,17 @@
   height: 100%;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
+.body {
+  background: #9053c7;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
 #btn-add-channel {
   background-color: #4c9689; /* Green */
   border: none;
@@ -15,7 +26,88 @@
   margin-left: -25px;
 }
 
-.reset, video, audio, mark, time, summary, section, ruby, output, nav, menu, hgroup, header, footer, figcaption, figure, embed, details, canvas, aside, article, td, th, tr, thead, tfoot, tbody, caption, table, legend, label, form, fieldset, li, ul, ol, dd, dt, dl, center, i, u, b, var, tt, sup, sub, strong, strike, small, samp, s, q, kbd, ins, img, em, dfn, del, code, cite, big, address, acronym, abbr, a, pre, blockquote, p, h6, h5, h4, h3, h2, h1, iframe, object, applet, span, div, body, html {
+.reset,
+video,
+audio,
+mark,
+time,
+summary,
+section,
+ruby,
+output,
+nav,
+menu,
+hgroup,
+header,
+footer,
+figcaption,
+figure,
+embed,
+details,
+canvas,
+aside,
+article,
+td,
+th,
+tr,
+thead,
+tfoot,
+tbody,
+caption,
+table,
+legend,
+label,
+form,
+fieldset,
+li,
+ul,
+ol,
+dd,
+dt,
+dl,
+center,
+i,
+u,
+b,
+var,
+tt,
+sup,
+sub,
+strong,
+strike,
+small,
+samp,
+s,
+q,
+kbd,
+ins,
+img,
+em,
+dfn,
+del,
+code,
+cite,
+big,
+address,
+acronym,
+abbr,
+a,
+pre,
+blockquote,
+p,
+h6,
+h5,
+h4,
+h3,
+h2,
+h1,
+iframe,
+object,
+applet,
+span,
+div,
+body,
+html {
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,7 +116,10 @@
   vertical-align: baseline;
 }
 
-.reset_2, td, th, caption {
+.reset_2,
+td,
+th,
+caption {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
@@ -50,11 +145,11 @@ blockquote {
   quotes: none;
 }
 blockquote:before {
-  content: "";
+  content: '';
   content: none;
 }
 blockquote:after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -66,11 +161,11 @@ q {
   quotes: none;
 }
 q:before {
-  content: "";
+  content: '';
   content: none;
 }
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -134,10 +229,10 @@ section {
 summary {
   display: block;
 }
-
+/* 
 main {
   display: block;
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -152,7 +247,7 @@ main {
 }
 
 .main {
-  height: 100%;
+  height: 100vh;
 }
 
 .footer {
@@ -386,3 +481,17 @@ main {
   min-height: 41px !important;
   padding: 9px 5px 9px 8px;
 }
+
+/* .bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+} */
