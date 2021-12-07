@@ -26,7 +26,7 @@ When a newcomer arrives in Belgium, he/she may face a need for various services 
 - education services (language classes, etc.)
 - social assistance (medical assistance, services)
 
-The application will include the search tool that will filter organization/services by service, geographical region, type of service provider (organization/volunteer), language. It will also include the tool to contact the chosen volunteer via the website and give information on how to contact the organization..
+The application will include the search tool that will filter organization/services by service, geographical region, type of service provider (organization/volunteer), language. It will also include the tool to contact the chosen volunteer via the website and give information on how to contact the organization...
 
 ---
 
