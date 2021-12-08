@@ -63,7 +63,7 @@ app.use((err, req, res, next) => {
   res.status(500).end();
 });
 
-app.listen(config.PORT || 3000, (err) => {
+app.listen(process.env.PORT, (err) => {
   if (err) {
     console.error(err);
   } else {
