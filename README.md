@@ -1,7 +1,8 @@
 # Services for newcomers
 
-## Final project app at HYF Belgium
+## BeHelp
 
+Our Final project app at HYF Belgium
 The application connects international protection seekers with volunteers and organizations that can help them with adaptation and integration into society.
 
 ## Table of contents
