@@ -1,0 +1,18 @@
+{
+  "name": "db-test",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": ""
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^4.2.1",
+    "mongoose": "^6.1.0",
+    "pg": "^8.7.1"
+  }
+}
