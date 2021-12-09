@@ -2,7 +2,7 @@
   "name": "db-test",
   "version": "0.0.0",
   "scripts": {
-    "dev": ""
+    "start": "node server.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
