@@ -31,7 +31,7 @@
           body: formData,
         })
           .then((response) => {
-            return response;
+            return response.json();
           })
           .then((data) => {
             document.getElementById('data').innerHTML += data.url;
