@@ -16,6 +16,6 @@ app.use('*', (req, res) => {
 });
 
 //listen
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000 , () => {
   
 });
