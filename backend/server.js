@@ -16,6 +16,6 @@ app.use('*', (req, res) => {
 });
 
 //listen
-app.listen(5000, () => {
-  console.log('Example app listening on port 5000!');
+app.listen(process.env.PORT, () => {
+  
 });
