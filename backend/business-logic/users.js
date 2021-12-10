@@ -4,15 +4,23 @@ const userManager = {
   postUser: async (userData) => {
     try {
       const user = await User.create({
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        age: userData.age,
         email: userData.email,
         password: userData.password,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        dob: userData.dob,
+        gender: userData.gender,
+        nationality: userData.nationality,
+        photo: userData.photo,
+        newcomer: userData.newcomer,
+        volunteer: userData.volunteer,
+        location: userData.location,
+        skills: userData.skills,
+        languages: userData.languages,
+        description: userData.description,
       });
       console.log(user);
       return user;
-      // mongoose.connection.close();
     } catch (err) {
       console.log(err.message);
     }
@@ -57,7 +65,6 @@ const userManager = {
 
       console.log(user);
       return user;
-      // mongoose.connection.close();
     } catch (err) {
       console.log(err.message);
     }
