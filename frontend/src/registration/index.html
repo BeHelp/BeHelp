@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration form</title>
+
+    <!-- Font Icon -->
+    <link
+      rel="stylesheet"
+      href="fonts/material-icon/css/material-design-iconic-font.min.css"
+    />
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="signup-content">
+          <div class="signup-img">
+            <img src="images/signup-img2.jpg" alt="" />
+          </div>
+          <div class="signup-form">
+            <form method="POST" class="register-form" id="register-form">
+              <h2>registration form</h2>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fname">First name :</label>
+                  <input type="text" name="fname" id="fname" required />
+                </div>
+                <div class="form-group">
+                  <label for="lname">Last name :</label>
+                  <input type="text" name="lname" id="lname" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-radio">
+                  <label for="status" class="radio-label">Status :</label>
+                  <div class="form-radio-item">
+                    <input type="radio" name="gender" id="male" checked />
+                    <label for="male">Newcomer</label>
+                    <span class="check"></span>
+                  </div>
+                  <div class="form-radio-item">
+                    <input type="radio" name="gender" id="female" />
+                    <label for="female">Volunteer</label>
+                    <span class="check"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="address">Email :</label>
+                <input type="text" name="address" id="address" required />
+              </div>
+              <div class="form-group">
+                <label for="address">Password :</label>
+                <input type="text" name="address" id="address" required />
+              </div>
+
+              <div class="form-radio">
+                <label for="gender" class="radio-label">Gender :</label>
+                <div class="form-radio-item">
+                  <input type="radio" name="gender" id="male" checked />
+                  <label for="male">Male</label>
+                  <span class="check"></span>
+                </div>
+                <div class="form-radio-item">
+                  <input type="radio" name="gender" id="female" />
+                  <label for="female">Female</label>
+                  <span class="check"></span>
+                </div>
+                <div class="form-radio-item">
+                  <input type="radio" name="gender" id="other" />
+                  <label for="female">Other</label>
+                  <span class="check"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="birth_date">DOB :</label>
+                <input type="text" name="birth_date" id="birth_date" />
+              </div>
+              <div class="form-group">
+                <label for="pincode">Nationality :</label>
+                <input type="text" name="pincode" id="pincode" />
+              </div>
+              <div class="form-group">
+                <label for="course">Languages :</label>
+                <div class="form-select">
+                  <select name="course" id="course">
+                    <option value=""></option>
+                    <option value="english">English</option>
+                    <option value="dutch">Dutch</option>
+                    <option value="french">French</option>
+                  </select>
+                  <span class="select-icon"
+                    ><i class="zmdi zmdi-chevron-down"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="course">Skills :</label>
+                <div class="form-select">
+                  <select name="course" id="course">
+                    <option value=""></option>
+                    <option value="translation">Translation</option>
+                    <option value="desiger">Legal advice</option>
+                    <option value="marketing">Medical assistance</option>
+                  </select>
+                  <span class="select-icon"
+                    ><i class="zmdi zmdi-chevron-down"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="description">Description :</label>
+                <input type="text" name="description" id="description" />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="state">Postcode :</label>
+                  <input type="text" name="postcode" id="postcode" required />
+                </div>
+                <div class="form-group">
+                  <label for="city">Province :</label>
+                  <div class="form-select">
+                    <select name="city" id="city">
+                      <option value=""></option>
+                      <option value="brussels">Brussels</option>
+                      <option value="flanders">Flanders</option>
+                      <option value="wallonia">Wallonia</option>
+                    </select>
+                    <span class="select-icon"
+                      ><i class="zmdi zmdi-chevron-down"></i
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="value">
+                  <div class="input-group js-input-file">
+                    <input
+                      class="input-file"
+                      type="file"
+                      name="file_cv"
+                      id="file"
+                    />
+                    <span class="input-file__info"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-submit">
+                <input
+                  type="submit"
+                  value="Reset All"
+                  class="submit"
+                  name="reset"
+                  id="reset"
+                />
+                <input
+                  type="submit"
+                  value="Submit Form"
+                  class="submit"
+                  name="submit"
+                  id="submit"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+  <!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
