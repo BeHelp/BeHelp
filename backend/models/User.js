@@ -20,14 +20,13 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String, required: true, minlength: 2, maxlength: 20 },
   dob: { type: Date, required: true },
   gender: { type: String, required: true },
-  nationality: [String],
-  photo: String,
-  newcomer: Boolean,
-  volunteer: Boolean,
+  nationality: String,
+  photoURL: String,
+  userType: String,
   location: [{ postcode: Number }, { province: String }],
   skills: [String],
   languages: [String],
-  description: { type: String, required: true, minlength: 10, maxlength: 200 },
+  description: { type: String, required: false, minlength: 10, maxlength: 200 },
 });
 
 module.exports = mongoose.model('User', userSchema);
