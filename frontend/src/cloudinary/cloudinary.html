@@ -34,7 +34,7 @@
             return response.json();
           })
           .then((data) => {
-            document.getElementById('data').innerHTML += data.url;
+            document.getElementById('data').innerHTML += data['secure_url'];
           });
       });
     </script>
