@@ -74,9 +74,7 @@ const userManager = {
   },
   getAllVolunteers: async () => {
     try {
-      const volunteers = await UserManager.find(
-        userData.userType === "volunteer"
-      );
+      const volunteers = await User.find(userType === "volunteer");
       if (userData.userType === "") {
         console.log("sorry there are no volunteers");
         return volunteers;
