@@ -1,4 +1,4 @@
-const { User, mongoose } = require('../data-access/db.js');
+const { User, mongoose } = require("../data-access/db.js");
 
 const userManager = {
   postUser: async (userData) => {
@@ -30,7 +30,7 @@ const userManager = {
       const searchQuery = {};
 
       if (
-        userData.location !== '' &&
+        userData.location !== "" &&
         userData.location !== undefined &&
         userData.location !== null &&
         userData.location !== []
@@ -38,7 +38,7 @@ const userManager = {
         searchQuery.location = userData.location;
       }
       if (
-        userData.languages !== '' &&
+        userData.languages !== "" &&
         userData.languages !== undefined &&
         userData.languages !== null &&
         userData.languages !== []
@@ -46,7 +46,7 @@ const userManager = {
         searchQuery.languages = userData.languages;
       }
       if (
-        userData.skills !== '' &&
+        userData.skills !== "" &&
         userData.skills !== undefined &&
         userData.skills !== null &&
         userData.skills !== []
@@ -54,7 +54,7 @@ const userManager = {
         searchQuery.skills = userData.skills;
       }
       if (
-        userData.firstName !== '' &&
+        userData.firstName !== "" &&
         userData.firstName !== undefined &&
         userData.firstName !== null
       ) {
@@ -73,17 +73,18 @@ const userManager = {
       throw new Error(`Could not find such a user!`);
     }
   },
-  getAllUsers: async () => {
-    const usersAll = await userStore.all();
-    console.log(`GETALLuserS: ${usersAll}`);
-    if (!usersAll) {
-      throw new Error(`Could not find any users!`);
+  getAllVolunteers: async () => {
+    try {
+      const volunteers = await User.find(userData.userType == "volunteer");
+      return volunteers;
+    } catch (err) {
+      console.log(err.message);
     }
-    return usersAll;
   },
-  putUser: async (user) => {
-    return userStore.update(user.id, user);
-  },
+
+  // putUser: async (userId) => {
+  //   await User.findById(userId);
+  // },
   deleteUser: async (userId) => {
     await userStore.remove(userId);
     return true;
