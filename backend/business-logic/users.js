@@ -11,7 +11,7 @@ const userManager = {
         dob: userData.dob,
         gender: userData.gender,
         nationality: userData.nationality,
-        photo: userData.photoURL,
+        photoURL: userData.photoURL,
         userType: userData.userType,
         location: userData.location,
         skills: userData.skills,
