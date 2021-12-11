@@ -25,31 +25,43 @@ module.exports = userController = {
     });
 },
 put:async (req, res) => {
-  await User.findByIdAndUpdate(
-    req.params.userId,
-    {
-      message: req.body.message,
-    },
-    { new: true }
-  )
-    .then((data) => {
-      if (!data) {
-        return res.status(404).send({
-          message: "Message not found with id " + req.params.userId,
-        });
-      }
-      res.send(data);
-    })
-    .catch((err) => {
-      if (err.kind === "ObjectId") {
-        return res.status(404).send({
-          message: "Message not found with id " + req.params.userId,
-        });
-      }
-      return res.status(500).send({
-        message: "Error updating message with id " + req.params.userId,
-      });
-    });
+
+  try {
+
+     const userId= req.params.userId;
+    const userData = req.body;
+ 
+    const result = await userManager.putUser(userId, userData);
+    res.status(201).send(result);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+  
+  // await User.findByIdAndUpdate(
+  //   req.params.userId,
+  //   {
+  //     body: req.body,
+  //   },
+  //   { new: true }
+  // )
+  //   .then((data) => {
+  //     if (!data) {
+  //       return res.status(404).send({
+  //         message: "Message not found with id " + req.params.userId,
+    //     });
+    //   }
+    //   res.send(data);
+    // })
+    // .catch((err) => {
+    //   if (err.kind === "ObjectId") {
+    //     return res.status(404).send({
+    //       message: "Message not found with id " + req.params.userId,
+    //     });
+    //   }
+    //   return res.status(500).send({
+    //     message: "Error updating message with id " + req.params.userId,
+    //   });
+    // });
 },
 delete: async (req, res) => {
   await User.findByIdAndRemove(req.params.userId)

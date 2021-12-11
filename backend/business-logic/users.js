@@ -1,4 +1,4 @@
-const { User, mongoose } = require('../data-access/db.js');
+const { User, mongoose } = require("../data-access/db.js");
 
 const userManager = {
   postUser: async (userData) => {
@@ -22,7 +22,7 @@ const userManager = {
       const searchQuery = {};
 
       if (
-        userData.location !== '' &&
+        userData.location !== "" &&
         userData.location !== undefined &&
         userData.location !== null &&
         userData.location !== []
@@ -30,7 +30,7 @@ const userManager = {
         searchQuery.location = userData.location;
       }
       if (
-        userData.languages !== '' &&
+        userData.languages !== "" &&
         userData.languages !== undefined &&
         userData.languages !== null &&
         userData.languages !== []
@@ -38,7 +38,7 @@ const userManager = {
         searchQuery.languages = userData.languages;
       }
       if (
-        userData.skills !== '' &&
+        userData.skills !== "" &&
         userData.skills !== undefined &&
         userData.skills !== null &&
         userData.skills !== []
@@ -46,7 +46,7 @@ const userManager = {
         searchQuery.skills = userData.skills;
       }
       if (
-        userData.firstName !== '' &&
+        userData.firstName !== "" &&
         userData.firstName !== undefined &&
         userData.firstName !== null
       ) {
@@ -74,8 +74,25 @@ const userManager = {
     }
     return usersAll;
   },
-  putUser: async (user) => {
-    return mongoose.update(user.id, user);
+  putUser: async (userId, userData) => {
+    const updatedUser= await User.findByIdAndUpdate(userId, {
+      // firstName: 'Senait'
+      email: userData.email,
+      password: userData.password,
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      dob: userData.dob,
+      gender: userData.gender,
+      nationality: userData.nationality,
+      photo: userData.photo,
+      newcomer: userData.newcomer,
+      volunteer: userData.volunteer,
+      location: userData.location,
+      skills: userData.skills,
+      languages: userData.languages,
+      description: userData.description,
+    });
+    return updatedUser;
   },
   deleteUser: async (userId) => {
     await mongoose.remove(userId);
