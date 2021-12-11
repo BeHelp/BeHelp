@@ -74,19 +74,16 @@ const userManager = {
   },
   getAllVolunteers: async () => {
     try {
-      const volunteers = await User.find(userData.userType == "volunteer");
-      return volunteers;
+      const volunteers = await UserManager.find(
+        userData.userType === "volunteer"
+      );
+      if (userData.userType === "") {
+        console.log("sorry there are no volunteers");
+        return volunteers;
+      }
     } catch (err) {
       console.log(err.message);
     }
-  },
-
-  // putUser: async (userId) => {
-  //   await User.findById(userId);
-  // },
-  deleteUser: async (userId) => {
-    await userStore.remove(userId);
-    return true;
   },
 };
 
