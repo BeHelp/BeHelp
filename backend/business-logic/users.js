@@ -67,7 +67,7 @@ const userManager = {
     }
   },
   getAllUsers: async () => {
-    const usersAll = await userStore.all();
+    const usersAll = await mongoose.all();
     console.log(`GETALLuserS: ${usersAll}`);
     if (!usersAll) {
       throw new Error(`Could not find any users!`);
@@ -75,10 +75,10 @@ const userManager = {
     return usersAll;
   },
   putUser: async (user) => {
-    return userStore.update(user.id, user);
+    return mongoose.update(user.id, user);
   },
   deleteUser: async (userId) => {
-    await userStore.remove(userId);
+    await mongoose.remove(userId);
     return true;
   },
 };

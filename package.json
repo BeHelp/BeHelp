@@ -1,0 +1,28 @@
+{
+  "name": "behelp",
+  "version": "1.0.0",
+  "description": "Our final project app at HYF Belgium",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katsmamina/BeHelp.git"
+  },
+  "keywords": [],
+  "author": "Seni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katsmamina/BeHelp/issues"
+  },
+  "homepage": "https://github.com/katsmamina/BeHelp#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^4.2.1",
+    "mongoose": "^6.1.1"
+  },
+  "devDependencies": {}
+}

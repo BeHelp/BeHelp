@@ -1,4 +1,5 @@
 const userManager = require('../business-logic/users');
+const User=require('../models/User')
 
 module.exports = userController = {
   post: async (req, res) => {
@@ -12,58 +13,65 @@ module.exports = userController = {
     }
   },
   get: async (req, res) => {
-    try {
-      const userData = req.body;
-      console.log(userData);
-      const result = await userManager.getUser(userData);
-      res.status(200).send(result);
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  },
-  getAll: async (req, res) => {
-    try {
-      const users = await userManager.getAllusers();
-      console.log(users);
-      res.status(200).send(JSON.stringify(users));
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  },
-  put: async (req, res) => {
-    try {
-      const userId = req.params.userId;
-      const newData = req.body;
-      const users = await userManager.getAllusers();
-      const savedUseruser = users.find((user) => user['user'] === req.user);
-      if (savedUseruser === undefined || newData.id !== userId) {
-        throw Error('Cannot change user!');
+    User.find()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving user.",
+      });
+    });
+},
+put:async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.params.userId,
+    {
+      message: req.body.message,
+    },
+    { new: true }
+  )
+    .then((data) => {
+      if (!data) {
+        return res.status(404).send({
+          message: "Message not found with id " + req.params.userId,
+        });
       }
-      await userManager.updateuser(newData);
-      res.status(200).send(JSON.stringify(newData));
-    } catch (error) {
-      console.log(error);
-      res.status(500).send(error);
-    }
-  },
-  delete: async (req, res) => {
-    try {
-      const userId = req.params.userId;
-      const users = await userManager.getAllusers();
-      const savedUseruser = users.find((user) => user['user'] === req.user);
-      if (savedUseruser === undefined) {
-        throw Error('Cannot delete user!');
+      res.send(data);
+    })
+    .catch((err) => {
+      if (err.kind === "ObjectId") {
+        return res.status(404).send({
+          message: "Message not found with id " + req.params.userId,
+        });
       }
-      await userManager.removeuser(userId);
-      res.status(200).send(
-        JSON.stringify({
-          user: `user ${userId} was successfully deleted!`,
-        })
-      );
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  },
-};
+      return res.status(500).send({
+        message: "Error updating message with id " + req.params.userId,
+      });
+    });
+},
+delete: async (req, res) => {
+  await User.findByIdAndRemove(req.params.userId)
+    .then((data) => {
+      if (!data) {
+        return res.status(404).send({
+          message: "user not found with id " + req.params.userId,
+        });
+      }
+      res.send({ message: "user deleted successfully!" });
+    })
+    .catch((err) => {
+      if (err.kind === "ObjectId" || err.name === "NotFound") {
+        return res.status(404).send({
+          message: "user not found with id " + req.params.userId,
+        });
+      }
+      return res.status(500).send({
+        message: "Could not delete message with id " + req.params.userId,
+      });
+    });
+}}
+
 
 module.exports = userController;
