@@ -81,8 +81,25 @@ const userManager = {
     }
     return usersAll;
   },
-  putUser: async (user) => {
-    return userStore.update(user.id, user);
+  putUser: async (userId, userData) => {
+    const updatedUser= await User.findByIdAndUpdate(userId, {
+
+      email: userData.email,
+      password: userData.password,
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      dob: userData.dob,
+      gender: userData.gender,
+      nationality: userData.nationality,
+      photo: userData.photo,
+      newcomer: userData.newcomer,
+      volunteer: userData.volunteer,
+      location: userData.location,
+      skills: userData.skills,
+      languages: userData.languages,
+      description: userData.description,
+    });
+    return updatedUser;
   },
   deleteUser: async (userId) => {
     await userStore.remove(userId);
