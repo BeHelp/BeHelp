@@ -11,9 +11,8 @@ const userManager = {
         dob: userData.dob,
         gender: userData.gender,
         nationality: userData.nationality,
-        photo: userData.photo,
-        newcomer: userData.newcomer,
-        volunteer: userData.volunteer,
+        photoURL: userData.photoURL,
+        userType: userData.userType,
         location: userData.location,
         skills: userData.skills,
         languages: userData.languages,
@@ -73,11 +72,12 @@ const userManager = {
       throw new Error(`Could not find such a user!`);
     }
   },
-  getAllUsers: async () => {
-    const usersAll = await userStore.all();
-    console.log(`GETALLuserS: ${usersAll}`);
-    if (!usersAll) {
-      throw new Error(`Could not find any users!`);
+  getAllVolunteers: async () => {
+    try {
+      const volunteers = await User.find({ userType: "volunteers" });
+      return volunteers;
+    } catch (err) {
+      console.log(err.message);
     }
     return usersAll;
   },
