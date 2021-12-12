@@ -23,11 +23,12 @@ module.exports = userController = {
   },
   getAll: async (req, res) => {
     try {
+      // let result = await User.find({ userType: "volunteer" });
       let result = await userManager.getAllVolunteers();
       res.status(200).send(result);
     } catch (error) {
       res.status(500).send(error);
-    } // let userData = req.param;
+    }
   },
 };
 
