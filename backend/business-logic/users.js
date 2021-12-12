@@ -1,4 +1,4 @@
-const { User, mongoose } = require('../data-access/db.js');
+const { User, mongoose } = require("../data-access/db.js");
 
 const userManager = {
   postUser: async (userData) => {
@@ -22,7 +22,7 @@ const userManager = {
       const searchQuery = {};
 
       if (
-        userData.location !== '' &&
+        userData.location !== "" &&
         userData.location !== undefined &&
         userData.location !== null &&
         userData.location !== []
@@ -30,7 +30,7 @@ const userManager = {
         searchQuery.location = userData.location;
       }
       if (
-        userData.languages !== '' &&
+        userData.languages !== "" &&
         userData.languages !== undefined &&
         userData.languages !== null &&
         userData.languages !== []
@@ -38,7 +38,7 @@ const userManager = {
         searchQuery.languages = userData.languages;
       }
       if (
-        userData.skills !== '' &&
+        userData.skills !== "" &&
         userData.skills !== undefined &&
         userData.skills !== null &&
         userData.skills !== []
@@ -46,7 +46,7 @@ const userManager = {
         searchQuery.skills = userData.skills;
       }
       if (
-        userData.firstName !== '' &&
+        userData.firstName !== "" &&
         userData.firstName !== undefined &&
         userData.firstName !== null
       ) {
@@ -77,9 +77,21 @@ const userManager = {
   putUser: async (user) => {
     return userStore.update(user.id, user);
   },
-  deleteUser: async (userId) => {
-    await userStore.remove(userId);
-    return true;
+  getUserById: async (userId) => {
+    try {
+      const user = await User.findById(userId);
+      return user;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+  deleteUser: async (user) => {
+    try {
+      await user.remove();
+      return true;
+    } catch (err) {
+      console.log(err.message);
+    }
   },
 };
 
