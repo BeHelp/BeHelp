@@ -74,15 +74,11 @@ const userManager = {
   },
   getAllVolunteers: async () => {
     try {
-      const volunteers = await User.find({ userType: "volunteer" });
-
-      if (User.userType !== volunteers) {
-        throw new Error(`Could not find any volunteer`);
-      }
+      const volunteers = await User.find({ userType: "volunteers" });
+      return volunteers;
     } catch (err) {
       console.log(err.message);
     }
-    return volunteers;
   },
 };
 
