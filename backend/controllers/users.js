@@ -1,4 +1,4 @@
-const userManager = require("../business-logic/users");
+const userManager = require('../business-logic/users');
 
 module.exports = userController = {
   post: async (req, res) => {
@@ -33,25 +33,21 @@ module.exports = userController = {
   put: async (req, res) => {
     try {
       const userId = req.params.userId;
-      const newData = req.body;
-      const users = await userManager.getAllusers();
-      const savedUseruser = users.find((user) => user["user"] === req.user);
-      if (savedUseruser === undefined || newData.id !== userId) {
-        throw Error("Cannot change user!");
-      }
-      await userManager.updateuser(newData);
-      res.status(200).send(JSON.stringify(newData));
+      const userData = req.body;
+
+      const result = await userManager.putUser(userId, userData);
+      res.status(201).send(result);
     } catch (error) {
-      console.log(error);
       res.status(500).send(error);
     }
   },
+
   delete: async (req, res) => {
     try {
       const userId = req.params.userId;
       const user = await userManager.getUserById(userId);
       if (user === undefined || user === null) {
-        res.status(404).send({ error: "User not found" });
+        res.status(404).send({ error: 'User not found' });
       } else {
         await userManager.deleteUser(user);
         res.status(200).send(
