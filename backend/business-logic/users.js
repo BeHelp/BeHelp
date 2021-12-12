@@ -74,7 +74,7 @@ const userManager = {
   },
   getAllVolunteers: async () => {
     try {
-      const volunteers = await User.find({ userType: "volunteers" });
+      const volunteers = await User.find({ userType: "volunteer" });
       return volunteers;
     } catch (err) {
       console.log(err.message);
