@@ -11,9 +11,8 @@ const userManager = {
         dob: userData.dob,
         gender: userData.gender,
         nationality: userData.nationality,
-        photo: userData.photo,
-        newcomer: userData.newcomer,
-        volunteer: userData.volunteer,
+        photoURL: userData.photoURL,
+        userType: userData.userType,
         location: userData.location,
         skills: userData.skills,
         languages: userData.languages,
@@ -73,17 +72,17 @@ const userManager = {
       throw new Error(`Could not find such a user!`);
     }
   },
-  getAllUsers: async () => {
-    const usersAll = await userStore.all();
-    console.log(`GETALLuserS: ${usersAll}`);
-    if (!usersAll) {
-      throw new Error(`Could not find any users!`);
+  getAllVolunteers: async () => {
+    try {
+      const volunteers = await User.find({ userType: 'volunteers' });
+      return volunteers;
+    } catch (err) {
+      console.log(err.message);
     }
     return usersAll;
   },
   putUser: async (userId, userData) => {
-    const updatedUser= await User.findByIdAndUpdate(userId, {
-
+    const updatedUser = await User.findByIdAndUpdate(userId, {
       email: userData.email,
       password: userData.password,
       firstName: userData.firstName,
@@ -91,9 +90,8 @@ const userManager = {
       dob: userData.dob,
       gender: userData.gender,
       nationality: userData.nationality,
-      photo: userData.photo,
-      newcomer: userData.newcomer,
-      volunteer: userData.volunteer,
+      photoURL: userData.photoURL,
+      userTyoe: userData.userTyoe,
       location: userData.location,
       skills: userData.skills,
       languages: userData.languages,
