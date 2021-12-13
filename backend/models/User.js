@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    lowercase: false,
+    lowercase: true,
     minlength: 6,
     maxlength: 30,
     match: /.+\@.+\..+/,
