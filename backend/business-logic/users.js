@@ -1,4 +1,4 @@
-const { User, mongoose } = require("../data-access/db.js");
+const { User } = require('../data-access/db.js');
 
 const userManager = {
   postUser: async (userData) => {
@@ -29,7 +29,7 @@ const userManager = {
       const searchQuery = {};
 
       if (
-        userData.location !== "" &&
+        userData.location !== '' &&
         userData.location !== undefined &&
         userData.location !== null &&
         userData.location !== []
@@ -37,7 +37,7 @@ const userManager = {
         searchQuery.location = userData.location;
       }
       if (
-        userData.languages !== "" &&
+        userData.languages !== '' &&
         userData.languages !== undefined &&
         userData.languages !== null &&
         userData.languages !== []
@@ -45,59 +45,49 @@ const userManager = {
         searchQuery.languages = userData.languages;
       }
       if (
-        userData.skills !== "" &&
+        userData.skills !== '' &&
         userData.skills !== undefined &&
         userData.skills !== null &&
         userData.skills !== []
       ) {
         searchQuery.skills = userData.skills;
       }
-      if (
-        userData.firstName !== "" &&
-        userData.firstName !== undefined &&
-        userData.firstName !== null
-      ) {
-        searchQuery.firstName = userData.firstName;
-      }
-
       const user = await User.find(searchQuery);
-
       console.log(user);
       return user;
     } catch (err) {
       console.log(err.message);
     }
-
-    if (!user) {
-      throw new Error(`Could not find such a user!`);
-    }
   },
   getAllVolunteers: async () => {
     try {
-      const volunteers = await User.find({ userType: "volunteer" });
+      const volunteers = await User.find({ userType: 'volunteer' });
       return volunteers;
     } catch (err) {
       console.log(err.message);
     }
-    return usersAll;
   },
   putUser: async (userId, userData) => {
-    const updatedUser = await User.findByIdAndUpdate(userId, {
-      email: userData.email,
-      password: userData.password,
-      firstName: userData.firstName,
-      lastName: userData.lastName,
-      dob: userData.dob,
-      gender: userData.gender,
-      nationality: userData.nationality,
-      photoURL: userData.photoURL,
-      userType: userData.userType,
-      location: userData.location,
-      skills: userData.skills,
-      languages: userData.languages,
-      description: userData.description,
-    });
-    return updatedUser;
+    try {
+      const updatedUser = await User.findByIdAndUpdate(userId, {
+        email: userData.email,
+        password: userData.password,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        dob: userData.dob,
+        gender: userData.gender,
+        nationality: userData.nationality,
+        photoURL: userData.photoURL,
+        userType: userData.userType,
+        location: userData.location,
+        skills: userData.skills,
+        languages: userData.languages,
+        description: userData.description,
+      });
+      return updatedUser;
+    } catch (err) {
+      console.log(err.message);
+    }
   },
   getUserById: async (userId) => {
     try {

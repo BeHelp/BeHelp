@@ -1,5 +1,4 @@
-const userManager = require("../business-logic/users");
-const User = require("../models/User");
+const userManager = require('../business-logic/users');
 
 module.exports = userController = {
   post: async (req, res) => {
@@ -45,7 +44,7 @@ module.exports = userController = {
       const userId = req.params.userId;
       const user = await userManager.getUserById(userId);
       if (user === undefined || user === null) {
-        res.status(404).send({ error: "User not found" });
+        res.status(404).send({ error: 'User not found' });
       } else {
         await userManager.deleteUser(user);
         res.status(200).send(
@@ -54,8 +53,6 @@ module.exports = userController = {
           })
         );
       }
-      //       let result = await userManager.getAllVolunteers();
-      //       res.status(200).send(result);
     } catch (error) {
       res.status(500).send(error);
     }
