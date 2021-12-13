@@ -74,11 +74,34 @@ const userManager = {
   },
   getAllVolunteers: async () => {
     try {
-      const volunteers = await User.find({ userType: "volunteer" });
+      const volunteers = await User.find({ userType: "volunteers" });
       return volunteers;
     } catch (err) {
       console.log(err.message);
     }
+    return usersAll;
+  },
+  putUser: async (userId, userData) => {
+    const updatedUser = await User.findByIdAndUpdate(userId, {
+      email: userData.email,
+      password: userData.password,
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      dob: userData.dob,
+      gender: userData.gender,
+      nationality: userData.nationality,
+      photoURL: userData.photoURL,
+      userType: userData.userType,
+      location: userData.location,
+      skills: userData.skills,
+      languages: userData.languages,
+      description: userData.description,
+    });
+    return updatedUser;
+  },
+  deleteUser: async (userId) => {
+    await userStore.remove(userId);
+    return true;
   },
 };
 
