@@ -1,5 +1,5 @@
-const userManager = require("../business-logic/users");
-const User = require("../models/User");
+const userManager = require('../business-logic/users');
+const User = require('../models/User');
 
 module.exports = userController = {
   post: async (req, res) => {
@@ -34,14 +34,12 @@ module.exports = userController = {
     try {
       const userId = req.params.userId;
       const userData = req.body;
-
       const result = await userManager.putUser(userId, userData);
       res.status(201).send(result);
     } catch (error) {
       res.status(500).send(error);
     }
   },
-
   delete: async (req, res) => {
     try {
       const userId = req.params.userId;
@@ -56,8 +54,8 @@ module.exports = userController = {
           })
         );
       }
-      let result = await userManager.getAllVolunteers();
-      res.status(200).send(result);
+//       let result = await userManager.getAllVolunteers();
+//       res.status(200).send(result);
     } catch (error) {
       res.status(500).send(error);
     }
