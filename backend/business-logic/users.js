@@ -1,4 +1,4 @@
-const { User, mongoose } = require('../data-access/db.js');
+const { User } = require('../data-access/db.js');
 
 const userManager = {
   postUser: async (userData) => {
@@ -52,40 +52,58 @@ const userManager = {
       ) {
         searchQuery.skills = userData.skills;
       }
-      if (
-        userData.firstName !== '' &&
-        userData.firstName !== undefined &&
-        userData.firstName !== null
-      ) {
-        searchQuery.firstName = userData.firstName;
-      }
-
       const user = await User.find(searchQuery);
-
       console.log(user);
       return user;
     } catch (err) {
       console.log(err.message);
     }
-
-    if (!user) {
-      throw new Error(`Could not find such a user!`);
+  },
+  getAllVolunteers: async () => {
+    try {
+      const volunteers = await User.find({ userType: 'volunteer' });
+      return volunteers;
+    } catch (err) {
+      console.log(err.message);
     }
   },
-  getAllUsers: async () => {
-    const usersAll = await userStore.all();
-    console.log(`GETALLuserS: ${usersAll}`);
-    if (!usersAll) {
-      throw new Error(`Could not find any users!`);
+  putUser: async (userId, userData) => {
+    try {
+      const updatedUser = await User.findByIdAndUpdate(userId, {
+        email: userData.email,
+        password: userData.password,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        dob: userData.dob,
+        gender: userData.gender,
+        nationality: userData.nationality,
+        photoURL: userData.photoURL,
+        userType: userData.userType,
+        location: userData.location,
+        skills: userData.skills,
+        languages: userData.languages,
+        description: userData.description,
+      });
+      return updatedUser;
+    } catch (err) {
+      console.log(err.message);
     }
-    return usersAll;
   },
-  putUser: async (user) => {
-    return userStore.update(user.id, user);
+  getUserById: async (userId) => {
+    try {
+      const user = await User.findById(userId);
+      return user;
+    } catch (err) {
+      console.log(err.message);
+    }
   },
-  deleteUser: async (userId) => {
-    await userStore.remove(userId);
-    return true;
+  deleteUser: async (user) => {
+    try {
+      await user.remove();
+      return true;
+    } catch (err) {
+      console.log(err.message);
+    }
   },
 };
 

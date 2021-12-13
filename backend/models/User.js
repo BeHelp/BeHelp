@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const reqString = {
-  type: String,
-  required: true,
-};
+// const reqString = {
+//   type: String,
+//   required: true,
+// };
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     minlength: 6,
     maxlength: 30,
     match: /.+\@.+\..+/,
-    unique: true,
+    unique: false,
   },
   password: { type: String, required: true, minlength: 6 },
   firstName: { type: String, required: true, minlength: 2, maxlength: 20 },
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
   nationality: String,
   photoURL: String,
   userType: String,
-  location: [{ postcode: Number }, { province: String }],
+  location: [String],
   skills: [String],
   languages: [String],
   description: { type: String, required: false, minlength: 10, maxlength: 200 },
