@@ -1,4 +1,4 @@
-const { User, mongoose } = require('../data-access/db.js');
+const { User, mongoose } = require("../data-access/db.js");
 
 const userManager = {
   postUser: async (userData) => {
@@ -29,7 +29,7 @@ const userManager = {
       const searchQuery = {};
 
       if (
-        userData.location !== '' &&
+        userData.location !== "" &&
         userData.location !== undefined &&
         userData.location !== null &&
         userData.location !== []
@@ -37,7 +37,7 @@ const userManager = {
         searchQuery.location = userData.location;
       }
       if (
-        userData.languages !== '' &&
+        userData.languages !== "" &&
         userData.languages !== undefined &&
         userData.languages !== null &&
         userData.languages !== []
@@ -45,7 +45,7 @@ const userManager = {
         searchQuery.languages = userData.languages;
       }
       if (
-        userData.skills !== '' &&
+        userData.skills !== "" &&
         userData.skills !== undefined &&
         userData.skills !== null &&
         userData.skills !== []
@@ -53,7 +53,7 @@ const userManager = {
         searchQuery.skills = userData.skills;
       }
       if (
-        userData.firstName !== '' &&
+        userData.firstName !== "" &&
         userData.firstName !== undefined &&
         userData.firstName !== null
       ) {
@@ -74,7 +74,7 @@ const userManager = {
   },
   getAllVolunteers: async () => {
     try {
-      const volunteers = await User.find({ userType: 'volunteers' });
+      const volunteers = await User.find({ userType: "volunteer" });
       return volunteers;
     } catch (err) {
       console.log(err.message);
@@ -91,7 +91,7 @@ const userManager = {
       gender: userData.gender,
       nationality: userData.nationality,
       photoURL: userData.photoURL,
-      userTyoe: userData.userTyoe,
+      userType: userData.userType,
       location: userData.location,
       skills: userData.skills,
       languages: userData.languages,
