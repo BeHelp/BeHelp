@@ -43,20 +43,19 @@ module.exports = userController = {
   delete: async (req, res) => {
     try {
       const userId = req.params.userId;
-      const users = await userManager.getAllusers();
-      const savedUseruser = users.find((user) => user['user'] === req.user);
-      if (savedUseruser === undefined) {
-        throw Error('Cannot delete user!');
+      const user = await userManager.getUserById(userId);
+      if (user === undefined || user === null) {
+        res.status(404).send({ error: 'User not found' });
+      } else {
+        await userManager.deleteUser(user);
+        res.status(200).send(
+          JSON.stringify({
+            user: `user ${userId} was successfully deleted!`,
+          })
+        );
       }
-      await userManager.removeuser(userId);
-      res.status(200).send(
-        JSON.stringify({
-          user: `user ${userId} was successfully deleted!`,
-        })
-      );
-      // let result = await User.find({ userType: "volunteer" });
-      let result = await userManager.getAllVolunteers();
-      res.status(200).send(result);
+//       let result = await userManager.getAllVolunteers();
+//       res.status(200).send(result);
     } catch (error) {
       res.status(500).send(error);
     }

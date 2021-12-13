@@ -99,9 +99,21 @@ const userManager = {
     });
     return updatedUser;
   },
-  deleteUser: async (userId) => {
-    await userStore.remove(userId);
-    return true;
+  getUserById: async (userId) => {
+    try {
+      const user = await User.findById(userId);
+      return user;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+  deleteUser: async (user) => {
+    try {
+      await user.remove();
+      return true;
+    } catch (err) {
+      console.log(err.message);
+    }
   },
 };
 
