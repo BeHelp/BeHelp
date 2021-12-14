@@ -1,11 +1,11 @@
 const { User, mongoose } = require("../data-access/db.js");
-const bcrypt = require('bcryptjs');
+const hashing = require('../middleware/hashing');
 const userManager = {
   postUser: async (userData) => {
     try {
-      const newUser = {
+      const newUser = await User.create({
         email: userData.email,
-        password: userData.password,
+        password: await hashing(userData.password),
         firstName: userData.firstName,
         lastName: userData.lastName,
         dob: userData.dob,
@@ -16,19 +16,10 @@ const userManager = {
         location: userData.location,
         skills: userData.skills,
         languages: userData.languages,
-        description: userData.description,
-      };
-      bcrypt.genSalt(10,(err,salt)=>{
-        bcrypt.hash(newUser.password,salt,async (err,hash)=> {
-          if(err){
-            console.log(err);
-          }
-          newUser.password = hash;
-          await User.create(newUser);
+        description: userData.description
         });
-      });
+        console.log(newUser);
       return newUser;
-      
     } catch (err) {
       console.log(err.message);
     }
