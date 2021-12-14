@@ -1,77 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>hello</title>
-
-    <meta name="author" content="Team HYF" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css"
-      integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./styles/signin.css" />
-  </head>
-
-  <body>
-    <div>
-      <div id="root"></div>
-
-      <div class="container text-center">
-        <div class="form-signin">
-          <form class="form">
-            <div class="member-header">
-              <span class="h3 mb-3 fw-normal"> Member Login </span>
-            </div>
-            <div>
-              <div class="form-floating">
-                <input
-                  class="form-control"
-                  type="text"
-                  id="username"
-                  placeholder="Username"
-                />
-              </div>
-
-              <div class="form-floating">
-                <input
-                  class="form-control"
-                  type="password"
-                  id="password"
-                  placeholder="Password"
-                />
-              </div>
-            </div>
-            <div>
-              <button class="btn w-100 btn-lg btn-dark">Login</button>
-            </div>
-          </form>
-          <div class="text-center">
-            <span class="txt1"> Don’t have an account? </span>
-
-            <a class="txt2 text-info" href="#"> Sign Up </a>
-          </div>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../frontend/styles/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <title>BeHelp</title>
+</head>
+<body>
+  <div class="our_service_container">
+     <div class="our_service_text_container1">
+      <h2 class="our_service_heading1">Our Services:</h2>
+      <P class= "our_service_text">BeHelp is a group of volunteers who have the time, desire and opportunity to help newcomers to Belgium with everyday problems.</P></div>
+      <div class="our_service_container2">
+      <h2 class="our_service_heading2">HOW WE CAN HELP?</h2>
+      <hr class="our_service_heading2_line">
+      <span class="legal_icon">
+        <i class="fa fa-briefcase"></i>
+      </span>
+        <div class="legal_icon_text">
+          <p>Legal Assistance</p>
+      <hr class="legal_icon_line">
     </div>
-
-    <script type="module" src="./src/index.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      <span class="translation_icon">
+        <i class="fa fa-bullhorn"></i>
+        </span>
+        <div class="translation_icon_text">
+        <p>Translations</p>
+      <hr class="translation_icon_line">
+    </div>
+<span class="mental_health_icon">
+  <i class="fa fa-user"></i>
+  </span>
+  <div class="mental_health_icon_text">  
+    <p>Mental health</p>
+        <hr class="mental_health_line">
+      </div>
+      <span class="host_families_icon">
+        <i class="fa fa-home"></i>
+      </span>
+        <div class="host_families_icon_text"> 
+        <p>Host families for refugees</p>
+      <hr class="host_families_line">
+    </div>
+      <span class="education_icon">
+        <i class="fa fa-university"></i>
+        </span>
+        <div class="education_icon_text">  
+          <p>Education services (language classes, etc.)</p>
+      <hr class="education_line"></div>
+      <span class="social_assistance_icon">
+        <i class="fa fa-handshake-o"></i>
+        </span>
+        <div class="social_assistance_icon_text">
+          <p>Social assistance (medical assistance, services)</p>
+      <hr class="social_assistance_line"></div>
+      </div>
+     
+</body>
 </html>
