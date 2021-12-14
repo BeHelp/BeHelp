@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
   nationality: String,
   photoURL: String,
   userType: String,
-  location: [{ postcode: Number }, { province: String }],
+  location: [String],
   skills: [String],
   languages: [String],
   description: { type: String, required: false, minlength: 10, maxlength: 200 },
