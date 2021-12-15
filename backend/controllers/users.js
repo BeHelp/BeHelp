@@ -14,7 +14,6 @@ module.exports = userController = {
   get: async (req, res) => {
     try {
       const userData = req.body;
-      console.log(userData);
       const result = await userManager.getUser(userData);
       res.status(200).send(result);
     } catch (error) {
@@ -23,7 +22,7 @@ module.exports = userController = {
   },
   getAll: async (req, res) => {
     try {
-      const users = await userManager.getAllusers();
+      const users = await userManager.getAllVolunteers();
       console.log(users);
       res.status(200).send(JSON.stringify(users));
     } catch (error) {
@@ -33,33 +32,27 @@ module.exports = userController = {
   put: async (req, res) => {
     try {
       const userId = req.params.userId;
-      const newData = req.body;
-      const users = await userManager.getAllusers();
-      const savedUseruser = users.find((user) => user['user'] === req.user);
-      if (savedUseruser === undefined || newData.id !== userId) {
-        throw Error('Cannot change user!');
-      }
-      await userManager.updateuser(newData);
-      res.status(200).send(JSON.stringify(newData));
+      const userData = req.body;
+      const result = await userManager.putUser(userId, userData);
+      res.status(201).send(result);
     } catch (error) {
-      console.log(error);
       res.status(500).send(error);
     }
   },
   delete: async (req, res) => {
     try {
       const userId = req.params.userId;
-      const users = await userManager.getAllusers();
-      const savedUseruser = users.find((user) => user['user'] === req.user);
-      if (savedUseruser === undefined) {
-        throw Error('Cannot delete user!');
+      const user = await userManager.getUserById(userId);
+      if (user === undefined || user === null) {
+        res.status(404).send({ error: 'User not found' });
+      } else {
+        await userManager.deleteUser(user);
+        res.status(200).send(
+          JSON.stringify({
+            user: `user ${userId} was successfully deleted!`,
+          })
+        );
       }
-      await userManager.removeuser(userId);
-      res.status(200).send(
-        JSON.stringify({
-          user: `user ${userId} was successfully deleted!`,
-        })
-      );
     } catch (error) {
       res.status(500).send(error);
     }
