@@ -9,10 +9,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongodb": "^4.2.1",
-    "mongoose": "^6.1.1",
-    "pg": "^8.7.1",
-    "sqlite3": "^5.0.2"
+    "mongoose": "^6.1.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -21,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yildiztugba/fp-group-2.git"
+    "url": "git+https://github.com/BeHelp/BeHelp.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yildiztugba/fp-group-2/issues"
+    "url": "https://github.com/BeHelp/BeHelp/issues"
   },
-  "homepage": "https://github.com/yildiztugba/fp-group-2#readme"
+  "homepage": "https://github.com/BeHelp/BeHelp#readme"
 }
