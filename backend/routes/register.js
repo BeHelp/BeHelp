@@ -1,12 +1,12 @@
 const express = require('express');
 const registerRoutes = express.Router();
-// const registerController = require('../controllers/register');
+const registerController = require('../controllers/users.js');
 
 registerRoutes.use((req, res, next) => {
   console.log('api! register route');
   next();
 });
 
-// registerRoutes.post('/', registerController.post);
+registerRoutes.post('/', registerController.post);
 
 module.exports = registerRoutes;
