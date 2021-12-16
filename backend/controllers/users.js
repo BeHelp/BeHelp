@@ -22,7 +22,7 @@ module.exports = userController = {
   },
   getbyid: async (req, res) => {
     try {
-      const userId = req.param('userId');
+      const userId = req.params.userId;
       const result = await userManager.getUserById(userId);
       res.status(200).send(result);
     } catch (error) {
