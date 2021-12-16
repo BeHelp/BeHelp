@@ -107,14 +107,7 @@ const userManager = {
       console.log(err.message);
     }
   },
-  getUserByEmail: async (email)=>{
-    try {
-      const user = await User.findOne({ "email" : email});
-      return user;
-    } catch (err) {
-      console.log(err.message);
-    }
-  },
+
   deleteUser: async (user) => {
     try {
       await user.remove();

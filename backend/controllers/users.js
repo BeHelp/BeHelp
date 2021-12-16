@@ -1,5 +1,4 @@
 const userManager = require("../business-logic/users");
-const User = require("../models/User");
 
 module.exports = userController = {
   post: async (req, res) => {
@@ -33,6 +32,17 @@ module.exports = userController = {
       res.status(500).send(error);
     }
   },
+
+  getById: async (req, res) => {
+    try {
+      const userId = req.param('userId');
+      const result = await userManager.getUserById(userId);
+      res.status(200).send(result);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  },
+
   getAll: async (req, res) => {
     try {
       const users = await userManager.getAllVolunteers();
@@ -66,8 +76,6 @@ module.exports = userController = {
           })
         );
       }
-      //       let result = await userManager.getAllVolunteers();
-      //       res.status(200).send(result);
     } catch (error) {
       res.status(500).send(error);
     }
