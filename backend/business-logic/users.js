@@ -3,6 +3,13 @@ const { User } = require('../data-access/db.js');
 const userManager = {
   postUser: async (userData) => {
     try {
+      const userExist = await User.find({ email: userData.email });
+
+      if (userExist.length > 0) {
+        const err = 'User already exists';
+        return err;
+      }
+
       const user = await User.create({
         email: userData.email,
         password: userData.password,

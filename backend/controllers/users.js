@@ -6,7 +6,11 @@ module.exports = userController = {
       const userData = req.body;
       console.log(userData);
       const result = await userManager.postUser(userData);
-      res.status(201).send(result);
+      if (result === 'User already exists') {
+        res.status(400).send(result);
+      } else {
+        res.status(201).send(result);
+      }
     } catch (error) {
       res.status(500).send(error);
     }
