@@ -20,6 +20,15 @@ module.exports = userController = {
       res.status(500).send(error);
     }
   },
+  getbyid: async (req, res) => {
+    try {
+      const userId = req.param('userId');
+      const result = await userManager.getUserById(userId);
+      res.status(200).send(result);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  },
   getAll: async (req, res) => {
     try {
       const users = await userManager.getAllVolunteers();
