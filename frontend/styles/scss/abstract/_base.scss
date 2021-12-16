@@ -1,0 +1,38 @@
+@import "./variables";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Montserrat;
+}
+
+a {
+    color: $dark-grey;
+    text-decoration: none;
+}
+
+a::after {
+    color: $dark-grey;
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+};
+// li {
+//     list-style-type: none; 
+// }

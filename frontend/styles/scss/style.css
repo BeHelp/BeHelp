@@ -1,0 +1,165 @@
+/** based on https://codepen.io/machonky/pen/epGNWO **/
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Montserrat;
+}
+
+a {
+  color: #424651;
+  text-decoration: none;
+}
+
+a::after {
+  color: #424651;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.header {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  -webkit-text-decoration-color: #424651;
+          text-decoration-color: #424651;
+  width: 100%;
+  padding: 1em 4em;
+}
+
+.header__nav {
+  width: 100%;
+  height: 4em;
+  text-align: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  letter-spacing: 1px;
+}
+
+.header__nav-logo {
+  width: 200px;
+  height: 53.02;
+  margin: auto 0;
+}
+
+.header__nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 4em;
+}
+
+.header__nav-list .item {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 15px;
+}
+
+.header__nav-features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 3px;
+}
+
+.header__nav-features select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  position: relative;
+  outline: none;
+  padding: 5px;
+  padding-right: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header__nav-features select:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header__nav-features button {
+  background-color: transparent;
+  border: 3px solid;
+  border-radius: 20px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  padding: 8px 16px;
+  margin: 20px auto;
+  text-decoration: none;
+}
+
+.header__nav-features .btn-signup {
+  border: 3px solid #e99140;
+  width: 100px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header__nav-features .btn-signup:hover {
+  background-color: #e99140;
+  color: white;
+}
+
+.header__nav-features .btn-login {
+  width: 80px;
+  border: none;
+  text-decoration: underline;
+}
+
+.header::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+/* .bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+} */
+/*# sourceMappingURL=style.css.map */
