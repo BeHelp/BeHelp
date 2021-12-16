@@ -1,7 +1,11 @@
 # Development strategy
 
 > FONTS:
-> 
+> H1 - Montserrat BOLD 70 
+> H2 - Montserrat BOLD 40 
+> Text - Montserrat Regular 20
+> Filters - Montserrat Regular 12
+> Cards mini - Montserrat Regular 16
 > Cards big - Montserrat Regular 20
 
 ### Header
@@ -10,14 +14,14 @@
 
  **HTML**
 - header: class = "header" 
-- logo: class = "header_logo", src, alt = "logo"
+- logo: class = "header__logo", src, alt = "logo"
 - nav-bar (nav): class "header_nav"
-    - ul: class "header_list"
-    - li 'About': class "header_list-item", links to the About section
-    - li 'Volunteers': class "header_list-item", link to the Volunteers page
-    - contacts: class "header_list-item", link to the footer
-    - btn "Sign up": class "header_btn-signup", leads to the registration page (/signup)
-    - btn "Login": class "header_btn-login", opens the login popup (/login)
+    - ul: class "header__list"
+    - li 'About': class "header__list-item", links to the About section
+    - li 'Volunteers': class "header__list-item", link to the Volunteers page
+    - contacts: class "header__list-item", link to the footer
+    - btn "Sign up": class "header__btn-signup", leads to the registration page (/signup)
+    - btn "Login": class "header__btn-login", opens the login popup (/login)
 
  **CSS**
 - See Figma file
@@ -27,11 +31,11 @@
 > The code should be merged into `main` branch
 
 - footer: class = "footer"
-- div: class = "footer_logos"
-- img: class = "footer_logos-behelp"
-- img: class = "footer_logos-hyf"
-- div: class = "footer_div-text"
-- p: "footer_text"
+- div: class = "footer__logos"
+- img: class = "footer__logos-behelp"
+- img: class = "footer__logos-hyf"
+- div: class = "footer__div"
+- p: "footer__div-text"
 
 ### Login form
 (has to be done on Figma)
@@ -50,18 +54,18 @@
 
 **HTML**
 - main: class = "home"
-- section: class = "home_search"
-- figure: class = "home_search-figure"
-- img: class = "home_search-img"
-- div: class = "home_search-form"
-- h1: class = "home_search-form_h1"
-- div: class = "home_search-skills"
-- select: class = "home_search-skills-select"
-- div: class = "home_search-city"
-- select: class = "home_search-city-select"
-- div: class = "home_search-lang"
-- select: class = "home_search-lang-select"
-- button: class = "home_search-btn"
+- section: class = "home__search"
+- figure: class = "home__search-figure"
+- img: class = "home__search-img"
+- div: class = "home__search-form"
+- h1: class = "home__search-form h1"
+- div: class = "home__search-skills"
+- select: class = "home__search-skills select"
+- div: class = "home__search city"
+- select: class = "home__search-city-select"
+- div: class = "home__search-lang"
+- select: class = "home__search-lang-select"
+- button: class = "home__search-btn"
 
 **CSS**
 See Figma
@@ -72,32 +76,32 @@ Need to connect the search options to the database
 ### About Section
 
 **HTML**
-- section: class = "home_about"
-- div: class = "home_about-card"
-- h1: class = "home_about-h1"
-- h2: class = "home_about-h2"
-- img: class = "home_about-logo"
-- p: class = "home_about-text" (needs to be changed)
+- section: class = "home__about"
+- div: class = "home__about-card"
+- h1: class = "home__about-h1"
+- h2: class = "home__about-h2"
+- img: class = "home__about-logo"
+- p: class = "home__about-text" (needs to be changed)
 
 **CSS**
 
 ### Services Section
 
-- div: class = "home_services"
-- h2: class = "home_services-h2"
-- p: class = "home_services-text"
-- div: class = "home_services-wecanhelp"
-- h2: class = "home_services-wecanhelp-h2"
-- ul: class = "home_services-ul"
-- li: class = "home_services-li"
-- img: class = "home_services-icon" (icons)
+- div: class = "home__services"
+- h2: class = "home__services-h2"
+- p: class = "home__services-text"
+- div: class = "home__services-wecanhelp"
+- h2: class = "home__services-wecanhelp-h2"
+- ul: class = "home__services-ul"
+- li: class = "home__services-li"
+- img: class = "home__services-icon" (icons)
 
 ## Registration page
 **HTML**
 - main: class = "register"
-- div: class = "register_container"
-- img: class = "register_img"
-- h2: class = "register_h2"
+- div: class = "register__container"
+- img: class = "register__img"
+- h2: class = "register__h2"
 
 **CSS**
 
