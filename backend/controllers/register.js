@@ -6,7 +6,7 @@ post: async (req, res) => {
         const userData = req.body;
         console.log(userData);
         const result = await userManager.postUser(userData);
-        res.status(201).send(result);
+        // res.status(201).send(result);
         console.log(result);
         res.status(201).send(`New user was successfully created!`);
     } catch (error) {
