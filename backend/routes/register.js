@@ -1,6 +1,5 @@
 const express = require('express');
 const registerRoutes = express.Router();
-// const registerController = require('../controllers/register');
 const registerController = require('../controllers/register');
 
 registerRoutes.use((req, res, next) => {
