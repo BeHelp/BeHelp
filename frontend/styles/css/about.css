@@ -1,0 +1,67 @@
+.home__about {
+  background-color: #f5f4ef80 50%;
+  height: 295px;
+  width: 895px;
+  left: -8px;
+  top: 795px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.home__about-card {
+  margin-left: 100px;
+}
+
+.home__about-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.home__about-h1 {
+  height: 50px;
+  left: 157px;
+  top: 863px;
+  font-family: Montserrat;
+  font-size: 32px;
+  line-height: 85px;
+  letter-spacing: 0em;
+  font-weight: 700px;
+  color: #424651;
+}
+
+.home__about-h2 {
+  height: 49px;
+  left: 157px;
+  top: 948px;
+  font-family: Montserrat;
+  font-weight: 510px;
+  font-size: 22px;
+  line-height: 30px;
+  color: #5787af;
+}
+
+.home__about-logo {
+  height: 58px;
+  width: 65px;
+  margin-top: 65px;
+}
+
+.home__about-text {
+  height: 90px;
+  width: 534px;
+  left: 159px;
+  top: 1050px;
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+/*# sourceMappingURL=about.css.map */
