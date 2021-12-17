@@ -10,7 +10,7 @@ module.exports = userController = {
       res.status(500).send(error);
     }
   },
-  getbyid: async (req, res) => {
+  getById: async (req, res) => {
     try {
       const userId = req.params.userId;
       const result = await userManager.getUserById(userId);
