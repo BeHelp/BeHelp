@@ -1,24 +1,32 @@
-const userManager = require("../business-logic/users");
-const User = require("../models/User");
+const userManager = require('../business-logic/users');
 
 module.exports = userController = {
   post: async (req, res) => {
     try {
       const userData = req.body;
       const user = await userManager.getUserByEmail(userData.email);
-      if(!userData.firstName || !userData.lastName || 
-        !userData.email || !userData.password || !userData.dob || !userData.gender ){
+      if (
+        !userData.firstName ||
+        !userData.lastName ||
+        !userData.email ||
+        !userData.password ||
+        !userData.dob ||
+        !userData.gender
+      ) {
         res.status(400).send({ message: 'Please fill in all fields ' });
-        }
-      else if(user){
+      } else if (user) {
         res.status(400).send({ message: 'email already exists' });
-      }
-      else if(userData.password.length < 6){
-        res.status(400).send({ message: 'Password should be at least 6 characters' });
-      }
-      else {
+      } else if (userData.password.length < 6) {
+        res
+          .status(400)
+          .send({ message: 'Password should be at least 6 characters' });
+      } else {
         const newUser = await userManager.postUser(userData);
-        res.status(201).send({message: `saved user: ${newUser.firstName} ${newUser.lastName}`});
+        res
+          .status(201)
+          .send({
+            message: `saved user: ${newUser.firstName} ${newUser.lastName}`,
+          });
       }
     } catch (error) {
       res.status(500).send(error);
@@ -28,6 +36,15 @@ module.exports = userController = {
     try {
       const userData = req.body;
       const result = await userManager.getUser(userData);
+      res.status(200).send(result);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  },
+  getbyid: async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const result = await userManager.getUserById(userId);
       res.status(200).send(result);
     } catch (error) {
       res.status(500).send(error);
@@ -57,7 +74,7 @@ module.exports = userController = {
       const userId = req.params.userId;
       const user = await userManager.getUserById(userId);
       if (user === undefined || user === null) {
-        res.status(404).send({ error: "User not found" });
+        res.status(404).send({ error: 'User not found' });
       } else {
         await userManager.deleteUser(user);
         res.status(200).send(
@@ -66,8 +83,6 @@ module.exports = userController = {
           })
         );
       }
-      //       let result = await userManager.getAllVolunteers();
-      //       res.status(200).send(result);
     } catch (error) {
       res.status(500).send(error);
     }

@@ -124,3 +124,7 @@ The User is sent to the registration page from the header, if he / she chooses t
 - As a Newcomer, I would like to leave a rating of the Volunteer I worked with
 
 - As a Newcomer, I would like to have cross-platform communication with Whatsapp (if it's possible)
+
+- As a User, I can see information on the website on main languages in Belgium: FR, NL, EN
+
+- As a Newcomer, I want to learn recent news about immigration and corresponding regulations (connect to blogs)
