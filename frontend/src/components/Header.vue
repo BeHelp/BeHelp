@@ -42,6 +42,7 @@
   </header>
 </template>
 
-<style>
+<style lang="scss">
+@import '../components/styles/abstract/_variables.scss';
 @import '../components/styles/layout/_header.scss';
 </style>

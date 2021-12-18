@@ -67,7 +67,9 @@
     </div>
   </div>
 </template>
-<style>
+<style lang="scss">
+@import '../components/styles/abstract/_variables.scss';
+
 .search-image {
   position: relative;
 }
