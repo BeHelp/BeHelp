@@ -4,6 +4,7 @@
 import Header from './components/Header.vue';
 import Search from './components/Search.vue';
 import About from './components/About.vue';
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import About from './components/About.vue';
     <Header />
     <Search />
     <About />
+    <Footer />
   </div>
 </template>
 
