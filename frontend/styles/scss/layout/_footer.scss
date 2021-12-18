@@ -1,0 +1,29 @@
+.footer{
+     background: #424651;
+    
+    height: auto;
+       width:100vw;
+       background-attachment: fixed;
+       background-position: center;
+       background-size: cover;
+
+       .footer_logos{
+           display: flex;
+           justify-content:left;
+           text-align: center;
+       }
+       .footer_logos-behelp{
+        height: 50.163536071777344px;
+        width: 200px;
+        left: 170px;
+        top: 2670px;
+        border-radius: 0px;
+        
+       }
+       .footer_div-text{
+        text-align: center;
+        color: palegoldenrod;
+           p{margin: 50px;}
+       }
+       
+}
