@@ -8,6 +8,7 @@ import About from './components/About.vue';
 <template>
   <div class="app">
     <Header />
+    <Search />
     <About />
   </div>
 </template>
