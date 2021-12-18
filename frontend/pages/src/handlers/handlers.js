@@ -1,7 +1,7 @@
 import { state } from '../state/state.js';
 import { postChannel, postMessage } from '../api-calls/calls.js';
 import { login, register } from '../api-calls/calls.js';
-import { startApplication } from '../../src/index.js';
+import { startApplication } from '../index.js';
 
 export const channelClicked = (event) => {
   if (!event.target.dataset.channelId) {

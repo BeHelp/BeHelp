@@ -1,11 +1,11 @@
 /** based on https://codepen.io/machonky/pen/epGNWO **/
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -37,10 +37,10 @@ button {
 }
 
 .header {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   -webkit-text-decoration-color: #424651;
-          text-decoration-color: #424651;
+  text-decoration-color: #424651;
   width: 100%;
   padding: 1em 4em;
 }
@@ -67,18 +67,18 @@ button {
   display: flex;
   margin: 0 auto;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 4em;
 }
 
 .header__nav-list .item {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin: 0 15px;
 }
 
@@ -87,11 +87,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin: 0 3px;
 }
 
@@ -103,7 +103,7 @@ button {
   outline: none;
   padding: 5px;
   padding-right: 20px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .header__nav-features select:hover {
@@ -118,7 +118,7 @@ button {
   cursor: pointer;
   display: block;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   padding: 8px 16px;
   margin: 20px auto;
@@ -129,7 +129,7 @@ button {
   border: 3px solid #e99140;
   width: 100px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .header__nav-features .btn-signup:hover {

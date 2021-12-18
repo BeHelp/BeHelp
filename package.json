@@ -12,6 +12,7 @@
     "mongoose": "^6.1.1"
   },
   "devDependencies": {
+    "html-loader": "^3.0.1",
     "sass": "^1.45.0"
   },
   "scripts": {
