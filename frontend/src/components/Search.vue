@@ -1,10 +1,8 @@
+<script></script>
+
 <template>
   <div class="search-image">
-    <img
-      src="/BeHelp/design/homepage-search.png"
-      alt="Snow"
-      style="width: 100%"
-    />
+    <img src="" alt="Snow" style="width: 100%" />
     <div class="search-container">
       <div class="btn-group">
         <button class="btn btn-secondary btn-lg" type="button">Skills</button>
