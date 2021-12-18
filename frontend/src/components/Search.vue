@@ -2,7 +2,7 @@
 
 <template>
   <div class="search-image">
-    <img src="" alt="Snow" style="width: 100%" />
+    <img src="../assets/homepage-search.png" alt="Snow" style="width: 100%" />
     <div class="search-container">
       <div class="btn-group">
         <button class="btn btn-secondary btn-lg" type="button">Skills</button>
