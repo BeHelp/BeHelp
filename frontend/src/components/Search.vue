@@ -69,3 +69,28 @@
     </div>
   </div>
 </template>
+<style>
+.search-image {
+  position: relative;
+}
+
+.search-container {
+  position: absolute;
+  text-align: center;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.search-container .dropdown-toggle {
+  margin-right: 1em;
+}
+.dropdown-item {
+  overflow: show;
+}
+
+.btn {
+  width: auto;
+}
+</style>
