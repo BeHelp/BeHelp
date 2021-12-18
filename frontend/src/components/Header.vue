@@ -39,5 +39,5 @@
 </template>
 
 <style>
-@import '../components/styles/scss/layout/_header.scss';
+@import '../components/styles/layout/_header.scss';
 </style>
