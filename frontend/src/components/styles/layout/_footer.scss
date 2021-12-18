@@ -1,5 +1,5 @@
 .footer {
-  background: #424651;
+  background: $dark-grey;
   width: 100%;
   padding: 1em 4em;
   display: flex;
@@ -12,8 +12,6 @@
     justify-content: left;
     text-align: center;
     width: 40%;
-    //  display: inline-block;
-    // vertical-align: top;
 
     &-behelp {
       width: 200px;
@@ -24,17 +22,18 @@
       width: 77px;
       height: 41.47px;
       background-color: white;
-      margin-left: 10px;
+      margin-left: 20px;
       margin-top: 10px;
     }
   }
-  &__div-text {
-    color: #ffffff;
+  &__text {
+    color: white;
     text-align: center;
     width: 50%;
 
-    p {
+    &-p {
       margin-left: 10px;
+      font-family: $montserrat;
       font-weight: 700;
       font-style: normal;
       font-size: 15px;
@@ -42,30 +41,23 @@
   }
 
   &__icons {
-    margin-left: 10px;
+    display: flex;
     text-align: center;
+    margin: auto 0;
 
     .fa {
-      border-radius: 1px;
+      border-radius: 10px;
+      height: 30px;
+      width: 30px;
+      background: white;
+      color: $dark-grey;
+      font-size:28px;
+      text-align: center;
+      margin: 0 5px;
     }
 
     .fa:hover {
       opacity: 0.7;
-    }
-
-    .fa-instagram {
-      background: #f8f9fc;
-      color: #424651;
-    }
-
-    .fa-facebook {
-      background: #f8f9fc;
-      color: #424651;
-    }
-
-    .fa-twitter {
-      background: #ffffff;
-      color: #424651;
     }
   }
 }

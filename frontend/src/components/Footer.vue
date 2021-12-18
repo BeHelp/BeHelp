@@ -3,7 +3,7 @@
     <div class="footer__logos">
       <img
         class="footer__logos-behelp"
-        src="../assets/logos/Logo_wb_orange.png"
+        src="../assets/logos/Logo_wb_orange.svg"
         alt="logo"
         height="53.02px"
       />
@@ -16,10 +16,11 @@
       />
     </div>
 
-    <div class="footer__div-text">
-      <p class="footer_text">
-        Project from the students of HYF (PART OF OPEN KNOWLEDGE BELGIUM)
-        info@behelp.be 1000 Bruxelles
+    <div class="footer__text">
+      <p class="footer__text-p">
+        Project from the students of HYF <br>
+        info@behelp.be <br>
+        1000 Bruxelles
       </p>
     </div>
     <div class="footer__icons">
