@@ -1,6 +1,5 @@
 const bcrypt = require('bcryptjs');
 
-
 const hashing = async (password) => {
     const salt = 10;
     const newPassword = await new Promise((resolve, reject) => {
