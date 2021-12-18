@@ -3,7 +3,11 @@
 <template>
   <header class="header">
     <nav class="header__nav">
-      <!-- <img class="header__nav-logo" src="/behelp/src/assets/logos/Logo_wb.svg" alt="logo"></a> -->
+      <img
+        class="header__nav-logo"
+        src="../assets/logos/Logo_wb.svg"
+        alt="logo"
+      />
       <ul class="header__nav-list">
         <li class="header__nav-list item">
           <a href="#" class="header__nav-list link">About</a>
