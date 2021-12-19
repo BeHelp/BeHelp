@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^6.5.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -21,6 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
     "dev": "vite",
+    "behelp": "concurrently --kill-others \"npm run dev\" \"npm run start\"",
     "build": "vite build",
     "preview": "vite preview"
   },
