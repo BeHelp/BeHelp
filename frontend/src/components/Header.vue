@@ -3,11 +3,13 @@
 <template>
   <header class="header">
     <nav class="header__nav">
-      <img
-        class="header__nav-logo"
-        src="../assets/logos/Logo_wb.svg"
-        alt="logo"
-      />
+      <router-link to="/"
+        ><img
+          class="header__nav-logo"
+          src="../assets/logos/Logo_wb.svg"
+          alt="logo"
+      /></router-link>
+
       <ul class="header__nav-list">
         <li class="header__nav-list item">
           <a href="#" class="header__nav-list link">About</a>
@@ -16,7 +18,9 @@
           <a href="volunteers.html" class="header__nav-list link">Volunteers</a>
         </li>
         <li class="header__nav-list item">
-          <a href="#" class="header__nav-list link">Contacts</a>
+          <router-link to="/contacts" class="header__nav-list link"
+            >Contacts</router-link
+          >
         </li>
       </ul>
       <ul class="header__nav-features">
