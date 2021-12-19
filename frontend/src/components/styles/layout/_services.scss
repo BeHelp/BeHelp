@@ -71,15 +71,25 @@
     height: 24px;
     font-weight: 500;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 20px;
     color: #000000;
     list-style-type: none;
 
     &-item {
       font-weight: normal;
-      line-height: 50px;
+      line-height: 40px;
       font-size: 20px;
       border-bottom: 1px solid;
     }
   }
+}
+
+.fa {
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  color: $dark-grey;
+  font-size: 28px;
+  text-align: center;
+  margin: 0 5px;
 }

@@ -12,27 +12,46 @@
       <h2 class="services__right-hdr">How We Can Help?</h2>
       <ul class="services__list">
         <li class="services__list-item">
-          <span><i class="fa fa-briefcase"> </i></span>
-          Legal Assistance
+          <span>
+            <a href="#"
+              ><img src="../assets/fas/briefcase.svg" class="fa"
+            /></a> </span
+          >Legal Assistance
         </li>
         <li class="services__list-item">
-          <span><i class="fa fa-bullhorn"></i></span>Translations
+          <span>
+            <a href="#"
+              ><img src="../assets/fas/bullhorn.svg" class="fa"
+            /></a> </span
+          >Translations
         </li>
         <li class="services__list-item">
-          <span><i class="fas fa-user-md"></i></span>Mental health
+          <span>
+            <a href="#"
+              ><img src="../assets/fas/user.svg" class="fa"
+            /></a> </span
+          >Mental health
         </li>
         <li class="services__list-item">
-          <span><i class="fa fa-home"></i></span>Host families for refugees
+          <span>
+            <a href="#"
+              ><img src="../assets/fas/house.svg" class="fa"
+            /></a> </span
+          >Host families for refugees
         </li>
         <li class="services__list-item">
-          <span class="service__list-icon"
-            ><i class="fa fa-university"></i
-          ></span>
-          Education services (language etc.)
+          <span class="service__list-icon">
+            <a href="#"
+              ><img src="../assets/fas/archway.svg" class="fa"
+            /></a> </span
+          >Education services (language etc.)
         </li>
         <li class="services__list-item">
-          <span><i class="far fa-thumbs-up"></i></span>Social assistance
-          (services)
+          <span>
+            <a href="#"
+              ><img src="../assets/fas/thumbs-up.svg" class="fa"
+            /></a> </span
+          >Social assistance (services)
         </li>
       </ul>
     </div>
