@@ -9,7 +9,7 @@
         <div class="home__about-logo-div">
           <img
             class="home__about-logo"
-            src="../assets/logos/Logo_Be.png"
+            src="../assets/logos/Logo_Belgium.svg"
             alt="logo"
           />
         </div>
