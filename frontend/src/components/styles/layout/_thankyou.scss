@@ -1,0 +1,65 @@
+.thankyou {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //   width: 1440px; //! uncomment this line to see static version of this page
+  height: auto;
+  font-family: Montserrat;
+  background: #e99140;
+  margin-bottom: 5%;
+
+  &__logo {
+    font-size: 1rem;
+    padding: 5% 5% 0% 5%;
+  }
+  &__msg {
+    width: 52%;
+    justify-content: center;
+    text-align: center;
+
+    &-hdr {
+      text-transform: uppercase;
+      padding: 0% 15% 3% 15%;
+      font-weight: 900;
+      font-size: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      color: #424651;
+    }
+    &-txt {
+      padding: 0% 18% 5% 21%;
+      font-size: 2em;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      font-variant: small-caps;
+      color: #424651;
+    }
+  }
+  &__wraper {
+    margin: 0% 10% 0% 0%;
+
+    &-btn {
+      text-align: center;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: Montserrat;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      padding: 20% 65% 20% 65%;
+      margin-bottom: 80%;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      overflow: hidden;
+      color: #424651;
+
+      &:hover {
+        text-transform: uppercase;
+        font-weight: bolder;
+        color: black;
+        padding: 23% 68%;
+      }
+    }
+  }
+}

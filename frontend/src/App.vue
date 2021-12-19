@@ -3,6 +3,7 @@ import Header from './components/Header.vue';
 import Search from './components/Search.vue';
 import About from './components/About.vue';
 import Services from './components/Services.vue';
+import Thankyou from './components/Thankyou.vue';
 import Footer from './components/Footer.vue';
 </script>
 
@@ -12,6 +13,7 @@ import Footer from './components/Footer.vue';
     <Search />
     <About />
     <Services />
+    <Thankyou />
     <Footer />
   </div>
 </template>
