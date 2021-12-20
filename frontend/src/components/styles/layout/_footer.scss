@@ -21,13 +21,12 @@
     &-hyf {
       width: 77px;
       height: 41.47px;
-      background-color: white;
-      margin-left: 20px;
-      margin-top: 10px;
+      background-color: $primary;
+      margin: auto 20px;
     }
   }
   &__text {
-    color: white;
+    color: $primary;
     text-align: center;
     width: 50%;
 
@@ -43,19 +42,24 @@
   &__icons {
     display: flex;
     text-align: center;
-    // margin: auto 0;
+    margin: auto 0;
+    
+    a {
+      background-color: $primary;
+      height: 25px;
+      width: 25px;
+      border-radius: 10px;
+      margin: 0 5px;
 
     .fa {
       border-radius: 10px;
-      height: 30px;
-      width: 30px;
-      background: white;
-      color: $dark-grey;
-      font-size: 28px;
+      height: 25px;
+      width: 25px;
+      font-size: 24px;
       text-align: center;
-      margin: 0 5px;
+      margin: 0px;
     }
-
+  }
     .fa:hover {
       opacity: 0.7;
     }
