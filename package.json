@@ -22,7 +22,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/server.js",
+    "start": "nodemon backend/server.js",
     "dev": "vite",
     "behelp": "concurrently --kill-others \"npm run dev\" \"npm run start\"",
     "build": "vite build",
