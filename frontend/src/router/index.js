@@ -5,6 +5,7 @@ import Contacts from '../views/Contacts.vue';
 import Login from '../views/Login.vue';
 import Signup from '../views/Signup.vue';
 import Volunteers from '../views/Volunteers.vue';
+import Thankyou from '../views/Thankyou.vue';
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/volunteers',
     name: 'Volunteers',
     component: Volunteers,
+  },
+  {
+    path: '/thankyou',
+    name: 'Thank you',
+    component: Thankyou,
   },
 ];
 
