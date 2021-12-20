@@ -12,9 +12,7 @@
 
       <ul class="header__nav-list">
         <li class="header__nav-list item">
-          <router-link to="/about" class="header__nav-list link"
-            >About</router-link
-          >
+          <a href=#about class="header__nav-list link">About</a>
         </li>
         <li class="header__nav-list item">
           <router-link to="/volunteers" class="header__nav-list link"
@@ -28,7 +26,7 @@
         </li>
       </ul>
       <ul class="header__nav-features">
-        <li class="header__nav-features select">
+        <li class="header__nav-features">
           <select>
             <option class="header__nav-features option">ENG</option>
             <option class="header__nav-features option">FR</option>
