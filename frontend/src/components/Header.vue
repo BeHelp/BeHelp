@@ -3,20 +3,28 @@
 <template>
   <header class="header">
     <nav class="header__nav">
-      <img
-        class="header__nav-logo"
-        src="../assets/logos/Logo_wb.svg"
-        alt="logo"
-      />
+      <router-link to="/"
+        ><img
+          class="header__nav-logo"
+          src="../assets/logos/Logo_wb.svg"
+          alt="logo"
+      /></router-link>
+
       <ul class="header__nav-list">
         <li class="header__nav-list item">
-          <a href="#" class="header__nav-list link">About</a>
+          <router-link to="/about" class="header__nav-list link"
+            >About</router-link
+          >
         </li>
         <li class="header__nav-list item">
-          <a href="volunteers.html" class="header__nav-list link">Volunteers</a>
+          <router-link to="/volunteers" class="header__nav-list link"
+            >Volunteers</router-link
+          >
         </li>
         <li class="header__nav-list item">
-          <a href="#" class="header__nav-list link">Contacts</a>
+          <router-link to="/contacts" class="header__nav-list link"
+            >Contacts</router-link
+          >
         </li>
       </ul>
       <ul class="header__nav-features">
@@ -28,14 +36,18 @@
           </select>
         </li>
         <li class="header__nav-features signup">
-          <button href="#" class="header__nav-features btn-signup">
-            Sign Up
-          </button>
+          <router-link to="/signup"
+            ><button class="header__nav-features btn-signup">
+              Sign Up
+            </button></router-link
+          >
         </li>
         <li class="header__nav-features login">
-          <button href="#" class="header__nav-features btn-login">
-            Log In
-          </button>
+          <router-link to="/login"
+            ><button class="header__nav-features btn-login">
+              Log In
+            </button></router-link
+          >
         </li>
       </ul>
     </nav>
