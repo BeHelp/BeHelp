@@ -12,10 +12,14 @@
 
       <ul class="header__nav-list">
         <li class="header__nav-list item">
-          <a href="#" class="header__nav-list link">About</a>
+          <router-link to="/about" class="header__nav-list link"
+            >About</router-link
+          >
         </li>
         <li class="header__nav-list item">
-          <a href="volunteers.html" class="header__nav-list link">Volunteers</a>
+          <router-link to="/volunteers" class="header__nav-list link"
+            >Volunteers</router-link
+          >
         </li>
         <li class="header__nav-list item">
           <router-link to="/contacts" class="header__nav-list link"
@@ -32,14 +36,18 @@
           </select>
         </li>
         <li class="header__nav-features signup">
-          <button href="#" class="header__nav-features btn-signup">
-            Sign Up
-          </button>
+          <router-link to="/signup"
+            ><button class="header__nav-features btn-signup">
+              Sign Up
+            </button></router-link
+          >
         </li>
         <li class="header__nav-features login">
-          <button href="#" class="header__nav-features btn-login">
-            Log In
-          </button>
+          <router-link to="/login"
+            ><button class="header__nav-features btn-login">
+              Log In
+            </button></router-link
+          >
         </li>
       </ul>
     </nav>
