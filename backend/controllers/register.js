@@ -1,10 +1,10 @@
-const userManager = require('../business-logic/users');
+const registerManager = require('../business-logic/register');
 
-module.exports = registerController = {
+const registerController = {
     post: async (req, res) => {
         try {
             const userData = req.body;
-            const user = await userManager.getUserByEmail(userData.email);
+            const user = await registerManager.getUserByEmail(userData.email);
         if (
             !userData.firstName ||
             !userData.lastName ||
@@ -21,7 +21,7 @@ module.exports = registerController = {
                 .status(400)
                 .send({ message: 'Password should be at least 6 characters' });
         } else {
-            const newUser = await userManager.postUser(userData);
+            const newUser = await registerManager.postUser(userData);
             res
                 .status(201)
                 .send({

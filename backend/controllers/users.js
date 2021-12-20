@@ -1,6 +1,6 @@
 const userManager = require('../business-logic/users');
 
-module.exports = userController = {
+const userController = {
   get: async (req, res) => {
     try {
       const userData = req.body;
