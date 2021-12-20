@@ -1,11 +1,11 @@
-const { User } = require('../data-access/db.js');
-
+const { User, mongoose } = require('../data-access/db.js');
+const hashing = require('../middleware/hashing');
 const userManager = {
   postUser: async (userData) => {
     try {
-      const user = await User.create({
+      const newUser = await User.create({
         email: userData.email,
-        password: userData.password,
+        password: await hashing(userData.password),
         firstName: userData.firstName,
         lastName: userData.lastName,
         dob: userData.dob,
@@ -18,8 +18,8 @@ const userManager = {
         languages: userData.languages,
         description: userData.description,
       });
-      console.log(user);
-      return user;
+      console.log(newUser);
+      return newUser;
     } catch (err) {
       console.log(err.message);
     }
@@ -92,6 +92,14 @@ const userManager = {
   getUserById: async (userId) => {
     try {
       const user = await User.findById(userId);
+      return user;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+  getUserByEmail: async (email) => {
+    try {
+      const user = await User.findOne({ email: email });
       return user;
     } catch (err) {
       console.log(err.message);

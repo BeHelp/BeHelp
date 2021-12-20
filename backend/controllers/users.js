@@ -1,16 +1,6 @@
 const userManager = require('../business-logic/users');
 
 module.exports = userController = {
-  post: async (req, res) => {
-    try {
-      const userData = req.body;
-      console.log(userData);
-      const result = await userManager.postUser(userData);
-      res.status(201).send(result);
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  },
   get: async (req, res) => {
     try {
       const userData = req.body;
@@ -20,7 +10,7 @@ module.exports = userController = {
       res.status(500).send(error);
     }
   },
-  getbyid: async (req, res) => {
+  getById: async (req, res) => {
     try {
       const userId = req.params.userId;
       const result = await userManager.getUserById(userId);
