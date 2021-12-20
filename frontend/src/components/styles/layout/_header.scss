@@ -23,7 +23,7 @@
         margin: 0 auto;
         justify-content: center;
         align-items: center;
-        height: 4em;;
+        height: 4em;
     
     .item {
         align-items: center;
@@ -56,7 +56,7 @@
         border: 3px solid;
         border-radius: 20px;
         cursor: pointer;
-        display:block;
+        display: block;
         text-align: center;
         font-family: $montserrat;
         font-size: 14px;
@@ -65,11 +65,12 @@
         text-decoration: none;
     }
     
-    .btn-signup {
-    border: 3px solid $orange;
-    width: 100px;
-    box-sizing: border-box;
-}
+    .btn-signup {        
+        border: 3px solid $orange;
+        width: 100px;
+        box-sizing: border-box;
+    }
+
     .btn-signup:hover {
         background-color: $orange;
         color: white;
@@ -79,6 +80,44 @@
         width: 80px;
         border: none;
         text-decoration: underline;
+    }
+
+    .p-username {
+        font-size: 10px;
+        color: $orange;
+    }
+
+
+    .none {
+        display: none;
+    }
+
+    .usermenu {
+        position: relative;
+        margin: auto;
+        display: inline-block;
+        // right: 0%;
+        z-index: 100;
+    }
+    .usermenu-list {
+        background-color: $primary;
+        border-radius: 20px;
+        position: relative;
+        // top: 4em;
+    }
+
+    .img-username {
+        height: 25px;
+        margin: auto 0;
+    }
+
+    .usermenu-list {
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .usermenu-a {
+        font-size: 12px;
     }
 }
 }
