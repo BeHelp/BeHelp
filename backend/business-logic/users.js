@@ -1,29 +1,6 @@
-const { User } = require('../data-access/db.js');
+const { User, mongoose } = require('../data-access/db.js');
 
 const userManager = {
-  postUser: async (userData) => {
-    try {
-      const user = await User.create({
-        email: userData.email,
-        password: userData.password,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        dob: userData.dob,
-        gender: userData.gender,
-        nationality: userData.nationality,
-        photoURL: userData.photoURL,
-        userType: userData.userType,
-        location: userData.location,
-        skills: userData.skills,
-        languages: userData.languages,
-        description: userData.description,
-      });
-      console.log(user);
-      return user;
-    } catch (err) {
-      console.log(err.message);
-    }
-  },
   getUser: async (userData) => {
     try {
       const searchQuery = {};
