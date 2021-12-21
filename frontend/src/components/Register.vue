@@ -1,53 +1,55 @@
+<script></script>
 <template>
-    <section class="">
         <div class="registration">
             <div class="registration__image">
-                <img src="img/Rectangle26.png" alt="Girl in a jacket">
+                <img src="../assets/Rectangle26.png" alt="Girl in a jacket">
             </div>
-        <div class="registration__form">
-            <div class="title">
-            <h1>REGISTRATION FORM</h1>
-        </div>
-            <div class="registration__form-foto">
-            </div>
-            <div class="registration__form-short">
-                <input class="input" type="text" placeholder="First name" required />
-                <input class="input" type="text" placeholder="Last name" required />
+            <div class="registration__form">
+                <div class="title">
+                <h4>REGISTRATION FORM</h4>
+                </div>
+                <div class="registration__form-foto">hello</div>
+
+                <div class="registration__form-short">
+                    <input class="input" type="text" placeholder="First name" required />
+                    <input class="input" type="text" placeholder="Last name" required />
                     
-                <div class="registration__form-radio">
-                        <label for="status">Status</label>
-                        <div class="registration__form-radio-item">
-                            <input type="radio" name="status"/>
-                            <label for="newcomer">Newcomer</label>
-                        </div>
-                        <div class="registration__form-radio-item">
-                            <input type="radio" name="status"/>
-                            <label for="volunteer">Volunteer</label>
-                        </div>
+                    <div class="container">
+                    <label for="status">Status:</label>
+
+                    <label class="container__group">Newcomer
+                    <input type="radio" checked="checked" class="container__group-input">
+                    <span class="container__group-check"></span></label>
+
+                    <label class="container__group">Volunteer
+                    <input type="radio" checked="checked" class="container__group-input">
+                    <span class="registration__form-check"></span></label>
+                        
                     </div>
-                        <div class="registration__form-short-row">
-                            <input type="text" placeholder="Post code" required />
-                            <input type="text" placeholder="City" required />
-                        </div>
+                    <div class="registration__form-short-row">
+                        <input class="input" type="text" placeholder="Post code" required />
+                        <input class="input" type="text" placeholder="City" required />
+                    </div>
                 </div>
                 <div class="registration__form-long">
-                    <input type="text" placeholder="E-mail" required />
-                    <input type="text" placeholder="Password" required />
-                    <div class="registration__form-radio">
-                        <label for="gender">Gender</label>
-                        <div class="registration__form-radio-item">
-                            <input type="radio" name="Gender"/>
-                            <label for="male">Male</label>
-                        </div>
+                    <input class="input" type="text" placeholder="E-mail" required />
+                    <input class="input" type="text" placeholder="Password" required />
+                    
+                    <div class="container">
+                        <label for="status">Gender:</label>
+
+                        <label class="container__group">Male
+                        <input type="radio" checked="checked" class="container__group-input">
+                        <span class="container__group-check"></span></label>
+
+                        <label class="container__group">Female
+                        <input type="radio" checked="checked" class="container__group-input">
+                        <span class="registration__form-check"></span></label>
+
+                        <label class="container__group">Other
+                        <input type="radio" checked="checked" class="container__group-input">
+                        <span class="container__group-check"></span></label>
                         
-                        <div class="registration__form-radio-item">
-                            <input type="radio" name="Gender"/>
-                            <label for="female">Female</label>
-                        </div>
-                        <div class="registration__form-radio-item">
-                            <input type="radio" name="Gender"/>
-                            <label for="other">Other</label>
-                        </div>
                     </div>
 
                     <div class="registration__form-options">
@@ -72,7 +74,7 @@
                         </select>
                     </div>
 
-                    <input type="text" placeholder="Description" required />
+                    <input class="input" type="text" placeholder="Description" required />
                     
                     <div class="registration__form-button">
                         <button class="btn">SEND</button>
@@ -80,10 +82,10 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+
 </template>
 
-<style>
+<style lang="scss" >
+
 @import '../components/styles/layout/_register.scss';
 </style>
