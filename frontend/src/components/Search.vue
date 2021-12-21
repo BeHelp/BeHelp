@@ -1,10 +1,13 @@
 <script></script>
 
 <template>
-  <div class="search-image">
-    <img src="../assets/homepage-search.png" alt="Snow" style="width: 100%" />
-    <div class="search-container">
-      <div class="btn-group">
+  <section class="search">
+  <div class = "search__background">
+  <img class = "search__background-img" src = "./assets/homepage-search.png">
+      <h1>FIND YOUR VOLUNTEER</h1>
+        <div class = "search__background-panel">
+        <div class="search__background-
+      btn-group">
         <button class="btn btn-secondary btn-lg" type="button">Skills</button>
         <button
           type="button"
@@ -51,46 +54,21 @@
           <li><a class="dropdown-item" href="#">Dutch</a></li>
           <li><a class="dropdown-item" href="#">English</a></li>
         </ul>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="64"
-          height="64"
-          fill="currentColor"
-          class="bi bi-search"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-          />
-        </svg>
+        
+        </div>
+        <button class = "search-btn">
+        <img src = "../assets/fas/search-solid.svg">
+        </button>
       </div>
-    </div>
   </div>
+
+  </section>
 </template>
+
 <style lang="scss">
+
 @import '../components/styles/abstract/_variables.scss';
 
-.search-image {
-  position: relative;
-}
+@import '../components/styles/layout/_search.scss';
 
-.search-container {
-  position: absolute;
-  text-align: center;
-  color: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.search-container .dropdown-toggle {
-  margin-right: 1em;
-}
-.dropdown-item {
-  overflow: show;
-}
-
-.btn {
-  width: auto;
-}
 </style>
