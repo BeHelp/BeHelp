@@ -1,6 +1,6 @@
 .registration{
-    height: 80%;
-    width: 70%;
+    height: 120%;
+    width: 69%;
     position:absolute;
     top: 50%;
     left: 50%;
@@ -10,46 +10,59 @@
     border-radius: 30px;
     
     
-    &__image{
-        width: 50%;
-        height: 80%;
-        padding: 0;
-    }
-
-    &__image img {
-        width: 100%;
-        height: 100%;
-    }
-
-    &__form{
-    
-        padding: 20px 30px 30px 30px;
-        background-color: #99c5e8;
-        width: 70%;
-        height: 80%;
-        border-radius: 0px 10px 10px 0px;
-        display: grid;
-        grid-template-columns: 40% 65%;
-        grid-template-rows: 7% 35% 58%;
-        grid-template-areas: 
-        "title title"
-        "icon short "
-        "long long ";
-        column-gap: 0px;
-        row-gap: 0px;
-
-        
-        .input{
-            background: #F5F4EF;
-            border-radius: 20px;
-            width: 70%;
-            height: 1.7em;
-            border:none;
-            margin: 5px;
-            padding: 0 20px;
-            width: 100%;
-            font-weight:lighter;
+        &__image{
+            width: 68%;
+            height: 80%;
+            padding: 0;
         }
+
+        &__image img {
+            width: 100%;
+            height: 100%;
+        }
+
+        &__form{
+            &-options{
+
+                select{
+                    background: #F5F4EF;
+                    border-radius: 20px;
+                    height: 2.5em;
+                    border:none;
+                    margin: 6px;
+                    padding: 0 20px;
+                    width: 100%;
+                    font-weight: lighter;
+                }
+        
+            }
+        
+            padding: 20px 50px 40px 40px;
+            background-color: #99c5e8;
+            width: 72%;
+            height: 80%;
+            border-radius: 0px 10px 10px 0px;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            grid-template-rows: 7% 28% 67%;
+            grid-template-areas: 
+            "title title"
+            "icon short "
+            "long long ";
+            column-gap: 0px;
+            row-gap: 0px;
+
+            
+                .input{
+                    background: #F5F4EF;
+                    border-radius: 20px;
+                    height: 24%;
+                    border:none;
+                    margin: 6px;
+                    padding: 0 20px;
+                    width: 100%;
+                    font-weight:lighter;
+                }
 
         &-foto{
             background: #F5F4EF;
@@ -61,30 +74,47 @@
         &-short{
             grid-area: short;
             padding: 10px;
+            &-row{
+                display:flex;
+                .input{
+                    width: 55%;
+                    padding: 7px;
+                    display: inline-flex;
+                
+                
+                    
+                }
+            }
         
         }
         &-long{
             grid-area: long;
             padding: 10px;
-        
-        }
-        &-button{
-            width: 100%;
-            display: flex;
-            margin: 30px 0;
-        }
-        
-        }
-       
-    }
 
-label{
-    font-weight:bolder;
-    float: left;
-    padding-left: 15px;
-    padding-top: 5px;
+            .input{
+                height: 10%;
+            }
+
+        &-button{
+            @-btn{
+              
+            }
+            width: 100%;
+            float: right;
+            margin: 30px 0;
+         
+        }
+        
+    }
+    
+}
+}
+.container{
+    font-size: 70%;
     color: white;
-    font-size: 10px;
+    &__group{
+        
+    }
 
 }
 .title{
@@ -92,15 +122,25 @@ label{
 
 }
 
-
-
 .btn{
-    border: 1px solid #fff;
-    padding: 10px;
+    padding: 5px;
     background: transparent;
     border-radius: 20px;
-    width: 50%;
-    margin: 0 10px;
+    width: 30%;
+   
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
+    background: #E99140;
+    border-radius: 20px;
+    float: right;
+}
+.desription{
+    background: #F5F4EF;
+    border-radius: 20px;
+    height: 24%;
+    border:none;
+    margin: 6px;
+    padding: 0 20px;
+    width: 100%;
+    font-weight:lighter;
 }

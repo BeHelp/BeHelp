@@ -8,7 +8,7 @@
                 <div class="title">
                 <h4>REGISTRATION FORM</h4>
                 </div>
-                <div class="registration__form-foto">hello</div>
+                <div class="registration__form-foto"></div>
 
                 <div class="registration__form-short">
                     <input class="input" type="text" placeholder="First name" required />
@@ -18,11 +18,11 @@
                     <label for="status">Status:</label>
 
                     <label class="container__group">Newcomer
-                    <input type="radio" checked="checked" class="container__group-input">
+                    <input type="radio" checked="checked" class="container__group-zz">
                     <span class="container__group-check"></span></label>
 
                     <label class="container__group">Volunteer
-                    <input type="radio" checked="checked" class="container__group-input">
+                    <input type="radio" checked="checked" class="container__group-zz">
                     <span class="registration__form-check"></span></label>
                         
                     </div>
@@ -39,42 +39,42 @@
                         <label for="status">Gender:</label>
 
                         <label class="container__group">Male
-                        <input type="radio" checked="checked" class="container__group-input">
+                        <input type="radio" checked="checked" class="container__group-zz">
                         <span class="container__group-check"></span></label>
 
                         <label class="container__group">Female
-                        <input type="radio" checked="checked" class="container__group-input">
+                        <input type="radio" checked="checked" class="container__group-zz">
                         <span class="registration__form-check"></span></label>
 
                         <label class="container__group">Other
-                        <input type="radio" checked="checked" class="container__group-input">
+                        <input type="radio" checked="checked" class="container__group-zz">
                         <span class="container__group-check"></span></label>
                         
                     </div>
 
                     <div class="registration__form-options">
-                        <select  placeholder="Nationality">
+                        <select class="registration__form-options-option" placeholder="Nationality">
                             <option value="Nationality1">Nationality1</option>
                             <option value="Nationality2">Nationality2</option>
                             <option value="Nationality3">Nationality3</option>
                         </select>
                     </div>
                     <div class="registration__form-options">
-                        <select  placeholder="Languages">
+                        <select  class="registration__form-options-option" placeholder="Languages">
                             <option value="english">English</option>
                             <option value="dutch">Dutch</option>
                             <option value="french">French</option>
                         </select>
                     </div>
                     <div class="registration__form-options">
-                        <select  placeholder="Skills">
+                        <select class="registration__form-options-option" placeholder="Skills">
                             <option value="skill1">skill1</option>
                             <option value="skill2">skill2</option>
                             <option value="skill3">skill3</option>
                         </select>
                     </div>
 
-                    <input class="input" type="text" placeholder="Description" required />
+                    <input class="desription" type="text" placeholder="Description" required />
                     
                     <div class="registration__form-button">
                         <button class="btn">SEND</button>
