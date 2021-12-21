@@ -14,16 +14,20 @@
                     <input class="input" type="text" placeholder="First name" required />
                     <input class="input" type="text" placeholder="Last name" required />
                     
-                    <div class="container">
-                    <label for="status">Status:</label>
+                    <div class="form-radio">
+                        <label class="radio-label" for="status">Status:</label>
+                        
+                        <div class="form-radio-item">
+                        <input type="radio" name="status" id="newcomer" checked="checked" />
+                        <label class="container__group">Newcomer</label>
+                        <span class="container__group-check"></span>
+                        </div>
 
-                    <label class="container__group">Newcomer
-                    <input type="radio" checked="checked" class="container__group-zz">
-                    <span class="container__group-check"></span></label>
-
-                    <label class="container__group">Volunteer
-                    <input type="radio" checked="checked" class="container__group-zz">
-                    <span class="registration__form-check"></span></label>
+                        <div class="form-radio-item">
+                        <input type="radio" name="status" id="volunteer" />
+                        <label for="female">Volunteer</label>
+                        <span class="check"></span>
+                        </div>
                         
                     </div>
                     <div class="registration__form-short-row">
@@ -35,20 +39,27 @@
                     <input class="input" type="text" placeholder="E-mail" required />
                     <input class="input" type="text" placeholder="Password" required />
                     
-                    <div class="container">
-                        <label for="status">Gender:</label>
+                    <div class="form-radio">
+                        <label class="radio-label" for="status">Gender:</label>
+                        
+                        <div class="form-radio-item">
+                        <input type="radio" name="gender" id="male" checked="checked" />
+                        <label class="container__group">Male</label>
+                        <span class="container__group-check"></span>
+                        </div>
 
-                        <label class="container__group">Male
-                        <input type="radio" checked="checked" class="container__group-zz">
-                        <span class="container__group-check"></span></label>
+                        <div class="form-radio-item">
+                        <input type="radio" name="gender" id="female" />
+                        <label for="female">Female</label>
+                        <span class="check"></span>
+                        </div>
 
-                        <label class="container__group">Female
-                        <input type="radio" checked="checked" class="container__group-zz">
-                        <span class="registration__form-check"></span></label>
+                        <div class="form-radio-item">
+                        <input type="radio" name="gender" id="other" />
+                        <label for="female">Other</label>
+                        <span class="check"></span>
+                        </div>
 
-                        <label class="container__group">Other
-                        <input type="radio" checked="checked" class="container__group-zz">
-                        <span class="container__group-check"></span></label>
                         
                     </div>
 
@@ -74,7 +85,7 @@
                         </select>
                     </div>
 
-                    <input class="desription" type="text" placeholder="Description" required />
+                    <input class="description" type="text" placeholder="Description" required />
                     
                     <div class="registration__form-button">
                         <button class="btn">SEND</button>
