@@ -5,7 +5,7 @@
     &__background {
         position: relative;
         text-align: center;
-        color: $primary;
+        color: $white;
         width: 100%;
         padding: 40px 0;
 
@@ -36,7 +36,7 @@
 
         .btn-secondary {
             background-color: $primary;
-            color:lightgray;
+            color:$blue;
             font-size: 12px;
             width: 150px;
             min-width: 100px;
@@ -48,12 +48,11 @@
             color: $dark-grey;
         }
 
-        dropdown-menu {
-            left:0;
-        }
         .search-btn {
             background-color: $orange;
             border-radius: 10px;
+            border-color: $orange;
+            border-style: none;
             width: 80px;
         }
 
@@ -63,15 +62,3 @@
         }
     }
 }
-
-
-//   .search-container .dropdown-toggle {
-//     margin-right: 1em;
-//   }
-//   .dropdown-item {
-//     overflow: show;
-//   }
-  
-//   .btn {
-//     width: auto;
-//   }

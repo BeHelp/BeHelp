@@ -23,7 +23,7 @@
           </li>
           <li><a class="dropdown-item" href="#">Medical</a></li>
           <li><a class="dropdown-item" href="#">Job offer</a></li>
-        </ul> 
+        </ul>
         </div>
 
         <div class = "search__background-criteria">
