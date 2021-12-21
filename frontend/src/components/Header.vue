@@ -22,7 +22,7 @@
         </li>
         <li class="header__nav-list item">
           <router-link to="/contacts" class="header__nav-list link"
-            >Contacts</router-link
+            >Contact Us</router-link
           >
         </li>
       </ul>
@@ -34,14 +34,14 @@
             <option class="header__nav-features option">NL</option>
           </select>
         </li>
-        <li class="header__nav-features signup none">
+        <li class="header__nav-features signup">
           <router-link to="/signup"
             ><button class="header__nav-features btn-signup">
               Sign Up
             </button></router-link
           >
         </li>
-        <li class="header__nav-features login none">
+        <li class="header__nav-features login">
           <router-link to="/login"
             ><button class="header__nav-features btn-login">
               Log In
@@ -49,10 +49,10 @@
           >
           </li>
 
-        <li class="header__nav-features"><p class = "header__nav-features p-username" id = "header-username">Username</p></li>
-        <li class = "header__nav-features usermenu">
+        <li class="header__nav-features"><p class = "header__nav-features p-username none" id = "header-username">Username</p></li>
+        <li class = "header__nav-features usermenu none">
         <img src="../assets/fas/user-circle-solid.svg" class = "header__nav-features img-username">
-        <div id = "usermenu-list" class = "usermenu-list">
+        <div id = "usermenu-list" class = "usermenu-list none">
           <a href="#" class = "usermenu-a" id = "usermenu-profile">My Profile</a><br>
           <a href="#" class = "usermenu-a" id = "usermenu-messages">Messages</a><br>
           <a href="#" class = "usermenu-a" id = "usermenu-logout">Logout</a>
