@@ -3,50 +3,67 @@
     padding: 3em 0em;
 
     &__background {
-    //     background-repeat: no-repeat;
-    // background-image: url('~@/assets/img.jpeg');
-    // background-image: url('~@/frontend/src/assets/homepage-search.jpg');
-    //     background-size: cover;
-        // /frontend/src/assets/homepage-search.png
+        position: relative;
         text-align: center;
         color: $primary;
-        //height: 900px;
         width: 100%;
         padding: 40px 0;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
 
         &-img {
-            position: relative;
+            width: 100%;
         }
 
         &-decor {
+            position: absolute;
+            bottom: 30%;
+            right: 10%;
+            width: 80%;
             margin: 0 auto;
-            padding: 1em;
-            background-color: $dark-grey;
-            opacity: 30%;
+            padding: 2em;
+            background: rgba(66, 70, 81, 0.3);
             border-radius: 20px;
-            width: 70%;
         }
 
         &-panel{
             width: 100%;
             display: flex;
-            flex-direction: row;
+            justify-content:space-evenly;
         }
 
-        .btn-group {
-            display: flex;
-
+        &-criteria {
+            padding: 20px auto; 
         }
-    
+
+        .btn-secondary {
+            background-color: $primary;
+            color:lightgray;
+            font-size: 12px;
+            width: 150px;
+            min-width: 100px;
+        }
+
+        .dropdown-toggle {
+            max-width: 30px;
+            min-width: 30px;
+            color: $dark-grey;
+        }
+
+        dropdown-menu {
+            left:0;
+        }
         .search-btn {
             background-color: $orange;
+            border-radius: 10px;
+            width: 80px;
+        }
+
+        .search-icon {
+            height: 20px;
+            margin: 5px;
         }
     }
 }
-  
+
 
 //   .search-container .dropdown-toggle {
 //     margin-right: 1em;
