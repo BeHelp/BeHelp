@@ -12,8 +12,8 @@
 
       <ul class="header__nav-list">
         <li class="header__nav-list item">
-          <a href=#about class="header__nav-list link"
-          >About</a>
+        <router-link v-if="$route.name !== 'Home'" to="/" class="header__nav-list link">About</router-link>
+        <a v-else href="#about" class="header__nav-list link">About</a>
         </li>
         <li class="header__nav-list item">
           <router-link to="/volunteers" class="header__nav-list link"
@@ -27,21 +27,21 @@
         </li>
       </ul>
       <ul class="header__nav-features">
-        <li class="header__nav-features">
+        <li class="header__nav-features select">
           <select>
             <option class="header__nav-features option">ENG</option>
             <option class="header__nav-features option">FR</option>
             <option class="header__nav-features option">NL</option>
           </select>
         </li>
-        <li class="header__nav-features signup">
+        <li class="header__nav-features signup none">
           <router-link to="/signup"
             ><button class="header__nav-features btn-signup">
               Sign Up
             </button></router-link
           >
         </li>
-        <li class="header__nav-features login">
+        <li class="header__nav-features login none">
           <router-link to="/login"
             ><button class="header__nav-features btn-login">
               Log In
@@ -49,10 +49,10 @@
           >
           </li>
 
-        <li class="header__nav-features"><p class = "header__nav-features p-username none" id = "header-username">Username</p></li>
+        <li class="header__nav-features"><p class = "header__nav-features p-username" id = "header-username">Username</p></li>
         <li class = "header__nav-features usermenu">
-        <img src="../assets/fas/user-circle-solid.svg" class = "header__nav-features img-username none">
-        <div id = "usermenu-list" class = "usermenu-list none">
+        <img src="../assets/fas/user-circle-solid.svg" class = "header__nav-features img-username">
+        <div id = "usermenu-list" class = "usermenu-list">
           <a href="#" class = "usermenu-a" id = "usermenu-profile">My Profile</a><br>
           <a href="#" class = "usermenu-a" id = "usermenu-messages">Messages</a><br>
           <a href="#" class = "usermenu-a" id = "usermenu-logout">Logout</a>
