@@ -8,7 +8,6 @@
   <h1>FIND YOUR VOLUNTEER</h1>
 
       <div class = "search__background-panel">
-        
         <div class="dropdown">
           <button class="btn btn-secondary btn-lg dropdown-toggle dropdown-toggle-split"
           data-bs-toggle="dropdown"
@@ -51,6 +50,7 @@
         <button class = "search-btn">
         <img src = "../assets/fas/search-solid.svg" class = "search-icon">
         </button>
+        <span class="flare"></span>
       </div>
       </div>
   </div>

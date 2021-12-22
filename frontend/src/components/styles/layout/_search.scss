@@ -47,7 +47,7 @@
         }
 
         .dropdown-item {
-            font-size: 14px
+            font-size: 14px;
 
         }
         .search-btn {
@@ -56,6 +56,13 @@
             border-color: $orange;
             border-style: none;
             width: 80px;
+            overflow-x: hidden; 
+            position: relative;
+        }
+
+        .search-btn:hover {
+            // opacity: 0.;
+            background-color: rgb(175, 118, 49);
         }
 
         .search-icon {
