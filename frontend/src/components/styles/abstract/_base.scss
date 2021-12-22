@@ -1,4 +1,4 @@
-@import "./variables";
+@import "./_variables";
 
 *{
     margin: 0;
@@ -27,6 +27,11 @@ a:hover {
 a::after {
     color: $dark-grey;
     text-decoration: none;
+}
+
+h1 {
+    font-weight:bolder;
+    opacity: 100%;
 }
 
 ul{
