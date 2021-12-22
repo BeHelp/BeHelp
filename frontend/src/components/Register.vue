@@ -88,7 +88,7 @@
                     <input class="description" type="text" placeholder="Description" required />
                     
                     <div class="registration__form-button">
-                        <button class="btn">SEND</button>
+                        <button class="rbtn">SEND</button>
                     </div>
                 </div>
             </div>

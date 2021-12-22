@@ -1,18 +1,21 @@
+html {
+    height: 100%;
+}
 .registration{
-    height: 120%;
-    width: 69%;
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-43%);
+    height: 80%;
     display: flex;
-    justify-content: space-between;
+    width: 70%;
+   
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 5%;
     border-radius: 30px;
     
     
         &__image{
-            width: 68%;
-            height: 80%;
+            width: 100%;
+            height: 100%;
             padding: 0;
         }
 
@@ -22,15 +25,14 @@
         }
 
         &__form{
-        
-            padding: 20px 50px 40px 40px;
+            
+            padding: 20px 20px 20px 20px;
             background-color: #99c5e8;
-            width: 72%;
-            height: 80%;
+            width: 120%;
             border-radius: 0px 10px 10px 0px;
             display: grid;
             grid-template-columns: 40% 60%;
-            grid-template-rows: 7% 28% 67%;
+            grid-template-rows: 7% 25% 75%;
             grid-template-areas: 
             "title title"
             "icon short "
@@ -96,16 +98,16 @@
             }
 
         &-button{
-            @-btn{
+            &-rbtn{
+                width: 100%;
+                float: right;
+                margin: 30px 0;
             }
-            width: 100%;
-            float: right;
-            margin: 30px 0;
-        }
+           
         
+          }
+        }
     }
-    
-}
 }
 .container{
     font-size: 70%;
@@ -120,18 +122,7 @@
 
 }
 
-.btn{
-    padding: 5px;
-    background: transparent;
-    border-radius: 20px;
-    width: 30%;
-   
-    cursor: pointer;
-    font-size: 20px;
-    background: #E99140;
-    border-radius: 20px;
-    float: right;
-}
+
 .description{
     background: #F5F4EF;
     border-radius: 20px;
