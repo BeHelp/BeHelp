@@ -1,10 +1,10 @@
 .footer {
   background: $dark-grey;
   width: 100%;
-  padding: 1em 4em;
+  padding: 0em 4em;
   display: flex;
   flex-direction: row;
-  position: fixed;
+  // position: fixed;
   bottom: 0;
 
   &__logos {
@@ -26,16 +26,17 @@
     }
   }
   &__text {
+    margin: 4px 0;
     color: $primary;
     text-align: center;
     width: 50%;
 
     &-p {
-      margin-left: 10px;
+      margin: 0px;
       font-family: $montserrat;
       font-weight: 700;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
     }
   }
 
