@@ -34,23 +34,25 @@
             padding: 20px auto; 
         }
 
+        h1 {
+            margin-bottom: 15px;
+        }
+
         .btn-secondary {
             background-color: $primary;
-            color:$blue;
+            color:gray;
             font-size: 12px;
             width: 150px;
             min-width: 100px;
         }
 
-        .dropdown-toggle {
-            max-width: 30px;
-            min-width: 30px;
-            color: $dark-grey;
-        }
+        .dropdown-item {
+            font-size: 14px
 
+        }
         .search-btn {
             background-color: $orange;
-            border-radius: 10px;
+            border-radius: 20px;
             border-color: $orange;
             border-style: none;
             width: 80px;

@@ -6,59 +6,48 @@
   <img src ="../assets/homepage-search.png" class = "search__background-img">
   <div class = "search__background-decor">
   <h1>FIND YOUR VOLUNTEER</h1>
-        <div class = "search__background-panel">
+
+      <div class = "search__background-panel">
         
-        <div class = "search__background-criteria">
-        <button class="btn btn-secondary btn-lg" type="button">Skills</button>
-        <button 
-          class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
+        <div class="dropdown">
+          <button class="btn btn-secondary btn-lg dropdown-toggle dropdown-toggle-split"
           data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-        <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li>
-            <a class="dropdown-item" href="#">Translation/Interpretation</a>
-          </li>
-          <li><a class="dropdown-item" href="#">Medical</a></li>
-          <li><a class="dropdown-item" href="#">Job offer</a></li>
-        </ul>
-        </div>
+          aria-expanded="false" type="button" id="dropdownMenuButton">
+          Skills
+          </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Translation</a>
+            <a class="dropdown-item" href="#">Medical</a>
+            <a class="dropdown-item" href="#">Job offer</a>
+            </div>
+          </div>
 
-        <div class = "search__background-criteria">
-        <button class="btn btn-secondary btn-lg" type="button">City</button>
-        <button
-          type="button"
-          class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
+          <div class="dropdown">
+          <button class="btn btn-secondary btn-lg dropdown-toggle dropdown-toggle-split"
           data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Brussels</a></li>
-          <li><a class="dropdown-item" href="#">Ghent</a></li>
-          <li><a class="dropdown-item" href="#">Louvain</a></li>
-        </ul>
-        </div>
+          aria-expanded="false" type="button" id="dropdownMenuButton">
+          City
+          </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Brussels</a>
+            <a class="dropdown-item" href="#">Ghent</a>
+            <a class="dropdown-item" href="#">Louvain</a>
+            </div>
+          </div>
 
-        <div class = "search__background-criteria">
-        <button class="btn btn-secondary btn-lg" type="button">Language</button>
-        <button
-          type="button"
-          class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
+          <div class="dropdown">
+          <button class="btn btn-secondary btn-lg dropdown-toggle dropdown-toggle-split"
           data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">French</a></li>
-          <li><a class="dropdown-item" href="#">Dutch</a></li>
-          <li><a class="dropdown-item" href="#">English</a></li>
-        </ul>
-        </div>
+          aria-expanded="false" type="button" id="dropdownMenuButton">
+          Language
+          </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">English</a>
+            <a class="dropdown-item" href="#">Spanish</a>
+            <a class="dropdown-item" href="#">Arabic</a>
+            </div>
+          </div>
+
         <button class = "search-btn">
         <img src = "../assets/fas/search-solid.svg" class = "search-icon">
         </button>
