@@ -6,7 +6,7 @@
             </div>
             <div class="registration__form">
                 <div class="title">
-                <h4>REGISTRATION FORM</h4>
+                <h5>REGISTRATION FORM</h5>
                 </div>
                 <div class="registration__form-foto"></div>
 
@@ -14,19 +14,19 @@
                     <input class="input" type="text" placeholder="First name" required />
                     <input class="input" type="text" placeholder="Last name" required />
                     
-                    <div class="form-radio">
-                        <label class="radio-label" for="status">Status:</label>
+                    <div class="form__radio">
+                        <label class="form__label" for="status">Status:</label>
                         
-                        <div class="form-radio-item">
+                        <div class="form__radio-item">
                         <input type="radio" name="status" id="newcomer" checked="checked" />
-                        <label class="container__group">Newcomer</label>
-                        <span class="container__group-check"></span>
+                        <label class="form__radio-option" for="newcomer" >Newcomer</label>
+                        <span class="form__radio-check"></span>
                         </div>
 
-                        <div class="form-radio-item">
+                        <div class="form__radio-item">
                         <input type="radio" name="status" id="volunteer" />
-                        <label for="female">Volunteer</label>
-                        <span class="check"></span>
+                        <label class="form__radio-option" for="volunteer">Volunteer</label>
+                        <span class="form__radio-check"></span>
                         </div>
                         
                     </div>
@@ -39,32 +39,32 @@
                     <input class="input" type="text" placeholder="E-mail" required />
                     <input class="input" type="text" placeholder="Password" required />
                     
-                    <div class="form-radio">
-                        <label class="radio-label" for="status">Gender:</label>
+                    <div class="form__radio">
+                        <label class="form__label" for="status">Gender:</label>
                         
-                        <div class="form-radio-item">
+                        <div class="form__radio-item">
                         <input type="radio" name="gender" id="male" checked="checked" />
-                        <label class="container__group">Male</label>
-                        <span class="container__group-check"></span>
+                        <label class="form__radio-option" for="male">Male</label>
+                        <span class="form__radio-check"></span>
                         </div>
 
-                        <div class="form-radio-item">
+                        <div class="form__radio-item">
                         <input type="radio" name="gender" id="female" />
-                        <label for="female">Female</label>
-                        <span class="check"></span>
+                        <label class="form__radio-option" for="female">Female</label>
+                        <span class="form__radio-check"></span>
                         </div>
 
-                        <div class="form-radio-item">
+                        <div class="form__radio-item">
                         <input type="radio" name="gender" id="other" />
-                        <label for="female">Other</label>
-                        <span class="check"></span>
+                        <label class="form__radio-option" for="female">Other</label>
+                        <span class="form__radio-check"></span>
                         </div>
 
                         
                     </div>
 
                     <div class="registration__form-options">
-                        <select class="registration__form-options-option" placeholder="Nationality">
+                        <select class="registration__form-options-select" placeholder="Nationality">
                             <option value="Nationality1">Nationality1</option>
                             <option value="Nationality2">Nationality2</option>
                             <option value="Nationality3">Nationality3</option>
@@ -97,6 +97,7 @@
 </template>
 
 <style lang="scss" >
-
+@import '../components/styles/abstract/_base.scss';
+@import '../components/styles/abstract/_variables.scss';
 @import '../components/styles/layout/_register.scss';
 </style>

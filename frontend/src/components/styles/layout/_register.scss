@@ -1,17 +1,16 @@
 html {
     height: 100%;
+    font-family: $montserrat;
 }
 .registration{
     height: 80%;
     display: flex;
     width: 70%;
-   
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     margin-bottom: 5%;
     border-radius: 30px;
-    
     
         &__image{
             width: 100%;
@@ -25,14 +24,14 @@ html {
         }
 
         &__form{
-            
-            padding: 20px 20px 20px 20px;
+            padding: 10px 20px 20px 20px;
             background-color: #99c5e8;
-            width: 120%;
+            width: 115%;
+            min-height:90%;
             border-radius: 0px 10px 10px 0px;
             display: grid;
             grid-template-columns: 40% 60%;
-            grid-template-rows: 7% 25% 75%;
+            grid-template-rows: 8% 29% 60%;
             grid-template-areas: 
             "title title"
             "icon short "
@@ -41,16 +40,22 @@ html {
             row-gap: 0px;
             
             &-options{
-
+        
+                padding: 0;
                 select{
+                    color: rgba(0, 0, 0, 0.5);
                     background: #F5F4EF;
                     border-radius: 20px;
-                    height: 2.5em;
+                    padding: 10px;
+                    padding-bottom: 10px;
+                    margin-top: 10px;
                     border:none;
-                    margin: 6px;
-                    padding: 0 20px;
+                    margin-left: 6px;
+                    margin-bottom: 0px;
                     width: 100%;
-                    font-weight: lighter;
+                }
+                option{
+                    height: 50%;
                 }
         
             }
@@ -63,7 +68,6 @@ html {
                     margin: 6px;
                     padding: 0 20px;
                     width: 100%;
-                    font-weight:lighter;
                 }
 
         &-foto{
@@ -79,11 +83,9 @@ html {
             &-row{
                 display:flex;
                 .input{
-                    width: 55%;
-                    padding: 7px;
+                    width: 48%;
+                    padding: 9px;
                     display: inline-flex;
-                
-                
                     
                 }
             }
@@ -91,114 +93,105 @@ html {
         }
         &-long{
             grid-area: long;
-            padding: 10px;
+            padding: 7px;
 
             .input{
                 height: 10%;
             }
-
-        &-button{
-            &-rbtn{
-                width: 100%;
-                float: right;
-                margin: 30px 0;
-            }
-           
-        
-          }
         }
     }
 }
-.container{
-    font-size: 70%;
-    color: white;
-    &__group{
-        
-    }
+
+.rbtn{
+    background: #E99140;
+    border-radius: 20px;
+    border: none;
+    width: 25%;
+    padding: 1%;
+    float: right;
+    margin-top: 2%;
 
 }
 .title{
     grid-area: title;
-
+    text-align: left;
+    padding: 3%;
 }
 
 
 .description{
     background: #F5F4EF;
     border-radius: 20px;
-    height: 24%;
+    height: 27%;
     border:none;
     margin: 6px;
+    margin-top: 10px;
     padding: 0 20px;
     width: 100%;
-    font-weight:lighter;
 }
 
-label {
-    font-size: 12px;
+.form{
+&__radio {
+    width: 100%;
+    display:flex;
+    margin-left: auto;
+    margin-right: auto;
+
+    input {
+        width: 50%;
+        display: inline-block;
+        background-color: red;
+    }
+
+    &-item {
+        position: relative;
+        margin-right: 80px;
+        
+        label {
+            font-weight: 100;
+            font-size: 12px;
+            padding-left: 20px;
+            position: relative;
+            z-index: 9;
+            display: block;
+            cursor: pointer;
+            color: white;
+        }
+    }
+
+    &-check{
+        display: flex;
+        border: 1px solid white;
+        border-radius:50%;
+        height: 50%;
+        width: 20%;
+        z-index: 5;
+        transition: border .25s linear;
+        -webkit-transition: border .25s linear;
+        &:before {
+            display: flex;
+            content: '';
+            width: 40%;
+            height: 15%;
+            border-radius:50%;
+            margin: auto;
+            transition: background 0.25s linear;
+            -webkit-transition: background 0.25s linear;
+        }
+    }
+    
+}
+&__label{
+    padding-right: 0px;
+    margin-left: 5%;
+    margin-right: 10%;
+    font-size: 14px;
     font-weight: bold;
-    font-family: 'Montserrat';
-    margin-bottom: 2px;
-    display: block;
     color: white;
 
 }
-
-.form-radio {
-    display:flex;
-    width: 50%;
-    input {
-        width: auto;
-        display: inline-block;
-    }
-}
-.radio-label {
-    padding-right: 2%;
-    margin-left:20px;
-   
 }
 
-.form-radio-item {
-    position: relative;
-    margin-right: 10%;
-    label {
-        
-        font-weight: 500;
-        font-size: 12px;
-        padding-left: 15px;
-        position: relative;
-        z-index: 9;
-        display: block;
-        cursor: pointer;
-    }
-}
-
-.check{
-    display: inline-block;
-    position: absolute;
-    border: 1px solid white;
-    border-radius:50%;
-    height: 13px;
-    width: 13px;
-    top: 4px;
-    left: 0px;
-      z-index: 5;
-      transition: border .25s linear;
-      -webkit-transition: border .25s linear;
-    &:before {
-        position: absolute;
-        display: block;
-        content: '';
-        width: 9px;
-        height: 9px;
-        border-radius:50%;
-        top: 2px;
-        left: 2px;
-        margin: auto;
-        transition: background 0.25s linear;
-        -webkit-transition: background 0.25s linear;
-    }
-}
 input[type=radio] {
     position: absolute;
     visibility: hidden;
