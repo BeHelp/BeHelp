@@ -17,7 +17,7 @@ export default {
         });
         const searchResult = await res.json();
         console.log(searchResult);
-        this.results = searchResult[1];
+        this.results = searchResult[0];
       } catch (error) {
         console.log(error);
       }
@@ -209,9 +209,9 @@ export default {
         <button @click="filterBtn" class="btn-filter">Filter</button>
       </div>
       <div class="volunteers__searchresults">
-        <p>
+        <pre id="json">
           {{ this.results }}
-        </p>
+        </pre>
       </div>
     </div>
   </div>
