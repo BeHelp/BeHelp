@@ -1,3 +1,31 @@
+<script>
+export default {
+  data: () => {
+    return { results: '' };
+  },
+  methods: {
+    async filterBtn() {
+      try {
+        const res = await fetch('http://localhost:5000/users/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            languages: 'Arabic',
+          }),
+        });
+        const searchResult = await res.json();
+        console.log(searchResult);
+        this.results = searchResult[1];
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
+</script>
+
 <template>
   <div class="volunteers">
     <div class="volunteers__h1">Volunteers who can help</div>
@@ -178,13 +206,11 @@
             </div>
           </div>
         </div>
-        <button class="btn-filter">Filter</button>
+        <button @click="filterBtn" class="btn-filter">Filter</button>
       </div>
       <div class="volunteers__searchresults">
-        Card part
         <p>
-          <br />
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          {{ this.results }}
         </p>
       </div>
     </div>
