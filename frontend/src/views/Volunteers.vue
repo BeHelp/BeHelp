@@ -1,7 +1,31 @@
 <script>
 export default {
-  data: () => {
-    return { results: '' };
+  data: function () {
+    return {
+      results: '',
+      languages: [
+        'English',
+        'French',
+        'Dutch',
+        'German',
+        'Arabic',
+        'Russian',
+        'Spanish',
+        'Hindi',
+        'Chinese',
+        'Italian',
+        'Other',
+      ],
+      skills: [
+        'Legal assistance',
+        'Translation',
+        'Mental health',
+        'Host families',
+        'Education services',
+        'Language classes',
+        'Social assistance',
+      ],
+    };
   },
   methods: {
     async filterBtn() {
@@ -33,157 +57,24 @@ export default {
       <div class="volunteers__filterbar">
         <div class="volunteers__filterbar-h1">Filters</div>
         <div class="volunteers__filterbar-h2">Languages</div>
-        <div class="volunteers__filterbar-languages">
-          <div class="checkbox">
-            <input class="checkbox__box" type="checkbox" id="English" checked />
-            <label class="checkbox__text" for="languages">English</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="French"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">French</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="Russian"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">Russian</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="Russian"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">Spanish</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="Russian"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">Dutch</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="Russian"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">Arabic</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="Russian"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">Hindi</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="Russian"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">Chinese</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="Russian"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">Italian</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="Russian"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">Other</label>
-          </div>
-        </div>
+        <ul>
+          <li v-for="lang in languages" class="checkbox">
+            <input class="checkbox__box" type="checkbox" :id="lang" unchecked />
+            <label class="checkbox__text" for="languages">{{ lang }}</label>
+          </li>
+        </ul>
         <div class="volunteers__filterbar-h2">Skills</div>
-        <div class="volunteers__filterbar-skills">
-          <div class="checkbox">
-            <input class="checkbox__box" type="checkbox" id="English" checked />
-            <label class="checkbox__text" for="languages"
-              >Legal assistance</label
-            >
-          </div>
-          <div class="checkbox">
-            <input class="checkbox__box" type="checkbox" id="French" checked />
-            <label class="checkbox__text" for="languages">Translation</label>
-          </div>
-          <div class="checkbox">
+        <ul>
+          <li v-for="skill in skills" class="checkbox">
             <input
               class="checkbox__box"
               type="checkbox"
-              id="French"
+              :id="skill"
               unchecked
             />
-            <label class="checkbox__text" for="languages">Mental health</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="French"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages">Host families</label>
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="French"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages"
-              >Education services</label
-            >
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="French"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages"
-              >Language classes</label
-            >
-          </div>
-          <div class="checkbox">
-            <input
-              class="checkbox__box"
-              type="checkbox"
-              id="French"
-              unchecked
-            />
-            <label class="checkbox__text" for="languages"
-              >Social assistance</label
-            >
-          </div>
-        </div>
+            <label class="checkbox__text" for="languages">{{ skill }}</label>
+          </li>
+        </ul>
         <div class="volunteers__filterbar-h2">Postcode</div>
         <div class="volunteers__filterbar-postcode">
           <div class="dropdown">
@@ -206,9 +97,11 @@ export default {
             </div>
           </div>
         </div>
+
         <button @click="filterBtn" class="btn-filter">Filter</button>
       </div>
       <div class="volunteers__searchresults">
+        <div class="volunteers__searchresults-h1">Search Results</div>
         <pre id="json">
           {{ this.results }}
         </pre>
