@@ -25,18 +25,24 @@ export default {
         'Language classes',
         'Social assistance',
       ],
+      filterLanguages: [],
+      filterSkills: [],
     };
   },
   methods: {
     async filterBtn() {
       try {
+        const filter = {
+          languages: JSON.parse(JSON.stringify(this.filterLanguages)),
+        };
+        console.log(JSON.stringify(filter.languages));
         const res = await fetch('http://localhost:5000/users/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            languages: 'Arabic',
+            languages: 'English',
           }),
         });
         const searchResult = await res.json();
@@ -59,7 +65,13 @@ export default {
         <div class="volunteers__filterbar-h2">Languages</div>
         <ul>
           <li v-for="lang in languages" class="checkbox">
-            <input class="checkbox__box" type="checkbox" :id="lang" unchecked />
+            <input
+              class="checkbox__box"
+              type="checkbox"
+              :id="lang"
+              :value="lang"
+              v-model="filterLanguages"
+            />
             <label class="checkbox__text" for="languages">{{ lang }}</label>
           </li>
         </ul>
@@ -103,6 +115,7 @@ export default {
       <div class="volunteers__searchresults">
         <div class="volunteers__searchresults-h1">Search Results</div>
         <pre id="json">
+          {{ filterLanguages }}
           {{ this.results }}
         </pre>
       </div>
