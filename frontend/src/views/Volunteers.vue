@@ -34,15 +34,18 @@ export default {
       try {
         const filter = {
           languages: JSON.parse(JSON.stringify(this.filterLanguages)),
+          skills: JSON.parse(JSON.stringify(this.filterSkills)),
         };
-        console.log(JSON.stringify(filter.languages));
+        const filterLan = filter.languages.join(',');
+        const filterSkl = filter.skills.join(',');
         const res = await fetch('http://localhost:5000/users/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            languages: 'English',
+            languages: filterLan,
+            skills: filterSkl,
           }),
         });
         const searchResult = await res.json();
