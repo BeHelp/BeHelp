@@ -10,6 +10,7 @@ form.addEventListener('submit', (e) => {
 
   formData.append('file', file.files[0]);
   formData.append('upload_preset', 'behelp_web');
+  console.log(formData);
 
   fetch(url, {
     method: 'POST',
@@ -20,6 +21,6 @@ form.addEventListener('submit', (e) => {
     })
     .then((data) => {
       console.log(data);
-      document.getElementById('data').innerHTML += data['secure_url'];
+      document.getElementById('data').innerHTML = data['secure_url'];
     });
 });
