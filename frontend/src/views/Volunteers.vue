@@ -25,6 +25,7 @@ export default {
         'Language classes',
         'Social assistance',
       ],
+      filterLocation: [],
       filterLanguages: [],
       filterSkills: [],
     };
@@ -33,6 +34,7 @@ export default {
     async filterBtn() {
       try {
         const filter = {
+          location: JSON.parse(JSON.stringify(this.filterLocation)),
           languages: JSON.parse(JSON.stringify(this.filterLanguages)),
           skills: JSON.parse(JSON.stringify(this.filterSkills)),
         };
@@ -42,6 +44,7 @@ export default {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
+            location: filter.location,
             languages: filter.languages,
             skills: filter.skills,
           }),
