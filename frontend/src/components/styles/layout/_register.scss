@@ -3,8 +3,7 @@
     width: 70%;
     margin-bottom:3.35%;
     position: relative;
-    color: #C4C4C4;
-    background: #fff;
+    color: $gray77;
     border-radius:  20px 20px 20px 20px;
     font-family: $montserrat;
 
@@ -121,10 +120,14 @@
             -webkit-transition: background 0.25s linear; }
   
     }
+
+
     &__select {
         position: relative; 
         border-radius: 20px;
         padding: 2px;
+
+        
         
         select {
             appearance: none !important;
@@ -134,12 +137,12 @@
             -ms-appearance: none !important;
             position: relative;
             z-index: 10;
-            color: #C4C4C4;
+            color: $gray77;
             cursor: pointer; 
             border:none;
         }
         &-icon {
-            z-index: 122;
+            z-index: 50;
             position: absolute;
             top: 0;
             right: 0;
@@ -156,6 +159,16 @@
             -ms-align-items: center; 
         
             i {
+              justify-content: center;
+              -moz-justify-content: center;
+              -webkit-justify-content: center;
+              -o-justify-content: center;
+              -ms-justify-content: center;
+              align-items: center;
+              -moz-align-items: center;
+              -webkit-align-items: center;
+              -o-align-items: center;
+              -ms-align-items: center;
                 width: 40px;
                 height: 20px;
                 font-size: 18px;
@@ -181,7 +194,7 @@
             cursor: pointer; }
         
             #submit {
-                background: #E99140;
+                background: $orange;
                 color:#424651; }
                     #submit:hover {
                       background-color: #cd5300; }
@@ -195,7 +208,7 @@
 
         .left{
             grid-area: left;
-            background-color: #F5F4EF;
+            background-color: $field_color;
             border-radius: 20px;
             margin-bottom: 30px;
             margin-right: 30px;
@@ -205,14 +218,14 @@
             
             grid-area: right;
           }
-       
+  
       }
 
       &__description{
         height: 80px;
         padding: 10px;
         outline: 0;
-        border: 1px solid #F5F4EF;
+        border: 1px solid $field_color;
         border-radius: 20px;
         line-height: 20px;
         width: 100%;
@@ -221,20 +234,19 @@
         font-family: $montserrat;
         font-weight: 500;
         font-size: 13px;
-        background-color: #F5F4EF;
-        color: red;
+        background-color: $field_color;
       }
       input, select {
         border-radius: 20px;
         display: block;
         width: 100%;
-        border: 1px solid #F5F4EF;
+        border: 1px solid $field_color;
         padding: 7px 20px;
         box-sizing: border-box;
         font-family: $montserrat;
         font-weight: 500;
         font-size: 13px;
-        background-color: #F5F4EF; 
+        background-color: $field_color; 
         
     }
     label {
@@ -243,7 +255,7 @@
       font-family: $montserrat;
       margin-bottom: 1%;
       display: block; 
-      color: #F5F4EF;
+      color: $field_color;
       margin-left: 2%;
   }
   h2 {
@@ -263,7 +275,7 @@
     
     .register-form {
       width: 100%;
-      background-color: #99c5e8;
+      background-color: $blue;
       padding: 15px 30px 15px 30px; 
       border-radius: 0px 20px 20px 0px;}
       
@@ -314,7 +326,7 @@
     border: 2px solid white; 
     background: white;}
   input[type=radio]:checked ~ .container__radio-check::before {
-    background: #99C5E8; }
+    background: $blue; }
 
 
   
@@ -328,10 +340,12 @@
       @media screen and (max-width: 992px) {
         .register-form{
           border-radius: 20px;
+          padding: 100px 40px 50px 100px; 
         }
         .container{   
           width: calc(100% - 40px);
           max-width: 100%;
+        
           
           &__signup-img{
             display: none;
@@ -357,18 +371,27 @@
           }
         }
       }
+      
     
-     }
-   
-   
-        @media screen and (max-width: 768px) {
+    }
+
+        @media screen and (max-width: $tablet) {
       .container__signup-img{
           display: none;
           visibility: hidden;
           clear: both;
+
+        
+          &__radio-item1{
+          display: inline-block;
+          }
         }
       .register-form {
-        padding: 50px 40px 50px 40px; } }
+        padding: 50px 40px 50px 40px; } 
+      
+
+
+      }
 
 
     @media screen and (max-width: 575px) {
@@ -396,10 +419,8 @@
       
         &___radio-item {
           margin-right: 15%; 
-
-         
           }}
-     
+
       }
       @media screen and (max-width: 480px) {
       .container{
@@ -408,18 +429,19 @@
           visibility: hidden;
           clear: both;
         }
-      &__radio {
-        flex-direction: column;
-        -moz-flex-direction: column;
-        -webkit-flex-direction: column;
-        -o-flex-direction: column;
-        -ms-flex-direction: column; }
-       
-     
+      &__radio-item1{
+          flex-direction: column;
+          -moz-flex-direction: column;
+          -webkit-flex-direction: column;
+          -o-flex-direction: column;
+          -ms-flex-direction: column; 
+      
+        }
       }
+
       .submit {
         width: 100%; }
     
-    }
+  }
   
     

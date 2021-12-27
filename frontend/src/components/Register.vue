@@ -1,6 +1,5 @@
 <script></script>
 <template>
-       
         <div class="container">
             <div class="container__signup">
                 <div class="container__signup-img">
@@ -29,10 +28,10 @@
                                         <span class="container__radio-check"></span>
                                     </div>
                                     
-                                   <div class="container__radio-item1">
-                                    <input type="radio" name="status" id="volunteer">
-                                    <label for="volunteer">Volunteer</label>
-                                    <span class="container__radio-check"></span>
+                                    <div class="container__radio-item1">
+                                        <input type="radio" name="status" id="volunteer">
+                                        <label for="volunteer">Volunteer</label>
+                                        <span class="container__radio-check"></span>
                                 </div>
                                 
                                 </div>
