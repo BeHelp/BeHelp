@@ -52,7 +52,7 @@
                                 <input type="email" placeholder="E-mail" name="email" id="email" />
                             </div>
                             <div class="container__group">
-                                <input type="text" placeholder="Password" name="password" id="password">
+                                <input type="password" placeholder="Password" name="password" id="password">
                             </div>
                             
                             <div class="container__radio">
