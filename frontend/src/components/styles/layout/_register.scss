@@ -10,12 +10,10 @@
     display-flex, &__signup, &__row, &__radio, &__select-icon, &__select-icon i {
         display: flex;
         display: -webkit-flex;
-        
     }
 
     &__signup{
         width: 100%;
-        
         
         &-img{
             width: 45%;
@@ -126,6 +124,7 @@
         position: relative; 
         border-radius: 20px;
         padding: 2px;
+        color: grey;
 
         
         
@@ -137,7 +136,7 @@
             -ms-appearance: none !important;
             position: relative;
             z-index: 10;
-            color: $gray77;
+            color: grey;
             cursor: pointer; 
             border:none;
         }
@@ -195,7 +194,7 @@
         
             #submit {
                 background: $orange;
-                color:#424651; }
+                color:$dark-grey; }
                     #submit:hover {
                       background-color: #cd5300; }
     
