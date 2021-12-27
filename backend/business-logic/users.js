@@ -32,7 +32,7 @@ const userManager = {
       const user = await User.find({
         languages: { $all: searchQuery.languages },
       });
-      console.log(user);
+      // console.log(user);
       return user;
     } catch (err) {
       console.log(err.message);
