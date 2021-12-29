@@ -148,11 +148,14 @@ export default {
         <button @click="filterBtn" class="btn-filter">Filter</button>
       </div>
       <div class="volunteers__searchresults">
-        <div class="volunteers__searchresults-h1">Search Results</div>
+        <div class="volunteers__searchresults-h1">Filters:</div>
         <pre id="json">
           {{ filterLanguages }}
           {{ filterSkills }}
           {{ filterLocations }}
+        </pre>
+        <div class="volunteers__searchresults-h1">Results:</div>
+        <pre id="json">
           {{ this.results }}
         </pre>
       </div>
