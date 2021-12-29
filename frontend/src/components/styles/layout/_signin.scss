@@ -1,0 +1,87 @@
+div#app {
+  display: block;
+  text-align: center;
+}
+
+.login__page {
+  display: inline-block;
+  text-align: center;
+  width: 630px;
+  height: 416px;
+  padding: 40px;
+  background: #F5F4EF;
+  border: 3px solid #99C5E8;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.form__group {
+  display: inline-block;
+  padding: 20px;
+}
+
+.sign__text {
+  width: 500px;
+  height: 49px;
+  display: inline-block;
+  padding-top: 30px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 49px;
+  text-transform: uppercase;
+  color: #424651;
+}
+
+.email__box {
+  display: inline-block;
+  margin-block: 5px;
+  padding-block: 10px;
+  padding-inline: 10px;
+  width: 500px;
+}
+
+.password__box {
+  margin-block: 10px;
+  padding-block: 10px;
+  padding-inline: 10px;
+  width: 500px;
+}
+
+.login__btn {
+  width: 200px;
+  height: 54px;
+  display: inline-block;
+  background: #E99140;
+  border-radius: 20px;
+}
+
+a {
+  color: #E99140;
+}
+
+.p1 {
+  width: 500px;
+  height: 22px;
+  display: inline-block;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #C4C4C4;
+}
+
+.p2 {
+  width: 300px;
+  height: 22px;
+  margin-inline: 40px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration-line: underline;
+  color: #C4C4C4;
+}
