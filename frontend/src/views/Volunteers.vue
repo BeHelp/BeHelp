@@ -50,6 +50,14 @@ export default {
           languages: JSON.parse(JSON.stringify(this.filterLanguages)),
           skills: JSON.parse(JSON.stringify(this.filterSkills)),
         };
+        if (
+          filter.locations.length === 0 &&
+          filter.languages.length === 0 &&
+          filter.skills.length === 0
+        ) {
+          alert('Please select at least one filter for each category');
+          return;
+        }
         const res = await fetch('http://localhost:5000/users/', {
           method: 'POST',
           headers: {
