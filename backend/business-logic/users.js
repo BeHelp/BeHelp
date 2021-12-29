@@ -33,6 +33,7 @@ const userManager = {
         $and: [
           { languages: { $all: searchQuery.languages } },
           { skills: { $all: searchQuery.skills } },
+          { location: { $all: searchQuery.location } },
         ],
       });
       console.log(user);
