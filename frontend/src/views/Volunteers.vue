@@ -18,23 +18,35 @@ export default {
       ],
       skills: [
         'Legal assistance',
-        'Translation',
+        'translation',
         'Mental health',
         'Host families',
         'Education services',
         'Language classes',
         'Social assistance',
       ],
-      filterLocation: [],
+      locations: [
+        'Brussels',
+        'Ghent',
+        'Namur',
+        'Antwerp',
+        'Charleroi',
+        'Liége',
+        'Bruges',
+        'Leuven',
+        'Mons',
+        'Mechelen',
+      ],
       filterLanguages: [],
       filterSkills: [],
+      filterLocations: [],
     };
   },
   methods: {
     async filterBtn() {
       try {
         const filter = {
-          location: JSON.parse(JSON.stringify(this.filterLocation)),
+          locations: JSON.parse(JSON.stringify(this.filterLocations)),
           languages: JSON.parse(JSON.stringify(this.filterLanguages)),
           skills: JSON.parse(JSON.stringify(this.filterSkills)),
         };
@@ -44,7 +56,7 @@ export default {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            location: filter.location,
+            location: filter.locations,
             languages: filter.languages,
             skills: filter.skills,
           }),
@@ -85,12 +97,13 @@ export default {
               class="checkbox__box"
               type="checkbox"
               :id="skill"
-              unchecked
+              :value="skill"
+              v-model="filterSkills"
             />
             <label class="checkbox__text" for="languages">{{ skill }}</label>
           </li>
         </ul>
-        <div class="volunteers__filterbar-h2">Postcode</div>
+        <div class="volunteers__filterbar-h2">Locations</div>
         <div class="volunteers__filterbar-postcode">
           <div class="dropdown">
             <button
@@ -103,12 +116,23 @@ export default {
               type="button"
               id="dropdownMenuButton"
             >
-              1000/6010/6000
+              Select city
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">1111</a>
-              <a class="dropdown-item" href="#">2222</a>
-              <a class="dropdown-item" href="#">3333</a>
+              <ul>
+                <li v-for="loc in locations" class="checkbox">
+                  <input
+                    class="checkbox__box"
+                    type="checkbox"
+                    :id="loc"
+                    :value="loc"
+                    v-model="filterLocations"
+                  />
+                  <label class="checkbox__text" for="locations">{{
+                    loc
+                  }}</label>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -119,6 +143,8 @@ export default {
         <div class="volunteers__searchresults-h1">Search Results</div>
         <pre id="json">
           {{ filterLanguages }}
+          {{ filterSkills }}
+          {{ filterLocations }}
           {{ this.results }}
         </pre>
       </div>
