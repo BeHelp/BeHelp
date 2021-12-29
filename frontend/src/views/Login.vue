@@ -19,20 +19,20 @@
           placeholder="Password"
           autocomplete="off"
           required
-        />
+        /><br>
         <button class="login__btn" @click="login" type="submit">LOG IN</button>
 
         <p class="p1">
           You don't have an account?
           <a
-            href="#"
+            href="/Signup"
             @click="(registerActive = !registerActive), (emptyFields = false)"
             >Sign Up</a
           >
         </p>
         <p class="p2"><a href="#">forgot your password?</a></p>
       </form>
-      <p v-if="showError" id="error">Username or Password is incorrect</p>
+      
     </div>
   </div>
 </template>

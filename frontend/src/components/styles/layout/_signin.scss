@@ -7,53 +7,46 @@ div#app {
 .login__page {
   display: inline-block;
   text-align: center;
-  width: 630px;
-  height: 416px;
-  padding: 40px;
+  width: 500px;
+  height: 340px;
   background: #F5F4EF;
-  border: 3px solid #99C5E8;
+  border: 3px;
   box-sizing: border-box;
   border-radius: 20px;
 }
 
-.form__group {
-  display: inline-block;
-  padding: 20px;
-}
 
 .sign__text {
-  width: 500px;
+  width: 200px;
   height: 49px;
   display: inline-block;
-  padding-top: 30px;
+  margin-top: 50px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
   line-height: 49px;
   text-transform: uppercase;
   color: #424651;
 }
 
 .email__box {
-  display: inline-block;
-  margin-block: 5px;
-  padding-block: 10px;
-  padding-inline: 10px;
-  width: 500px;
+  padding-block: 6px;
+  padding-inline: 5px;
+  width: 300px;
+  
 }
 
 .password__box {
   margin-block: 10px;
-  padding-block: 10px;
-  padding-inline: 10px;
-  width: 500px;
+  padding-block: 6px;
+  padding-inline: 5px;
+  width: 300px;
 }
 
 .login__btn {
-  width: 200px;
-  height: 54px;
-  display: inline-block;
+  width: 150px;
+  height: 44px;
   background: #E99140;
   border-radius: 20px;
 }
@@ -65,7 +58,7 @@ a {
 .p1 {
   width: 500px;
   height: 22px;
-  display: inline-block;
+
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
