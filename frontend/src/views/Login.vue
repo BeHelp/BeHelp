@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="login__page">
-      <h1 class="sign__text">SIGN IN</h1>
+      <h1 class="sign__text">Log in</h1>
       <br />
       <form class="form__group" @submit.prevent="submit">
         <input
@@ -24,7 +24,7 @@
 
         <p class="p1">
           You don't have an account?
-          <a
+          <a class="signup__text"
             href="/Signup"
             @click="(registerActive = !registerActive), (emptyFields = false)"
             >Sign Up</a
