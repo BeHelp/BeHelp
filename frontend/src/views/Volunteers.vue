@@ -51,8 +51,8 @@ export default {
           skills: JSON.parse(JSON.stringify(this.filterSkills)),
         };
         if (
-          filter.locations.length === 0 &&
-          filter.languages.length === 0 &&
+          filter.locations.length === 0 ||
+          filter.languages.length === 0 ||
           filter.skills.length === 0
         ) {
           alert('Please select at least one filter for each category');
