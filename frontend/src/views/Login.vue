@@ -19,20 +19,15 @@
           placeholder="Password"
           autocomplete="off"
           required
-        /><br>
+        /><br />
         <button class="login__btn" @click="login" type="submit">LOG IN</button>
 
         <p class="p1">
           You don't have an account?
-          <a class="signup__text"
-            href="/Signup"
-            @click="(registerActive = !registerActive), (emptyFields = false)"
-            >Sign Up</a
-          >
+          <a class="signup__text" href="/Signup">Sign Up</a>
         </p>
         <p class="p2"><a href="#">forgot your password?</a></p>
       </form>
-      
     </div>
   </div>
 </template>
