@@ -1,10 +1,9 @@
 .container {
     display: flex;
     width: 70%;
-    margin-bottom:3.35%;
+    margin-bottom: 3.35%;
     position: relative;
-    color: $gray77;
-    border-radius:  20px 20px 20px 20px;
+    border-radius:  20px;
     font-family: $montserrat;
 
     display-flex, &__signup, &__row, &__radio, &__select-icon, &__select-icon i {
@@ -18,11 +17,9 @@
         &-img{
             width: 45%;
         }
-        img{
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+        .img{
+            height: 100%;
+            margin: auto;
           }
 
         &-content {
@@ -30,15 +27,11 @@
             }
         }
     
-    &__row{ 
-      margin: 0 -15px;
-    
-      .container__group {
-        width: 50%;
-        padding: 0 15px;
+    &__city {
+        width: 100%;
+        margin-bottom: 15px;
+        color: grey;
         }
-    }
-
 
     &__group {
         margin-bottom: 15px;
@@ -49,6 +42,7 @@
         &-label {
             padding-right: 5%; 
             font-weight: bold;
+            padding-bottom: 10px;
           }
 
         input {
@@ -69,6 +63,7 @@
                 display: block;
                 cursor: pointer; }    
         }
+
         &-item1 {
             position: relative;
             margin-right: 15%;
@@ -81,9 +76,10 @@
                 position: relative;
                 z-index: 9;
                 display: block;
-                cursor: pointer; }
-        
+                cursor: pointer; 
+              }
         }
+
         &-check {
           display: inline-block;
           position: absolute;
@@ -119,15 +115,12 @@
   
     }
 
-
     &__select {
         position: relative; 
         border-radius: 20px;
         padding: 2px;
         color: grey;
 
-        
-        
         select {
             appearance: none !important;
             -moz-appearance: none !important;
@@ -140,6 +133,7 @@
             cursor: pointer; 
             border:none;
         }
+
         &-icon {
             z-index: 50;
             position: absolute;
@@ -173,8 +167,7 @@
                 font-size: 18px;
                 color: #999; }
         
-        }
-        
+        } 
     }
 
     &__submit {
@@ -185,7 +178,6 @@
             width: 25%;
             height: 10%;
             display: inline-block;
-            font-family: 'Poppins';
             font-weight: 400;
             font-size: 20px;
             padding: 8px;
@@ -205,19 +197,28 @@
         grid-template-columns: 45% 55%;
         grid-template-areas: "left right";
 
-        .left{
+        .left {
             grid-area: left;
             background-color: $field_color;
             border-radius: 20px;
-            margin-bottom: 30px;
-            margin-right: 30px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             
+            .left-icon {
+              height: 60px;
+            }
+
+            .left-icon:hover {
+              cursor: pointer;
+            }
           }
-          .right{
-            
+
+          .right {
             grid-area: right;
           }
-  
       }
 
       &__description{
@@ -259,18 +260,16 @@
   }
   h2 {
     line-height: 1.66;
-    margin: 0;
-    padding: 0;
-    font-weight: lighter;
-    color: #222;
-    font-family: $montserrat;
-    font-size: 20px;
+    color: $field_color;
+    font-size: 28px;
     text-transform: uppercase;
     margin-bottom: 2%;
-    margin-top: 2%; }
+    margin-top: 2%; 
+  }
 
     .clear {
-      clear: both; }
+      clear: both; 
+    }
     
     .register-form {
       width: 100%;
@@ -287,13 +286,6 @@
       -o-appearance: unset !important;
       -ms-appearance: unset !important; 
     }
-}
-
-
-
-
-
-
 
   
   input:focus, select:focus, textarea:focus {
@@ -394,7 +386,7 @@
 
 
     @media screen and (max-width: 575px) {
-      .container{
+      .container {
         &__signup{
             &-img{
               display: none;
@@ -422,7 +414,7 @@
 
       }
       @media screen and (max-width: 480px) {
-      .container{
+      .container {
         &__signup-img{
           display: none;
           visibility: hidden;
@@ -442,5 +434,5 @@
         width: 100%; }
     
   }
-  
+}
     

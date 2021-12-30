@@ -3,25 +3,43 @@
         <div class="container">
             <div class="container__signup">
                 <div class="container__signup-img">
-                    <img src="../assets/signup-img.png" alt="signup">
+                    <img src="../assets/signup-img.png" alt="signup" class = "img">
                 </div>
                 <div class="container__signup-content">
                     <form method="POST" class="register-form" id="register-form">
                         <h2>REGISTRATION FORM</h2>
 
-
                         <div class="container__first">
-                            <div class="left"></div>
+                            <div class="left">
+                            <img src="../assets/fas/camera-solid.svg" class = "left-icon"></div>
                             <div class="right">
                                 <div class="container__group">
-                                    <input type="text" placeholder="First name" name="firstname" id="firstname" required/>
+                                    <input type="text" placeholder="First name*" name="firstname" id="firstname" required/>
                                 </div>
                                 <div class="container__group">
-                                    <input type="text" placeholder="Last name" name="lastname" id="lastname" required/>
+                                    <input type="text" placeholder="Last name*" name="lastname" id="lastname" required/>
                                 </div>
-                                
+
+                                <div class="container__city">
+                                    <select name="City" id="city" required>
+                                        <option value="City" disabled selected>City*</option>
+                                        <option value="Brussels">Brussels</option>
+                                        <option value="Leuven">Leuven</option>
+                                        <option value="Namur">Namur</option>
+                                        <option value="Antwerp">Antwerp</option>
+                                        <option value="Liège">Liège</option>
+                                        <option value="Ghent">Ghent</option>
+                                        <option value="Brugge">Brugge</option>
+                                        <option value="Eupen">Eupen</option>
+                                        <option value="Arlon">Arlon</option>
+                                    </select>
+                                    <span class="container__select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                    </div>                          
+                            </div>
+                        </div>
+
                                 <div class="container__radio">
-                                    <label for="gender" class="radio-label">Status:</label>
+                                    <label for="gender" class="radio-label">Status*</label>
                                     <div class="container__radio-item1">
                                         <input type="radio" name="status" id="newcomer" checked>
                                         <label for="newcomer">Newcomer</label>
@@ -35,24 +53,11 @@
                                 </div>
                                 
                                 </div>
-                                <div class="container__row">
-                                    <div class="container__group">
-                                        <input type="text" placeholder="Post code" name="Postcode" id="Postcode" required/>
-                                    </div>
-                                    <div class="container__group">
-                                        <input type="text" placeholder="City" name="city" id="city" required/>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                
                             <div class="container__group">
-                                <input type="email" placeholder="E-mail" name="email" id="email" />
+                                <input type="email" placeholder="E-mail*" name="email" id="email" required />
                             </div>
                             <div class="container__group">
-                                <input type="password" placeholder="Password" name="password" id="password">
+                                <input type="text" placeholder="Password*" name="password" id="password" required>
                             </div>
                             
                             <div class="container__radio">
@@ -76,29 +81,20 @@
                             </div>
                         
                             <div class="container__group">
-                        
-                                <div class="container__select">
-                                    <select name="nationality" id="nationality">
-                                        <option value="" disabled selected>Nationality</option>
-                                        <option value="">Congo</option>
-                                        <option value="us">Iraq</option>
-                                        <option value="uk">Pakistan</option>
-                                    </select>
-                                    <span class="container__select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
-                                </div>
+                            <input type="text" placeholder="Nationality" name="nationality" id="nationality"/>
                             </div>
                             <div class="container__group">
                             
                                 <div class="container__select">
                                     <select name="languages" id="languages">
-                                        <option value="" disabled selected>Languages</option>
+                                        <option value="Language" disabled selected>Languages</option>
                                         <option value="French">English</option>
                                         <option value="English">French</option>
                                         <option value="Turkish">Russian</option>
                                         <option value="Turkish">Spanish</option>
                                         <option value="Turkish">Dutch</option>
-                                        <option value="Turkish">arabic</option>
-                                        <option value="Turkish">Hindo</option>
+                                        <option value="Turkish">Arabic</option>
+                                        <option value="Turkish">Hindu</option>
                                         <option value="Turkish">Chinese</option>
                                         <option value="Turkish">Italian</option>
                                     </select>
@@ -109,11 +105,11 @@
 
                                 <div class="container__select">
                                     <select name="skills" id="skills">
-                                        <option value="" disabled selected>Skills</option>
+                                        <option value="Skills" disabled selected>Skills</option>
                                         <option value="Translator">Legal assistance</option>
                                         <option value="Translator">Translations</option>
                                         <option value="Host">Mental health</option>
-                                        <option value="assistant">Host families</option>
+                                        <option value="assistant">Host family</option>
                                         <option value="assistant">Education services</option>
                                         <option value="assistant">Language classes</option>
                                         <option value="assistant">Social assistance</option>
