@@ -11,7 +11,10 @@
 
                         <div class="container__first">
                             <div class="left">
-                            <img src="../assets/fas/camera-solid.svg" class = "left-icon"></div>
+                            <img src="../assets/fas/camera-solid.svg" class = "left-icon">
+                            <p>Upload your <br> 
+                            profile picture</p>
+                            </div>
                             <div class="right">
                                 <div class="container__group">
                                     <input type="text" placeholder="First name*" name="firstname" id="firstname" required/>

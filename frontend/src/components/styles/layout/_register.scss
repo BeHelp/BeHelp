@@ -10,7 +10,6 @@
         display: flex;
         display: -webkit-flex;
         justify-content: center;
-        // padding: 0 30px;
     }
 
     &__signup {
@@ -40,7 +39,6 @@
       }
 
     &__radio {
-      // display: flex;
       width: 100%;
 
 
@@ -212,8 +210,11 @@
             margin-bottom: 20px;
             margin-right: 20px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            font-size: 10px;
+            text-align: center;
             
             .left-icon {
               height: 60px;
@@ -221,6 +222,10 @@
 
             .left-icon:hover {
               cursor: pointer;
+            }
+            p {
+              margin: 0;
+              color: $dark-grey;
             }
           }
 
