@@ -77,5 +77,5 @@ export default {
 
 <style lang="scss">
 @import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_signin.scss';
+@import '../components/styles/layout/_login.scss';
 </style>
