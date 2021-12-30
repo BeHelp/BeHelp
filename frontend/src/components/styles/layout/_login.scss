@@ -1,0 +1,88 @@
+.login {
+  text-align: center;
+}
+
+.login__page {
+  display: inline-block;
+  text-align: left;
+  padding-left: 40px;
+  width: 480px;
+  height: 350px;
+  background: #f5f4ef;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin-bottom: 5rem;
+}
+
+.sign__text {
+  width: 200px;
+  margin-top: 45px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #424651;
+}
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #f5f4ef;
+}
+
+.email__box {
+  padding-block: 2px;
+  width: 400px;
+  font-size: 0.8rem;
+}
+
+.password__box {
+  margin-block: 6px;
+  margin-top: 20px;
+  padding-block: 2px;
+  width: 400px;
+  font-size: 0.8rem;
+}
+
+.login__btn {
+  width: 120px;
+  height: 44px;
+  background: #e99140;
+  margin-top: 15px;
+  border-radius: 20px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  font-size: 0.8rem;
+}
+
+.signup__text {
+  color: #e99140;
+}
+
+.p1 {
+  width: 500px;
+  height: 22px;
+  padding-top: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8rem;
+
+  color: #c4c4c4;
+}
+
+.p2 {
+  width: 300px;
+  height: 22px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 0.8rem;
+  margin-top: 6px;
+  text-decoration-line: underline;
+  color: #c4c4c4;
+}

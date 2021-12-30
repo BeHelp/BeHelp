@@ -28,9 +28,9 @@ const loginManager = {
         const checkResult = await bcrypt.compare(p1, p2);
         return [checkResult, token];
       };
-      const userJWT = await User.findOne({ email: loginData.email }).select(
-        '+password'
-      );
+      const userJWT = await User.findOne({ email: loginData.email })
+        .select('+email')
+        .select('+password');
       return cryptCheck(loginData.password, userJWT.password);
     } catch (err) {
       console.log(err.message);
