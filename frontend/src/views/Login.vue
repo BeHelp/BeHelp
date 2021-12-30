@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="login">
     <div class="login__page">
       <h1 class="sign__text">Log in</h1>
       <br />
