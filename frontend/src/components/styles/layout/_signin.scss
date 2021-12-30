@@ -10,11 +10,10 @@ div#app {
   padding-left: 40px;
   width: 480px;
   height: 350px;
-  background: #F5F4EF;
+  background: #f5f4ef;
   box-sizing: border-box;
   border-radius: 20px;
 }
-
 
 .sign__text {
   width: 200px;
@@ -32,14 +31,13 @@ input {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: groove;
-  background-color: #F5F4EF;
+  background-color: #f5f4ef;
 }
 
 .email__box {
   padding-block: 2px;
   width: 400px;
   font-size: 0.8rem;
-
 }
 
 .password__box {
@@ -53,7 +51,7 @@ input {
 .login__btn {
   width: 120px;
   height: 44px;
-  background: #E99140;
+  background: #e99140;
   margin-top: 15px;
   border-radius: 20px;
   border-top-style: hidden;
@@ -61,11 +59,10 @@ input {
   border-left-style: hidden;
   border-bottom-style: hidden;
   font-size: 0.8rem;
-  
 }
 
 .signup__text {
-  color: #E99140;
+  color: #e99140;
 }
 
 .p1 {
@@ -75,9 +72,9 @@ input {
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 0.8rem;
 
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
 .p2 {
@@ -85,8 +82,8 @@ input {
   height: 22px;
   font-family: Montserrat;
   font-style: normal;
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-top: 6px;
   text-decoration-line: underline;
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
