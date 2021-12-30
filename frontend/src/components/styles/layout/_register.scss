@@ -9,15 +9,17 @@
     display-flex, &__signup, &__row, &__radio, &__select-icon, &__select-icon i {
         display: flex;
         display: -webkit-flex;
+        justify-content: center;
+        // padding: 0 30px;
     }
 
-    &__signup{
+    &__signup {
         width: 100%;
         
-        &-img{
+        &-img {
             width: 45%;
         }
-        .img{
+        .img {
             height: 100%;
             margin: auto;
           }
@@ -30,15 +32,18 @@
     &__city {
         width: 100%;
         margin-bottom: 15px;
-        color: grey;
         }
 
     &__group {
         margin-bottom: 15px;
         position: relative;
-        }
+      }
 
-    &__radio{
+    &__radio {
+      // display: flex;
+      width: 100%;
+
+
         &-label {
             padding-right: 5%; 
             font-weight: bold;
@@ -52,6 +57,7 @@
         &-item {
             position: relative;
             margin-right: 20%; 
+            
             label {
                 font-weight: 500;
                 font-size: 12px;
@@ -61,7 +67,8 @@
                 position: relative;
                 z-index: 9;
                 display: block;
-                cursor: pointer; }    
+                cursor: pointer; 
+              }    
         }
 
         &-item1 {
@@ -95,7 +102,9 @@
           left: 39%;
           z-index: 5;
           transition: border .25s linear;
-          -webkit-transition: border .25s linear; }
+          -webkit-transition: border .25s linear; 
+        }
+
           &-check:before {
             position: absolute;
             display: block;
@@ -111,15 +120,13 @@
             left: 11%;
             margin: auto;
             transition: background 0.25s linear;
-            -webkit-transition: background 0.25s linear; }
-  
-    }
+            -webkit-transition: background 0.25s linear; 
+          }
+        }
 
     &__select {
         position: relative; 
         border-radius: 20px;
-        padding: 2px;
-        color: grey;
 
         select {
             appearance: none !important;
@@ -129,7 +136,6 @@
             -ms-appearance: none !important;
             position: relative;
             z-index: 10;
-            color: grey;
             cursor: pointer; 
             border:none;
         }
@@ -165,8 +171,8 @@
                 width: 40px;
                 height: 20px;
                 font-size: 18px;
-                color: #999; }
-        
+                color: #999; 
+              }
         } 
     }
 
@@ -186,13 +192,15 @@
         
             #submit {
                 background: $orange;
-                color:$dark-grey; }
-                    #submit:hover {
-                      background-color: #cd5300; }
-    
-    }
+                color:$dark-grey; 
+              }
 
-    &__first{
+                    #submit:hover {
+                      background-color: #cd5300; 
+                    }
+                  }
+
+    &__first {
         display: grid;
         grid-template-columns: 45% 55%;
         grid-template-areas: "left right";
@@ -221,7 +229,7 @@
           }
       }
 
-      &__description{
+      &__description {
         height: 80px;
         padding: 10px;
         outline: 0;
@@ -236,6 +244,7 @@
         font-size: 13px;
         background-color: $field_color;
       }
+
       input, select {
         border-radius: 20px;
         display: block;
@@ -247,8 +256,8 @@
         font-weight: 500;
         font-size: 13px;
         background-color: $field_color; 
-        
     }
+
     label {
       font-size: 13px;
       font-weight: bold;
@@ -258,6 +267,7 @@
       color: $field_color;
       margin-left: 2%;
   }
+
   h2 {
     line-height: 1.66;
     color: $field_color;
@@ -274,70 +284,71 @@
     .register-form {
       width: 100%;
       background-color: $blue;
-      padding: 15px 30px 15px 30px; 
-      border-radius: 0px 20px 20px 0px;}
+      padding: 15px 30px; 
+      border-radius: 0px 20px 20px 0px;
+
+      @media screen and (max-width: 992px) {
+          border-radius: 20px;
+          padding: 30px; 
+        }
+    }
       
     input, select, textarea {
-      
       outline: none;
       appearance: unset !important;
       -moz-appearance: unset !important;
       -webkit-appearance: unset !important;
       -o-appearance: unset !important;
-      -ms-appearance: unset !important; 
+      -ms-appearance: unset !important;
+      color: grey; 
     }
 
-  
   input:focus, select:focus, textarea:focus {
     outline: none;
     box-shadow: none !important;
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -o-box-shadow: none !important;
-    -ms-box-shadow: none !important; }
+    -ms-box-shadow: none !important; 
+  }
   
   input[type=radio] {
     appearance: radio !important;
     -moz-appearance: radio !important;
     -webkit-appearance: radio !important;
     -o-appearance: radio !important;
-    -ms-appearance: radio !important; }
+    -ms-appearance: radio !important; 
+  }
   
   input:-webkit-autofill {
     box-shadow: 0 0 0 30px transparent inset;
     -moz-box-shadow: 0 0 0 30px transparent inset;
     -webkit-box-shadow: 0 0 0 30px transparent inset;
     -o-box-shadow: 0 0 0 30px transparent inset;
-    -ms-box-shadow: 0 0 0 30px transparent inset; }
+    -ms-box-shadow: 0 0 0 30px transparent inset; 
+  }
   
   input[type=radio] {
     position: absolute;
-    visibility: hidden; }
+    visibility: hidden; 
+  }
+
   input[type=radio]:checked ~ .container__radio-check {
     border: 2px solid white; 
-    background: white;}
+    background: white;
+  }
+
   input[type=radio]:checked ~ .container__radio-check::before {
-    background: $blue; }
-
-
-  
-
-  
-  
-
-
+    background: $blue; 
+  }
 
 
       @media screen and (max-width: 992px) {
-        .register-form{
-          border-radius: 20px;
-          padding: 100px 40px 50px 100px; 
-        }
-        .container{   
+
+        .container {   
           width: calc(100% - 40px);
           max-width: 100%;
         
-          
           &__signup-img{
             display: none;
             visibility: hidden;
@@ -355,10 +366,10 @@
             width: 100%; }
         }
 
-        &radio{
+        &radio {
           &-item{
-            margin: 20%;
-            display:flexbox;
+            // margin: 20%;
+            display: flex;
           }
         }
       }
@@ -379,9 +390,6 @@
         }
       .register-form {
         padding: 50px 40px 50px 40px; } 
-      
-
-
       }
 
 
