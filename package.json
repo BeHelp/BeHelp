@@ -4,10 +4,12 @@
   "description": "## BeHelp",
   "main": "index.js",
   "dependencies": {
+    "@emailjs/browser": "^3.3.1",
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.5.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
+    "emailjs-com": "^3.2.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
