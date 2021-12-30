@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     minlength: 6,
     maxlength: 30,
-    match: /.+\@.+\..+/,
+    match:
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     unique: false,
   },
   password: { type: String, required: true, minlength: 6, select: false },
@@ -20,7 +21,7 @@ const userSchema = new mongoose.Schema({
   userType: String,
   location: [String],
   skills: [String],
-  languages: [String],
+  languages: [{ _id: false, type: String }],
   description: { type: String, required: false, minlength: 10, maxlength: 200 },
 });
 

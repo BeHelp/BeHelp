@@ -29,7 +29,13 @@ const userManager = {
       ) {
         searchQuery.skills = userData.skills;
       }
-      const user = await User.find(searchQuery);
+      const user = await User.find({
+        $and: [
+          { languages: { $all: searchQuery.languages } },
+          { skills: { $all: searchQuery.skills } },
+          { location: { $all: searchQuery.location } },
+        ],
+      });
       console.log(user);
       return user;
     } catch (err) {
