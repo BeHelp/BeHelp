@@ -22,7 +22,7 @@ div#app {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 2rem;
   text-transform: uppercase;
   color: #424651;
 }
@@ -38,7 +38,7 @@ input {
 .email__box {
   padding-block: 2px;
   width: 400px;
-  font-size: 14px;
+  font-size: 0.8rem;
 
 }
 
@@ -47,7 +47,7 @@ input {
   margin-top: 20px;
   padding-block: 2px;
   width: 400px;
-  font-size: 14px;
+  font-size: 0.8rem;
 }
 
 .login__btn {
@@ -60,7 +60,7 @@ input {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: hidden;
-  font-size: 14px;
+  font-size: 0.8rem;
   
 }
 
@@ -75,7 +75,7 @@ input {
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 1rem;
 
   color: #C4C4C4;
 }
@@ -85,7 +85,7 @@ input {
   height: 22px;
   font-family: Montserrat;
   font-style: normal;
-  font-size: 16px;
+  font-size: 1rem;
   margin-top: 6px;
   text-decoration-line: underline;
   color: #C4C4C4;
