@@ -6,11 +6,11 @@ div#app {
 
 .login__page {
   display: inline-block;
-  text-align: center;
-  width: 500px;
-  height: 340px;
+  text-align: left;
+  padding-left: 40px;
+  width: 480px;
+  height: 350px;
   background: #F5F4EF;
-  border: 3px;
   box-sizing: border-box;
   border-radius: 20px;
 }
@@ -18,40 +18,53 @@ div#app {
 
 .sign__text {
   width: 200px;
-  height: 49px;
-  display: inline-block;
-  margin-top: 50px;
+  margin-top: 45px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 30px;
-  line-height: 49px;
+  font-size: 2rem;
   text-transform: uppercase;
   color: #424651;
 }
 
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #F5F4EF;
+}
+
 .email__box {
-  padding-block: 6px;
-  padding-inline: 5px;
-  width: 300px;
-  
+  padding-block: 2px;
+  width: 400px;
+  font-size: 0.8rem;
+
 }
 
 .password__box {
-  margin-block: 10px;
-  padding-block: 6px;
-  padding-inline: 5px;
-  width: 300px;
+  margin-block: 6px;
+  margin-top: 20px;
+  padding-block: 2px;
+  width: 400px;
+  font-size: 0.8rem;
 }
 
 .login__btn {
-  width: 150px;
+  width: 120px;
   height: 44px;
   background: #E99140;
+  margin-top: 15px;
   border-radius: 20px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  font-size: 0.8rem;
+  
 }
 
-.signup__text{
+.signup__text {
   color: #E99140;
 }
 
@@ -62,20 +75,18 @@ div#app {
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1rem;
+
   color: #C4C4C4;
 }
 
 .p2 {
   width: 300px;
   height: 22px;
-  margin-inline: 40px;
   font-family: Montserrat;
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1rem;
+  margin-top: 6px;
   text-decoration-line: underline;
   color: #C4C4C4;
 }
