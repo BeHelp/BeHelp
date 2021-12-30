@@ -51,7 +51,7 @@ export default {
           email: this.email,
           message: this.message
         })
-        console.log('it works!!!')
+        alert("Message sended")
       } catch (error) {
           console.log({error})
       }
