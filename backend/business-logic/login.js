@@ -40,11 +40,14 @@ const loginManager = {
       );
 
       const cryptCheck = async (p1, p2) => {
-        const checkResult = await bcrypt.compare(p1, p2);
-        return [checkResult, accessToken];
+        await bcrypt.compare(p1, p2);
       };
 
-      return cryptCheck(loginData.password, mongoData.password);
+      return [
+        cryptCheck(loginData.password, mongoData.password),
+        accessToken,
+        refreshToken,
+      ];
     } catch (err) {
       console.log(err.message);
     }

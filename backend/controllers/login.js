@@ -10,7 +10,9 @@ const loginController = {
         res.status(400).send('ERROR: incorrect password');
         return;
       }
-      console.log(`${header.user} logged in! Bearer Token: \n${userCheck[1]}`);
+      console.log(
+        `${header.user} logged in! \nAccessToken: \n${userCheck[1]}, \nRefreshToken: \n${userCheck[2]}`
+      );
       res
         .status(200)
         .set({
