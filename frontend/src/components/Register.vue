@@ -42,7 +42,6 @@ export default {
                 id="file-input"
                 @change="uploadImage($event)"
                 class="button-icon"
-                style="opacity:0;"
               />
               <div class="left-icon"></div>
               <p>
