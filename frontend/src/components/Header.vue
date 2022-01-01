@@ -51,7 +51,7 @@
 
         <li class="header__nav-features"><p class = "header__nav-features p-username none" id = "header-username">Username</p></li>
         <li class = "header__nav-features usermenu none">
-        <img src="../assets/fas/user-circle-solid.svg" class = "header__nav-features img-username">
+        <img src="../assets/fas/user-circle-solid.svg" class = "header__nav-features img-username none">
         <div id = "usermenu-list" class = "usermenu-list none">
           <a href="#" class = "usermenu-a" id = "usermenu-profile">My Profile</a><br>
           <a href="#" class = "usermenu-a" id = "usermenu-messages">Messages</a><br>
