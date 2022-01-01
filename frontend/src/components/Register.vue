@@ -34,14 +34,17 @@ export default {
           <h2>REGISTRATION FORM</h2>
 
           <div class="container__first">
-            <div class="left">
+            <div class="left" >
+              
               <input
                 type="file"
                 accept="image/*"
                 id="file-input"
                 @change="uploadImage($event)"
-                class="left-icon"
+                class="button-icon"
+                style="opacity:0;"
               />
+              <div class="left-icon"></div>
               <p>
                 Upload your <br />
                 profile picture
@@ -113,7 +116,7 @@ export default {
           </div>
           <div class="container__group">
             <input
-              type="text"
+              type="password"
               placeholder="Password*"
               name="password"
               id="password"
