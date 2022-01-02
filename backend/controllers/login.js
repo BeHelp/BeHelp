@@ -6,6 +6,7 @@ const loginController = {
       const header = req.headers;
       console.log(`login attempt by user: ${header.user}`);
       const userCheck = await loginManager.read(header.user, header.pass);
+      console.log(`userCheck: ${userCheck[1]}`);
       if (!userCheck[0]) {
         res.status(400).send('ERROR: incorrect password');
         return;
