@@ -19,13 +19,17 @@ const loginManager = {
         .select('+email')
         .select('+password');
 
+      const cryptCheck = async (p1, p2) => {
+        await bcrypt.compare(p1, p2);
+      };
+
       const accessToken = jwt.sign(
         {
           mongoData,
         },
         accessTokenSecret,
         {
-          expiresIn: '5m',
+          expiresIn: '5s',
         }
       );
 
@@ -35,13 +39,9 @@ const loginManager = {
         },
         refreshTokenSecret,
         {
-          expiresIn: '6h',
+          expiresIn: '24h',
         }
       );
-
-      const cryptCheck = async (p1, p2) => {
-        await bcrypt.compare(p1, p2);
-      };
 
       return [
         cryptCheck(loginData.password, mongoData.password),

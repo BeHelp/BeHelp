@@ -1,8 +1,19 @@
-const jwt = require('jsonwebtoken');
-
 require('dotenv').config({ path: './.env' });
 
+const jwt = require('jsonwebtoken');
+const { TokenExpiredError } = jwt;
+
 const tokenSecret = process.env.TOKENSECRET;
+
+const catchError = (err, res) => {
+  if (err instanceof TokenExpiredError) {
+    return res
+      .status(401)
+      .send({ message: 'Unauthorized! Access Token expired!' });
+  }
+
+  return res.sendStatus(401).send({ message: 'Unauthorized!' });
+};
 
 const authCheck = async (req, res, next) => {
   const authHeader = req.headers['authorization'];
@@ -16,8 +27,7 @@ const authCheck = async (req, res, next) => {
     tokenSecret,
     (err, decoded) => {
       if (err) {
-        console.log(err);
-        throw err;
+        return catchError(err, res);
       }
       return decoded;
     }
