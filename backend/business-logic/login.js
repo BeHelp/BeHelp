@@ -27,7 +27,7 @@ const loginManager = {
         mongoData.password
       );
 
-      console.log(`passwordIsValid: ${passwordIsValid}`);
+      // console.log(`passwordIsValid: ${passwordIsValid}`);
 
       if (!passwordIsValid) {
         console.log('Login failed');
@@ -57,8 +57,8 @@ const loginManager = {
       );
 
       console.log(
-        `accessToken: ${accessToken}`,
-        `refreshToken: ${refreshToken}`
+        `accessToken: \n${accessToken}`,
+        `\nrefreshToken: \n${refreshToken}`
       );
 
       try {
