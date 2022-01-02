@@ -1,6 +1,7 @@
 const { User } = require('../data-access/db.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const RefreshToken = require('../models/RefreshToken.js');
 const accessTokenSecret = process.env.ACCESS_TOKENSECRET;
 const refreshTokenSecret = process.env.REFRESH_TOKENSECRET;
 
@@ -44,6 +45,17 @@ const loginManager = {
           expiresIn: '24h',
         }
       );
+
+      try {
+        const newRefreshToken = await RefreshToken.create({
+          user: mongoData._id,
+          token: refreshToken,
+          expiryDate: new Date(Date.now() + 86400000),
+        });
+        console.log('refresh token saved to db');
+      } catch (err) {
+        console.log(err.message);
+      }
 
       return [
         cryptCheck(loginData.password, mongoData.password),

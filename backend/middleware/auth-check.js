@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 
 require('dotenv').config({ path: './.env' });
 
+const { RefreshToken } = require('../data-access/db.js');
+
 const tokenSecret = process.env.ACCESS_TOKENSECRET;
 
 const catchError = (err, res) => {
@@ -33,4 +35,41 @@ const authCheck = async (req, res, next) => {
   );
 };
 
-module.exports = authCheck;
+const refreshToken = async (req, res) => {
+  const { refreshToken: requestToken } = req.body;
+  if (requestToken == null) {
+    return res.status(403).json({ message: 'Refresh Token is required!' });
+  }
+
+  try {
+    let refreshToken = await RefreshToken.findOne({ token: requestToken });
+    if (!refreshToken) {
+      res.status(403).json({ message: 'Refresh token is not in database!' });
+      return;
+    }
+
+    if (RefreshToken.verifyExpiration(refreshToken)) {
+      RefreshToken.findByIdAndRemove(refreshToken._id, {
+        useFindAndModify: false,
+      }).exec();
+
+      res.status(403).json({
+        message: 'Refresh token was expired. Please make a new signin request',
+      });
+      return;
+    }
+
+    let newAccessToken = jwt.sign({ id: refreshToken.user }, tokenSecret, {
+      expiresIn: '1h',
+    });
+
+    return res.status(200).json({
+      accessToken: newAccessToken,
+      refreshToken: refreshToken.token,
+    });
+  } catch (err) {
+    return res.status(500).send({ message: err });
+  }
+};
+
+module.exports = { authCheck, refreshToken };
