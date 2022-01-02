@@ -6,6 +6,7 @@ import Login from '../views/Login.vue';
 import Signup from '../views/Signup.vue';
 import Volunteers from '../views/Volunteers.vue';
 import Thankyou from '../views/Thankyou.vue';
+import Myprofile from '../views/Myprofile.vue';
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/thankyou',
     name: 'Thank you',
     component: Thankyou,
+  },
+  {
+    path: '/Myprofile',
+    name: 'My Profile',
+    component: Myprofile,
   },
 ];
 
