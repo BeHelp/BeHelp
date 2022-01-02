@@ -19,23 +19,25 @@ const loginManager = {
         .select('+email')
         .select('+password');
 
+      const mongoId = mongoData['_id'];
+
       const cryptCheck = async (p1, p2) => {
         await bcrypt.compare(p1, p2);
       };
 
       const accessToken = jwt.sign(
         {
-          mongoData,
+          mongoId,
         },
         accessTokenSecret,
         {
-          expiresIn: '5s',
+          expiresIn: '1h',
         }
       );
 
       const refreshToken = jwt.sign(
         {
-          mongoData,
+          mongoId,
         },
         refreshTokenSecret,
         {
