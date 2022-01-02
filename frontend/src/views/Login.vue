@@ -59,8 +59,8 @@ export default {
         },
       });
       const token = response.headers.get('Authorization').split(' ')[1];
-      const userEmail = VueJwtDecode.decode(token).user.email;
-      console.log(userEmail);
+      const userId = VueJwtDecode.decode(token).mongoId;
+      console.log(userId);
       if (!response.ok) {
         alert('password or email is wrong');
         throw new Error(`HTTP error! status:${response.status}`);
