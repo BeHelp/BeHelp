@@ -1,37 +1,55 @@
-const { User, mongoose } = require('../data-access/db.js');
+const { User } = require('../data-access/db.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const tokenSecret = process.env.TOKENSECRET;
+const accessTokenSecret = process.env.ACCESS_TOKENSECRET;
+const refreshTokenSecret = process.env.REFRESH_TOKENSECRET;
 
 const loginManager = {
-  read: async (user, pass) => {
-    const loginData = {
-      email: user,
-      password: pass,
-    };
+  read: async (loginemail, loginpass) => {
     try {
-      const user = await User.findOne(
+      const loginData = {
+        email: loginemail,
+        password: loginpass,
+      };
+
+      const mongoData = await User.findOne(
         { email: loginData.email },
-        { email: true }
-      );
-      const token = jwt.sign(
+        { email: true, password: true }
+      )
+        .select('+email')
+        .select('+password');
+
+      const mongoId = mongoData['_id'];
+
+      const cryptCheck = async (p1, p2) => {
+        await bcrypt.compare(p1, p2);
+      };
+
+      const accessToken = jwt.sign(
         {
-          user,
+          mongoId,
         },
-        tokenSecret,
+        accessTokenSecret,
         {
-          expiresIn: '15m',
+          expiresIn: '1h',
         }
       );
 
-      const cryptCheck = async (p1, p2) => {
-        const checkResult = await bcrypt.compare(p1, p2);
-        return [checkResult, token];
-      };
-      const userJWT = await User.findOne({ email: loginData.email })
-        .select('+email')
-        .select('+password');
-      return cryptCheck(loginData.password, userJWT.password);
+      const refreshToken = jwt.sign(
+        {
+          mongoId,
+        },
+        refreshTokenSecret,
+        {
+          expiresIn: '24h',
+        }
+      );
+
+      return [
+        cryptCheck(loginData.password, mongoData.password),
+        accessToken,
+        refreshToken,
+      ];
     } catch (err) {
       console.log(err.message);
     }
