@@ -2,16 +2,8 @@
   <div class="login">
     <div class="login__page">
       <h1 class="sign__text">Log in</h1>
-      <div style="color: magenta; font-size: 0.8rem">
-        user is logged in?
-        <span style="color: blue; font-size: 0.8rem">{{ isLoggedIn }}</span
-        ><br />
-        <span
-          v-if="isLoggedIn === true"
-          style="color: purple; font-size: 0.8rem"
-        >
-          {{ `${user[2]} ${user[3]}` }} logged in</span
-        >
+      <div v-if="isLoggedIn === true" style="color: purple; font-size: 0.8rem">
+        {{ `${user[2]} ${user[3]}` }} is logged in
       </div>
       <form class="form__group" @submit.prevent="login">
         <input
@@ -73,7 +65,6 @@ export default {
             'readUser',
             VueJwtDecode.decode(localStorage.getItem('token'))
           );
-          alert(`Hi ${this.$store.state.user.jwtData[2]}! Login Successful!`);
         })
         .catch((err) => {
           console.log(err);
