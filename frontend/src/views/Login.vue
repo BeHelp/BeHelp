@@ -3,6 +3,8 @@
     <div class="login__page">
       <h1 class="sign__text">Log in</h1>
       <br />
+      <div>user is logged in? {{ isLoggedIn }}</div>
+      <br />
       <form class="form__group" @submit.prevent="submit">
         <input
           v-model="this.email"
@@ -67,6 +69,11 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
     },
   },
 };
