@@ -53,7 +53,7 @@ export default {
             </button></router-link
           >
         </li>
-        <li v-if="isLoggedIn === false" class="header__nav-features login">
+        <li v-if="isLoggedIn !== true" class="header__nav-features login">
           <router-link to="/login"
             ><button class="header__nav-features btn-login">
               Log In
