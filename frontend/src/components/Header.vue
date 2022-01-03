@@ -53,7 +53,7 @@ export default {
             </button></router-link
           >
         </li>
-        <li class="header__nav-features login">
+        <li v-if="isLoggedIn === false" class="header__nav-features login">
           <router-link to="/login"
             ><button class="header__nav-features btn-login">
               Log In
@@ -68,7 +68,7 @@ export default {
         </li>
         <li v-if="isLoggedIn === true" class="header__nav-features usermenu">
           <img :src="user.photoURL" class="header__nav-features img-username" />
-          <div id="usermenu-list" class="usermenu-list">
+          <div id="usermenu-list" class="usermenu-list none">
             <a href="#" class="usermenu-a" id="usermenu-profile">My Profile</a
             ><br />
             <a href="#" class="usermenu-a" id="usermenu-messages">Messages</a
