@@ -1,5 +1,4 @@
 <script>
-import { mapState } from 'vuex';
 import VueJwtDecode from 'vue-jwt-decode';
 export default {
   name: 'Login',
@@ -35,13 +34,6 @@ export default {
         });
     },
   },
-  computed: {
-    // // this does the same as the mapState function below
-    // isLoggedIn2() {
-    //   return this.$store.state.isLoggedIn;
-    // },
-    ...mapState(['isLoggedIn', 'user']),
-  },
 };
 </script>
 
@@ -49,9 +41,7 @@ export default {
   <div class="login">
     <div class="login__page">
       <h1 class="sign__text">Log in</h1>
-      <div v-if="isLoggedIn === true" style="color: purple; font-size: 0.8rem">
-        {{ `${user.firstName} ${user.lastName}` }} is logged in
-      </div>
+
       <form class="form__group" @submit.prevent="login">
         <input
           v-model="this.email"

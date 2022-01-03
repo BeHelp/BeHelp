@@ -1,4 +1,11 @@
-<script></script>
+<script>
+import { mapState } from 'vuex';
+export default {
+  computed: {
+    ...mapState(['isLoggedIn', 'user']),
+  },
+};
+</script>
 
 <template>
   <header class="header">
@@ -10,10 +17,19 @@
           alt="logo"
       /></router-link>
 
+      <div v-if="isLoggedIn === true" style="color: purple; font-size: 0.8rem">
+        {{ `${user.firstName} ${user.lastName}` }} is logged in
+      </div>
+
       <ul class="header__nav-list">
         <li class="header__nav-list item">
-        <router-link v-if="$route.name !== 'Home'" to="/" class="header__nav-list link">About</router-link>
-        <a v-else href="#about" class="header__nav-list link">About</a>
+          <router-link
+            v-if="$route.name !== 'Home'"
+            to="/"
+            class="header__nav-list link"
+            >About</router-link
+          >
+          <a v-else href="#about" class="header__nav-list link">About</a>
         </li>
         <li class="header__nav-list item">
           <router-link to="/volunteers" class="header__nav-list link"
@@ -47,17 +63,26 @@
               Log In
             </button></router-link
           >
-          </li>
+        </li>
 
-        <li class="header__nav-features"><p class = "header__nav-features p-username none" id = "header-username">Username</p></li>
-        <li class = "header__nav-features usermenu none">
-        <img src="../assets/fas/user-circle-solid.svg" class = "header__nav-features img-username none">
-        <div id = "usermenu-list" class = "usermenu-list none">
-          <a href="#" class = "usermenu-a" id = "usermenu-profile">My Profile</a><br>
-          <a href="#" class = "usermenu-a" id = "usermenu-messages">Messages</a><br>
-          <a href="#" class = "usermenu-a" id = "usermenu-logout">Logout</a>
+        <li class="header__nav-features">
+          <p class="header__nav-features p-username none" id="header-username">
+            Username
+          </p>
+        </li>
+        <li class="header__nav-features usermenu none">
+          <img
+            src="../assets/fas/user-circle-solid.svg"
+            class="header__nav-features img-username none"
+          />
+          <div id="usermenu-list" class="usermenu-list none">
+            <a href="#" class="usermenu-a" id="usermenu-profile">My Profile</a
+            ><br />
+            <a href="#" class="usermenu-a" id="usermenu-messages">Messages</a
+            ><br />
+            <a href="#" class="usermenu-a" id="usermenu-logout">Logout</a>
           </div>
-          </li>
+        </li>
       </ul>
     </nav>
   </header>
