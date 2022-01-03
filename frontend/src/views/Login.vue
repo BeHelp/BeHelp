@@ -5,7 +5,7 @@
       <br />
       <form class="form__group" @submit.prevent="submit">
         <input
-          v-model="data.email"
+          v-model="this.email"
           type="email"
           class="email__box"
           placeholder="E-mail"
@@ -13,7 +13,7 @@
         />
 
         <input
-          v-model="data.password"
+          v-model="this.password"
           type="password"
           class="password__box"
           placeholder="Password"
@@ -33,46 +33,41 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { reactive } from 'vue';
-import { useRouter } from 'vue-router';
 import VueJwtDecode from 'vue-jwt-decode';
 export default {
   name: 'Login',
-  data() {
+  data: function () {
     return {
-      user: {},
-    };
-  },
-  setup() {
-    const data = reactive({
       email: '',
       password: '',
-    });
-    const router = useRouter();
-    const submit = async () => {
-      const response = await fetch('http://localhost:5000/login', {
+    };
+  },
+  methods: {
+    login() {
+      fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          user: data.email,
-          pass: data.password,
+          user: this.email,
+          pass: this.password,
         },
-      });
-      const token = response.headers.get('Authorization').split(' ')[1];
-      const userId = VueJwtDecode.decode(token).mongoId;
-      console.log(userId);
-      localStorage.setItem('token', token);
-      if (!response.ok) {
-        alert('password or email is wrong');
-        throw new Error(`HTTP error! status:${response.status}`);
-      }
-      await router.push('/volunteers');
-    };
-    return {
-      data,
-      submit,
-    };
+      })
+        .then((res) => {
+          localStorage.setItem(
+            'token',
+            res.headers.get('authorization').split(' ')[1]
+          );
+          this.$store.commit('loggedIn');
+          this.$store.commit(
+            'readUser',
+            VueJwtDecode.decode(localStorage.getItem('token'))
+          );
+          alert(`Hi ${this.$store.state.user.jwtData[2]}! Login Successful!`);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
