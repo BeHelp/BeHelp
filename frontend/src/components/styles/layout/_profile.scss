@@ -187,32 +187,31 @@
     align-items: center;
 
     &-delete {
-      width: 40%;
+      width: 50%;
       text-align: left;
-    }
 
-    &-button {
-      text-decoration: underline;
-      border: none;
-      background-color: transparent;
-      font-size: 16px;
-      font-family: "Poppins";
-      color: white;
+      &-button {
+        text-decoration: underline;
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+        font-family: "Poppins";
+        color: white;
+      }
     }
 
     &-edit {
-      width: 60%;
-      display: flex;
-      flex-direction: row;
-      justify-content: right;
+      width: 25%;
 
       .submit {
-        width: 30%;
+        width: 80%;
         font-family: "Poppins";
         font-weight: 400;
         font-size: 20px;
         border: none;
         cursor: pointer;
+        display: inline-block;
+        text-align: center;
       }
 
       #edit {
@@ -221,12 +220,30 @@
         border: 2px solid $orange;
       }
 
+      #edit:hover {
+        background-color: #cd5300;
+      }
+    }
+
+    &-save {
+      width: 25%;
+
+      .submit {
+        width: 80%;
+        font-family: "Poppins";
+        font-weight: 400;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+      }
+
       #submit {
         background: $orange;
         color: #424651;
         margin-left: 2%;
       }
-      #edit:hover,
+
       #submit:hover {
         background-color: #cd5300;
       }

@@ -161,7 +161,9 @@
 
         <div class="container__modify">
           <div class="container__modify-delete">
-            <button class="container__modify-button">Delete My Profile</button>
+            <button class="container__modify-delete-button">
+              Delete My Profile
+            </button>
           </div>
           <div class="container__modify-edit">
             <input
@@ -171,6 +173,8 @@
               name="edit"
               id="edit"
             />
+          </div>
+          <div class="container__modify-save">
             <input
               type="submit"
               value="SAVE"
