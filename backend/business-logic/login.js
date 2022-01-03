@@ -20,8 +20,6 @@ const loginManager = {
         .select('+email')
         .select('+password');
 
-      const mongoId = mongoData['_id'];
-
       const passwordIsValid = await bcrypt.compare(
         loginData.password,
         mongoData.password
@@ -36,9 +34,20 @@ const loginManager = {
 
       console.log('Login successful');
 
+      const userData = await User.findOne({ email: loginData.email }).select(
+        '+email'
+      );
+
+      const jwtData = [];
+      jwtData.push(userData['_id']);
+      jwtData.push(userData['email']);
+      jwtData.push(userData['firstName']);
+      jwtData.push(userData['lastName']);
+      jwtData.push(userData['photoURL']);
+
       const accessToken = jwt.sign(
         {
-          mongoId,
+          jwtData,
         },
         accessTokenSecret,
         {
@@ -48,7 +57,7 @@ const loginManager = {
 
       const refreshToken = jwt.sign(
         {
-          mongoId,
+          jwtData,
         },
         refreshTokenSecret,
         {
