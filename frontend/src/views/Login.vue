@@ -4,9 +4,16 @@
       <h1 class="sign__text">Log in</h1>
       <div style="color: magenta; font-size: 0.8rem">
         user is logged in?
-        <span style="color: blue; font-size: 0.8rem">{{ isLoggedIn }}</span>
+        <span style="color: blue; font-size: 0.8rem">{{ isLoggedIn }}</span
+        ><br />
+        <span
+          v-if="isLoggedIn === true"
+          style="color: purple; font-size: 0.8rem"
+        >
+          {{ `${user[2]} ${user[3]}` }} logged in</span
+        >
       </div>
-      <form class="form__group" @submit.prevent="submit">
+      <form class="form__group" @submit.prevent="login">
         <input
           v-model="this.email"
           type="email"
@@ -36,6 +43,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import VueJwtDecode from 'vue-jwt-decode';
 export default {
   name: 'Login',
@@ -73,9 +81,11 @@ export default {
     },
   },
   computed: {
-    isLoggedIn() {
-      return this.$store.state.isLoggedIn;
-    },
+    // // this does the same as the mapState function below
+    // isLoggedIn2() {
+    //   return this.$store.state.isLoggedIn;
+    // },
+    ...mapState(['isLoggedIn', 'user']),
   },
 };
 </script>

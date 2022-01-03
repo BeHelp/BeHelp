@@ -12,7 +12,7 @@ const store = createStore({
       state.isLoggedIn = true;
     },
     readUser(state, user) {
-      state.user = user;
+      state.user = user.jwtData;
     },
   },
 });
