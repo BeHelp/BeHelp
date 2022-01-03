@@ -166,22 +166,10 @@
             </button>
           </div>
           <div class="container__modify-edit">
-            <input
-              type="button"
-              value="EDIT"
-              class="submit"
-              name="edit"
-              id="edit"
-            />
+            <button class="edit-button" name="edit">EDIT</button>
           </div>
           <div class="container__modify-save">
-            <input
-              type="submit"
-              value="SAVE"
-              class="submit"
-              name="submit"
-              id="submit"
-            />
+            <button class="save-button" name="save">SAVE</button>
           </div>
         </div>
       </form>
@@ -190,7 +178,7 @@
 </template>
 
 <style lang="scss">
-@import "../components/styles/abstract/_base.scss";
-@import "../components/styles/abstract/_variables.scss";
-@import "../components/styles/layout/_profile.scss";
+@import '../components/styles/abstract/_base.scss';
+@import '../components/styles/abstract/_variables.scss';
+@import '../components/styles/layout/_profile.scss';
 </style>
