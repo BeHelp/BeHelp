@@ -17,10 +17,6 @@ export default {
           alt="logo"
       /></router-link>
 
-      <div v-if="isLoggedIn === true" style="color: purple; font-size: 0.8rem">
-        {{ `${user.firstName} ${user.lastName}` }} is logged in
-      </div>
-
       <ul class="header__nav-list">
         <li class="header__nav-list item">
           <router-link
@@ -66,16 +62,13 @@ export default {
         </li>
 
         <li class="header__nav-features">
-          <p class="header__nav-features p-username none" id="header-username">
-            Username
+          <p class="header__nav-features p-username" id="header-username">
+            {{ user.firstName }}
           </p>
         </li>
-        <li class="header__nav-features usermenu none">
-          <img
-            src="../assets/fas/user-circle-solid.svg"
-            class="header__nav-features img-username none"
-          />
-          <div id="usermenu-list" class="usermenu-list none">
+        <li v-if="isLoggedIn === true" class="header__nav-features usermenu">
+          <img :src="user.photoURL" class="header__nav-features img-username" />
+          <div id="usermenu-list" class="usermenu-list">
             <a href="#" class="usermenu-a" id="usermenu-profile">My Profile</a
             ><br />
             <a href="#" class="usermenu-a" id="usermenu-messages">Messages</a

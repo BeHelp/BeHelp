@@ -11,6 +11,7 @@ const store = createStore({
     return {
       isLoggedIn: '',
       user: {},
+      photoURL: '',
     };
   },
   mutations: {
@@ -18,6 +19,7 @@ const store = createStore({
       state.isLoggedIn = true;
     },
     readUser(state, user) {
+      state.photoURL = user.jwtData[4];
       state.user.userId = user.jwtData[0];
       state.user.email = user.jwtData[1];
       state.user.firstName = user.jwtData[2];
