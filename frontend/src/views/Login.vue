@@ -2,9 +2,10 @@
   <div class="login">
     <div class="login__page">
       <h1 class="sign__text">Log in</h1>
-      <br />
-      <div>user is logged in? {{ isLoggedIn }}</div>
-      <br />
+      <div style="color: magenta; font-size: 0.8rem">
+        user is logged in?
+        <span style="color: blue; font-size: 0.8rem">{{ isLoggedIn }}</span>
+      </div>
       <form class="form__group" @submit.prevent="submit">
         <input
           v-model="this.email"
