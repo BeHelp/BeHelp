@@ -1,41 +1,47 @@
 <script>
+import Card from "../components/Card.vue";
+
 export default {
+  name: "Volunteers",
+  components: {
+    Card,
+  },
   data: function () {
     return {
-      results: '',
+      results: "",
       languages: [
-        'English',
-        'French',
-        'Dutch',
-        'German',
-        'Arabic',
-        'Russian',
-        'Spanish',
-        'Hindi',
-        'Chinese',
-        'Italian',
-        'Other',
+        "English",
+        "French",
+        "Dutch",
+        "German",
+        "Arabic",
+        "Russian",
+        "Spanish",
+        "Hindi",
+        "Chinese",
+        "Italian",
+        "Other",
       ],
       skills: [
-        'Legal assistance',
-        'translation',
-        'Mental health',
-        'Host families',
-        'Education services',
-        'Language classes',
-        'Social assistance',
+        "Legal assistance",
+        "translation",
+        "Mental health",
+        "Host families",
+        "Education services",
+        "Language classes",
+        "Social assistance",
       ],
       locations: [
-        'Brussels',
-        'Ghent',
-        'Namur',
-        'Antwerp',
-        'Charleroi',
-        'Liége',
-        'Bruges',
-        'Leuven',
-        'Mons',
-        'Mechelen',
+        "Brussels",
+        "Ghent",
+        "Namur",
+        "Antwerp",
+        "Charleroi",
+        "Liége",
+        "Bruges",
+        "Leuven",
+        "Mons",
+        "Mechelen",
       ],
       filterLanguages: [],
       filterSkills: [],
@@ -55,13 +61,13 @@ export default {
           filter.languages.length === 0 ||
           filter.skills.length === 0
         ) {
-          alert('Please select at least one filter for each category');
+          alert("Please select at least one filter for each category");
           return;
         }
-        const res = await fetch('http://localhost:5000/users/', {
-          method: 'POST',
+        const res = await fetch("http://localhost:5000/users/", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             location: filter.locations,
@@ -159,10 +165,11 @@ export default {
           {{ this.results }}
         </pre>
       </div>
+      <Card />
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_filter.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_filter.scss";
 </style>
