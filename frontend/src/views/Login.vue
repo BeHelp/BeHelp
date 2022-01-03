@@ -1,39 +1,3 @@
-<template>
-  <div class="login">
-    <div class="login__page">
-      <h1 class="sign__text">Log in</h1>
-      <div v-if="isLoggedIn === true" style="color: purple; font-size: 0.8rem">
-        {{ `${user[2]} ${user[3]}` }} is logged in
-      </div>
-      <form class="form__group" @submit.prevent="login">
-        <input
-          v-model="this.email"
-          type="email"
-          class="email__box"
-          placeholder="E-mail"
-          required
-        />
-
-        <input
-          v-model="this.password"
-          type="password"
-          class="password__box"
-          placeholder="Password"
-          autocomplete="off"
-          required
-        /><br />
-        <button class="login__btn" @click="login" type="submit">LOG IN</button>
-
-        <p class="p1">
-          You don't have an account?
-          <a class="signup__text" href="/Signup">Sign Up</a>
-        </p>
-        <p class="p2"><a href="#">forgot your password?</a></p>
-      </form>
-    </div>
-  </div>
-</template>
-
 <script>
 import { mapState } from 'vuex';
 import VueJwtDecode from 'vue-jwt-decode';
@@ -80,6 +44,42 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="login">
+    <div class="login__page">
+      <h1 class="sign__text">Log in</h1>
+      <div v-if="isLoggedIn === true" style="color: purple; font-size: 0.8rem">
+        {{ `${user.firstName} ${user.lastName}` }} is logged in
+      </div>
+      <form class="form__group" @submit.prevent="login">
+        <input
+          v-model="this.email"
+          type="email"
+          class="email__box"
+          placeholder="E-mail"
+          required
+        />
+
+        <input
+          v-model="this.password"
+          type="password"
+          class="password__box"
+          placeholder="Password"
+          autocomplete="off"
+          required
+        /><br />
+        <button class="login__btn" @click="login" type="submit">LOG IN</button>
+
+        <p class="p1">
+          You don't have an account?
+          <a class="signup__text" href="/Signup">Sign Up</a>
+        </p>
+        <p class="p2"><a href="#">forgot your password?</a></p>
+      </form>
+    </div>
+  </div>
+</template>
 
 <style lang="scss">
 @import '../components/styles/abstract/_variables.scss';
