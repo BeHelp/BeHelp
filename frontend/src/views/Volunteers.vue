@@ -6,23 +6,6 @@ export default {
   components: {
     Card,
   },
-  data() {
-    return {
-      cards: [
-        {
-          title: "Jasmin",
-          src: require("../assets/img/volunteer-1.svg"),
-        },
-        {
-          title: "Will",
-          src: require("../assets/img/volunteer-2.svg"),
-        },
-      ],
-    };
-  },
-
-  // ('../assets/img/volunteer-1.svg')}
-
   data: function () {
     return {
       results: "",
@@ -187,8 +170,6 @@ export default {
           >
           <!-- Slots -->
           <Card />
-          <Card />
-    
         </div>
       </div>
     </div>
