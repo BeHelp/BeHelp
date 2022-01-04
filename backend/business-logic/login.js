@@ -1,37 +1,87 @@
-const { User, mongoose } = require('../data-access/db.js');
+const { User } = require('../data-access/db.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const tokenSecret = process.env.TOKENSECRET;
+const RefreshToken = require('../models/RefreshToken.js');
+const accessTokenSecret = process.env.ACCESS_TOKENSECRET;
+const refreshTokenSecret = process.env.REFRESH_TOKENSECRET;
 
 const loginManager = {
-  read: async (user, pass) => {
-    const loginData = {
-      email: user,
-      password: pass,
-    };
+  read: async (loginemail, loginpass) => {
     try {
-      const user = await User.findOne(
+      const loginData = {
+        email: loginemail,
+        password: loginpass,
+      };
+
+      const mongoData = await User.findOne(
         { email: loginData.email },
-        { email: true }
+        { email: true, password: true }
+      )
+        .select('+email')
+        .select('+password');
+
+      const passwordIsValid = await bcrypt.compare(
+        loginData.password,
+        mongoData.password
       );
-      const token = jwt.sign(
+
+      // console.log(`passwordIsValid: ${passwordIsValid}`);
+
+      if (!passwordIsValid) {
+        console.log('Login failed');
+        return [false, null, null];
+      }
+
+      console.log('Login successful');
+
+      const userData = await User.findOne({ email: loginData.email }).select(
+        '+email'
+      );
+
+      const jwtData = [];
+      jwtData.push(userData['_id']);
+      jwtData.push(userData['email']);
+      jwtData.push(userData['firstName']);
+      jwtData.push(userData['lastName']);
+      jwtData.push(userData['photoURL']);
+
+      const accessToken = jwt.sign(
         {
-          user,
+          jwtData,
         },
-        tokenSecret,
+        accessTokenSecret,
         {
-          expiresIn: '15m',
+          expiresIn: '1h',
         }
       );
 
-      const cryptCheck = async (p1, p2) => {
-        const checkResult = await bcrypt.compare(p1, p2);
-        return [checkResult, token];
-      };
-      const userJWT = await User.findOne({ email: loginData.email })
-        .select('+email')
-        .select('+password');
-      return cryptCheck(loginData.password, userJWT.password);
+      const refreshToken = jwt.sign(
+        {
+          jwtData,
+        },
+        refreshTokenSecret,
+        {
+          expiresIn: '24h',
+        }
+      );
+
+      console.log(
+        `accessToken: \n${accessToken}`,
+        `\nrefreshToken: \n${refreshToken}`
+      );
+
+      try {
+        const newRefreshToken = await RefreshToken.create({
+          user: mongoData._id,
+          token: refreshToken,
+          expiryDate: new Date(Date.now() + 86400000),
+        });
+        console.log('refresh token saved to db');
+      } catch (err) {
+        console.log(err.message);
+      }
+
+      return [passwordIsValid, accessToken, refreshToken];
     } catch (err) {
       console.log(err.message);
     }

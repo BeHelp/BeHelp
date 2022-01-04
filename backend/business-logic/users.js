@@ -1,4 +1,4 @@
-const { User, mongoose } = require('../data-access/db.js');
+const { User } = require('../data-access/db.js');
 
 const userManager = {
   getUser: async (userData) => {
