@@ -148,11 +148,11 @@ export default {
 
           <div class="container__group">
             <div class="container__select">
-              <select name="languages" id="languages">
-                <option value="Language" disabled selected>Languages</option>
-                <option value="French">English</option>
+            <label for="languages">Languages</label>
+              <select name="languages" id="languages" multiple>
+                <option value="English">English</option>
                 <option value="Dutch">Dutch</option>
-                <option value="English">French</option>
+                <option value="French">French</option>
                 <option value="Russian">Russian</option>
                 <option value="Spanish">Spanish</option>
                 <option value="Arabic">Arabic</option>
