@@ -46,7 +46,7 @@ export default {
             <option class="header__nav-features option">NL</option>
           </select>
         </li>
-        <li class="header__nav-features signup">
+        <li v-if="isLoggedIn !== true" class="header__nav-features signup">
           <router-link to="/signup"
             ><button class="header__nav-features btn-signup">
               Sign Up
