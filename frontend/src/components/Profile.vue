@@ -1,4 +1,30 @@
-<script></script>
+<script>
+export default {
+  data: function () {
+    return {
+      result: "",
+    };
+  },
+  methods: {
+    async getUser() {
+      try {
+        const res = await fetch(
+          "http://localhost:5000/register/61bde751920d4589d0d1de13",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const result = await res.json();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
+</script>
 <template>
   <div class="container">
     <div class="container__profile">
@@ -23,6 +49,7 @@
           <div class="right">
             <div class="container__group">
               <input
+                v-bind:value="result.firstName"
                 type="text"
                 placeholder="First name*"
                 name="firstname"
@@ -32,6 +59,7 @@
             </div>
             <div class="container__group">
               <input
+                v-bind:value="result.lastName"
                 type="text"
                 placeholder="Last name*"
                 name="lastname"
@@ -60,18 +88,16 @@
           </div>
         </div>
 
-        <div class="container__radio">
-          <label for="usertype" class="radio-label">Status*</label>
-          <div class="container__radio-item1">
-            <input type="radio" name="status" id="newcomer" checked />
-            <label for="newcomer">Newcomer</label>
-            <span class="container__radio-check"></span>
-          </div>
-
-          <div class="container__radio-item1">
-            <input type="radio" name="status" id="volunteer" />
-            <label for="volunteer">Volunteer</label>
-            <span class="container__radio-check"></span>
+        <div class="container__group">
+          <div class="container__select">
+            <select name="Status" id="status" required>
+              <option value="Status" disabled selected>Status*</option>
+              <option value="Newcomer">Newcomer</option>
+              <option value="Volunteer">Volunteer</option>
+            </select>
+            <span class="container__select-icon"
+              ><i class="zmdi zmdi-chevron-down"></i
+            ></span>
           </div>
         </div>
 
@@ -178,7 +204,7 @@
 </template>
 
 <style lang="scss">
-@import '../components/styles/abstract/_base.scss';
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_profile.scss';
+@import "../components/styles/abstract/_base.scss";
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_profile.scss";
 </style>
