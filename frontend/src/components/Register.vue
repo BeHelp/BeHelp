@@ -1,11 +1,11 @@
 <script>
-import countries from '../assets/countries.json';
+import languages from '../assets/jsondata/languages.json';
 
 export default {
   data() {
     return {
       selected: '',
-      countryOptions: countries,
+      countryOptions: languages,
     };
   },
   methods: {

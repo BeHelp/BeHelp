@@ -5,6 +5,8 @@ const store = createStore({
     return {
       isLoggedIn: false,
       user: {},
+      filterQuery: {},
+      filterResult: {},
     };
   },
   mutations: {
@@ -13,6 +15,9 @@ const store = createStore({
     },
     readUser(state, user) {
       state.user = user;
+    },
+    setFilterQuery(state, filterQuery) {
+      state.filterQuery = Object.assign({}, state.filterQuery, filterQuery);
     },
   },
 });
