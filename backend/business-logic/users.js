@@ -80,6 +80,14 @@ const userManager = {
       console.log(err.message);
     }
   },
+  getUserEmailById: async (userId) => {
+    try {
+      const user = await User.findById(userId).select('+email');
+      return user;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
   deleteUser: async (user) => {
     try {
       await user.remove();

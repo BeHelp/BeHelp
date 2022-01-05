@@ -19,6 +19,15 @@ const userController = {
       res.status(500).send(error);
     }
   },
+  getEmailById: async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const result = await userManager.getUserEmailById(userId);
+      res.status(200).send(result.email);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  },
   getAll: async (req, res) => {
     try {
       const users = await userManager.getAllVolunteers();
