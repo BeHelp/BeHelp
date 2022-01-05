@@ -1,70 +1,74 @@
 .search {
+  position: relative;
+
+  &__dropdown {
+    width: 20%;
+  }
+
+  &__background {
     position: relative;
+    text-align: center;
+    color: $white;
+    width: 100%;
 
-    &__background {
-        position: relative;
-        text-align: center;
-        color: $white;
-        width: 100%;
-
-        &-img {
-            width: 100%;
-        }
-
-        &-decor {
-            position: absolute;
-            bottom: 30%;
-            right: 10%;
-            width: 80%;
-            margin: 0 auto;
-            padding: 2em;
-            background: rgba(66, 70, 81, 0.3);
-            border-radius: 20px;
-        }
-
-        &-panel {
-            width: 100%;
-            display: flex;
-            justify-content:space-evenly;
-        }
-
-        &-criteria {
-            padding: 20px auto; 
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            font-size: 42;
-        }
-
-        .btn-secondary {
-            background-color: $primary;
-            color:gray;
-            font-size: 14px;
-            width: 200px;
-        }
-
-        .dropdown-item {
-            font-size: 14px;
-        }
-
-        .search-btn {
-            background-color: $orange;
-            border-radius: 20px;
-            border-color: $orange;
-            border-style: none;
-            width: 80px;
-            overflow-x: hidden; 
-            position: relative;
-        }
-
-        .search-btn:hover {
-            background-color: rgb(175, 118, 49);
-        }
-
-        .search-icon {
-            height: 20px;
-            margin: 5px;
-        }
+    &-img {
+      width: 100%;
     }
+
+    &-decor {
+      position: absolute;
+      bottom: 30%;
+      right: 10%;
+      width: 80%;
+      margin: 0 auto;
+      padding: 2em;
+      background: rgba(66, 70, 81, 0.3);
+      border-radius: 20px;
+    }
+
+    &-panel {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    &-criteria {
+      padding: 20px auto;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 42;
+    }
+
+    .btn-secondary {
+      background-color: $primary;
+      color: gray;
+      font-size: 14px;
+      width: 200px;
+    }
+
+    .dropdown-item {
+      font-size: 14px;
+    }
+
+    .search-btn {
+      background-color: $orange;
+      border-radius: 20px;
+      border-color: $orange;
+      border-style: none;
+      width: 80px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .search-btn:hover {
+      background-color: rgb(175, 118, 49);
+    }
+
+    .search-icon {
+      height: 20px;
+      margin: 5px;
+    }
+  }
 }
