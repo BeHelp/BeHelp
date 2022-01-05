@@ -3,16 +3,18 @@
     <div class="row g-0">
       <div class="col-md-4">
         <img
-          src="../assets/img/volunteer-1.svg"
+          v-bind:src="volunteer.photoURL"
           class="img-fluid rounded-start"
           alt="..."
         />
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{ name }}</h5>
+          <h5 class="card-title">
+            {{ volunteer.firstName }} {{ volunteer.lastName }}
+          </h5>
           <p class="card-text">
-            {{ volunteerDescription }}
+            {{ volunteer.description }}
           </p>
         </div>
         <div>
@@ -20,7 +22,8 @@
             class="geo__logo"
             src="../assets/logos/geo__logo.svg"
             alt="geo logo"
-          />Location
+          />
+          {{ volunteer.location[1] }}
         </div>
       </div>
       <div class="card__footer">
@@ -35,7 +38,7 @@
 <script>
 export default {
   name: "Card",
-  props: ["name", "volunteerDescription"],
+  props: ["volunteer"],
   components: {},
 };
 </script>
