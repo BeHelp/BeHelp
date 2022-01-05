@@ -11,6 +11,8 @@ const store = createStore({
     return {
       isLoggedIn: '',
       user: {},
+      filterQuery: {},
+      filterResult: {},
     };
   },
   mutations: {
@@ -23,6 +25,9 @@ const store = createStore({
       state.user.firstName = user.jwtData[2];
       state.user.lastName = user.jwtData[3];
       state.user.photoURL = user.jwtData[4];
+    },
+    setFilterQuery(state, filterQuery) {
+      state.filterQuery = Object.assign({}, state.filterQuery, filterQuery);
     },
   },
 });

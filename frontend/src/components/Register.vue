@@ -1,5 +1,13 @@
 <script>
+import languages from '../assets/jsondata/languages.json';
+
 export default {
+  data() {
+    return {
+      selected: '',
+      countryOptions: languages,
+    };
+  },
   methods: {
     uploadImage(event) {
       const URL = 'https://api.cloudinary.com/v1_1/behelp/image/upload';
@@ -34,8 +42,7 @@ export default {
           <h2>REGISTRATION FORM</h2>
 
           <div class="container__first">
-            <div class="left" >
-              
+            <div class="left">
               <input
                 type="file"
                 accept="image/*"
@@ -138,12 +145,17 @@ export default {
           </div>
 
           <div class="container__group">
-            <input
-              type="text"
-              placeholder="Nationality"
-              name="nationality"
-              id="nationality"
-            />
+            <div>
+              <div>
+                <v-select
+                  class="style-chooser"
+                  multiple
+                  v-model="selected"
+                  :options="countryOptions"
+                  :placeholder="'Nationality'"
+                />
+              </div>
+            </div>
           </div>
 
           <div class="container__group">
@@ -207,4 +219,5 @@ export default {
 @import '../components/styles/abstract/_base.scss';
 @import '../components/styles/abstract/_variables.scss';
 @import '../components/styles/layout/_register.scss';
+@import 'vue-select/src/scss/vue-select.scss';
 </style>
