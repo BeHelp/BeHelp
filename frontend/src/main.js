@@ -12,3 +12,4 @@ createApp(App)
   .component('font-awesome-icon', FontAwesomeIcon)
   .component('v-select', vSelect)
   .mount('#app');
+
