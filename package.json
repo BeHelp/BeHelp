@@ -20,7 +20,6 @@
     "concurrently": "^6.5.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
-    "esbuild-linux-64": "^0.14.10",
     "express": "^4.17.2",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
