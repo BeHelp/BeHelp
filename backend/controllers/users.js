@@ -65,6 +65,23 @@ const userController = {
       res.status(500).send(error);
     }
   },
+  logout: async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      if (userId === undefined || userId === null) {
+        res.status(404).send({ error: 'userId empty' });
+      } else {
+        await userManager.logoutUser(userId);
+        res.status(200).send(
+          JSON.stringify({
+            user: `user logged out successfully!`,
+          })
+        );
+      }
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  },
 };
 
 module.exports = userController;

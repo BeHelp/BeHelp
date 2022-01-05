@@ -1,5 +1,6 @@
 <script>
 import VueJwtDecode from 'vue-jwt-decode';
+
 export default {
   name: 'Login',
   data: function () {
@@ -28,6 +29,9 @@ export default {
             'readUser',
             VueJwtDecode.decode(localStorage.getItem('token'))
           );
+        })
+        .then(() => {
+          this.$router.push('/');
         })
         .catch((err) => {
           console.log(err);
