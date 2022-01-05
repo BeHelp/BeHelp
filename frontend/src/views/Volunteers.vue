@@ -1,13 +1,22 @@
 <script>
 import Card from "../components/Card.vue";
+import Cardversion from "../components/Cardversion.vue";
 
 export default {
   name: "volunteers",
   components: {
     Card,
+    Cardversion,
   },
   data: function () {
     return {
+      volunteers: [
+        { name: "Yoshi", description: "desciption a" },
+        { name: "tom", description: "desciption b" },
+        { name: "Emely", description: "desciption c" },
+        { name: "George", description: "desciption d" },
+        { name: "Margo", description: "desciption AZAZEAZe" },
+      ],
       results: "",
       languages: [
         "English",
@@ -169,7 +178,17 @@ export default {
         </pre
           >
           <!-- Slots -->
-          <Card />
+          <div class="container__fluid">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              <div class="col">
+                <Card
+                  v-for='volunteer in volunteers'
+                  v-bind:name='volunteer.name'
+                  v-bind:volunteerDescription='volunteer.description'
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
