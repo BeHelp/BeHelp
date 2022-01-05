@@ -2,6 +2,7 @@
 import Search from '../components/Search.vue';
 import Whoarewe from '../components/Whoarewe.vue';
 import Services from '../components/Services.vue';
+import Testimony from '../components/Testimony.vue';
 
 export default {
   name: 'Home',
@@ -9,6 +10,7 @@ export default {
     Search,
     Whoarewe,
     Services,
+    Testimony,
   },
 };
 </script>
@@ -16,7 +18,8 @@ export default {
 <template>
   <div>
     <Search />
-    <whoarewe />
+    <Whoarewe />
     <Services />
+    <Testimony />
   </div>
 </template>
