@@ -29,8 +29,10 @@
     "vue-horizontal": "^1.0.2",
     "vue-jwt-decode": "^0.1.0",
     "vue-router": "^4.0.12",
+    "vue-select": "^4.0.0-beta.2",
     "vue-sweetalert2": "^5.0.2",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.1",
