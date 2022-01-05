@@ -10,6 +10,6 @@ userRoutes.get('/:userId', userController.getById);
 userRoutes.delete('/:userId', userController.delete);
 
 // auth route for getting user email
-userRoutes.post('/contactinfo/:userId', authCheck, userController.getEmailById);
+userRoutes.get('/contactinfo/:userId', authCheck, userController.getEmailById);
 
 module.exports = userRoutes;
