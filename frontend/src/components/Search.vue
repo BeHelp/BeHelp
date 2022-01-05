@@ -133,24 +133,6 @@ export default {
 @import '../components/styles/abstract/_variables.scss';
 @import '../components/styles/abstract/_base.scss';
 @import '../components/styles/layout/_search.scss';
+@import '../components/styles/layout/_dropdown.scss';
 @import 'vue-select/src/scss/vue-select.scss';
-
-.style-chooser .vs__search::placeholder,
-.style-chooser .vs__dropdown-toggle,
-.style-chooser .vs__dropdown-menu {
-  background-color: white;
-  border: none;
-  color: grey;
-  font-size: 0.8rem;
-}
-
-.style-chooser .vs__clear,
-.style-chooser .vs__open-indicator {
-  border: none;
-}
-
-.vs__fade-enter-active,
-.vs__fade-leave-active {
-  transition: none;
-}
 </style>

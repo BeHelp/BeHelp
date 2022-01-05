@@ -1,11 +1,15 @@
 <script>
 import languages from '../assets/jsondata/languages.json';
+import cities from '../assets/jsondata/cities.json';
+import skills from '../assets/jsondata/skills.json';
 
 export default {
   data() {
     return {
       selected: '',
-      countryOptions: languages,
+      languageOptions: languages,
+      cityOptions: cities,
+      skillOptions: skills,
     };
   },
   methods: {
@@ -77,21 +81,14 @@ export default {
               </div>
 
               <div class="container__city">
-                <select name="City" id="city" required>
-                  <option value="City" disabled selected>City*</option>
-                  <option value="Brussels">Brussels</option>
-                  <option value="Leuven">Leuven</option>
-                  <option value="Namur">Namur</option>
-                  <option value="Antwerp">Antwerp</option>
-                  <option value="Liège">Liège</option>
-                  <option value="Ghent">Ghent</option>
-                  <option value="Brugge">Brugge</option>
-                  <option value="Eupen">Eupen</option>
-                  <option value="Arlon">Arlon</option>
-                </select>
-                <span class="container__select-icon"
-                  ><i class="zmdi zmdi-chevron-down"></i
-                ></span>
+                <v-select
+                  class="style-chooser"
+                  multiple
+                  v-model="filterCities"
+                  :options="cityOptions"
+                  :placeholder="'City'"
+                  label="city"
+                />
               </div>
             </div>
           </div>
@@ -145,22 +142,17 @@ export default {
           </div>
 
           <div class="container__group">
-            <div>
-              <div>
-                <v-select
-                  class="style-chooser"
-                  multiple
-                  v-model="selected"
-                  :options="countryOptions"
-                  :placeholder="'Nationality'"
-                />
-              </div>
-            </div>
+            <input
+              type="text"
+              placeholder="Nationality"
+              name="nationality"
+              id="nationality"
+            />
           </div>
 
           <div class="container__group">
             <div class="container__select">
-            <label for="languages">Languages</label>
+              <label for="languages">Languages</label>
               <select name="languages" id="languages" multiple>
                 <option value="English">English</option>
                 <option value="Dutch">Dutch</option>
@@ -219,5 +211,6 @@ export default {
 @import '../components/styles/abstract/_base.scss';
 @import '../components/styles/abstract/_variables.scss';
 @import '../components/styles/layout/_register.scss';
+@import '../components/styles/layout/_dropdown.scss';
 @import 'vue-select/src/scss/vue-select.scss';
 </style>

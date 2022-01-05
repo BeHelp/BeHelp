@@ -25,5 +25,4 @@ export default {
 </template>
 <style lang="scss" scoped>
 @import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_filter.scss';
 </style>
