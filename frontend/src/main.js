@@ -13,4 +13,3 @@ createApp(App)
   .component('v-select', vSelect)
   .mount('#app');
 
-import 'bootstrap/dist/js/bootstrap.js';
