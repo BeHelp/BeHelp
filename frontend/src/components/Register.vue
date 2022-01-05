@@ -83,7 +83,6 @@ export default {
               <div class="container__city">
                 <v-select
                   class="style-chooser"
-                  multiple
                   v-model="filterCities"
                   :options="cityOptions"
                   :placeholder="'City'"
