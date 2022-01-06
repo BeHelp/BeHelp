@@ -1,4 +1,5 @@
-const { User, mongoose } = require('../data-access/db.js');
+const { User } = require('../data-access/db.js');
+const RefreshToken = require('../models/RefreshToken.js');
 
 const userManager = {
   getUser: async (userData) => {
@@ -29,7 +30,13 @@ const userManager = {
       ) {
         searchQuery.skills = userData.skills;
       }
-      const user = await User.find(searchQuery);
+      const user = await User.find({
+        $and: [
+          { languages: { $all: searchQuery.languages } },
+          { skills: { $all: searchQuery.skills } },
+          { location: { $all: searchQuery.location } },
+        ],
+      });
       console.log(user);
       return user;
     } catch (err) {
@@ -74,10 +81,31 @@ const userManager = {
       console.log(err.message);
     }
   },
+  getUserEmailById: async (userId) => {
+    try {
+      const user = await User.findById(userId).select('+email');
+      return user;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
   deleteUser: async (user) => {
     try {
       await user.remove();
       return true;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+  logoutUser: async (userId) => {
+    try {
+      const response = await RefreshToken.find({ user: userId }).deleteMany();
+      console.log(response);
+      if (response.deletedCount === 0) {
+        console.log('user not found');
+        return false;
+      }
+      console.log('user refreshtoken deleted');
     } catch (err) {
       console.log(err.message);
     }

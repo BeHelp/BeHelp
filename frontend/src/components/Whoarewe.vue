@@ -1,5 +1,5 @@
 <template>
-  <section class="home__about">
+  <section class="home__about" id="about">
     <div class="home__about-card">
       <div class="home__about-container">
         <div class="home__about-header-div">

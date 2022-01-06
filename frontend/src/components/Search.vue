@@ -1,96 +1,157 @@
-<script></script>
+<script>
+import languages from "../assets/jsondata/languages.json";
+import cities from "../assets/jsondata/cities.json";
+import skills from "../assets/jsondata/skills.json";
+
+export default {
+  data() {
+    return {
+      results: "",
+      languageOptions: languages,
+      cityOptions: cities,
+      skillOptions: skills,
+      filterLanguages: [],
+      filterCities: [],
+      filterSkills: [],
+    };
+  },
+  methods: {
+    async filterBtn() {
+      try {
+        const filter = {
+          skills: this.filterSkills[0].name,
+          location: this.filterCities[0]["city"],
+          languages: this.filterLanguages[0]["name"],
+        };
+        console.log(
+          JSON.stringify({
+            skills: filter.skills,
+            location: filter.location,
+            languages: filter.languages,
+          })
+        );
+        // if (
+        //   filter.skills.length === undefined ||
+        //   filter.locations.length === undefined ||
+        //   filter.languages.length === undefined ||
+        //   filter.skills.length === 0 ||
+        //   filter.locations.length === 0 ||
+        //   filter.languages.length === 0
+        // ) {
+        //   alert('Please select at least one filter for each category');
+        //   return;
+        // }
+        const res = await fetch("http://localhost:5000/users/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            skills: filter.skills,
+            location: filter.location,
+            languages: filter.languages,
+          }),
+        });
+        const searchResult = await res.json();
+        // this.results = searchResult[0].firstName;
+        // alert(this.results);
+        this.$emit("searchCompleted", searchResult);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
+</script>
 
 <template>
-  <div class="search-image">
-    <img src="../assets/homepage-search.png" alt="Snow" style="width: 100%" />
-    <div class="search-container">
-      <div class="btn-group">
-        <button class="btn btn-secondary btn-lg" type="button">Skills</button>
-        <button
-          type="button"
-          class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li>
-            <a class="dropdown-item" href="#">Translation/Interpretation</a>
-          </li>
-          <li><a class="dropdown-item" href="#">Medical</a></li>
-          <li><a class="dropdown-item" href="#">Job offer</a></li>
-        </ul>
-        <button class="btn btn-secondary btn-lg" type="button">
-          Post code
-        </button>
-        <button
-          type="button"
-          class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Brussels</a></li>
-          <li><a class="dropdown-item" href="#">Ghent</a></li>
-          <li><a class="dropdown-item" href="#">Louvain</a></li>
-        </ul>
-        <button class="btn btn-secondary btn-lg" type="button">Language</button>
-        <button
-          type="button"
-          class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">French</a></li>
-          <li><a class="dropdown-item" href="#">Dutch</a></li>
-          <li><a class="dropdown-item" href="#">English</a></li>
-        </ul>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="64"
-          height="64"
-          fill="currentColor"
-          class="bi bi-search"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-          />
-        </svg>
+  <section class="search">
+    <div class="search__background">
+      <img
+        v-if="$route.name === 'Home'"
+        src="../assets/homepage-search.png"
+        class="search__background-img"
+      />
+      <img
+        v-else
+        src=""
+        style="margin-top: 200px"
+        class="search__background-img"
+      />
+      <div class="search__background-decor">
+        <h1 v-if="$route.name === 'Home'">FIND YOUR VOLUNTEER</h1>
+        <h1 v-else>VOLUNTEERS WHO CAN HELP</h1>
+
+        <div class="search__background-panel">
+          <div class="search__dropdown">
+            <div>
+              <v-select
+                class="style-chooser"
+                multiple
+                v-model="filterSkills"
+                :options="skillOptions"
+                :placeholder="'Skills'"
+                label="name"
+              />
+            </div>
+          </div>
+          <div class="search__dropdown">
+            <div>
+              <v-select
+                class="style-chooser"
+                multiple
+                v-model="filterCities"
+                :options="cityOptions"
+                :placeholder="'Cities'"
+                label="city"
+              />
+            </div>
+          </div>
+          <div class="search__dropdown">
+            <div>
+              <v-select
+                class="style-chooser"
+                multiple
+                v-model="filterLanguages"
+                :options="languageOptions"
+                :placeholder="'Languages'"
+                label="name"
+              />
+            </div>
+          </div>
+
+          <button @click="filterBtn" class="search-btn">
+            <img src="../assets/fas/search-solid.svg" class="search-icon" />
+          </button>
+          <span class="flare"></span>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
+
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/abstract/_base.scss";
+@import "../components/styles/layout/_search.scss";
+@import "vue-select/src/scss/vue-select.scss";
 
-.search-image {
-  position: relative;
+.style-chooser .vs__search::placeholder,
+.style-chooser .vs__dropdown-toggle,
+.style-chooser .vs__dropdown-menu {
+  background-color: white;
+  border: none;
+  color: grey;
+  font-size: 0.8rem;
 }
 
-.search-container {
-  position: absolute;
-  text-align: center;
-  color: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.style-chooser .vs__clear,
+.style-chooser .vs__open-indicator {
+  border: none;
 }
 
-.search-container .dropdown-toggle {
-  margin-right: 1em;
-}
-.dropdown-item {
-  overflow: show;
-}
-
-.btn {
-  width: auto;
+.vs__fade-enter-active,
+.vs__fade-leave-active {
+  transition: none;
 }
 </style>

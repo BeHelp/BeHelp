@@ -1,5 +1,10 @@
 <script>
+import Register from '../components/Register.vue';
+
 export default {
+
+components: {  Register },
+
   mounted() {
     const plugin = document.createElement('script');
     plugin.setAttribute('src', '../src/assets/js/cloudinary.js');
@@ -10,7 +15,9 @@ export default {
 </script>
 
 <template>
-  <div>
+<div><Register />
+</div>
+ <!-- <div>
     <h1>Signup</h1>
     <p>Signup part of the application</p>
     <div>
@@ -21,5 +28,5 @@ export default {
 
       <p id="data"></p>
     </div>
-  </div>
+  </div>-->
 </template>

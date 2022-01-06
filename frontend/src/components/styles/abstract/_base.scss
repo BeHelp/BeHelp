@@ -1,6 +1,6 @@
-@import "./variables";
+@import "./_variables";
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,12 +19,28 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+    color: $dark-grey;
+}
+
 a::after {
     color: $dark-grey;
     text-decoration: none;
 }
 
-ul{
+h1 {
+    font-weight:bolder;
+    opacity: 100%;
+}
+
+h2 {
+    font-weight: bold;
+    opacity: 100%;
+    font-size: 32px;
+}
+
+ul {
     list-style-type: none;
 }
 
@@ -32,7 +48,8 @@ button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-};
+}
+
 // li {
 //     list-style-type: none; 
 // }

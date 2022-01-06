@@ -1,0 +1,89 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  &__box {
+    margin-right: 0.5rem;
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+}
+
+.volunteers {
+  padding: 2.5rem;
+  &__h1 {
+    font-family: $montserrat;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $dark-grey;
+    font-size: $font-size-h1;
+    margin-bottom: 2rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  &__filterbar {
+    flex: 20%;
+    padding: 1rem;
+    background-color: $blue;
+    border-radius: 1.5rem;
+    border-right: 1px solid $light-grey;
+
+    &-h1 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: $white;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+    }
+    &-h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: $dark-grey;
+      text-align: left;
+      margin: 1rem 0;
+      padding: 0;
+    }
+  }
+  &__searchresults {
+    flex: 80%;
+    padding: 1rem;
+    background-color: $primary;
+    border-radius: 1.5rem;
+  }
+}
+
+.btn-filter {
+  background-color: $dark-grey;
+  color: $white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  font-family: $montserrat;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 8px 16px;
+  margin: 20px auto;
+  text-decoration: none;
+  width: 100px;
+  box-sizing: border-box;
+}
+
+.btn-filter:hover {
+  background-color: $white;
+  color: $dark-grey;
+}

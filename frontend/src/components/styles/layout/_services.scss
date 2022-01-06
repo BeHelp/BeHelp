@@ -6,8 +6,7 @@
   position: relative;
   max-width: 1280px; //desktop size
   height: auto;
-  margin: 0% 8%;
-  margin-bottom: 10%;
+  margin: 5% 8%;
   padding: 4% 5% 8% 8%;
   background: #99c5e8;
   border-radius: 20px;
@@ -17,9 +16,9 @@
   & span {
     padding-right: 20px;
   }
+  
   &__left {
     justify-content: space-between;
-
     margin-top: 0%;
     padding-top: 0%;
     padding-right: 8%;
@@ -29,7 +28,7 @@
       font-family: Montserrat;
       font-style: normal;
       font-weight: bold;
-      font-size: 40px;
+      font-size: $font-size-h2;
       line-height: 49px;
 
       color: #424651;
@@ -42,7 +41,7 @@
       left: 169px;
       top: 1520px;
       font-weight: normal;
-      font-size: 20px;
+      font-size: $font-size-p;
       line-height: 30px;
       letter-spacing: 0.02em;
 
@@ -61,7 +60,7 @@
       height: 49px;
       padding-left: 6%;
       font-weight: bold;
-      font-size: 40px;
+      font-size: $font-size-h2;
       line-height: 49px;
       color: #ffffff;
       // border: 2px solid #ffffff;
@@ -79,7 +78,7 @@
     &-item {
       font-weight: normal;
       line-height: 40px;
-      font-size: 20px;
+      font-size: $font-size-p;
       border-bottom: 1px solid;
     }
   }

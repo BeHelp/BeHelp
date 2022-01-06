@@ -1,62 +1,52 @@
-$font-family: Montserrat;
-
 .home__about {
-  background-color: #f5f4ef80 50%;
-  height: 295px;
-  width: 895px;
-  left: -8px;
-  top: 795px;
   box-sizing: border-box;
   border-radius: 20px;
-
-  &-card {
-    margin-left: 100px;
-  }
+  position: relative;
+  height: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 8%;
+  padding: 2%;
+  background: #f5f4ef80;
+  width: 60%;
 
   &-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 
   &-h1 {
-    height: 50px;
-    left: 157px;
-    top: 863px;
-    font-family: $font-family;
-    font-size: 32px;
-    line-height: 85px;
-    letter-spacing: 0em;
-    font-weight: 700px;
+    font-family: $montserrat;
+    font-size: $font-size-h1;
+    line-height: 30px;
+    font-style: normal;
+    font-weight: bold;
+    padding-bottom: 6%;
     color: #424651;
   }
 
   &-h2 {
-    height: 49px;
-    left: 157px;
-    top: 948px;
-    font-family: $font-family;
-    font-weight: 510px;
-    font-size: 22px;
+    font-family: $montserrat;
+    font-weight: bold;
+    font-size: $font-size-h2;
     line-height: 30px;
-    color: #5787af;
+    color: #99c5e8;
   }
 
   &-logo {
-    height: 58px;
-    width: 65px;
-    margin-top: 65px;
+    height: 75px;
+    width: 85px;
+    padding-left: 20%;
   }
 
   &-text {
-    height: 90px;
-    width: 534px;
-    left: 159px;
-    top: 1050px;
-    font-family: $font-family;
+    font-family: $montserrat;
     font-weight: normal;
-    font-size: 15px;
-    line-height: 20px;
+    font-size: $font-size-p;
+    line-height: 27px;
     letter-spacing: 0.02em;
+    margin-top: 3%;
     color: #000000;
   }
 }
