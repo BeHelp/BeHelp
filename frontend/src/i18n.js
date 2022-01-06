@@ -11,9 +11,9 @@ const i18n = createI18n({
       contactus: "Contact Us",
     },
     FR: {
-      about: "À propos de nous",
+      about: "À propos",
       volunteers: "Bénévoles",
-      contactus: "Contactez nous",
+      contactus: "Contactez-nous",
     },
     NL: {
       about: "Over ons",
