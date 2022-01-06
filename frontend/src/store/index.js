@@ -19,6 +19,9 @@ const store = createStore({
     loggedIn(state) {
       state.isLoggedIn = true;
     },
+    loggedOut(state) {
+      state.isLoggedIn = false;
+    },
     readUser(state, user) {
       state.user.userId = user.jwtData[0];
       state.user.email = user.jwtData[1];

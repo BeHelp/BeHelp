@@ -13,8 +13,10 @@ export default {
       filterLanguages: [],
       filterCities: [],
       filterSkills: [],
+      filterGenders: [],
     };
   },
+
   methods: {
     async filterBtn() {
       try {
@@ -50,6 +52,7 @@ export default {
             skills: filter.skills,
             location: filter.location,
             languages: filter.languages,
+            genders: filter.genders,
           }),
         });
         const searchResult = await res.json();
