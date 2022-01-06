@@ -108,8 +108,10 @@ export default {
             class="usermenu-list"
             :class="{ 'foo-hover': hidden }"
           >
-            <a href="#" class="usermenu-a" id="usermenu-profile">My Profile</a
-            ><br />
+            
+            <router-link to="/myprofile" class="usermenu-a" id="usermenu-profile"
+            >My profile</router-link
+          ><br/>
             <a @click="logout" href="#" class="usermenu-a" id="usermenu-logout"
               >Logout</a
             >
