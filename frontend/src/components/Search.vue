@@ -75,12 +75,11 @@ export default {
         src="../assets/homepage-search.png"
         class="search__background-img"
       />
-      <img
+      <div
         v-else
-        src=""
-        style="margin-top: 200px"
+        style="margin-top: 100px"
         class="search__background-img"
-      />
+      ></div>
       <div class="search__background-decor">
         <h1 v-if="$route.name === 'Home'">FIND YOUR VOLUNTEER</h1>
         <h1 v-else>VOLUNTEERS WHO CAN HELP</h1>
@@ -90,10 +89,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterSkills"
                 :options="skillOptions"
-                :placeholder="'Skills'"
+                :placeholder="'Skill'"
                 label="name"
               />
             </div>
@@ -102,10 +100,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterCities"
                 :options="cityOptions"
-                :placeholder="'Cities'"
+                :placeholder="'City'"
                 label="city"
               />
             </div>
@@ -114,10 +111,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="'Languages'"
+                :placeholder="'Language'"
                 label="name"
               />
             </div>
