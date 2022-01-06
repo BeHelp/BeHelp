@@ -5,8 +5,10 @@ import Contacts from '../views/Contacts.vue';
 import Login from '../views/Login.vue';
 import Signup from '../views/Signup.vue';
 import Forgot from '../views/Forgot.vue';
+import Reset from '../views/Reset.vue';
 import Volunteers from '../views/Volunteers.vue';
 import Thankyou from '../views/Thankyou.vue';
+
 
 const routes = [
   {
@@ -43,6 +45,11 @@ const routes = [
     path: '/forgot-password',
     name: 'Forgot',
     component: Forgot,
+  },
+  {
+    path: '/reset-password/:token',
+    name: 'Reset',
+    component: Reset,
   },
   {
     path: '/thankyou',

@@ -1,5 +1,6 @@
 <script>
 import VueJwtDecode from 'vue-jwt-decode';
+
 export default {
   name: 'Login',
   data: function () {
@@ -28,6 +29,9 @@ export default {
             'readUser',
             VueJwtDecode.decode(localStorage.getItem('token'))
           );
+        })
+        .then(() => {
+          this.$router.push('/');
         })
         .catch((err) => {
           console.log(err);
@@ -59,13 +63,13 @@ export default {
           autocomplete="off"
           required
         /><br />
-        <button class="login__btn" @click="login" type="submit">LOG IN</button>
+        <button class="login__btn" type="submit">LOG IN</button>
 
         <p class="p1">
           You don't have an account?
           <a class="signup__text" href="/Signup">Sign Up</a>
         </p>
-        <router-link to="/forgot"> Forgot password? </router-link>
+        <router-link to="/forgot-password"> Forgot password? </router-link>
       </form>
     </div>
   </div>
