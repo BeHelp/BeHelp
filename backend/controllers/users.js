@@ -19,6 +19,15 @@ const userController = {
       res.status(500).send(error);
     }
   },
+  getEmailById: async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const result = await userManager.getUserEmailById(userId);
+      res.status(200).send(result.email);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  },
   getAll: async (req, res) => {
     try {
       const users = await userManager.getAllVolunteers();
@@ -49,6 +58,23 @@ const userController = {
         res.status(200).send(
           JSON.stringify({
             user: `user ${userId} was successfully deleted!`,
+          })
+        );
+      }
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  },
+  logout: async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      if (userId === undefined || userId === null) {
+        res.status(404).send({ error: 'userId empty' });
+      } else {
+        await userManager.logoutUser(userId);
+        res.status(200).send(
+          JSON.stringify({
+            user: `user logged out successfully!`,
           })
         );
       }
