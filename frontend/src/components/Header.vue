@@ -3,7 +3,7 @@ import { mapState } from 'vuex';
 export default {
   data() {
     return {
-      hidden: false,
+      hidden: true,
     };
   },
   computed: {
