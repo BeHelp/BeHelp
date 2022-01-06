@@ -65,7 +65,7 @@ export default {
           You don't have an account?
           <a class="signup__text" href="/Signup">Sign Up</a>
         </p>
-        <p class="p2"><a href="#">forgot your password?</a></p>
+        <router-link to="/forgot"> Forgot password? </router-link>
       </form>
     </div>
   </div>
