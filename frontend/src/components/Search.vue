@@ -89,7 +89,7 @@ export default {
                 class="style-chooser"
                 v-model="filterSkills"
                 :options="skillOptions"
-                :placeholder="'Skills'"
+                :placeholder="'Skill'"
                 label="name"
               />
             </div>
@@ -100,7 +100,7 @@ export default {
                 class="style-chooser"
                 v-model="filterCities"
                 :options="cityOptions"
-                :placeholder="'Cities'"
+                :placeholder="'City'"
                 label="city"
               />
             </div>
@@ -111,7 +111,7 @@ export default {
                 class="style-chooser"
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="'Languages'"
+                :placeholder="'Language'"
                 label="name"
               />
             </div>
