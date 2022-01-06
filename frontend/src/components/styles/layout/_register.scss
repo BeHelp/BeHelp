@@ -1,21 +1,3 @@
-.style-chooser .vs__search::placeholder,
-.style-chooser .vs__dropdown-toggle,
-.style-chooser .vs__dropdown-menu {
-  border: none;
-  color: grey;
-  font-size: 0.8rem;
-}
-
-.style-chooser .vs__clear,
-.style-chooser .vs__open-indicator {
-  border: none;
-}
-
-.vs__fade-enter-active,
-.vs__fade-leave-active {
-  transition: none;
-}
-
 .container {
   display: flex;
   max-width: 70%;
@@ -45,6 +27,7 @@
     .img {
       height: 100%;
       margin: auto;
+      object-fit: fill;
     }
 
     &-content {
