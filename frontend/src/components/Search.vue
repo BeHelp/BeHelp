@@ -72,12 +72,11 @@ export default {
         src="../assets/homepage-search.png"
         class="search__background-img"
       />
-      <img
+      <div
         v-else
-        src=""
-        style="margin-top: 200px"
+        style="margin-top: 100px"
         class="search__background-img"
-      />
+      ></div>
       <div class="search__background-decor">
         <h1 v-if="$route.name === 'Home'">FIND YOUR VOLUNTEER</h1>
         <h1 v-else>VOLUNTEERS WHO CAN HELP</h1>
