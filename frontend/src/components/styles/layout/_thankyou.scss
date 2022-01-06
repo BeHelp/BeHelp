@@ -39,27 +39,20 @@
       color: #424651;
     }
   }
-  &__wraper {
+  &__wrapper {
+    // background-color: blue;
     &-btn {
-      text-align: center;
+      padding: 6% 6% 6% 6%;
       cursor: pointer;
-      white-space: nowrap;
-      font-family: Montserrat;
       font-size: 1rem;
       text-transform: uppercase;
-      padding: 10% 15%;
-      margin-bottom: 10%;
-      border: none;
       border-radius: 25px;
       text-decoration: none;
-      overflow: hidden;
       color: #424651;
+      border: 0;
 
       &:hover {
-        text-transform: uppercase;
-        font-weight: bolder;
         color: black;
-        padding: 11% 16%;
       }
     }
   }
