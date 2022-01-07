@@ -42,7 +42,8 @@
   &__wrapper {
     // background-color: blue;
     &-btn {
-      padding: 6% 6% 6% 6%;
+      padding: 6%;
+      width: 120px;
       cursor: pointer;
       font-size: 1rem;
       text-transform: uppercase;
