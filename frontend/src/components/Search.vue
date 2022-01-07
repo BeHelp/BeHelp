@@ -10,9 +10,9 @@ export default {
       languageOptions: languages,
       cityOptions: cities,
       skillOptions: skills,
-      filterLanguages: [],
-      filterCities: [],
-      filterSkills: [],
+      filterLanguages: "",
+      filterCities: "",
+      filterSkills: "",
     };
   },
   methods: {
@@ -27,9 +27,9 @@ export default {
           return;
         }
         const filter = {
-          skills: this.filterSkills[0].name,
-          location: this.filterCities[0]["city"],
-          languages: this.filterLanguages[0]["name"],
+          skills: this.filterSkills["name"],
+          location: this.filterCities["city"],
+          languages: this.filterLanguages["name"],
         };
         console.log(
           JSON.stringify({
@@ -84,7 +84,6 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterSkills"
                 :options="skillOptions"
                 :placeholder="'Skill'"
@@ -96,10 +95,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterCities"
                 :options="cityOptions"
-                :placeholder="'Cities'"
+                :placeholder="'City'"
                 label="city"
               />
             </div>
@@ -108,10 +106,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="'Languages'"
+                :placeholder="'Language'"
                 label="name"
               />
             </div>
@@ -131,5 +128,6 @@ export default {
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/abstract/_base.scss";
 @import "../components/styles/layout/_search.scss";
+@import "../components/styles/layout/_dropdown.scss";
 @import "vue-select/src/scss/vue-select.scss";
 </style>
