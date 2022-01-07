@@ -13,8 +13,10 @@ export default {
       filterLanguages: [],
       filterCities: [],
       filterSkills: [],
+      filterGenders: [],
     };
   },
+
   methods: {
     async filterBtn() {
       try {
@@ -50,6 +52,7 @@ export default {
             skills: filter.skills,
             location: filter.location,
             languages: filter.languages,
+            genders: filter.genders,
           }),
         });
         const searchResult = await res.json();
@@ -72,12 +75,11 @@ export default {
         src="../assets/homepage-search.png"
         class="search__background-img"
       />
-      <img
+      <div
         v-else
-        src=""
-        style="margin-top: 200px"
+        style="margin-top: 100px"
         class="search__background-img"
-      />
+      ></div>
       <div class="search__background-decor">
         <h1 v-if="$route.name === 'Home'">FIND YOUR VOLUNTEER</h1>
         <h1 v-else>VOLUNTEERS WHO CAN HELP</h1>
@@ -87,10 +89,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterSkills"
                 :options="skillOptions"
-                :placeholder="'Skills'"
+                :placeholder="'Skill'"
                 label="name"
               />
             </div>
@@ -99,10 +100,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterCities"
                 :options="cityOptions"
-                :placeholder="'Cities'"
+                :placeholder="'City'"
                 label="city"
               />
             </div>
@@ -111,10 +111,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="'Languages'"
+                :placeholder="'Language'"
                 label="name"
               />
             </div>
@@ -131,27 +130,9 @@ export default {
 </template>
 
 <style lang="scss">
-@import "../components/styles/abstract/_variables.scss";
-@import "../components/styles/abstract/_base.scss";
-@import "../components/styles/layout/_search.scss";
-@import "vue-select/src/scss/vue-select.scss";
-
-.style-chooser .vs__search::placeholder,
-.style-chooser .vs__dropdown-toggle,
-.style-chooser .vs__dropdown-menu {
-  background-color: white;
-  border: none;
-  color: grey;
-  font-size: 0.8rem;
-}
-
-.style-chooser .vs__clear,
-.style-chooser .vs__open-indicator {
-  border: none;
-}
-
-.vs__fade-enter-active,
-.vs__fade-leave-active {
-  transition: none;
-}
+@import '../components/styles/abstract/_variables.scss';
+@import '../components/styles/abstract/_base.scss';
+@import '../components/styles/layout/_search.scss';
+@import '../components/styles/layout/_dropdown.scss';
+@import 'vue-select/src/scss/vue-select.scss';
 </style>

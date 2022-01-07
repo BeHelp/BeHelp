@@ -4,12 +4,14 @@
 
 <template>
 <div class="forgot">
-    <form @submit.prevent="handleSubmit" class="forgot__form">
-        <h3 class="forgot__text">Reset password</h3>
-            <label>Email</label>
-            <input v-model="email" type="email" class="email__box" placeholder="E-mail"/>
-            <button class="forgot__btn" type="submit">RESET</button>
+<div class = "forgot__page">
+    <h2 class="forgot__page-text">Reset Password</h2>
+    <p> Enter your email to reset password </p>
+    <form @submit.prevent="handleSubmit" class="forgot__page-form">
+            <input v-model="email" type="email" class="forgot__page-emailbox" placeholder="E-mail"/>
+            <button class="forgot__page-btn" type="submit">RESET</button>
         </form>
+</div>
 </div>
 </template>
 

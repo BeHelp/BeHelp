@@ -1,0 +1,47 @@
+.forgot {
+    text-align: center;
+
+    &__page {
+        display: inline-block;
+        text-align: left;
+        padding-left: 40px;
+        width: 480px;
+        height: 280px;
+        background: $primary;
+        box-sizing: border-box;
+        border-radius: 20px;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+
+        &-text {
+            margin-top: 45px;
+            color: $dark-grey;
+            padding-bottom: 1rem;
+        }
+
+        &-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-emailbox {
+            padding-block: 2px;
+            width: 350px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        &-btn {
+            width: 120px;
+            height: 44px;
+            background: $orange;
+            margin-top: 15px;
+            border-radius: 20px;
+            border-style: hidden;
+            font-size: 0.8rem;
+        }
+        &-btn:hover {
+            background-color: #cd5300;
+        }
+    }
+}

@@ -32,12 +32,21 @@ a::after {
 h1 {
     font-weight:bolder;
     opacity: 100%;
+    text-transform: uppercase;
 }
 
 h2 {
     font-weight: bold;
     opacity: 100%;
     font-size: 32px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-weight: bold;
+    opacity:100%;
+    font-size: 24px;
+    text-transform: uppercase;
 }
 
 ul {
