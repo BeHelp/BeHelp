@@ -1,22 +1,5 @@
 <script>
-import axios from 'axios'
 
-export default {
-    name: 'Forgot',
-    data() {
-        return {
-            email: ''
-            }
-    },
-    methods: {
-        async handleSubmit() {
-            const response = await axios.post('forgot', {
-            email: this.email
-            });
-            console.log(response);
-        }
-    }
-}
 </script>
 
 <template>

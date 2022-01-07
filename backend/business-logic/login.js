@@ -1,4 +1,4 @@
-const { User } = require('../data-access/db.js');
+const { User }  = require('../data-access/db.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const RefreshToken = require('../models/RefreshToken.js');
@@ -64,11 +64,6 @@ const loginManager = {
           expiresIn: '24h',
         }
       );
-
-      // console.log(
-      //   `accessToken: \n${accessToken}`,
-      //   `\nrefreshToken: \n${refreshToken}`
-      // );
 
       await RefreshToken.create({
         user: mongoData._id,
