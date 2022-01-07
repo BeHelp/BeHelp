@@ -41,6 +41,10 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+          this.$notify({
+            title: "Incorrect email or password!",
+            type: "error",
+           });
         });
     },
   },
