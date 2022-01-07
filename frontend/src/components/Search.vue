@@ -13,13 +13,19 @@ export default {
       filterLanguages: [],
       filterCities: [],
       filterSkills: [],
-      filterGenders: [],
     };
   },
-
   methods: {
     async filterBtn() {
       try {
+        if (
+          this.filterSkills.length === 0 ||
+          this.filterLanguages.length === 0 ||
+          this.filterCities.length === 0
+        ) {
+          alert("Please select one filter for each category");
+          return;
+        }
         const filter = {
           skills: this.filterSkills[0].name,
           location: this.filterCities[0]["city"],
@@ -32,17 +38,7 @@ export default {
             languages: filter.languages,
           })
         );
-        // if (
-        //   filter.skills.length === undefined ||
-        //   filter.locations.length === undefined ||
-        //   filter.languages.length === undefined ||
-        //   filter.skills.length === 0 ||
-        //   filter.locations.length === 0 ||
-        //   filter.languages.length === 0
-        // ) {
-        //   alert('Please select at least one filter for each category');
-        //   return;
-        // }
+
         const res = await fetch("http://localhost:5000/users/", {
           method: "POST",
           headers: {
@@ -52,13 +48,12 @@ export default {
             skills: filter.skills,
             location: filter.location,
             languages: filter.languages,
-            genders: filter.genders,
           }),
         });
         const searchResult = await res.json();
-        // this.results = searchResult[0].firstName;
-        // alert(this.results);
         this.$emit("searchCompleted", searchResult);
+        // this.results = searchResult[0].firstName;
+        // console.log(this.results);
       } catch (error) {
         console.log(error);
       }
@@ -77,7 +72,7 @@ export default {
       />
       <div
         v-else
-        style="margin-top: 100px"
+        style="margin-top: 200px"
         class="search__background-img"
       ></div>
       <div class="search__background-decor">
@@ -89,6 +84,7 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
+                multiple
                 v-model="filterSkills"
                 :options="skillOptions"
                 :placeholder="'Skill'"
@@ -100,9 +96,10 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
+                multiple
                 v-model="filterCities"
                 :options="cityOptions"
-                :placeholder="'City'"
+                :placeholder="'Cities'"
                 label="city"
               />
             </div>
@@ -111,9 +108,10 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
+                multiple
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="'Language'"
+                :placeholder="'Languages'"
                 label="name"
               />
             </div>
@@ -130,9 +128,8 @@ export default {
 </template>
 
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/abstract/_base.scss';
-@import '../components/styles/layout/_search.scss';
-@import '../components/styles/layout/_dropdown.scss';
-@import 'vue-select/src/scss/vue-select.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/abstract/_base.scss";
+@import "../components/styles/layout/_search.scss";
+@import "vue-select/src/scss/vue-select.scss";
 </style>
