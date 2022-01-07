@@ -4,3 +4,4 @@
     <p>Contacts part of the application</p>
   </div>
 </template>
+<style></style>
