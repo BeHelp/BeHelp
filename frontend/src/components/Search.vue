@@ -19,9 +19,12 @@ export default {
     async filterBtn() {
       try {
         if (
-          this.filterSkills.length === 0 ||
-          this.filterLanguages.length === 0 ||
-          this.filterCities.length === 0
+          this.filterSkills === "" ||
+          this.filterLanguages === "" ||
+          this.filterCities === "" ||
+          this.filterSkills === null ||
+          this.filterLanguages === null ||
+          this.filterCities === null
         ) {
           alert("Please select one filter for each category");
           return;
