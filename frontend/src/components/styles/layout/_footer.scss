@@ -1,42 +1,44 @@
 .footer {
   background: $dark-grey;
   width: 100%;
-  padding: 0em 4em;
+  padding: 0.5rem 4rem;
   display: flex;
   flex-direction: row;
-  // position: fixed;
   bottom: 0;
+  justify-content: space-between;
 
   &__logos {
     display: flex;
     justify-content: left;
-    text-align: center;
-    width: 40%;
+    width: 30%;
 
     &-behelp {
-      width: 200px;
-      height: 53.02px;
+      height: 50%;
       margin: auto 0;
     }
+    &-hyf img {
+      height: 50%;
+    }
     &-hyf {
-      width: 77px;
-      height: 41.47px;
-      background-color: $primary;
-      margin: auto 20px;
+      background: white;
+      margin: auto 0;
+      padding: 0.2rem;
+      width: 100%;
     }
   }
   &__text {
     margin: 4px 0;
     color: $primary;
     text-align: center;
-    width: 50%;
+    // background-color: blueviolet;
+    // width: 30%;
 
     &-p {
       margin: 0px;
       font-family: $montserrat;
-      font-weight: 700;
+      font-weight: 500;
       font-style: normal;
-      font-size: 14px;
+      font-size: 0.68rem;
     }
   }
 
@@ -44,7 +46,7 @@
     display: flex;
     text-align: center;
     margin: auto 0;
-    
+
     a {
       background-color: $primary;
       height: 25px;
@@ -52,15 +54,15 @@
       border-radius: 10px;
       margin: 0 5px;
 
-    .fa {
-      border-radius: 10px;
-      height: 25px;
-      width: 25px;
-      font-size: 24px;
-      text-align: center;
-      margin: 0px;
+      .fa {
+        border-radius: 10px;
+        height: 25px;
+        width: 25px;
+        font-size: 24px;
+        text-align: center;
+        margin: 0px;
+      }
     }
-  }
     .fa:hover {
       opacity: 0.7;
     }

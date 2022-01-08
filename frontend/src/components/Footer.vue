@@ -7,13 +7,14 @@
         alt="logo"
         height="53.02px"
       />
-
-      <img
-        class="footer__logos-hyf"
-        src="../assets/hyf_logo.png"
-        alt="HYF"
-        height="53.02px"
-      />
+      <div>
+        <img
+          class="footer__logos-hyf"
+          src="../assets/hyf_logo.png"
+          alt="HYF"
+          height="53.02px"
+        />
+      </div>
     </div>
 
     <div class="footer__text">
@@ -31,6 +32,6 @@
   </footer>
 </template>
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_footer.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_footer.scss";
 </style>
