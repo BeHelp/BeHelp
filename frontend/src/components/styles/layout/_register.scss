@@ -374,8 +374,33 @@
   input[type='radio']:checked ~ .container__radio-check::before {
     background: $blue;
   }
+.afterimage{
+  border-radius: 20px;
+  background-color:$field_color;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 35px;
+  width: 55%;
 
+
+  img{
+    border-radius: 20px;
+    width: 100%;
+    padding: 2%;
+   
+  }
+
+  button{
+    margin-left: 13%; 
+    border-radius: 20%;
+    margin-top: 0.7%;
+    position: absolute; 
+    border: none;
+  }
+
+}
   @media screen and (max-width: 992px) {
+
     .container {
       width: calc(100% - 40px);
       max-width: 100%;

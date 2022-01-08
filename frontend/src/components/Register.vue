@@ -9,6 +9,7 @@ import genders from '../assets/jsondata/genders.json';
 export default {
   data() {
     return {
+      errors: [],
       firstname : '',
       lastname : '',
       email : '',
@@ -29,9 +30,10 @@ export default {
       
     };
   },
+
   methods: {
     async submit(){
-      try{
+      try{ 
         const regis = JSON.stringify(
               {
                 email: this.email,
@@ -77,6 +79,7 @@ export default {
       }
 
     },
+
     uploadImage(event) {
       const URL = 'https://api.cloudinary.com/v1_1/behelp/image/upload';
 
@@ -118,6 +121,7 @@ export default {
                 id="file-input"
                 @change="uploadImage($event)"
                 class="button-icon"
+                required
               />
               <div class="left-icon"></div>
               <p>
@@ -125,8 +129,8 @@ export default {
                 profile picture
               </p>
             </div>
-            <div v-if="this.photoURL">
-              <button v-on:click="this.photoURL = null" style="margin-left: 0.3rem; position: absolute; border: none">X</button>
+            <div v-if="this.photoURL" class="afterimage">
+              <button v-on:click="this.photoURL = null" > X </button>
               <img v-bind:src="this.photoURL">
             </div>
             <div class="right">
@@ -158,6 +162,7 @@ export default {
                   :options= "cityOptions"
                   :placeholder="'City'"
                   label="city"
+                  required
                 />
               </div>
             </div>
@@ -222,6 +227,7 @@ export default {
               v-model= "nationality"
               name="nationality"
               id="nationality"
+              required
             />
           </div>
 
@@ -234,6 +240,7 @@ export default {
                 :options= "languageOptions"
                 :placeholder="'Languages'"
                 label="name"
+                required
               />
               <span class="container__select-icon"
                 ><i class="zmdi zmdi-chevron-down"></i
@@ -249,6 +256,7 @@ export default {
                 :options= "skillOptions"
                 :placeholder="'Skills'"
                 label="name"
+  
               />
               <span class="container__select-icon"
                 ><i class="zmdi zmdi-chevron-down"></i
@@ -261,7 +269,7 @@ export default {
             placeholder="Description"
             v-model= "description" 
           ></textarea>
-
+        
           <div class="container__submit">
             <input
               type="submit"
