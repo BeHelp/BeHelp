@@ -244,6 +244,34 @@
     }
   }
 
+  &__password {
+    position: relative;
+    margin-bottom: 1rem;
+
+    &-button {
+      margin-top: 0.5rem;
+
+      .changepassword-button {
+        width: 35%;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        font-size: 0.8rem;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        float: right;
+        background: white;
+        color: #424651;
+        border: 2px solid $orange;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  .none {
+    display: none;
+  }
+
   &__first {
     display: grid;
     grid-template-columns: 45% 55%;

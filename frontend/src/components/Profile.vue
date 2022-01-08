@@ -1,30 +1,41 @@
 <script>
+import { mapState } from "vuex";
 export default {
   data: function () {
     return {
       result: "",
     };
   },
+  computed: {
+    ...mapState(["isLoggedIn", "user"]),
+  },
   methods: {
     async getUser() {
       try {
-        const res = await fetch(
-          "http://localhost:5000/register/61bde751920d4589d0d1de13",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const result = await res.json();
+        const token = localStorage.getItem("token");
+        const userId = this.user.userId;
+        this.email = this.user.email;
+        const res = await fetch(`http://localhost:5000/users/${userId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        this.result = await res.json();
+        this.result.location = this.result.location.join(", ");
+        this.result.languages = this.result.languages.join(", ");
+        this.result.skills = this.result.skills.join(", ");
       } catch (error) {
         console.log(error);
       }
     },
   },
+  beforeMount() {
+    this.getUser();
+  },
 };
 </script>
+
 <template>
   <div class="container">
     <div class="container__profile">
@@ -55,6 +66,7 @@ export default {
                 name="firstname"
                 id="firstname"
                 required
+                disabled
               />
             </div>
             <div class="container__group">
@@ -65,12 +77,19 @@ export default {
                 name="lastname"
                 id="lastname"
                 required
+                disabled
               />
             </div>
 
             <div class="container__city">
-              <select name="City" id="city" required>
-                <option value="City" disabled selected>City*</option>
+              <select name="City" id="city" disabled required>
+                <option
+                  value="City"
+                  v-bind:value="result.location"
+                  selected
+                >
+                  {{ result.location }}
+                </option>
                 <option value="Brussels">Brussels</option>
                 <option value="Leuven">Leuven</option>
                 <option value="Namur">Namur</option>
@@ -90,8 +109,10 @@ export default {
 
         <div class="container__group">
           <div class="container__select">
-            <select name="Status" id="status" required>
-              <option value="Status" disabled selected>Status*</option>
+            <select name="Status" id="status" required disabled>
+              <option value="Status" selected>
+                {{ result.userType }}
+              </option>
               <option value="Newcomer">Newcomer</option>
               <option value="Volunteer">Volunteer</option>
             </select>
@@ -103,27 +124,39 @@ export default {
 
         <div class="container__group">
           <input
+            v-bind:value="this.email"
             type="email"
             placeholder="E-mail*"
             name="email"
             id="email"
             required
+            disabled
           />
         </div>
-        <div class="container__group">
-          <input
-            type="password"
-            placeholder="Password*"
-            name="password"
-            id="password"
-            required
-          />
+
+        <div class="container__password">
+          <div class="container__password-text">
+            <input
+              type="password"
+              placeholder="password123"
+              name="password"
+              id="password"
+              required
+            />
+          </div>
+          <div class="container__password-button">
+            <button class="changepassword-button none" name="changepassword">
+              Change Password
+            </button>
+          </div>
         </div>
 
         <div class="container__group">
           <div class="container__select">
-            <select name="Gender" id="gender" required>
-              <option value="Gender" disabled selected>Gender*</option>
+            <select name="Gender" id="gender" required disabled>
+              <option value="Gender" selected>
+                {{ result.gender }}
+              </option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Other">Other</option>
@@ -136,17 +169,21 @@ export default {
 
         <div class="container__group">
           <input
+            v-bind:value="this.result.nationality"
             type="text"
             placeholder="Nationality"
             name="nationality"
             id="nationality"
+            disabled
           />
         </div>
 
         <div class="container__group">
           <div class="container__select">
-            <select name="languages" id="languages">
-              <option value="Language" disabled selected>Languages</option>
+            <select name="languages" id="languages" disabled>
+              <option value="Language" selected>
+                {{ result.languages }}
+              </option>
               <option value="French">English</option>
               <option value="Dutch">Dutch</option>
               <option value="English">French</option>
@@ -164,8 +201,10 @@ export default {
         </div>
         <div class="container__group">
           <div class="container__select">
-            <select name="skills" id="skills">
-              <option value="Skills" disabled selected>Skills</option>
+            <select name="skills" id="skills" disabled>
+              <option value="Skills" selected>
+                {{ result.skills }}
+              </option>
               <option value="Translator">Legal assistance</option>
               <option value="Translator">Translations</option>
               <option value="Host">Mental health</option>
@@ -181,8 +220,10 @@ export default {
         </div>
 
         <textarea
+          v-bind:value="result.description"
           class="container__description"
           placeholder="Description"
+          disabled
         ></textarea>
 
         <div class="container__modify">

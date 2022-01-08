@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  width: 70%;
+  max-width: 70%;
   margin-bottom: 3.35%;
   position: relative;
   border-radius: 20px;
@@ -19,6 +19,7 @@
 
   &__signup {
     width: 100%;
+    overflow: hidden;
 
     &-img {
       width: 45%;
@@ -26,6 +27,7 @@
     .img {
       height: 100%;
       margin: auto;
+      object-fit: fill;
     }
 
     &-content {
@@ -223,22 +225,23 @@
       text-align: center;
 
       .left-icon {
-        background: url("../assets/fas/camera-solid.svg"), no-repeat;
+        background: url('../assets/fas/camera-solid.svg'), no-repeat;
         background-size: 60px;
-        margin-top:  -49px;
+        margin-top: -49px;
         width: 60px;
         height: 60px;
         border: none;
-        position:absolute;
+        position: absolute;
       }
-      .button-icon{
+      .button-icon {
         float: left;
         z-index: 9;
         width: 60px;
         height: 60px;
-        opacity:0;
+        opacity: 0;
       }
-      .left-icon:hover, .button-icon:hover{
+      .left-icon:hover,
+      .button-icon:hover {
         cursor: pointer;
       }
 
@@ -301,8 +304,7 @@
     margin-bottom: 2%;
     margin-top: 2%;
   }
-  #file-input{
-  
+  #file-input {
   }
   .clear {
     clear: both;
