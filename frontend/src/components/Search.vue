@@ -10,20 +10,29 @@ export default {
       languageOptions: languages,
       cityOptions: cities,
       skillOptions: skills,
-      filterLanguages: [],
-      filterCities: [],
-      filterSkills: [],
-      filterGenders: [],
+      filterLanguages: "",
+      filterCities: "",
+      filterSkills: "",
     };
   },
-
   methods: {
     async filterBtn() {
       try {
+        if (
+          this.filterSkills === "" ||
+          this.filterLanguages === "" ||
+          this.filterCities === "" ||
+          this.filterSkills === null ||
+          this.filterLanguages === null ||
+          this.filterCities === null
+        ) {
+          alert("Please select one filter for each category");
+          return;
+        }
         const filter = {
-          skills: this.filterSkills[0].name,
-          location: this.filterCities[0]["city"],
-          languages: this.filterLanguages[0]["name"],
+          skills: this.filterSkills["name"],
+          location: this.filterCities["city"],
+          languages: this.filterLanguages["name"],
         };
         console.log(
           JSON.stringify({
@@ -32,17 +41,7 @@ export default {
             languages: filter.languages,
           })
         );
-        // if (
-        //   filter.skills.length === undefined ||
-        //   filter.locations.length === undefined ||
-        //   filter.languages.length === undefined ||
-        //   filter.skills.length === 0 ||
-        //   filter.locations.length === 0 ||
-        //   filter.languages.length === 0
-        // ) {
-        //   alert('Please select at least one filter for each category');
-        //   return;
-        // }
+
         const res = await fetch("http://localhost:5000/users/", {
           method: "POST",
           headers: {
@@ -52,13 +51,12 @@ export default {
             skills: filter.skills,
             location: filter.location,
             languages: filter.languages,
-            genders: filter.genders,
           }),
         });
         const searchResult = await res.json();
-        // this.results = searchResult[0].firstName;
-        // alert(this.results);
         this.$emit("searchCompleted", searchResult);
+        // this.results = searchResult[0].firstName;
+        // console.log(this.results);
       } catch (error) {
         console.log(error);
       }
@@ -77,7 +75,7 @@ export default {
       />
       <div
         v-else
-        style="margin-top: 100px"
+        style="margin-top: 200px"
         class="search__background-img"
       ></div>
       <div class="search__background-decor">
@@ -130,9 +128,9 @@ export default {
 </template>
 
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/abstract/_base.scss';
-@import '../components/styles/layout/_search.scss';
-@import '../components/styles/layout/_dropdown.scss';
-@import 'vue-select/src/scss/vue-select.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/abstract/_base.scss";
+@import "../components/styles/layout/_search.scss";
+@import "../components/styles/layout/_dropdown.scss";
+@import "vue-select/src/scss/vue-select.scss";
 </style>
