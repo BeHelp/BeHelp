@@ -6,6 +6,7 @@ import Login from '../views/Login.vue';
 import Signup from '../views/Signup.vue';
 import Volunteers from '../views/Volunteers.vue';
 import Thankyou from '../views/Thankyou.vue';
+import VolunteerContact from '../views/VolunteerContact.vue';
 
 const routes = [
   {
@@ -38,6 +39,15 @@ const routes = [
     name: 'Volunteers',
     component: Volunteers,
   },
+
+  {
+    path: '/volunteer/:id',
+    name:'VolunteerContact',
+    component: VolunteerContact,
+    props:true,
+  
+    },
+     
   {
     path: '/thankyou',
     name: 'Thank you',
