@@ -112,7 +112,7 @@
     &-check:before {
       position: absolute;
       display: block;
-      content: '';
+      content: "";
       width: 80%;
       height: 80%;
       border-radius: 50%;
@@ -178,6 +178,34 @@
         color: #999;
       }
     }
+  }
+
+  &__password {
+    position: relative;
+    margin-bottom: 1rem;
+
+    &-button {
+      margin-top: 0.5rem;
+
+      .changepassword-button {
+        width: 35%;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        font-size: 0.8rem;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        float: right;
+        background: white;
+        color: #424651;
+        border: 2px solid $orange;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  .none {
+    display: none;
   }
 
   &__modify {
@@ -247,7 +275,7 @@
   &__first {
     display: grid;
     grid-template-columns: 45% 55%;
-    grid-template-areas: 'left right';
+    grid-template-areas: "left right";
 
     .left {
       grid-area: left;
@@ -263,7 +291,7 @@
       text-align: center;
 
       .left-icon {
-        background: url('../assets/fas/camera-solid.svg'), no-repeat;
+        background: url("../assets/fas/camera-solid.svg"), no-repeat;
         background-size: 60px;
         margin-top: -49px;
         width: 60px;
@@ -383,7 +411,7 @@
     -ms-box-shadow: none !important;
   }
 
-  input[type='radio'] {
+  input[type="radio"] {
     appearance: radio !important;
     -moz-appearance: radio !important;
     -webkit-appearance: radio !important;
@@ -399,17 +427,17 @@
     -ms-box-shadow: 0 0 0 30px transparent inset;
   }
 
-  input[type='radio'] {
+  input[type="radio"] {
     position: absolute;
     visibility: hidden;
   }
 
-  input[type='radio']:checked ~ .container__radio-check {
+  input[type="radio"]:checked ~ .container__radio-check {
     border: 2px solid white;
     background: white;
   }
 
-  input[type='radio']:checked ~ .container__radio-check::before {
+  input[type="radio"]:checked ~ .container__radio-check::before {
     background: $blue;
   }
 

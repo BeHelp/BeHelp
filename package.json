@@ -7,6 +7,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "@splidejs/vue-splide": "^0.5.15",
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.5.1",
@@ -20,8 +21,10 @@
     "vue": "^3.2.25",
     "vue-jwt-decode": "^0.1.0",
     "vue-router": "^4.0.12",
+    "vue-select": "^4.0.0-beta.2",
     "vue-sweetalert2": "^5.0.2",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.1",
