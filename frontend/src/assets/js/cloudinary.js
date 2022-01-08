@@ -21,6 +21,8 @@ form.addEventListener('submit', (e) => {
     })
     .then((data) => {
       console.log(data);
-      document.getElementById('data').innerHTML = data['secure_url'];
+      if(document.getElementById('data') !== null){
+        document.getElementById('data').innerHTML = data['secure_url'];
+      }
     });
 });

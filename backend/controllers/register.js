@@ -10,9 +10,9 @@ const registerController = {
             !userData.lastName ||
             !userData.email ||
             !userData.password ||
-            !userData.dob ||
             !userData.gender
         ) {
+            console.log('=====', res.error);
             res.status(400).send({ message: 'Please fill in all fields ' });
         } else if (user) {
             res.status(400).send({ message: 'email already exists' });
