@@ -78,7 +78,7 @@
       </p>
     </div>
     <div class="footer__icons">
-      <a href="#"><img src="../assets/fas/facebook.svg" class="fa" /></a>
+      <div class="fa-home"></div>
       <a href="#"><img src="../assets/fas/twitter.svg" class="fa" /></a>
       <a href="#"><img src="../assets/fas/instagram.svg" class="fa" /></a>
     </div>
