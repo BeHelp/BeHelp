@@ -256,7 +256,7 @@ export default {
                 :options= "skillOptions"
                 :placeholder="'Skills'"
                 label="name"
-  
+                
               />
               <span class="container__select-icon"
                 ><i class="zmdi zmdi-chevron-down"></i
@@ -266,7 +266,7 @@ export default {
 
           <textarea
             class="container__description"
-            placeholder="Description"
+            placeholder= "Description"
             v-model= "description" 
           ></textarea>
         
