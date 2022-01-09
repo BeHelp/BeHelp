@@ -80,19 +80,20 @@ export default {
             <option class="header__nav-features option">ENG</option>
             <option class="header__nav-features option">FR</option>
             <option class="header__nav-features option">NL</option>
+            <option class="header__nav-features option">عربي</option>
           </select>
         </li>
         <li v-if="isLoggedIn !== true" class="header__nav-features signup">
           <router-link to="/signup"
             ><button class="header__nav-features btn-signup">
-              Sign Up
+              {{ $t("signup") }}
             </button></router-link
           >
         </li>
         <li v-if="isLoggedIn !== true" class="header__nav-features login">
           <router-link to="/login"
             ><button class="header__nav-features btn-login">
-              Log In
+              {{ $t("login") }}
             </button></router-link
           >
         </li>

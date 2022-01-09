@@ -1,11 +1,10 @@
 <template>
   <section class="services">
     <div class="services__left">
-      <h2 class="services__left-hdr">Our Services</h2>
+      <h2 class="services__left-hdr">{{ $t("ourservices") }}</h2>
 
       <p class="services__left-txt">
-        BeHelp is a group of volunteers who have the time, desire and
-        opportunity to help newcomers to Belgium with everyday problems.
+        {{ $t("ourservices2") }}
       </p>
     </div>
     <div class="services__right">
@@ -58,6 +57,6 @@
   </section>
 </template>
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_services.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_services.scss";
 </style>
