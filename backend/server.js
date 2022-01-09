@@ -6,6 +6,7 @@ const { refreshToken } = require('./middleware/auth');
 
 //middleware
 app.use(cors());
+
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
