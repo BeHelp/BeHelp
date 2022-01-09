@@ -1,4 +1,57 @@
 <template>
+  <div>
+    <div class="sign">
+      <ul class="sign__element">
+        <li v-if="isLoggedIn !== true" class="sign__element-login">
+          <router-link to="/login"
+            ><button class="sign__elements-login btn-login">
+              Log In
+            </button></router-link
+          >
+        </li>
+        <li v-if="isLoggedIn !== true" class="sign__element-login-signup">
+          <router-link to="/signup"
+            ><button class="sign__elements-login btn-signup">
+              Sign Up
+            </button></router-link
+          >
+        </li>
+
+        <li
+          v-if="isLoggedIn === true"
+          @click="hidden = !hidden"
+          class="footer__nav-features"
+        >
+          <p class="footer__nav-features p-username" id="header-username">
+            {{ user.firstName }}
+          </p>
+        </li>
+        <li v-if="isLoggedIn === true" class="footer__nav-features usermenu">
+          <img
+            @click="hidden = !hidden"
+            :src="user.photoURL"
+            class="footer__nav-features img-username"
+          />
+          <div
+            id="usermenu-list"
+            class="usermenu-list"
+            :class="{ 'foo-hover': hidden }"
+          >
+            <router-link
+              to="/myprofile"
+              class="usermenu-a"
+              id="usermenu-profile"
+              >My profile</router-link
+            ><br />
+            <a @click="logout" href="#" class="usermenu-a" id="usermenu-logout"
+              >Logout</a
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="footer__logos">
       <img
