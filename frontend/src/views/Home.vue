@@ -1,14 +1,14 @@
 <script>
 import Search from '../components/Search.vue';
 import Whoarewe from '../components/Whoarewe.vue';
-import Services from '../components/Services.vue';
+import ServicesScreen from '../components/ServicesScreen.vue'; //!this also should renamed back
 
 export default {
   name: 'Home',
   components: {
     Search,
     Whoarewe,
-    Services,
+    ServicesScreen,//!this should be renamed as Services only
   },
 };
 </script>
@@ -17,6 +17,6 @@ export default {
   <div>
     <Search />
     <whoarewe />
-    <Services />
+    <ServicesScreen />
   </div>
 </template>

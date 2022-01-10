@@ -23,7 +23,7 @@
             <a href="#"
               ><img src="../assets/fas/bullhorn.svg" class="fa"
             /></a> </span
-          >Translations
+          >Translations 
         </li>
         <li class="services__list-item">
           <span>
@@ -59,5 +59,5 @@
 </template>
 <style lang="scss">
 @import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_services.scss';
+@import '../components/styles/layout/_servicesScreen.scss';
 </style>

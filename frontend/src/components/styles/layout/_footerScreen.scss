@@ -1,0 +1,112 @@
+.footer {
+  height: auto;
+  background-color: $dark-grey;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @media (max-width: $tablet) {
+    flex-direction: column;
+    padding: 4%;
+    // margin-left: -9%;
+  
+    border-radius: 20px 20px 0px 0px;
+    // width: 65vh;
+    //! check media queries again not yet done
+  }
+
+  &__logos {
+    display: flex;
+
+    justify-content: space-between;
+    width: 40%;
+
+    align-items: center;
+    margin-left: -5%;
+    @media (max-width: $tablet) {
+      justify-content: space-between;
+      padding-bottom: 4%;
+      margin-left: 0%;
+    }
+
+    &-behelp {
+      width: 38%;
+      // height: auto;
+      margin: auto 0;
+      @media (max-width: $tablet) {
+        width: 60%;
+      }
+    }
+    &-hyf {
+      width: 20%;
+      background-color: $primary;
+      padding: 0.4rem;
+    }
+    @media (max-width: $tablet) {
+      width: 90%;
+    }
+  }
+  &__cont2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $tablet) {
+      padding-bottom: 2%;
+      justify-content: space-between;
+    }
+    &-text {
+      margin: 4px 0;
+      width: 100%;
+      @media (max-width: $tablet) {
+        width: 100%;
+        flex-wrap: unset;
+      }
+
+      & p {
+        margin: 0px;
+        font-family: $montserrat;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 1rem;
+        color: $primary;
+        line-height: 2.3rem;
+        text-align: justify;
+      }
+    }
+
+    &-icons {
+      display: flex;
+
+      padding-top: 10%;
+      // margin-right: -5%;
+      // padding-left: 20%;
+
+      @media (max-width: $tablet) {
+        padding-top: 10%;
+        margin-right: -2%;
+      }
+      a {
+        background-color: $primary;
+        height: 25px;
+        width: 25px;
+        border-radius: 50px;
+        margin: 0 5px;
+
+        .fa {
+          border-radius: 10px;
+          height: 25px;
+          width: 25px;
+          font-size: 24px;
+          text-align: center;
+          margin: 0px;
+        }
+      }
+      .fa :hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

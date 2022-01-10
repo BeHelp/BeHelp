@@ -1,0 +1,118 @@
+.services {
+  display: flex;
+  height: auto;
+  margin: 0% 8%;
+  margin-bottom: 10%;
+  padding: 6% 5%;
+  background: $blue;
+  border-radius: 20px;
+  font-family: Montserrat;
+  font-style: normal;
+  justify-content: space-between;
+
+  @media (max-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0% 5% 8%;
+    margin: 0% 0% 8% 0%;
+    // width: 50vh;
+  }
+
+  & span {
+    padding-right: 8%;
+  }
+  &__left {
+    justify-content: space-between;
+    // margin-right: 8%;
+    @media (max-width: $tablet) {
+      padding-right: 6%;
+      // margin-right: 0;//! check
+    }
+
+    &-hdr {
+      font-weight: bold;
+      font-size: $font-size-h2;
+      line-height: 1.5rem;
+      color: $dark-grey;
+      text-transform: uppercase;
+      padding-bottom: 23%;
+      @media (max-width: $tablet) {
+        padding-bottom: 4%;
+      }
+    }
+
+    &-txt {
+      width: 70%;
+      height: auto;
+      font-weight: normal;
+      font-size: $font-size-p;
+      line-height: 1.8rem;
+      letter-spacing: 0.02em;
+      text-align: justify;
+      color: #000000;
+      @media (max-width: $tablet) {
+        width: 100%;
+        text-align: justify;
+        font-weight: normal;
+        font-size: 1rem;
+        line-height: 30px;
+        letter-spacing: 0.02em;
+        margin: 0%;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding-top: 5%;
+    &-hdr {
+      padding-left: 7%;
+      // padding-bottom:2%;
+      font-weight: bold;
+      font-size: $font-size-h2;
+      text-transform: uppercase;
+      color: $blue;
+      -webkit-text-stroke-width: 1.5px;
+      -webkit-text-stroke-color: $white;
+      @media (max-width: $tablet) {
+        padding-left: 0%;
+        font-size: 1.8rem;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    @media (max-width: $tablet) {
+      margin: 0;
+      padding-left: 6%; //!check
+      // margin-left: -10px;
+      margin: 0;
+      padding: 0;
+      padding-right: 6%;
+    }
+
+    &-item {
+      font-size: 1em;
+      display: inline-flex;
+      padding: 1.5% 0;
+      margin: 0 auto;
+      border-bottom: 1px solid #000000;
+      width: 100%;
+    }
+  }
+}
+
+.fa {
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  color: $dark-grey; //! can't style the icons
+  font-size: 28px;
+  text-align: center;
+  margin: 0 5px;
+}

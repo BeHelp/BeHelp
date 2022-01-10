@@ -1,13 +1,13 @@
 <script setup>
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
+import HeaderScreen from './components/HeaderScreen.vue';
+import FooterScreen from './components/FooterScreen.vue';
 </script>
 
 <template>
   <div class="app">
-    <Header />
+    <HeaderScreen />
     <router-view></router-view>
-    <Footer />
+    <FooterScreen />
   </div>
 </template>
 

@@ -1,0 +1,216 @@
+.header {
+  font-family: $montserrat;
+  font-weight: 400;
+  text-decoration-color: $dark-grey;
+  width: 100%;
+  padding: 1em 4em;
+
+  &__nav {
+    width: 100%;
+    height: 4em;
+    letter-spacing: 0.09rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-logo {
+      width: 200px;
+      height: 53.02px;
+      margin: auto 0;
+    }
+
+    &-list {
+      display: flex;
+      margin: 0 auto;
+
+      align-items: center;
+      height: 4em;
+
+      .item {
+        // align-items: center;
+        // margin: 0 15px;
+        justify-content: space-between;
+        margin-left: 4rem;
+      }
+    }
+    &-features {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0 3px;
+
+      select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        position: relative;
+        outline: none;
+        padding: 5px;
+        padding-right: 20px;
+        font-family: $montserrat;
+      }
+      select:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      button {
+        background-color: transparent;
+        border: 3px solid;
+        border-radius: 20px;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+        font-family: $montserrat;
+        font-size: 14px;
+        padding: 8px 16px;
+        margin: 20px auto;
+        text-decoration: none;
+      }
+
+      .btn-signup {
+        border: 3px solid $orange;
+        width: 100px;
+        box-sizing: border-box;
+      }
+
+      .btn-signup:hover {
+        background-color: $orange;
+        color: white;
+      }
+
+      .btn-login {
+        width: 80px;
+        border: none;
+        text-decoration: underline;
+      }
+
+      .p-username {
+        font-size: 10px;
+        color: $orange;
+      }
+
+      .none {
+        display: none;
+      }
+
+      .usermenu {
+        position: relative;
+        margin: auto;
+        display: inline-block;
+        z-index: 100;
+      }
+      .usermenu-list {
+        background-color: $primary;
+        border-radius: 20px;
+        border-color: $dark-grey;
+        border: 2px;
+        width: 100px;
+        position: absolute;
+        right: 10px;
+      }
+
+      .img-username {
+        height: 25px;
+        margin: auto 0;
+      }
+
+      .usermenu-list {
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      .usermenu-a {
+        font-size: 12px;
+      }
+    }
+  }
+}
+// .header::after {
+//   content: "";
+//   display: inline-block;
+//   width: 100%;
+// }
+//!humberger menu starts here
+.hamburger {
+  display: none;
+
+  &-bar {
+    display: block;
+    width: 27px;
+    height: 4px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+    //     &:active {
+    //       :nth-child(2) {
+    //         opacity: 0;
+    //       }
+    //       :nth-child(1) {
+    //         transform: translateY(8px) rotate(45deg);
+    //       }
+    //       :nth-child(3) {
+    //         transform: translateY(-8px) rotate(-45deg);
+    //       }
+  }
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header__nav-list {
+    position: fixed;
+    left: -100%;
+    top: 5rem;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+
+    &:active {
+      left: 0;
+      display: block;
+    }
+    .item {
+      margin: 2.5rem 0;
+    }
+  }
+
+  .header__nav-hamburger {
+    display: block;
+    cursor: pointer;
+
+    &:active {
+      &-bar:nth-child(2) {
+        opacity: 0;
+      }
+      &-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      &-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
