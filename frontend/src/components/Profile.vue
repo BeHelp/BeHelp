@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     deleteProfile() {
-      alert("HelloDelete");
+    
     },
     async getUser() {
       try {
