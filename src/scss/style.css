@@ -48,6 +48,34 @@ button {
   appearance: none;
 }
 
+.my-notification {
+  border-radius: 20px;
+  margin: 20px 5px 5px;
+  padding: 20px;
+  font-size: 12px;
+  color: #ffffff;
+  background: #44a4fc;
+  border-left: 5px solid #187fe7;
+}
+
+.my-notification.success {
+  background: #68cd86;
+  border-left-color: #42a85f;
+  text-align: center;
+}
+
+.my-notification.warn {
+  background: #ffb648;
+  border-left-color: #f48a06;
+  text-align: center;
+}
+
+.my-notification.error {
+  background: #e54d42;
+  border-left-color: #b82e24;
+  text-align: center;
+}
+
 .header {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -59,10 +87,9 @@ button {
 .header__nav {
   width: 100%;
   height: 4em;
-  letter-spacing: 0.09rem;
+  text-align: justify;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  letter-spacing: 1px;
 }
 
 .header__nav-logo {
@@ -74,13 +101,18 @@ button {
 .header__nav-list {
   display: flex;
   margin: 0 auto;
+  justify-content: center;
   align-items: center;
   height: 4em;
 }
 
+.header__nav-list .link {
+  width: 7rem;
+}
+
 .header__nav-list .item {
-  justify-content: space-between;
-  margin-left: 4rem;
+  align-items: center;
+  margin: 0 15px;
 }
 
 .header__nav-features {
@@ -166,6 +198,11 @@ button {
 .header__nav-features .img-username {
   height: 25px;
   margin: auto 0;
+  border-radius: 50%;
+}
+
+.header__nav-features .img-username:hover {
+  cursor: pointer;
 }
 
 .header__nav-features .usermenu-list {
@@ -175,6 +212,12 @@ button {
 
 .header__nav-features .usermenu-a {
   font-size: 12px;
+}
+
+.header::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
 }
 
 .hamburger {
@@ -188,18 +231,6 @@ button {
   margin: 5px auto;
   transition: all 0.3s ease-in-out;
   background-color: black;
-}
-
-.hamburger:active:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger:active:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger:active:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
@@ -222,11 +253,25 @@ button {
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
   }
+  .header__nav-list:active {
+    left: 0;
+    display: block;
+  }
   .header__nav-list .item {
     margin: 2.5rem 0;
   }
-  .header__nav-list:active {
-    left: 0;
+  .header__nav-hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  .header__nav-hamburger:active-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .header__nav-hamburger:active-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .header__nav-hamburger:active-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
 
@@ -238,7 +283,7 @@ button {
   margin-top: 2%;
   margin-bottom: 2%;
   margin-left: 8%;
-  padding: 2% 2% 2% 2%;
+  padding: 2%;
   background: #f5f4ef80;
   width: 60%;
 }

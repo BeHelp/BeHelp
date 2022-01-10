@@ -16,17 +16,22 @@
       />
     </div>
 
-    <div class="footer__text">
-      <p class="footer__text-p">
-        Project from the students of HYF <br />
-        info@behelp.be <br />
-        1000 Bruxelles
-      </p>
-    </div>
-    <div class="footer__icons">
-      <a href="#"><img src="../assets/fas/facebook.svg" class="fa" /></a>
-      <a href="#"><img src="../assets/fas/twitter.svg" class="fa" /></a>
-      <a href="#"><img src="../assets/fas/instagram.svg" class="fa" /></a>
+    <div class="footer__cont2">
+      <div class="footer__cont2-text">
+        <p>
+          Project from the students of HYF <br />
+          info@behelp.be <br />
+          1000 Bruxelles
+        </p>
+      </div>
+      <div class="footer__cont2-icons">
+          <a href="#"><i class="bx bxl-facebook"></i></a>
+        <!-- <a href="#"><img src="../assets/fas/facebook.svg" class="fa" /></a> -->
+        <a href="#"> <i class="bx bxl-twitter"></i></a>
+        <!-- <a href="#"><img src="../assets/fas/twitter.svg" class="fa" /></a> -->
+        <a href="#"><i class="bx bxl-instagram"></i></a>
+        <!-- <a href="#"><img src="../assets/fas/instagram.svg" class="fa" /></a> -->
+      </div>
     </div>
   </footer>
 </template>
