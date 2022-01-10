@@ -80,6 +80,7 @@ export default {
             <option class="header__nav-features option">ENG</option>
             <option class="header__nav-features option">FR</option>
             <option class="header__nav-features option">NL</option>
+            <option class="header__nav-features option">ESP</option>
             <option class="header__nav-features option">عربي</option>
           </select>
         </li>

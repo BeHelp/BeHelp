@@ -3,6 +3,7 @@ import * as ENG from "./assets/translations/en.json";
 import * as FR from "./assets/translations/fr.json";
 import * as NL from "./assets/translations/nl.json";
 import * as AR from "./assets/translations/ar.json";
+import * as ESP from "./assets/translations/esp.json";
 
 const i18n = createI18n({
   legacy: false,
@@ -12,6 +13,7 @@ const i18n = createI18n({
     ENG: { ...ENG },
     FR: { ...FR },
     NL: { ...NL },
+    ESP: { ...ESP },
     عربي: { ...AR },
   },
 });
