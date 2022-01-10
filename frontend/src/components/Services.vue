@@ -8,14 +8,14 @@
       </p>
     </div>
     <div class="services__right">
-      <h2 class="services__right-hdr">How We Can Help?</h2>
+      <h2 class="services__right-hdr">{{ $t("howcanwehelp") }}</h2>
       <ul class="services__list">
         <li class="services__list-item">
           <span>
             <a href="#"
               ><img src="../assets/fas/briefcase.svg" class="fa"
             /></a> </span
-          >Legal Assistance
+          >{{ $t("legalassistance") }}
         </li>
         <li class="services__list-item">
           <span>

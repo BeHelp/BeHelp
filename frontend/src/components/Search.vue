@@ -80,7 +80,7 @@ export default {
       ></div>
       <div class="search__background-decor">
         <h1 v-if="$route.name === 'Home'">{{ $t("findyourvolunteer") }}</h1>
-        <h1 v-else>VOLUNTEERS WHO CAN HELP</h1>
+        <h1 v-else>{{ $t("volunteerswhocanhelp") }}</h1>
 
         <div class="search__background-panel">
           <div class="search__dropdown">
