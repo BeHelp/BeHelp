@@ -22,35 +22,35 @@
             <a href="#"
               ><img src="../assets/fas/bullhorn.svg" class="fa"
             /></a> </span
-          >Translations
+          >{{ $t("translations") }}
         </li>
         <li class="services__list-item">
           <span>
             <a href="#"
               ><img src="../assets/fas/user.svg" class="fa"
             /></a> </span
-          >Mental health
+          >{{ $t("mentalhealth") }}
         </li>
         <li class="services__list-item">
           <span>
             <a href="#"
               ><img src="../assets/fas/house.svg" class="fa"
             /></a> </span
-          >Host families for refugees
+          >{{ $t("hostfamilies") }}
         </li>
         <li class="services__list-item">
           <span class="service__list-icon">
             <a href="#"
               ><img src="../assets/fas/archway.svg" class="fa"
             /></a> </span
-          >Education services (language etc.)
+          >{{ $t("educationservices") }}
         </li>
         <li class="services__list-item">
           <span>
             <a href="#"
               ><img src="../assets/fas/thumbs-up.svg" class="fa"
             /></a> </span
-          >Social assistance (services)
+          >{{ $t("socialassistance") }}
         </li>
       </ul>
     </div>
