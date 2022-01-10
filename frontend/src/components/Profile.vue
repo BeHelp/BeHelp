@@ -1,15 +1,30 @@
 <script>
+import languages from "../assets/jsondata/languages.json";
+import cities from "../assets/jsondata/cities.json";
+import skills from "../assets/jsondata/skills.json";
+import genders from "../assets/jsondata/genders.json";
 import { mapState } from "vuex";
+
 export default {
   data: function () {
     return {
       result: "",
+      selected: "",
+      languageOptions: languages,
+      cityOptions: cities,
+      skillOptions: skills,
+      genderOptions: genders,
+      isDisabled: true,
+      isHidden: true,
     };
   },
   computed: {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
+    deleteProfile() {
+      alert("HelloDelete");
+    },
     async getUser() {
       try {
         const token = localStorage.getItem("token");
@@ -22,12 +37,31 @@ export default {
           },
         });
         this.result = await res.json();
-        this.result.location = this.result.location.join(", ");
+        this.result.location = this.result.location[1];
         this.result.languages = this.result.languages.join(", ");
         this.result.skills = this.result.skills.join(", ");
       } catch (error) {
         console.log(error);
       }
+    },
+    uploadImage(event) {
+      const URL = "https://api.cloudinary.com/v1_1/behelp/image/upload";
+
+      let data = new FormData();
+      data.append("file", event.target.files[0]);
+      data.append("upload_preset", "behelp_web");
+
+      fetch(URL, {
+        method: "POST",
+        body: data,
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data["secure_url"]);
+          return data["secure_url"];
+        });
     },
   },
   beforeMount() {
@@ -41,7 +75,6 @@ export default {
     <div class="container__profile">
       <form method="POST" class="register-form" id="register-form">
         <h2>MY PROFILE</h2>
-
         <div class="container__first">
           <div class="left">
             <input
@@ -66,7 +99,7 @@ export default {
                 name="firstname"
                 id="firstname"
                 required
-                disabled
+                :disabled="isDisabled"
               />
             </div>
             <div class="container__group">
@@ -77,39 +110,32 @@ export default {
                 name="lastname"
                 id="lastname"
                 required
-                disabled
+                :disabled="isDisabled"
               />
             </div>
 
             <div class="container__city">
-              <select name="City" id="city" disabled required>
-                <option
-                  value="City"
-                  v-bind:value="result.location"
-                  selected
-                >
-                  {{ result.location }}
-                </option>
-                <option value="Brussels">Brussels</option>
-                <option value="Leuven">Leuven</option>
-                <option value="Namur">Namur</option>
-                <option value="Antwerp">Antwerp</option>
-                <option value="Liège">Liège</option>
-                <option value="Ghent">Ghent</option>
-                <option value="Brugge">Brugge</option>
-                <option value="Eupen">Eupen</option>
-                <option value="Arlon">Arlon</option>
-              </select>
-              <span class="container__select-icon"
-                ><i class="zmdi zmdi-chevron-down"></i
-              ></span>
+              <v-select
+                class="style-chooser"
+                v-model="result.location"
+                :options="cityOptions"
+                :placeholder="'City'"
+                label="city"
+                :disabled="isDisabled"
+              />
             </div>
           </div>
         </div>
 
         <div class="container__group">
           <div class="container__select">
-            <select name="Status" id="status" required disabled>
+            <select
+              name="Status"
+              id="status"
+              placeholder="Status*"
+              required
+              :disabled="isDisabled"
+            >
               <option value="Status" selected>
                 {{ result.userType }}
               </option>
@@ -130,7 +156,7 @@ export default {
             name="email"
             id="email"
             required
-            disabled
+            :disabled="isDisabled"
           />
         </div>
 
@@ -138,14 +164,19 @@ export default {
           <div class="container__password-text">
             <input
               type="password"
-              placeholder="password123"
+              placeholder="***********"
               name="password"
               id="password"
               required
+              disabled
             />
           </div>
           <div class="container__password-button">
-            <button class="changepassword-button none" name="changepassword">
+            <button
+              class="changepassword-button"
+              v-if="!isHidden"
+              name="changepassword"
+            >
               Change Password
             </button>
           </div>
@@ -153,7 +184,7 @@ export default {
 
         <div class="container__group">
           <div class="container__select">
-            <select name="Gender" id="gender" required disabled>
+            <select name="Gender" id="gender" required :disabled="isDisabled">
               <option value="Gender" selected>
                 {{ result.gender }}
               </option>
@@ -169,31 +200,26 @@ export default {
 
         <div class="container__group">
           <input
-            v-bind:value="this.result.nationality"
+            v-bind:value="result.nationality"
             type="text"
             placeholder="Nationality"
             name="nationality"
             id="nationality"
-            disabled
+            :disabled="isDisabled"
           />
         </div>
 
         <div class="container__group">
           <div class="container__select">
-            <select name="languages" id="languages" disabled>
-              <option value="Language" selected>
-                {{ result.languages }}
-              </option>
-              <option value="French">English</option>
-              <option value="Dutch">Dutch</option>
-              <option value="English">French</option>
-              <option value="Russian">Russian</option>
-              <option value="Spanish">Spanish</option>
-              <option value="Arabic">Arabic</option>
-              <option value="Hindu">Hindu</option>
-              <option value="Chinese">Chinese</option>
-              <option value="Italian">Italian</option>
-            </select>
+            <v-select
+              class="style-chooser"
+              multiple
+              v-model="result.languages"
+              :options="languageOptions"
+              :placeholder="'Languages'"
+              label="name"
+              :disabled="isDisabled"
+            />
             <span class="container__select-icon"
               ><i class="zmdi zmdi-chevron-down"></i
             ></span>
@@ -201,39 +227,47 @@ export default {
         </div>
         <div class="container__group">
           <div class="container__select">
-            <select name="skills" id="skills" disabled>
-              <option value="Skills" selected>
-                {{ result.skills }}
-              </option>
-              <option value="Translator">Legal assistance</option>
-              <option value="Translator">Translations</option>
-              <option value="Host">Mental health</option>
-              <option value="assistant">Host family</option>
-              <option value="assistant">Education services</option>
-              <option value="assistant">Language classes</option>
-              <option value="assistant">Social assistance</option>
-            </select>
+            <v-select
+              class="style-chooser"
+              multiple
+              v-model="result.skills"
+              :options="skillOptions"
+              :placeholder="'Skills'"
+              label="name"
+              :disabled="isDisabled"
+            />
             <span class="container__select-icon"
               ><i class="zmdi zmdi-chevron-down"></i
             ></span>
           </div>
         </div>
-
         <textarea
           v-bind:value="result.description"
           class="container__description"
           placeholder="Description"
-          disabled
+          :disabled="isDisabled"
         ></textarea>
 
         <div class="container__modify">
           <div class="container__modify-delete">
-            <button class="container__modify-delete-button">
+            <button
+              @click="deleteProfile"
+              class="container__modify-delete-button"
+            >
               Delete My Profile
             </button>
           </div>
           <div class="container__modify-edit">
-            <button class="edit-button" name="edit">EDIT</button>
+            <button
+              @click="
+                isDisabled = false;
+                isHidden = false;
+              "
+              class="edit-button"
+              name="edit"
+            >
+              EDIT
+            </button>
           </div>
           <div class="container__modify-save">
             <button class="save-button" name="save">SAVE</button>
@@ -248,4 +282,6 @@ export default {
 @import "../components/styles/abstract/_base.scss";
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_profile.scss";
+@import "../components/styles/layout/_dropdown.scss";
+@import "vue-select/src/scss/vue-select.scss";
 </style>
