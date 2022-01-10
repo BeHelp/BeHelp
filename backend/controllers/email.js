@@ -1,11 +1,11 @@
 const emailManager = require('../business-logic/email');
-const { User }  = require('../data-access/db.js');
+const { User }  = require('../data-access/db');
 const Token = require('../models/RefreshToken');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 
 const emailController = {
-  send: async (req, res) => {
+  sendEmail: async (req, res) => {
     try {
       await emailManager.sendEmail(
         req.body.email,
@@ -19,7 +19,7 @@ const emailController = {
     }
   },
 
-  sendResetLink: async (req, res, next) => {
+  sendResetLink: async (req, res) => {
     try {
       const email = req.body.email;
       const user = User.findOne( {email: email});
