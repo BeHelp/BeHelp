@@ -11,12 +11,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //routes
-app.use('/email', require('./routes/email.js'));
-app.use('/forgot-password', require('./routes/forgot.js'));
-app.use('/login', require('./routes/login.js'));
-app.use('/register', require('./routes/register.js'));
+app.use('/email', require('./routes/email'));
+app.use('/forgot-password', require('./routes/email'));
+app.use('/login', require('./routes/login'));
+app.use('/register', require('./routes/register'));
 app.use('/refreshtoken', refreshToken);
-app.use('/users', require('./routes/users.js'));
+app.use('/users', require('./routes/users'));
 app.use('*', (req, res) => {
   res.status(404).json({ message: 'Not Found' });
 });
