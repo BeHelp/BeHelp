@@ -38,8 +38,8 @@ export default {
         });
         this.result = await res.json();
         this.result.location = this.result.location[1];
-        this.result.languages = this.result.languages.join(", ");
-        this.result.skills = this.result.skills.join(", ");
+        this.result.languages = this.result.languages;
+        this.result.skills = this.result.skills;
       } catch (error) {
         console.log(error);
       }
