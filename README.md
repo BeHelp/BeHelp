@@ -19,8 +19,7 @@ The application connects international protection seekers with volunteers and or
     - [Backend](#backend)
     - [Devops](#devops)
   - [Setup](#setup)
-  - [Features](#features)
-  - [Status](#status)
+  - [API documentation](#api-documentation)
   - [Inspiration](#inspiration)
       - [Projects and websites](#projects-and-websites)
       - [Articles](#articles)
@@ -60,8 +59,8 @@ The application will include the search tool that will filter available voluntee
 ### Frontend
 
 - Vue 3
+- Vue Router
 - Vite build tool
-- Vue router
 - Vuex state management
 - i18n JSON localization
 - Cloudinary photo upload
@@ -94,9 +93,39 @@ REFRESH_TOKENSECRET=
 SENDGRID_API_KEY=
 ```
 
-## Features
+## API documentation
 
-## Status
+The backend server is using separate endpoints for registration, login, logout, authentication, user queries, email services and refresh/reset token management.
+
+The main database user schema is:
+
+```js
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    lowercase: true,
+    minlength: 6,
+    maxlength: 30,
+    match:
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    unique: false,
+    select: false,
+  },
+  password: { type: String, required: true, minlength: 6, select: false },
+  firstName: { type: String, required: true, minlength: 2, maxlength: 20 },
+  lastName: { type: String, required: true, minlength: 2, maxlength: 20 },
+  dob: { type: Date, required: true },
+  gender: { type: String, required: true },
+  nationality: String,
+  photoURL: String,
+  userType: String,
+  location: [String],
+  skills: [String],
+  languages: [{ _id: false, type: String }],
+  description: { type: String, required: false, minlength: 10, maxlength: 200 },
+});
+```
 
 ## Inspiration
 
@@ -120,7 +149,7 @@ SENDGRID_API_KEY=
 #### Project manager
 
 - [Ekaterina](https://github.com/katsmamina)
-- [Daniel (deputy)](https://github.com/danielhalasz)
+- [Daniel (tech lead)](https://github.com/danielhalasz)
 
 #### Wireframes/Design/UX
 
@@ -131,6 +160,7 @@ SENDGRID_API_KEY=
 #### Frontend
 
 - [Emely (lead)](https://github.com/emelysalmeron)
+- [Daniel (Vue lead)](https://github.com/danielhalasz)
 
 #### Backend
 
@@ -150,6 +180,7 @@ SENDGRID_API_KEY=
 #### Devops
 
 - [Tugba](https://github.com/yildiztugba)
+- [Daniel](https://github.com/danielhalasz)
 - [Anthony Meirlaen](https://github.com/Toinne)
 
 ---
