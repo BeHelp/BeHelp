@@ -1,70 +1,94 @@
 .search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+
+  &__dropdown {
+    width: 20rem;
+    margin: 0.3rem 0.5rem;
+  }
+
+  &__background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
+    text-align: center;
+    color: $white;
+    width: 100%;
+    height: 100%;
 
-    &__background {
-        position: relative;
-        text-align: center;
-        color: $white;
-        width: 100%;
-
-        &-img {
-            width: 100%;
-        }
-
-        &-decor {
-            position: absolute;
-            bottom: 30%;
-            right: 10%;
-            width: 80%;
-            margin: 0 auto;
-            padding: 2em;
-            background: rgba(66, 70, 81, 0.3);
-            border-radius: 20px;
-        }
-
-        &-panel {
-            width: 100%;
-            display: flex;
-            justify-content:space-evenly;
-        }
-
-        &-criteria {
-            padding: 20px auto; 
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            font-size: 42;
-        }
-
-        .btn-secondary {
-            background-color: $primary;
-            color:gray;
-            font-size: 14px;
-            width: 200px;
-        }
-
-        .dropdown-item {
-            font-size: 14px;
-        }
-
-        .search-btn {
-            background-color: $orange;
-            border-radius: 20px;
-            border-color: $orange;
-            border-style: none;
-            width: 80px;
-            overflow-x: hidden; 
-            position: relative;
-        }
-
-        .search-btn:hover {
-            background-color: rgb(175, 118, 49);
-        }
-
-        .search-icon {
-            height: 20px;
-            margin: 5px;
-        }
+    &-img {
+      object-fit: cover;
+      width: 100%;
     }
+
+    &-decor {
+      position: absolute;
+      width: 100%;
+      @media (max-width: $desktop) {
+        height: 50%;
+      }
+      @media (max-width: $tablet) {
+        height: 75%;
+      }
+      margin: 0 auto;
+      padding: 2em;
+      background: rgba(66, 70, 81, 0.3);
+      border-radius: 20px;
+    }
+
+    &-panel {
+      @media (max-width: $tablet) {
+        flex-direction: column;
+        align-items: center;
+      }
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    &-criteria {
+      padding: 20px auto;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 42;
+    }
+
+    .btn-secondary {
+      background-color: $primary;
+      color: gray;
+      font-size: 14px;
+      width: 200px;
+    }
+
+    .dropdown-item {
+      font-size: 14px;
+    }
+
+    .search-btn {
+      background-color: $orange;
+      border-radius: 20px;
+      border-color: $orange;
+      border-style: none;
+      width: 60px;
+      padding: 3px;
+      overflow-x: hidden;
+      position: relative;
+      @media (max-width: $tablet) {
+        margin-top: 30px;
+      }
+    }
+
+    .search-btn:hover {
+      background-color: rgb(175, 118, 49);
+    }
+
+    .search-icon {
+      height: 1.2rem;
+    }
+  }
 }

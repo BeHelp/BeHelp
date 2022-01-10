@@ -1,5 +1,19 @@
 <script>
+import languages from '../assets/jsondata/languages.json';
+import cities from '../assets/jsondata/cities.json';
+import skills from '../assets/jsondata/skills.json';
+import genders from '../assets/jsondata/genders.json';
+
 export default {
+  data() {
+    return {
+      selected: '',
+      languageOptions: languages,
+      cityOptions: cities,
+      skillOptions: skills,
+      genderOptions: genders,
+    };
+  },
   methods: {
     uploadImage(event) {
       const URL = 'https://api.cloudinary.com/v1_1/behelp/image/upload';
@@ -23,6 +37,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <div class="container">
     <div class="container__signup">
@@ -32,10 +47,8 @@ export default {
       <div class="container__signup-content">
         <form method="POST" class="register-form" id="register-form">
           <h2>REGISTRATION FORM</h2>
-
           <div class="container__first">
-            <div class="left" >
-              
+            <div class="left">
               <input
                 type="file"
                 accept="image/*"
@@ -70,21 +83,13 @@ export default {
               </div>
 
               <div class="container__city">
-                <select name="City" id="city" required>
-                  <option value="City" disabled selected>City*</option>
-                  <option value="Brussels">Brussels</option>
-                  <option value="Leuven">Leuven</option>
-                  <option value="Namur">Namur</option>
-                  <option value="Antwerp">Antwerp</option>
-                  <option value="Liège">Liège</option>
-                  <option value="Ghent">Ghent</option>
-                  <option value="Brugge">Brugge</option>
-                  <option value="Eupen">Eupen</option>
-                  <option value="Arlon">Arlon</option>
-                </select>
-                <span class="container__select-icon"
-                  ><i class="zmdi zmdi-chevron-down"></i
-                ></span>
+                <v-select
+                  class="style-chooser"
+                  v-model="filterCities"
+                  :options="cityOptions"
+                  :placeholder="'City'"
+                  label="city"
+                />
               </div>
             </div>
           </div>
@@ -125,12 +130,14 @@ export default {
 
           <div class="container__group">
             <div class="container__select">
-              <select name="Gender" id="gender" required>
-                <option value="Gender" disabled selected>Gender*</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
+            <v-select
+                class="style-chooser"
+                v-model="filterCities"
+                :options="genderOptions"
+                :placeholder="'Gender*'"
+                label="name"
+                required
+              />
               <span class="container__select-icon"
                 ><i class="zmdi zmdi-chevron-down"></i
               ></span>
@@ -148,18 +155,14 @@ export default {
 
           <div class="container__group">
             <div class="container__select">
-            <label for="languages">Languages</label>
-              <select name="languages" id="languages" multiple>
-                <option value="English">English</option>
-                <option value="Dutch">Dutch</option>
-                <option value="French">French</option>
-                <option value="Russian">Russian</option>
-                <option value="Spanish">Spanish</option>
-                <option value="Arabic">Arabic</option>
-                <option value="Hindu">Hindu</option>
-                <option value="Chinese">Chinese</option>
-                <option value="Italian">Italian</option>
-              </select>
+              <v-select
+                class="style-chooser"
+                multiple
+                v-model="filterLanguages"
+                :options="languageOptions"
+                :placeholder="'Languages'"
+                label="name"
+              />
               <span class="container__select-icon"
                 ><i class="zmdi zmdi-chevron-down"></i
               ></span>
@@ -167,16 +170,14 @@ export default {
           </div>
           <div class="container__group">
             <div class="container__select">
-              <select name="skills" id="skills">
-                <option value="Skills" disabled selected>Skills</option>
-                <option value="Translator">Legal assistance</option>
-                <option value="Translator">Translations</option>
-                <option value="Host">Mental health</option>
-                <option value="assistant">Host family</option>
-                <option value="assistant">Education services</option>
-                <option value="assistant">Language classes</option>
-                <option value="assistant">Social assistance</option>
-              </select>
+              <v-select
+                class="style-chooser"
+                multiple
+                v-model="filterSkills"
+                :options="skillOptions"
+                :placeholder="'Skills'"
+                label="name"
+              />
               <span class="container__select-icon"
                 ><i class="zmdi zmdi-chevron-down"></i
               ></span>
@@ -207,4 +208,6 @@ export default {
 @import '../components/styles/abstract/_base.scss';
 @import '../components/styles/abstract/_variables.scss';
 @import '../components/styles/layout/_register.scss';
+@import '../components/styles/layout/_dropdown.scss';
+@import 'vue-select/src/scss/vue-select.scss';
 </style>

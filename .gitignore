@@ -6,3 +6,4 @@ dist-ssr
 .env
 .rest
 request.rest
+node_modules

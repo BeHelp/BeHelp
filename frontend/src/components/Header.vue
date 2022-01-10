@@ -116,7 +116,10 @@ export default {
             id="usermenu-list"
             class="usermenu-list"
             :class="{ 'foo-hover': hidden }"
+<<<<<<< HEAD
           
+=======
+>>>>>>> 34c7514a27e3f1092499ae68d9c7cd1125034b6c
           >
             <router-link
               to="/myprofile"
@@ -141,4 +144,8 @@ export default {
 .foo-hover {
   display: none;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 34c7514a27e3f1092499ae68d9c7cd1125034b6c

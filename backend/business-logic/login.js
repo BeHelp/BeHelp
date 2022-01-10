@@ -65,21 +65,17 @@ const loginManager = {
         }
       );
 
-      console.log(
-        `accessToken: \n${accessToken}`,
-        `\nrefreshToken: \n${refreshToken}`
-      );
+      // console.log(
+      //   `accessToken: \n${accessToken}`,
+      //   `\nrefreshToken: \n${refreshToken}`
+      // );
 
-      try {
-        const newRefreshToken = await RefreshToken.create({
-          user: mongoData._id,
-          token: refreshToken,
-          expiryDate: new Date(Date.now() + 86400000),
-        });
-        console.log('refresh token saved to db');
-      } catch (err) {
-        console.log(err.message);
-      }
+      await RefreshToken.create({
+        user: mongoData._id,
+        token: refreshToken,
+        expiryDate: new Date(Date.now() + 86400000),
+      });
+      console.log('refresh token saved to db');
 
       return [passwordIsValid, accessToken, refreshToken];
     } catch (err) {

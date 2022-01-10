@@ -7,6 +7,9 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "@kyvg/vue3-notification": "^2.3.4",
+    "@sendgrid/mail": "^7.6.0",
+    "@splidejs/vue-splide": "^0.5.15",
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.5.1",
@@ -18,10 +21,13 @@
     "mongoose": "^6.1.4",
     "nodemon": "^2.0.15",
     "vue": "^3.2.25",
+    "vue-i18n": "^9.2.0-beta.26",
     "vue-jwt-decode": "^0.1.0",
     "vue-router": "^4.0.12",
+    "vue-select": "^4.0.0-beta.2",
     "vue-sweetalert2": "^5.0.2",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.1",
@@ -30,7 +36,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend/server.js",
+    "start": "node backend/server.js",
     "dev": "vite",
     "behelp": "concurrently --kill-others \"npm run dev\" \"npm run start\"",
     "build": "vite build",

@@ -1,4 +1,5 @@
 const { User } = require('../data-access/db.js');
+const RefreshToken = require('../models/RefreshToken.js');
 
 const userManager = {
   getUser: async (userData) => {
@@ -80,10 +81,31 @@ const userManager = {
       console.log(err.message);
     }
   },
+  getUserEmailById: async (userId) => {
+    try {
+      const user = await User.findById(userId).select('+email');
+      return user;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
   deleteUser: async (user) => {
     try {
       await user.remove();
       return true;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+  logoutUser: async (userId) => {
+    try {
+      const response = await RefreshToken.find({ user: userId }).deleteMany();
+      console.log(response);
+      if (response.deletedCount === 0) {
+        console.log('user not found');
+        return false;
+      }
+      console.log('user refreshtoken deleted');
     } catch (err) {
       console.log(err.message);
     }
