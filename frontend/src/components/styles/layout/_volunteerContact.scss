@@ -1,83 +1,131 @@
-.container__volunteer-contact{
-  margin-bottom: 40px;
-  display: table;
-  width: 100%;
 
 
-}
-
-.volunteer__box{
-  display: table-cell;
-  padding: 2px;
-
+.container__volunteer-contact {
+  display: flex;
+  margin-bottom: 20px;
+  margin-right: 250px;
+  margin-left: 250px;
+  margin: top 20px;
 
 }
 
-.volunteer__profile-box{
-margin-left: 400px;
-width: 400px;
-height: 600px;
-background: #F5F4EF;
-border: 3px solid #99C5E8;
-box-sizing: border-box;
-border-radius: 20px;
-
-
+.volunteer__box {
+  flex: 50%;
 }
 
-.volunteer__img{
-  position: relative;
-width: 150px;
-height: 130px;
-left: 10px;
-top: 50px;
-background: url(.jpg), #C4C4C4;
-border-radius: 20px;
+.volunteer__box:first-child {
+  margin-right: 5px;
+  float: left;
+  background: #F5F4EF;
+  border: 3px solid #99C5E8;
+  box-sizing: border-box;
+  border-radius: 20px;
 }
 
 
-
-.volunteer__message-box{
-  margin-right:600px;
-  width: 400px;
-  height: 600px;
+.volunteer__box:nth-child(2) {
+  margin-right: 5px;
+  float: right;
   background: #99C5E8;
   border-radius: 20px;
-  }
+}
 
-  .contact__text{
-    width: 480px;
-    height: 64px;
+.volnteer__name {
+  width: 204.73px;
+  height: 28.03px;
+  left: 450px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 32px;
+  text-transform: uppercase;
 
-    padding-left: 20px;
-    
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.2rem;
-    font-variant: small-caps;
-    
-    color: #424651;
-  
-  }
-  .behelp__logo{
-    margin-top: 10px;
-    width: 80px;
-    float:right;
-  }
-  .subject__box{
-  width: 300px;
+  color: #424651;
+}
+
+.profile__detail-text {
+  position: relative;
+  padding-top: 40px;
+  padding-left: 250px;
+  max-width: 900px;
+  padding-bottom: 10px;
+
+}
+
+.volunteer__img {
+  float: left;
+  margin-top: 40px;
+  margin-left: 20px;
+  width: 200px;
+  height: 258px;
+  background: #C4C4C4;
+  border-radius: 20px;
+}
+
+.h2 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 32px;
+  text-transform: uppercase;
+  color: #424651;
+}
+
+.p {
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 22px;
+  color: #424651;
+}
+
+.profile__text {
+  padding-left: 40px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+ul {
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.contact__text {
+  width: 480px;
+  height: 64px;
+  margin-top: 40px;
+  padding-left: 20px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2rem;
+  font-variant: small-caps;
+  color: #424651;
+
+}
+
+.behelp__logo {
+  margin-top: 10px;
+  width: 80px;
+  float: right;
+}
+
+.subject__box {
+  width: 400px;
   height: 59px;
   margin-top: 20px;
   margin-left: 20px;
   margin-bottom: 10px;
-  padding-left:20px;
+  padding-left: 20px;
   background: #F5F4EF;
   border-radius: 20px;
 
-  }
-.message__box{
-  width: 350px;
+}
+
+.message__box {
+  width: 465px;
   height: 200px;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -89,24 +137,24 @@ border-radius: 20px;
 
 }
 
-.user__email-box{
-width: 350px;
-height: 77px;
-margin-left: 20px;
-margin-bottom: 10px;
-padding-left: 20px;
-padding-top: 20px;
-
-background: #F5F4EF;
-border-radius: 20px;}
-
-.message__button{
-width: 200px;
-height: 69.23px;
-margin-left: 80px;
+.user__email-box {
+  width: 465px;
+  height: 77px;
+  margin-left: 20px;
   margin-bottom: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
+  background: #F5F4EF;
+  border-radius: 20px;
+}
 
+.message__button {
+  width: 200px;
+  height: 69.23px;
+  margin-left: 140px;
+  margin-bottom: 10px;
   align-content: center;
 
-background: #E99140;
-border-radius: 20px;}
+  background: #E99140;
+  border-radius: 20px;
+}
