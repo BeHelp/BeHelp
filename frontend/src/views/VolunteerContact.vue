@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      result: "",
+      result: undefined,
     };
   },
   mounted() {
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <div class="container__volunteer-contact">
+  <div v-if="result" class="container__volunteer-contact">
     <div class="volunteer__box">
       <img v-bind:src="result.photoURL" class="volunteer__img" />
       <div class="profile__detail-text">
@@ -40,19 +40,14 @@ export default {
         <p><b>City:</b> {{ result.location[1]}}</p>
         <p><b>Languages: </b>
         <ul>
-          <li>{{ result.languages[0] }}</li>
-          <li>{{ result.languages[1] }}</li>
-          <li>{{ result.languages[2] }}</li>
-          <li>{{ result.languages[3] }}</li>
+        <li v-for="lang in result.languages"> {{ lang }} </li>
         </ul></p>
       </div>
       <div class="profile__text">
         <p><b>Skills: </b>
         <ul>
-          <li>{{ result.skills[0] }}</li>
-          <li>{{ result.skills[1] }}</li>
-          <li>{{ result.skills[2] }}</li>
-          <li>{{ result.skills[3] }}</li>
+        <li v-for="skill in result.skills"> {{ skill }} </li>
+
         </ul></p>
 
         <p><b>Description: </b>{{ result.description }}</p>
