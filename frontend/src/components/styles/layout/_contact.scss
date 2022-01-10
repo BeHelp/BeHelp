@@ -1,0 +1,109 @@
+
+
+.contactUs {
+    text-align:center;
+    // display: inline-block;
+    border-radius: 20px;
+    padding: 30px;
+  }
+  .contactUs__page {
+   
+    display: inline-block;
+    text-align: left;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 480px;
+    position: relative;
+   
+    font-size: 18px;
+   
+    background-color: #99c5e8;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    max-width: 70%;
+  }
+  .contact__text {
+   
+    margin-top: 45px;
+    font-family: Montserrat;
+    font-style: normal;
+    font: weight 500px;;
+    font-size: 16px;
+    color: #434651;
+  }
+  input[type=text], [type=email], textarea {
+    // width: 100%;
+    // padding: 12px;
+    // border: 1px solid #ccc;
+    // border-radius: 15px;
+    // box-sizing: border-box;
+    // margin-top: 6px;
+    // margin-bottom: 16px;
+    // resize: vertical;
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    border: 1px solid #f5f4ef;
+    padding: 7px 20px;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    background-color: #f5f4ef;
+    margin-bottom: 16px;
+    padding-bottom: 20px;
+  }
+  
+  input[type=submit] {
+    
+  // background-color:#e99140 ;
+  //   color: #434651;
+  //   padding: 12px 20px;
+  //   border: none;
+  //   border-radius: 15px;
+  //   cursor: pointer;
+  width: 120px;
+    height: 44px;
+    background: #e99140;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    font-size: 0.8rem;
+   
+  }
+  input[type=submit]:hover {
+   
+    background-color:  #f3eee9;
+  }
+  .contact__content{
+    display: inline-block;
+    text-align: left;
+    margin: auto 0;
+    background-color: $orange;
+    
+    
+  }
+  .contactUs__img{
+    height: 341px;
+    width: 776px;
+    left: 163px;
+    top: 236px;
+    border-radius: 0px;
+    position:relative
+  
+     
+  }
+ 
+  
+  
+  
+ 
+  
+  
+  
+  
