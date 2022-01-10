@@ -28,7 +28,7 @@
       </div>
       <div class="card__footer">
         <small
-          ><a class="btn btn-primary" href="#" role="button">CONTACT ME</a>
+          ><a class="btn btn-primary" v-bind:href="'/volunteer/' + volunteer._id" role="button">CONTACT ME</a>
         </small>
       </div>
     </div>
