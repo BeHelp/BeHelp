@@ -8,7 +8,7 @@ forgotRoutes.use((req, res, next) => {
     next();
 });
 
-forgotRoutes.post('/:resetToken', emailController.sendResetLink);
+forgotRoutes.post('', emailController.sendResetLink);
 
 module.exports = forgotRoutes;
 

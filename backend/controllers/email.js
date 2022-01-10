@@ -44,7 +44,7 @@ const emailController = {
 
       const link = `/passwordReset?token=${resetToken}&id=${user._id}`;
       console.log(link);
-      
+
       await emailManager.sendEmail(
         email, 
         'behelp.be@gmail.com', 
@@ -59,6 +59,8 @@ const emailController = {
     }
   }
 }
+
+// the following part was there before changes. Restore if my code is not working. 
 
 // const emailController = {
 //   send: async (req, res) => {

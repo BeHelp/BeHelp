@@ -13,16 +13,18 @@ const emailManager = {
             html: content,
         };
         const sentEmail = await sendgrid.send(email)
-        .then((resp) => {
-            console.log('Email sent\n');
-            })
+        // .then((res) => {
+        //     console.log('Email sent\n');
+        //     })
         .then(res.status(200).send(`SUCCESS: email sent`))
+        console.log(sentEmail);
         return sentEmail;
+        
     } catch(err) {
         res.status(500).send(err);
         console.error(err);
     };
-}
+    }
 };
 
 module.exports = emailManager;
