@@ -19,7 +19,8 @@ The application connects international protection seekers with volunteers and or
     - [Backend](#backend)
     - [Devops](#devops)
   - [Setup](#setup)
-  - [API documentation](#api-documentation)
+  - [API routes](#api-routes)
+  - [Sample Vue code](#sample-vue-code)
   - [Inspiration](#inspiration)
       - [Projects and websites](#projects-and-websites)
       - [Articles](#articles)
@@ -93,38 +94,57 @@ REFRESH_TOKENSECRET=
 SENDGRID_API_KEY=
 ```
 
-## API documentation
+## API routes
 
 The backend server is using separate endpoints for registration, login, logout, authentication, user queries, email services and refresh/reset token management.
 
-The main database user schema is:
+## Sample Vue code
+
+The frontend is using Vue 3 single page components. Here is a look at the script tag for the header:
 
 ```js
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    lowercase: true,
-    minlength: 6,
-    maxlength: 30,
-    match:
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    unique: false,
-    select: false,
+import { mapState } from "vuex";
+
+export default {
+  data() {
+    return {
+      hidden: true,
+      locale: "ENG",
+    };
   },
-  password: { type: String, required: true, minlength: 6, select: false },
-  firstName: { type: String, required: true, minlength: 2, maxlength: 20 },
-  lastName: { type: String, required: true, minlength: 2, maxlength: 20 },
-  dob: { type: Date, required: true },
-  gender: { type: String, required: true },
-  nationality: String,
-  photoURL: String,
-  userType: String,
-  location: [String],
-  skills: [String],
-  languages: [{ _id: false, type: String }],
-  description: { type: String, required: false, minlength: 10, maxlength: 200 },
-});
+  watch: {
+    locale(val) {
+      this.$i18n.locale = val;
+    },
+  },
+  computed: {
+    ...mapState(["isLoggedIn", "user"]),
+  },
+  methods: {
+    async logout() {
+      try {
+        const token = localStorage.getItem("token");
+        const userId = this.user.userId;
+        const res = await fetch(
+          `http://localhost:5000/users/logout/${userId}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(res);
+        localStorage.removeItem("token");
+        this.$store.commit("loggedOut");
+        this.$router.push("/");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
 ```
 
 ## Inspiration
