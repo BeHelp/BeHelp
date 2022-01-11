@@ -1,0 +1,112 @@
+.contactUs {
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    // styles for the left side
+
+    &-leftcontainer {
+      display: inline-block;
+      margin-left: 2rem;
+    }
+
+    &-leftcontainer h1 {
+      text-transform: uppercase;
+      text-align: left;
+      line-height: 2.6rem;
+      color: $dark-grey;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 2rem;
+      padding-top: 0;
+    }
+
+    &-image {
+      position: relative;
+      left: 2em;
+      height: 400px;
+      width: 800px;
+      @media (max-width: $tablet) {
+        height: 200px;
+        width: 400px;
+        max-width: 80%;
+        margin: 1rem auto;
+      }
+      @media (max-width: 1180px) {
+        height: 300px;
+        width: 500px;
+      }
+    }
+
+    &-image img {
+      height: 80%;
+      object-fit: cover;
+    }
+
+    // styles for the right side
+
+    &-rightcontainer {
+      display: inline-block;
+      z-index: 99;
+      background-color: $blue;
+      max-width: 30%;
+
+      @media (max-width: $tablet) {
+        max-width: 80%;
+        margin: 0.2rem auto;
+      }
+      @media (max-width: 1100px) {
+        max-width: 60%;
+        margin: 1rem auto;
+      }
+      margin-left: 50rem;
+      margin-right: 6rem;
+      margin-top: -14rem;
+      margin-bottom: 4rem;
+
+      padding: 2rem;
+
+      & p {
+        font-weight: 500;
+        color: $dark-grey;
+      }
+    }
+  }
+}
+
+// styles for the inputs
+
+input[type="text"],
+[type="email"],
+textarea {
+  border-radius: 20px;
+  display: block;
+  width: 100%;
+  border: 1px solid #f5f4ef;
+  padding: 7px 20px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  background-color: #f5f4ef;
+  margin-bottom: 16px;
+  padding-bottom: 20px;
+}
+
+input[type="submit"] {
+  width: 120px;
+  height: 44px;
+  background: #e99140;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+input[type="submit"]:hover {
+  background-color: #f3eee9;
+}
