@@ -1,8 +1,7 @@
 require('dotenv').config({ path: './.env' });
 const sendgrid = require('@sendgrid/mail');
 
-const emailManager = {
-    sendEmail: async (recipient, source, subject, content) => {
+const sendEmail = async (recipient, source, subject, content) => {
     try {
         sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
         const email = {
@@ -18,6 +17,5 @@ const emailManager = {
         console.error(err);
         };
     }
-};
 
-module.exports = emailManager;
+module.exports = sendEmail;

@@ -1,58 +1,41 @@
-const emailManager = require('../business-logic/email');
-const resetPasswordManager = require('../business-logic/reset');
-require('dotenv').config({ path: './.env' });
-const { User }  = require('../data-access/db');
-const ResetToken = require('../models/ResetToken');
-const bcrypt = require('bcryptjs');
-const crypto = require('crypto');
+// require('dotenv').config({ path: './.env' });
+const forgotManager  = require('../business-logic/forgot');
+const Token = require('../data-access/db');
+const ResetToken = require('../data-access/db');
 
 const forgotPasswordController = {
     sendResetLink: async (req, res) => {
-    try {
-        const email = req.body.recipient;
-        const user = User.findOne( {email: email});
-        if(!user) {
-            return res.status(400).send({error: 'User not found'})
-        }
-
-    // check if token exists and delete it
-    let token = await Token.findOne({ userId: user._id });
-    console.log(token);  
-        if (token) { 
-            await token.deleteOne()
-        };
-
-    //create token to send to the forgot password form
-    let resetToken = crypto.randomBytes(32).toString('hex'); 
-    const hash = await bcrypt.hash(resetToken, 10);
-    await ResetToken.create({
-        userId: user._id,
-        token: hash,
-        expiryDate: new Date(Date.now() + 86400000),
-        });
-        console.log('reset token saved to db');
-
-    const link = `behelp.herokuapp.com/passwordReset?token=${resetToken}&id=${user._id}`;
-    console.log(link);
-
-    await emailManager.sendEmail(
-        email, 
-        'behelp.be@gmail.com', 
-        'Reset your password',
-        `<div style="color: blue"> Click to reset your password: ${link}. <br>
-        If you didn't request to reset your password, ignore this email. </div>`
-        );
-        return res.status(200).send(`SUCCESS: Password reset link successfully sent!`)
-    } catch (err) {
-        res.status(500).send(err);
-        console.error(err.message);
+        try {
+            const email = req.body;
+            const result = forgotManager.sendResetLink(email);
+            res.status(200).send(`Reset link sent!`)
+        } catch (error) {
+            console.error(error);
+            res.status(500).send(error);
         }
     },
     resetPassword: async (req, res) => {
         try {
+            
+        } catch (error) {
+            console.error(error);
+            res.status(500).send(error);
+        }
+    },
+}
+    // check if token exists and delete it
+        // let token = await Token.findOne({ userId: user._id });
+        // console.log(token);  
+        // if (token) { 
+        //     await token.deleteOne()
+        //     };
+
+    resetPassword: async (req, res) => {
+        try {
             const { password } = req.body;
             const { token } = req.params;
-            const decoded = jwtToken.verifyToken(token);
+            // verify the token
+            // const decoded = jwtToken.verifyToken(token);
             const hash = hashPassword(password);
             const updatedUser = await User.update(
                 { password: hash },
@@ -63,17 +46,18 @@ const forgotPasswordController = {
                 }
             );
             const { id, name, email } = updatedUser[1];
+            await emailManager.sendEmail(
+                user.email,
+                `behelp.be@gmail.com`,
+                `Password change confirmation`,
+                `<div> Your password was successfully changed </div>`
+            )
             return res.status(200).send({ token, user: { id, name, email } });
-            } catch (e) {
-            return next(new Error(e));
+            } catch (err) {
+            return next(new Error(err));
         }
 
-        emailManager.sendEmail(
-            user.email,
-            `behelp.be@gmail.com`,
-            `Password change confirmation`,
-            `<div> Your password was successfully changed </div>`
-        )
+        
     }
 }
 module.exports = forgotPasswordController;
