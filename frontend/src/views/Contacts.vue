@@ -1,3 +1,55 @@
+<script>
+import emailjs from "@emailjs/browser";
+export default {
+  name: "ContactUs",
+  data() {
+    return {
+      name: "",
+      email: "",
+      message: "",
+    };
+  },
+  methods: {
+    async sendEmail() {
+      const emailParams = {
+        name: this.name,
+        email: this.email,
+        message: this.message,
+      };
+      console.log(emailParams);
+      await emailjs
+        .send(
+          "service_0xqmyuc",
+          "template_zxk95fi",
+          emailParams,
+          "user_bqOiafJ3RyGJLlBUxuy6A"
+        )
+        .then(
+          (result) => {
+            console.log(result);
+          },
+          (error) => {
+            console.log(error);
+          }
+        )
+        .then(() => {
+          this.$notify({
+            title: "Message sent successfully!",
+            type: "success",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          this.$notify({
+            title: "There was an error sending the message!",
+            type: "error",
+          });
+        });
+    },
+  },
+};
+</script>
+
 <template>
   <div class="contactUs">
     <div class="contactUs__content">
@@ -26,7 +78,7 @@
 
         <form
           class="contactUs__content-rightcontainer-form"
-          @submit="sendEmail"
+          @submit.prevent="sendEmail"
         >
           <input
             type="text"
@@ -59,41 +111,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import emailjs from "@emailjs/browser";
-export default {
-  name: "ContactUs",
-  data() {
-    return {
-      name: "",
-      email: "",
-      message: "",
-    };
-  },
-  methods: {
-    sendEmail() {
-      try {
-        const emailParams = {
-          name: this.name,
-          email: this.email,
-          message: this.message,
-        };
-
-        emailjs.send(
-          "service_0xqmyuc",
-          "template_zxk95fi",
-          emailParams,
-          "user_bqOiafJ3RyGJLlBUxuy6A"
-        );
-        alert("Message sent successfully!");
-      } catch (error) {
-        console.log({ error });
-      }
-    },
-  },
-};
-</script>
 
 <style lang="scss">
 @import "../components/styles/abstract/_variables.scss";

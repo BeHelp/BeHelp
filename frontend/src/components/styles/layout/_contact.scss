@@ -18,6 +18,7 @@
       font-size: 2rem;
       font-weight: 700;
       padding: 2rem;
+      padding-top: 0;
     }
 
     &-image {
@@ -28,6 +29,8 @@
       @media (max-width: $tablet) {
         height: 200px;
         width: 400px;
+        max-width: 80%;
+        margin: 1rem auto;
       }
       @media (max-width: 1180px) {
         height: 300px;
@@ -46,20 +49,22 @@
       display: inline-block;
       z-index: 99;
       background-color: $blue;
+      max-width: 30%;
 
       @media (max-width: $tablet) {
-        margin: 1rem auto;
+        max-width: 80%;
+        margin: 0.2rem auto;
       }
       @media (max-width: 1100px) {
+        max-width: 60%;
         margin: 1rem auto;
       }
-      margin-left: 40rem;
+      margin-left: 50rem;
       margin-right: 6rem;
-      margin-top: -10rem;
+      margin-top: -14rem;
       margin-bottom: 4rem;
 
       padding: 2rem;
-      max-width: 80vw;
 
       & p {
         font-weight: 500;
