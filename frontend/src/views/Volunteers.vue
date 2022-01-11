@@ -45,6 +45,4 @@ export default {
 <style lang="scss" scoped>
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_card.scss";
-
-
 </style>
