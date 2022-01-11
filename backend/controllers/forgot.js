@@ -16,50 +16,19 @@ const forgotPasswordController = {
     },
     resetPassword: async (req, res) => {
         try {
-            
+            await forgotManager.resetPassword (
+                req.body._id,
+                req.body.token,
+                req.body.password
+            );
+            return res.json(resetPasswordService);
         } catch (error) {
             console.error(error);
             res.status(500).send(error);
         }
     },
 }
-    // check if token exists and delete it
-        // let token = await Token.findOne({ userId: user._id });
-        // console.log(token);  
-        // if (token) { 
-        //     await token.deleteOne()
-        //     };
 
-    resetPassword: async (req, res) => {
-        try {
-            const { password } = req.body;
-            const { token } = req.params;
-            // verify the token
-            // const decoded = jwtToken.verifyToken(token);
-            const hash = hashPassword(password);
-            const updatedUser = await User.update(
-                { password: hash },
-                {
-                where: { id: decoded.userId },
-                returning: true,
-                plain: true,
-                }
-            );
-            const { id, name, email } = updatedUser[1];
-            await emailManager.sendEmail(
-                user.email,
-                `behelp.be@gmail.com`,
-                `Password change confirmation`,
-                `<div> Your password was successfully changed </div>`
-            )
-            return res.status(200).send({ token, user: { id, name, email } });
-            } catch (err) {
-            return next(new Error(err));
-        }
-
-        
-    }
-}
 module.exports = forgotPasswordController;
 
 // resetPassword: async (userId, token, password) => {

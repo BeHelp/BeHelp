@@ -71,8 +71,4 @@ const refreshToken = async (req, res) => {
   }
 };
 
-const resetToken = async (req, res) {
-  
-}
-
 module.exports = { authCheck, refreshToken };
