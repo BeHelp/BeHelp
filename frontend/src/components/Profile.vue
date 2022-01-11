@@ -22,8 +22,25 @@ export default {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
-    deleteProfile() {
-    
+    async deleteProfile() {
+      try {
+        if (confirm("Are you sure you want to delete your profile?")) {
+          if (confirm("Please confirm again to delete your profile.")) {
+            const userId = this.user.userId;
+
+            const res = await fetch(
+              `http://localhost:5000/users/delete/${userId}`,
+              {
+                method: "DELETE",
+              }
+            );
+            console.log(res);
+            alert("Profile deleted");
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
     async getUser() {
       try {
@@ -284,4 +301,8 @@ export default {
 @import "../components/styles/layout/_profile.scss";
 @import "../components/styles/layout/_dropdown.scss";
 @import "vue-select/src/scss/vue-select.scss";
+
+.left {
+  background-color: chartreuse;
+}
 </style>
