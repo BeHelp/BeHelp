@@ -1,14 +1,13 @@
 const express = require('express');
 const forgotRoutes = express.Router();
-const emailController = require('../controllers/email');
-// const { forgotPasswordManager } = require('../business-logic/forgot');
+const forgotPasswordController = require('../controllers/forgot');
 
 forgotRoutes.use((req, res, next) => {
     console.log('api! forgot password');
     next();
 });
 
-forgotRoutes.post('', emailController.sendResetLink);
+forgotRoutes.post('/', forgotPasswordController.sendResetLink);
 
 module.exports = forgotRoutes;
 

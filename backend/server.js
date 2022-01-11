@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //routes
 app.use('/email', require('./routes/email'));
-app.use('/forgot-password', require('./routes/email'));
+app.use('/forgot', require('./routes/forgot'));
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));
 app.use('/refreshtoken', refreshToken);

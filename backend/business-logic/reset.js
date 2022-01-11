@@ -1,9 +1,9 @@
-const  User  = require('../models/User');
-const Token = require('../models/RefreshToken');
+const  User  = require('../data-access/db');
+const Token = require('../data-access/db');
 require('dotenv').config({ path: './.env' });
 const bcrypt = require('bcryptjs');
 // const crypto = require('crypto');
-const sendEmail = require('../middleware/sendEmail');
+const emailManager = require('../business-logic/email');
 
 const resetPasswordManager = {
     resetPassword: async (userId, token, password) => {
@@ -25,14 +25,12 @@ const resetPasswordManager = {
                 { new: true }
             );
         const user = await User.findById({ _id: userId });
-            sendEmail(
+            emailManager.sendEmail (
                 user.email,
-                "Password Reset Successfully",
-                {
-                name: user.name,
-                },
-                "../templates/resetPassword.handlebars"
-                );
+                `behelp.be@gmail.com`,
+                `Password change confirmation`,
+                `<div> Your password was successfully changed </div>`
+            );
             // delete the reset-token
             await passwordResetToken.deleteOne();
             return true;

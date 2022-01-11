@@ -7,6 +7,5 @@ emailRoutes.use((req, res, next) => {
 });
 
 emailRoutes.post('/', emailController.sendEmail);
-// emailRoutes.post('', emailController.sendResetLink);
 
 module.exports = emailRoutes;
