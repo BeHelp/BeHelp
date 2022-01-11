@@ -29,10 +29,7 @@ export default {
       <div class="volunteers__container">
         <div class="volunteers__searchresults">
           <div class="volunteers__searchresults-h1">Results:</div>
-          <pre id="json">
-          <!-- {{ this.results }} -->
-          
-        </pre>
+
           <div class="cards__columns">
             <Card
               v-for="volunteer in volunteers"
