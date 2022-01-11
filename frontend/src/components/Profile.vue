@@ -22,26 +22,7 @@ export default {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
-    async deleteProfile() {
-      try {
-        if (confirm("Are you sure you want to delete your profile?")) {
-          if (confirm("Please confirm again to delete your profile.")) {
-            const userId = this.user.userId;
-
-            const res = await fetch(
-              `http://localhost:5000/users/delete/${userId}`,
-              {
-                method: "DELETE",
-              }
-            );
-            console.log(res);
-            alert("Profile deleted");
-          }
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    },
+    deleteProfile() {},
     async getUser() {
       try {
         const token = localStorage.getItem("token");
@@ -92,20 +73,18 @@ export default {
     <div class="container__profile">
       <form method="POST" class="register-form" id="register-form">
         <h2>MY PROFILE</h2>
-        <div class="container__first">
-          <div class="left">
-            <input
-              type="file"
-              accept="image/*"
-              id="file-input"
-              @change="uploadImage($event)"
-              class="button-icon"
-            />
-            <div class="left-icon"></div>
-            <p>
-              Upload your <br />
-              profile picture
-            </p>
+        <div class="container__firstset">
+          <div class="leftside">
+            <img :src="user.photoURL" />
+            <div class="left-icon" v-if="!isHidden">
+              <input
+                type="file"
+                accept="image/*"
+                id="file-input"
+                @change="uploadImage($event)"
+                class="button-icon"
+              />
+            </div>
           </div>
           <div class="right">
             <div class="container__group">

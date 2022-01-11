@@ -21,14 +21,6 @@
   &__profile {
     width: 65%;
 
-    &-img {
-      width: 45%;
-    }
-    .img {
-      height: 100%;
-      margin: auto;
-    }
-
     &-content {
       width: 60%;
     }
@@ -272,23 +264,22 @@
     }
   }
 
-  &__first {
+  &__firstset {
     display: grid;
     grid-template-columns: 45% 55%;
     grid-template-areas: "left right";
+    height: 150px;
 
-    .left {
+    .leftside {
       grid-area: left;
-      background-color: $field_color;
-      border-radius: 20px;
       margin-bottom: 20px;
       margin-right: 20px;
+      margin-left: 20px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      font-size: 10px;
-      text-align: center;
+      height: 65%;
+      width: 85%;
 
       .left-icon {
         background: url("../assets/fas/camera-solid.svg"), no-repeat;
@@ -297,14 +288,14 @@
         width: 60px;
         height: 60px;
         border: none;
-        position: absolute;
+        position: relative;
       }
       .button-icon {
-        float: left;
         z-index: 9;
         width: 60px;
         height: 60px;
         opacity: 0;
+        overflow: visible;
       }
       .left-icon:hover,
       .button-icon:hover {
@@ -314,6 +305,11 @@
       p {
         margin: 0;
         color: $dark-grey;
+      }
+
+      img {
+        overflow: hidden;
+        position: relative;
       }
     }
 
@@ -453,7 +449,6 @@
         -o-flex-direction: column;
         -ms-flex-direction: column;
 
-        &-img,
         &-content {
           width: 100%;
         }
@@ -461,7 +456,7 @@
 
       &radio {
         &-item {
-          // margin: 20%;
+          margin: 20%;
           display: flex;
         }
       }
@@ -485,13 +480,6 @@
 
   @media screen and (max-width: 575px) {
     .container {
-      &__signup {
-        &-img {
-          display: none;
-          visibility: hidden;
-          clear: both;
-        }
-      }
       &__row {
         flex-direction: column;
         -moz-flex-direction: column;
