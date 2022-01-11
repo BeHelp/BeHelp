@@ -1,5 +1,5 @@
-import { createStore } from 'vuex';
-import createPersistedState from 'vuex-persistedstate';
+import { createStore } from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 const store = createStore({
   plugins: [
@@ -9,15 +9,20 @@ const store = createStore({
   ],
   state() {
     return {
-      isLoggedIn: '',
+      isLoggedIn: "",
       user: {},
-      filterQuery: {},
-      filterResult: {},
+      filterLanguages: "",
+      filterCities: "",
+      filterSkills: "",
+      searchResult: [],
     };
   },
   mutations: {
     loggedIn(state) {
       state.isLoggedIn = true;
+    },
+    loggedOut(state) {
+      state.isLoggedIn = false;
     },
     readUser(state, user) {
       state.user.userId = user.jwtData[0];
@@ -26,8 +31,17 @@ const store = createStore({
       state.user.lastName = user.jwtData[3];
       state.user.photoURL = user.jwtData[4];
     },
-    setFilterQuery(state, filterQuery) {
-      state.filterQuery = Object.assign({}, state.filterQuery, filterQuery);
+    updateLanguages(state, message) {
+      state.filterLanguages = message;
+    },
+    updateCities(state, message) {
+      state.filterCities = message;
+    },
+    updateSkills(state, message) {
+      state.filterSkills = message;
+    },
+    searchResult(state, message) {
+      state.searchResult = message;
     },
   },
 });

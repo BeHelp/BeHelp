@@ -1,8 +1,42 @@
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
+
 export default {
+  data() {
+    return {
+      hidden: true,
+      locale: "ENG",
+    };
+  },
+  watch: {
+    locale(val) {
+      this.$i18n.locale = val;
+    },
+  },
   computed: {
-    ...mapState(['isLoggedIn', 'user']),
+    ...mapState(["isLoggedIn", "user"]),
+  },
+  methods: {
+    logout() {
+      const token = localStorage.getItem("token");
+      const userId = this.user.userId;
+      fetch(`http://localhost:5000/users/logout/${userId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          localStorage.removeItem("token");
+          this.$store.commit("loggedOut");
+          this.$router.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
@@ -25,22 +59,24 @@ export default {
             class="header__nav-list link"
             >About</router-link
           >
-          <a v-else href="#about" class="header__nav-list link">About</a>
+          <a v-else href="#about" class="header__nav-list link">{{
+            $t("about")
+          }}</a>
         </li>
         <li class="header__nav-list item">
-          <router-link to="/volunteers" class="header__nav-list link"
-            >Volunteers</router-link
-          >
+          <router-link to="/volunteers" class="header__nav-list link">{{
+            $t("volunteers")
+          }}</router-link>
         </li>
         <li class="header__nav-list item">
-          <router-link to="/contacts" class="header__nav-list link"
-            >Contact Us</router-link
-          >
+          <router-link to="/contacts" class="header__nav-list link">{{
+            $t("contactus")
+          }}</router-link>
         </li>
       </ul>
       <ul class="header__nav-features">
         <li class="header__nav-features select">
-          <select>
+          <select v-model="locale">
             <option class="header__nav-features option">ENG</option>
             <option class="header__nav-features option">FR</option>
             <option class="header__nav-features option">NL</option>
@@ -61,19 +97,35 @@ export default {
           >
         </li>
 
-        <li class="header__nav-features">
+        <li
+          v-if="isLoggedIn === true"
+          @click="hidden = !hidden"
+          class="header__nav-features"
+        >
           <p class="header__nav-features p-username" id="header-username">
             {{ user.firstName }}
           </p>
         </li>
         <li v-if="isLoggedIn === true" class="header__nav-features usermenu">
-          <img :src="user.photoURL" class="header__nav-features img-username" />
-          <div id="usermenu-list" class="usermenu-list none">
-            <a href="#" class="usermenu-a" id="usermenu-profile">My Profile</a
+          <img
+            @click="hidden = !hidden"
+            :src="user.photoURL"
+            class="header__nav-features img-username"
+          />
+          <div
+            id="usermenu-list"
+            class="usermenu-list"
+            :class="{ 'foo-hover': hidden }"
+          >
+            <router-link
+              to="/myprofile"
+              class="usermenu-a"
+              id="usermenu-profile"
+              >My profile</router-link
             ><br />
-            <a href="#" class="usermenu-a" id="usermenu-messages">Messages</a
-            ><br />
-            <a href="#" class="usermenu-a" id="usermenu-logout">Logout</a>
+            <a @click="logout" href="#" class="usermenu-a" id="usermenu-logout"
+              >Logout</a
+            >
           </div>
         </li>
       </ul>
@@ -82,6 +134,10 @@ export default {
 </template>
 
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_header.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_header.scss";
+
+.foo-hover {
+  display: none;
+}
 </style>

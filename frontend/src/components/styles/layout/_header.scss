@@ -1,42 +1,45 @@
 .header {
-    font-family: $montserrat;
-    font-weight: 400;
-    text-decoration-color: $dark-grey;
-    width: 100%;
-    padding: 1em 4em;
+  font-family: $montserrat;
+  font-weight: 400;
+  text-decoration-color: $dark-grey;
+  width: 100%;
+  padding: 1em 4em;
 
-    &__nav {
-        width: 100%;
-        height: 4em;
-        text-align: justify;
-        display: flex;
-        letter-spacing: 1px;
+  &__nav {
+    width: 100%;
+    height: 4em;
+    text-align: justify;
+    display: flex;
+    letter-spacing: 1px;
 
     &-logo {
-        width: 200px;
-        height: 53.02px;
-        margin: auto 0;
+      width: 200px;
+      height: 53.02px;
+      margin: auto 0;
     }
 
     &-list {
-        display: flex;
-        margin: 0 auto;
-        justify-content: center;
-        align-items: center;
-        height: 4em;
-    
-    .item {
+      display: flex;
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
+      height: 4em;
+
+      .link {
+        width: 7rem;
+      }
+      .item {
         align-items: center;
         margin: 0 15px;
+      }
     }
-}
-&-features {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0 3px;
+    &-features {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0 3px;
 
-    select {
+      select {
         -moz-appearance: none;
         -webkit-appearance: none;
         border: none;
@@ -45,13 +48,13 @@
         padding: 5px;
         padding-right: 20px;
         font-family: $montserrat;
-    }
-    select:hover{
+      }
+      select:hover {
         cursor: pointer;
         text-decoration: underline;
-    }
+      }
 
-    button {
+      button {
         background-color: transparent;
         border: 3px solid;
         border-radius: 20px;
@@ -63,41 +66,41 @@
         padding: 8px 16px;
         margin: 20px auto;
         text-decoration: none;
-    }
-    
-    .btn-signup {        
+      }
+
+      .btn-signup {
         border: 3px solid $orange;
         width: 100px;
         box-sizing: border-box;
-    }
+      }
 
-    .btn-signup:hover {
+      .btn-signup:hover {
         background-color: $orange;
         color: white;
-    }
+      }
 
-    .btn-login {
+      .btn-login {
         width: 80px;
         border: none;
         text-decoration: underline;
-    }
+      }
 
-    .p-username {
+      .p-username {
         font-size: 10px;
         color: $orange;
-    }
+      }
 
-    .none {
+      .none {
         display: none;
-    }
+      }
 
-    .usermenu {
+      .usermenu {
         position: relative;
         margin: auto;
         display: inline-block;
         z-index: 100;
-    }
-    .usermenu-list {
+      }
+      .usermenu-list {
         background-color: $primary;
         border-radius: 20px;
         border-color: $dark-grey;
@@ -105,27 +108,31 @@
         width: 100px;
         position: absolute;
         right: 10px;
-    }
+      }
 
-    .img-username {
+      .img-username {
         height: 25px;
         margin: auto 0;
         border-radius: 50%;
-    }
+      }
 
-    .usermenu-list {
+      .img-username:hover {
+        cursor: pointer;
+      }
+
+      .usermenu-list {
         margin: 0 auto;
         padding: 10px;
-    }
+      }
 
-    .usermenu-a {
+      .usermenu-a {
         font-size: 12px;
+      }
     }
-}
-}
+  }
 }
 .header::after {
-    content: '';
-    display: inline-block;
-    width: 100%;
+  content: "";
+  display: inline-block;
+  width: 100%;
 }

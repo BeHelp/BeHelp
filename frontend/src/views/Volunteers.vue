@@ -1,24 +1,22 @@
 <script>
 import Search from "../components/Search.vue";
 import Card from "../components/Card.vue";
+import { mapState } from "vuex";
 
 export default {
-  data() {
-    return {
-      volunteers: [],
-    };
-  },
   components: {
     Search,
     Card,
   },
-
-  methods: {
-    searchCompleted: function (results) {
-      this.volunteers = results;
-      console.log(results);
-    },
+  computed: {
+    ...mapState(["searchResult"]),
   },
+  // methods: {
+  //   searchCompleted: function (results) {
+  //     this.volunteers = searchResult;
+  //     console.log(results);
+  //   },
+  // },
 };
 </script>
 
@@ -29,13 +27,17 @@ export default {
       <div class="volunteers__container">
         <div class="volunteers__searchresults">
           <div class="volunteers__searchresults-h1">Results:</div>
-
+          
           <div class="cards__columns">
             <Card
               v-for="volunteer in volunteers"
               v-bind:volunteer="volunteer"
             />
           </div>
+          <Card
+            v-for="volunteer in searchResult"
+            v-bind:volunteer="volunteer"
+          />
         </div>
       </div>
     </div>
