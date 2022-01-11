@@ -22,9 +22,7 @@ export default {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
-    deleteProfile() {
-      alert("HelloDelete");
-    },
+    deleteProfile() {},
     async getUser() {
       try {
         const token = localStorage.getItem("token");
@@ -38,8 +36,8 @@ export default {
         });
         this.result = await res.json();
         this.result.location = this.result.location[1];
-        this.result.languages = this.result.languages.join(", ");
-        this.result.skills = this.result.skills.join(", ");
+        this.result.languages = this.result.languages;
+        this.result.skills = this.result.skills;
       } catch (error) {
         console.log(error);
       }
@@ -75,20 +73,18 @@ export default {
     <div class="container__profile">
       <form method="POST" class="register-form" id="register-form">
         <h2>MY PROFILE</h2>
-        <div class="container__first">
-          <div class="left">
-            <input
-              type="file"
-              accept="image/*"
-              id="file-input"
-              @change="uploadImage($event)"
-              class="button-icon"
-            />
-            <div class="left-icon"></div>
-            <p>
-              Upload your <br />
-              profile picture
-            </p>
+        <div class="container__firstset">
+          <div class="leftside">
+            <img :src="user.photoURL" />
+            <div class="left-icon" v-if="!isHidden">
+              <input
+                type="file"
+                accept="image/*"
+                id="file-input"
+                @change="uploadImage($event)"
+                class="button-icon"
+              />
+            </div>
           </div>
           <div class="right">
             <div class="container__group">
