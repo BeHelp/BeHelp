@@ -33,24 +33,8 @@ export default {
 
   methods: {
     async submit(){
-      try{ 
-        const regis = JSON.stringify(
-              {
-                email: this.email,
-                password: this.password,
-                firstName: this.firstname,
-                lastName: this.lastname,
-                gender: this.gender.name,
-                nationality: this.nationality,
-                userType: this.picked,
-                location: this.filterCities,
-                skills: this.filterSkills,
-                languages: this.filterLanguages,
-                description: this.description
-
-              });
-              console.log(regis);
-        const res = await fetch(
+      try{
+      const res = await fetch(
           'http://localhost:5000/register',
           {
             method: 'POST',
@@ -71,11 +55,16 @@ export default {
                 languages: this.filterLanguages,
                 description: this.description,
                 photoURL: this.photoURL
-              })
-          });
-
-      }catch(error){
-        console.log(error);
+              }),
+        },
+   );
+   const body = await res.json();
+   if(res.status === 400){
+     alert(body.message);
+   }
+  } 
+      catch(error){
+        console.log("***",error);
       }
 
     },
@@ -111,7 +100,7 @@ export default {
         <img src="../assets/signup-img.png" alt="signup" class="img" />
       </div>
       <div class="container__signup-content">
-        <form method="POST" @submit="submit" class="register-form" id="register-form" >
+        <form class="register-form" id="register-form" >
           <h2>REGISTRATION FORM</h2>
           <div class="container__first">
             <div class="left"  v-if="!this.photoURL">
@@ -171,13 +160,13 @@ export default {
           <div class="container__radio">
             <label for="usertype" class="radio-label">Status*</label>
             <div class="container__radio-item1">
-              <input type="radio" v-model= "picked" name="status" id="newcomer" checked />
+              <input type="radio" v-model= "picked" name="status" value="newcomer" id="newcomer" checked />
               <label for="newcomer">Newcomer</label>
               <span class="container__radio-check"></span>
             </div>
 
             <div class="container__radio-item1">
-              <input type="radio" v-model= "picked" name="status" id="volunteer" />
+              <input type="radio" v-model= "picked" name="status" value="volunteer" id="volunteer" />
               <label for="volunteer">Volunteer</label>
               <span class="container__radio-check"></span>
             </div>
@@ -271,13 +260,13 @@ export default {
           ></textarea>
         
           <div class="container__submit">
-            <input
-              type="submit"
-              value="SEND"
-              class="submit"
+            <button  class="submit"
               name="submit"
               id="submit"
-            />
+              type="submit" 
+              @click.stop.prevent="submit()">
+              SEND
+            </button>
           </div>
         </form>
       </div>

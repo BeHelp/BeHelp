@@ -4,6 +4,13 @@ import Register from '../components/Register.vue';
 export default {
 
 components: {  Register },
+
+  mounted() {
+    const plugin = document.createElement('script');
+    plugin.setAttribute('src', '../src/assets/js/cloudinary.js');
+    plugin.async = true;
+    document.head.appendChild(plugin);
+  },
 };
 </script>
 
