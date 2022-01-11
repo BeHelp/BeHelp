@@ -22,7 +22,12 @@ const registerController = {
             return res.status(400).send(
                 {message: 'Password should be at least 6 characters!'}
             );
-        } else {
+        } else if(userData.description.length < 10){
+            return res.status(400).send(
+            {message: 'Description should be at least 6 characters!'}
+            );
+        } 
+        else {
             const newUser = await registerManager.postUser(userData);
             res
                 .status(201)
