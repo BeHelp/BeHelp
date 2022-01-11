@@ -1,87 +1,101 @@
 <template>
-  
-    <div class="contactUs">
-      <div class="contact__content">
-         <div class="contactUs__text"><h1>Do you have questions?<br> Contact Us:</h1></div>
-    <div class="contactUs__img"><img src="../assets/img/5d8d941e933874bb0b403ffc5ac47e08.jpeg" alt="img"></div>
+  <div class="contactUs">
+    <div class="contactUs__content">
+      <div class="contactUs__content-leftcontainer">
+        <h1>
+          Do you have questions?<br />
+          Contact Us:
+        </h1>
+        <div class="contactUs__content-image">
+          <img
+            src="../assets/img/5d8d941e933874bb0b403ffc5ac47e08.jpeg"
+            alt="img"
+          />
+        </div>
       </div>
-     
-    
-     <div class="contactUs__page">
-       <p class="contact__text">We want to hear you! 
-         <br>
-         <br>
 
-         Kindly reach out to us via our CONTACT FORM or any of our media channels below
-</p>
+      <div class="contactUs__content-rightcontainer">
+        <p>
+          We want to hear from you!
+          <br />
+          <br />
 
-        <form class="form" @submit.prevent="sendEmail">
-         
-         
-          <input 
-            type="text" 
+          Kindly reach out to us via our CONTACT FORM or any of our media
+          channels below
+        </p>
+
+        <form
+          class="contactUs__content-rightcontainer-form"
+          @submit="sendEmail"
+        >
+          <input
+            type="text"
             v-model="name"
             name="name"
             placeholder="Your Name"
             required
           />
-         
-          <input 
-            type="email" 
+
+          <input
+            type="email"
             v-model="email"
             name="email"
             placeholder="Your Email"
             required
-            />
-         
-          <textarea 
+          />
+
+          <textarea
             name="message"
             v-model="message"
-            cols="30" rows="5"
-            placeholder="Message">
+            cols="30"
+            rows="5"
+            placeholder="Message"
+          >
           </textarea>
-          
-          <input type="submit" value="Send">
+
+          <input type="submit" value="Send" />
         </form>
-     </div>
+      </div>
     </div>
-  
+  </div>
 </template>
 
 <script>
-import emailjs from 'emailjs-com';
+import emailjs from "@emailjs/browser";
 export default {
-  name: 'ContactUs',
+  name: "ContactUs",
   data() {
     return {
-      name: '',
-      email: '',
-      message: ''
-    }
+      name: "",
+      email: "",
+      message: "",
+    };
   },
   methods: {
-    sendEmail(e) {
+    sendEmail() {
       try {
-        emailjs.sendForm('service_lzyi0s6', 'template_y7zrvwv', e.target, 'user_6RSzucdIUsj0oQzdwj3VZ', {
+        const emailParams = {
           name: this.name,
           email: this.email,
-          message: this.message
-        })
-        alert("Message sended")
+          message: this.message,
+        };
+
+        emailjs.send(
+          "service_0xqmyuc",
+          "template_zxk95fi",
+          emailParams,
+          "user_bqOiafJ3RyGJLlBUxuy6A"
+        );
+        alert("Message sent successfully!");
       } catch (error) {
-          console.log({error})
+        console.log({ error });
       }
-      // Reset form field
-      this.name = ''
-      this.email = ''
-      this.message = ''
     },
-  }
-}
+  },
+};
 </script>
 
-
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_contact.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_contact.scss";
 </style>
