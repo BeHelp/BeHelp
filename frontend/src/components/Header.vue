@@ -1,30 +1,37 @@
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
+
 export default {
   data() {
     return {
       hidden: true,
+      locale: "ENG",
     };
   },
+  watch: {
+    locale(val) {
+      this.$i18n.locale = val;
+    },
+  },
   computed: {
-    ...mapState(['isLoggedIn', 'user']),
+    ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
     logout() {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const userId = this.user.userId;
       fetch(`http://localhost:5000/users/logout/${userId}`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           authorization: `Bearer ${token}`,
         },
       })
         .then((res) => {
           console.log(res);
-          localStorage.removeItem('token');
-          this.$store.commit('loggedOut');
-          this.$router.push('/');
+          localStorage.removeItem("token");
+          this.$store.commit("loggedOut");
+          this.$router.push("/");
         })
         .catch((err) => {
           console.log(err);
@@ -52,22 +59,24 @@ export default {
             class="header__nav-list link"
             >About</router-link
           >
-          <a v-else href="#about" class="header__nav-list link">About</a>
+          <a v-else href="#about" class="header__nav-list link">{{
+            $t("about")
+          }}</a>
         </li>
         <li class="header__nav-list item">
-          <router-link to="/volunteers" class="header__nav-list link"
-            >Volunteers</router-link
-          >
+          <router-link to="/volunteers" class="header__nav-list link">{{
+            $t("volunteers")
+          }}</router-link>
         </li>
         <li class="header__nav-list item">
-          <router-link to="/contacts" class="header__nav-list link"
-            >Contact Us</router-link
-          >
+          <router-link to="/contacts" class="header__nav-list link">{{
+            $t("contactus")
+          }}</router-link>
         </li>
       </ul>
       <ul class="header__nav-features">
         <li class="header__nav-features select">
-          <select>
+          <select v-model="locale">
             <option class="header__nav-features option">ENG</option>
             <option class="header__nav-features option">FR</option>
             <option class="header__nav-features option">NL</option>
@@ -108,10 +117,12 @@ export default {
             class="usermenu-list"
             :class="{ 'foo-hover': hidden }"
           >
-            
-            <router-link to="/myprofile" class="usermenu-a" id="usermenu-profile"
-            >My profile</router-link
-          ><br/>
+            <router-link
+              to="/myprofile"
+              class="usermenu-a"
+              id="usermenu-profile"
+              >My profile</router-link
+            ><br />
             <a @click="logout" href="#" class="usermenu-a" id="usermenu-logout"
               >Logout</a
             >
@@ -123,8 +134,8 @@ export default {
 </template>
 
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_header.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_header.scss";
 
 .foo-hover {
   display: none;
