@@ -1,4 +1,4 @@
-const emailManager = require('../business-logic/email');
+const emailManager = require('../middleware/email');
 
 const emailController = {
   sendEmail: async (req, res) => {

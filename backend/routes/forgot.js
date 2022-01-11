@@ -7,7 +7,8 @@ forgotRoutes.use((req, res, next) => {
     next();
 });
 
-forgotRoutes.post('/', forgotPasswordController.sendResetLink);
+forgotRoutes.post('', forgotPasswordController.sendResetLink);
+forgotRoutes.post('/:token', forgotPasswordController.resetPassword),
 
 module.exports = forgotRoutes;
 
