@@ -17,14 +17,14 @@ export default {
 <template>
   <div>
     <div class="volunteers">
-      <Search v-on:searchCompleted="searchCompleted" />
+      <Search />
       <div class="volunteers__container">
         <div class="volunteers__searchresults">
-          <div class="volunteers__searchresults-h1">Results:</div>
+          <div class="volunteers__searchresults-h1"></div>
 
           <div class="cards__columns">
             <Card
-              v-for="volunteer in volunteers"
+              v-for="volunteer in searchResult"
               v-bind:volunteer="volunteer"
             />
           </div>

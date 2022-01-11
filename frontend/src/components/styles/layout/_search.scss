@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 400px;
 
   &__dropdown {
     width: 20rem;
@@ -20,6 +19,9 @@
     height: 100%;
 
     &-img {
+    }
+
+    &-img img {
       object-fit: cover;
       width: 100%;
     }
