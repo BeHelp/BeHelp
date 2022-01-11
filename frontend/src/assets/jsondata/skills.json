@@ -1,9 +1,9 @@
 [
   { "name": "Legal assistance" },
   { "name": "Social assistance" },
-  { "name": "translation" },
+  { "name": "Translation" },
   { "name": "Education services" },
   { "name": "Language classes" },
   { "name": "Mental health help" },
-  { "name": "Hosting families" }
+  { "name": "Housing" }
 ]

@@ -1,23 +1,15 @@
 <script>
 import Search from "../components/Search.vue";
 import Card from "../components/Card.vue";
+import { mapState } from "vuex";
 
 export default {
-  data() {
-    return {
-      volunteers: [],
-    };
-  },
   components: {
     Search,
     Card,
   },
-
-  methods: {
-    searchCompleted: function (results) {
-      this.volunteers = results;
-      console.log(results);
-    },
+  computed: {
+    ...mapState(["searchResult"]),
   },
 };
 </script>
@@ -45,6 +37,4 @@ export default {
 <style lang="scss" scoped>
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_card.scss";
-
-
 </style>

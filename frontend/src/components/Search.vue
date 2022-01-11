@@ -6,22 +6,55 @@ import skills from "../assets/jsondata/skills.json";
 export default {
   data() {
     return {
-      results: "",
       languageOptions: languages,
       cityOptions: cities,
       skillOptions: skills,
-      filterLanguages: [],
-      filterCities: [],
-      filterSkills: [],
     };
+  },
+  computed: {
+    filterLanguages: {
+      get() {
+        return this.$store.state.filterLanguages;
+      },
+      set(value) {
+        this.$store.commit("updateLanguages", value);
+      },
+    },
+    filterCities: {
+      get() {
+        return this.$store.state.filterCities;
+      },
+      set(value) {
+        this.$store.commit("updateCities", value);
+      },
+    },
+    filterSkills: {
+      get() {
+        return this.$store.state.filterSkills;
+      },
+      set(value) {
+        this.$store.commit("updateSkills", value);
+      },
+    },
   },
   methods: {
     async filterBtn() {
       try {
+        if (
+          this.filterSkills === "" ||
+          this.filterLanguages === "" ||
+          this.filterCities === "" ||
+          this.filterSkills === null ||
+          this.filterLanguages === null ||
+          this.filterCities === null
+        ) {
+          alert("Please select one filter for each category");
+          return;
+        }
         const filter = {
-          skills: this.filterSkills[0].name,
-          location: this.filterCities[0]["city"],
-          languages: this.filterLanguages[0]["name"],
+          skills: this.filterSkills.name,
+          location: this.filterCities.city,
+          languages: this.filterLanguages.name,
         };
         console.log(
           JSON.stringify({
@@ -30,17 +63,7 @@ export default {
             languages: filter.languages,
           })
         );
-        // if (
-        //   filter.skills.length === undefined ||
-        //   filter.locations.length === undefined ||
-        //   filter.languages.length === undefined ||
-        //   filter.skills.length === 0 ||
-        //   filter.locations.length === 0 ||
-        //   filter.languages.length === 0
-        // ) {
-        //   alert('Please select at least one filter for each category');
-        //   return;
-        // }
+
         const res = await fetch("http://localhost:5000/users/", {
           method: "POST",
           headers: {
@@ -52,10 +75,14 @@ export default {
             languages: filter.languages,
           }),
         });
-        const searchResult = await res.json();
-        // this.results = searchResult[0].firstName;
-        // alert(this.results);
-        this.$emit("searchCompleted", searchResult);
+        const searchResults = await res.json();
+        if (this.$route.fullPath === "/") {
+          this.$router.push("/volunteers");
+          this.$store.commit("searchResult", searchResults);
+        }
+        this.$store.commit("searchResult", searchResults);
+        // results = searchResult[0].firstName;
+        // console.log(results);
       } catch (error) {
         console.log(error);
       }
@@ -72,12 +99,11 @@ export default {
         src="../assets/homepage-search.png"
         class="search__background-img"
       />
-      <img
+      <div
         v-else
-        src=""
         style="margin-top: 200px"
         class="search__background-img"
-      />
+      ></div>
       <div class="search__background-decor">
         <h1 v-if="$route.name === 'Home'">FIND YOUR VOLUNTEER</h1>
         <h1 v-else>VOLUNTEERS WHO CAN HELP</h1>
@@ -87,10 +113,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterSkills"
                 :options="skillOptions"
-                :placeholder="'Skills'"
+                :placeholder="'Skill'"
                 label="name"
               />
             </div>
@@ -99,10 +124,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterCities"
                 :options="cityOptions"
-                :placeholder="'Cities'"
+                :placeholder="'City'"
                 label="city"
               />
             </div>
@@ -111,10 +135,9 @@ export default {
             <div>
               <v-select
                 class="style-chooser"
-                multiple
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="'Languages'"
+                :placeholder="'Language'"
                 label="name"
               />
             </div>
@@ -134,24 +157,6 @@ export default {
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/abstract/_base.scss";
 @import "../components/styles/layout/_search.scss";
+@import "../components/styles/layout/_dropdown.scss";
 @import "vue-select/src/scss/vue-select.scss";
-
-.style-chooser .vs__search::placeholder,
-.style-chooser .vs__dropdown-toggle,
-.style-chooser .vs__dropdown-menu {
-  background-color: white;
-  border: none;
-  color: grey;
-  font-size: 0.8rem;
-}
-
-.style-chooser .vs__clear,
-.style-chooser .vs__open-indicator {
-  border: none;
-}
-
-.vs__fade-enter-active,
-.vs__fade-leave-active {
-  transition: none;
-}
 </style>

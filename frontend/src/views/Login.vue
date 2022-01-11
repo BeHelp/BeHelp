@@ -1,36 +1,50 @@
 <script>
-import VueJwtDecode from 'vue-jwt-decode';
+import VueJwtDecode from "vue-jwt-decode";
+
 export default {
-  name: 'Login',
+  name: "Login",
   data: function () {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     };
   },
   methods: {
     login() {
-      fetch('http://localhost:5000/login', {
-        method: 'POST',
+      fetch("http://localhost:5000/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           user: this.email,
           pass: this.password,
         },
       })
         .then((res) => {
           localStorage.setItem(
-            'token',
-            res.headers.get('authorization').split(' ')[1]
+            "token",
+            res.headers.get("authorization").split(" ")[1]
           );
-          this.$store.commit('loggedIn');
+          this.$store.commit("loggedIn");
           this.$store.commit(
-            'readUser',
-            VueJwtDecode.decode(localStorage.getItem('token'))
+            "readUser",
+            VueJwtDecode.decode(localStorage.getItem("token"))
           );
+        })
+        .then(() => {
+          this.$notify({
+            title: "You have successfully logged in!",
+            type: "success",
+          });
+        })
+        .then(() => {
+          this.$router.push("/");
         })
         .catch((err) => {
           console.log(err);
+          this.$notify({
+            title: "Incorrect email or password!",
+            type: "error",
+           });
         });
     },
   },
@@ -59,7 +73,7 @@ export default {
           autocomplete="off"
           required
         /><br />
-        <button class="login__btn" @click="login" type="submit">LOG IN</button>
+        <button class="login__btn" type="submit">LOG IN</button>
 
         <p class="p1">
           You don't have an account?
@@ -72,6 +86,6 @@ export default {
 </template>
 
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_login.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_login.scss";
 </style>
