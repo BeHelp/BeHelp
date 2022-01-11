@@ -1,6 +1,8 @@
 const emailManager = require('../business-logic/email');
+const resetPasswordManager = require('../business-logic/reset');
+require('dotenv').config({ path: './.env' });
 const { User }  = require('../data-access/db');
-const Token = require('../models/RefreshToken');
+const ResetToken = require('../models/ResetToken');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 
@@ -23,11 +25,12 @@ sendResetLink: async (req, res) => {
     //create token to send to the forgot password form
     let resetToken = crypto.randomBytes(32).toString('hex'); 
     const hash = await bcrypt.hash(resetToken, 10);
-    await new Token({
+    await ResetToken.create({
         userId: user._id,
         token: hash,
-        createdAt: Date.now(),
-        }).save();
+        expiryDate: new Date(Date.now() + 86400000),
+        });
+        console.log('reset token saved to db');
 
     const link = `behelp.herokuapp.com/passwordReset?token=${resetToken}&id=${user._id}`;
     console.log(link);
@@ -44,6 +47,33 @@ sendResetLink: async (req, res) => {
         res.status(500).send(err);
         console.error(err.message);
         }
+    },
+    resetPassword: async (req, res) => {
+        try {
+            const { password } = req.body;
+            const { token } = req.params;
+            const decoded = jwtToken.verifyToken(token);
+            const hash = hashPassword(password);
+            const updatedUser = await User.update(
+                { password: hash },
+                {
+                where: { id: decoded.userId },
+                returning: true,
+                plain: true,
+                }
+            );
+            const { id, name, email } = updatedUser[1];
+            return res.status(200).send({ token, user: { id, name, email } });
+            } catch (e) {
+            return next(new Error(e));
+        }
+
+        emailManager.sendEmail(
+            user.email,
+            `behelp.be@gmail.com`,
+            `Password change confirmation`,
+            `<div> Your password was successfully changed </div>`
+        )
     }
 }
 module.exports = forgotPasswordController;
