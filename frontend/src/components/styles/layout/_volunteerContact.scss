@@ -11,53 +11,6 @@
 }
 
 .volunteer__box:first-child {
-<<<<<<< HEAD
-  position: relative;
-  margin-right: 5px;
-  background: #F5F4EF;
-  border: 3px solid #99C5E8;
-  box-sizing: border-box;
-  border-radius: 20px;
-  @media screen and (max-width: $tablet) {
-    margin: 5% auto;
-    margin-bottom: 10px;
-
-  }
-}
-
-.volunteer__box:nth-child(2) {
-  position: relative;
-  margin-right: 5px;
-  float: right;
-  background: #99C5E8;
-  border-radius: 20px;
-  @media screen and (max-width: $tablet) {
-    margin: 5% auto;
-
-  }
-}
-
-.volunteer__name {
-  width: 204.73px;
-  height: 28.03px;
-  margin-bottom: 30px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.625rem;
-  line-height: 32px;
-  text-transform: uppercase;
-
-  color: #424651;
-}
-
-.profile__detail-text {
-  position: relative;
-  padding-top: 40px;
-  padding-left: 250px;
-  max-width: 900px;
-
-=======
   margin-right: 1rem;
   background: #f5f4ef;
   border: 3px solid #99c5e8;
@@ -82,36 +35,12 @@
   width: 40%;
   border-radius: 1.5rem;
   margin-right: 1rem;
->>>>>>> 9997060cfcba82e1ff9b04f4666032876f157718
 }
 
 .profile__detail-text {
   margin-left: 1rem;
 }
 
-<<<<<<< HEAD
-.p {
-  
-  
-  font-family: Montserrat;
-  font-style: normal;
-  font-size: 1rem;
-  line-height: 22px;
-  color: #424651;
-}
-
-.profile__text {
-  padding-left: 40px;
-  padding-bottom: 60px;
-}
-
-.lang__list{
-  text-indent: 60px;
-  white-space: 30px;
-  line-height: 1.8;
-  padding-bottom: 20px;
-  padding-left: 20px;
-=======
 h2 {
   font-weight: 700;
   font-size: 1.8rem;
@@ -132,7 +61,6 @@ p {
 ul {
   margin-top: -1.5rem;
   margin-left: 4.5rem;
->>>>>>> 9997060cfcba82e1ff9b04f4666032876f157718
 }
 
 .contact__text {
@@ -167,11 +95,7 @@ ul {
   margin-bottom: 10px;
   padding-left: 20px;
   padding-top: 20px;
-<<<<<<< HEAD
-  background: #F5F4EF;
-=======
   background: #f5f4ef;
->>>>>>> 9997060cfcba82e1ff9b04f4666032876f157718
   border-radius: 20px;
 }
 
@@ -198,12 +122,3 @@ ul {
   background: #e99140;
   border-radius: 20px;
 }
-<<<<<<< HEAD
-
-@media only screen and (max-width: 600px) {
-  .container__volunteer-contact {
-    flex-direction: column;
-  }
-}
-=======
->>>>>>> 9997060cfcba82e1ff9b04f4666032876f157718
