@@ -32,15 +32,6 @@ const registerController = {
             res.status(500).send(error);
         }
     },
-    getById: async (req, res) => {
-        try {
-          const userId = req.params.userId;
-          const userData = await registerManager.getUserById(userId);
-          res.status(200).send(userData);
-        } catch (error) {
-          res.status(500).send(error);
-        }
-      },
 }
 
 module.exports = registerController;

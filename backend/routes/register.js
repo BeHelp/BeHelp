@@ -8,6 +8,5 @@ registerRoutes.use((req, res, next) => {
 });
 
 registerRoutes.post('/', registerController.post);
-registerRoutes.get('/:userId', registerController.getById);
 
 module.exports = registerRoutes;
