@@ -38,12 +38,14 @@ export default {
             this.$store.commit("loggedOut");
             this.$router.push("/");
           }
+        } else {
+          return;
         }
       } catch (error) {
         console.log(error);
       }
     },
-    
+
     async getUser() {
       try {
         const token = localStorage.getItem("token");

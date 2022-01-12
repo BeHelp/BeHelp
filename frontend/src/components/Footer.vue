@@ -18,7 +18,7 @@
 
     <div class="footer__text">
       <p class="footer__text-p">
-        Project from the students of HYF <br />
+        {{ $t("hyfstudents") }}<br />
         info@behelp.be <br />
         1000 Bruxelles
       </p>
@@ -31,6 +31,6 @@
   </footer>
 </template>
 <style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_footer.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_footer.scss";
 </style>
