@@ -1,0 +1,514 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin-bottom: 3.35%;
+  position: relative;
+  border-radius: 20px;
+  font-family: $montserrat;
+
+  display-flex,
+  &__signup,
+  &__row,
+  &__radio,
+  &__select-icon,
+  &__select-icon i {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+  }
+
+  &__profile {
+    width: 65%;
+
+    &-content {
+      width: 60%;
+    }
+  }
+
+  &__city {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  &__group {
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  &__radio {
+    width: 100%;
+
+    &-label {
+      padding-right: 5%;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+
+    input {
+      width: auto;
+      display: inline-block;
+    }
+
+    &-item {
+      position: relative;
+      margin-right: 20%;
+
+      label {
+        font-weight: 500;
+        font-size: 12px;
+        padding-left: 90%;
+        padding-bottom: 9%;
+        padding-right: 0%;
+        position: relative;
+        z-index: 9;
+        display: block;
+        cursor: pointer;
+      }
+    }
+
+    &-item1 {
+      position: relative;
+      margin-right: 15%;
+      label {
+        font-weight: 500;
+        font-size: 12px;
+        padding-left: 70%;
+        padding-bottom: 9%;
+        padding-right: 0%;
+        position: relative;
+        z-index: 9;
+        display: block;
+        cursor: pointer;
+      }
+    }
+
+    &-check {
+      display: inline-block;
+      position: absolute;
+      border: 1px solid #ebebeb;
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -o-border-radius: 50%;
+      -ms-border-radius: 50%;
+      height: 13px;
+      width: 13px;
+      top: 11%;
+      left: 39%;
+      z-index: 5;
+      transition: border 0.25s linear;
+      -webkit-transition: border 0.25s linear;
+    }
+
+    &-check:before {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -o-border-radius: 50%;
+      -ms-border-radius: 50%;
+      top: 11%;
+      left: 11%;
+      margin: auto;
+      transition: background 0.25s linear;
+      -webkit-transition: background 0.25s linear;
+    }
+  }
+
+  &__select {
+    position: relative;
+    border-radius: 20px;
+
+    select {
+      appearance: none !important;
+      -moz-appearance: none !important;
+      -webkit-appearance: none !important;
+      -o-appearance: none !important;
+      -ms-appearance: none !important;
+      position: relative;
+      z-index: 10;
+      cursor: pointer;
+      border: none;
+    }
+
+    &-icon {
+      z-index: 50;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      justify-content: center;
+      -moz-justify-content: center;
+      -webkit-justify-content: center;
+      -o-justify-content: center;
+      -ms-justify-content: center;
+      align-items: center;
+      -moz-align-items: center;
+      -webkit-align-items: center;
+      -o-align-items: center;
+      -ms-align-items: center;
+
+      i {
+        justify-content: center;
+        -moz-justify-content: center;
+        -webkit-justify-content: center;
+        -o-justify-content: center;
+        -ms-justify-content: center;
+        align-items: center;
+        -moz-align-items: center;
+        -webkit-align-items: center;
+        -o-align-items: center;
+        -ms-align-items: center;
+        width: 40px;
+        height: 20px;
+        font-size: 18px;
+        color: #999;
+      }
+    }
+  }
+
+  &__modify {
+    padding-top: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-delete {
+      width: 50%;
+      text-align: left;
+
+      &-button {
+        text-decoration: underline;
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+        color: white;
+      }
+    }
+
+    &-edit {
+      width: 25%;
+
+      .edit-button {
+        width: 80%;
+        font-weight: 400;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        background: transparent;
+        color: #424651;
+        border: 2px solid $orange;
+        border-radius: 30px;
+      }
+
+      .edit-button:hover {
+        background-color: #cd5300;
+      }
+    }
+
+    &-save {
+      width: 25%;
+
+      .save-button {
+        width: 80%;
+        font-weight: 400;
+        font-size: 1rem;
+        border: 2px solid $orange;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        background: $orange;
+        color: #424651;
+        margin-left: 2%;
+        border-radius: 30px;
+      }
+
+      .save-button:hover {
+        background-color: #cd5300;
+      }
+    }
+  }
+
+  &__password {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+
+    &-text {
+      margin-bottom: 0.5rem;
+    }
+
+    &-button {
+      .changepassword-button {
+        width: 35%;
+        font-weight: 400;
+        font-size: 0.8rem;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        float: right;
+        background: white;
+        color: #424651;
+        border: 2px solid $orange;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  &__firstset {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-areas: "left right";
+    height: 150px;
+
+    .leftside {
+      overflow: hidden;
+      & img {
+        align-items: left;
+        height: 87%;
+        border-radius: 1.5rem;
+      }
+
+      .left-icon {
+        background: url("../assets/fas/camera-solid.svg"), no-repeat;
+        background-size: 60px;
+        margin-top: -49px;
+        width: 60px;
+        height: 60px;
+        border: none;
+        position: relative;
+      }
+      .button-icon {
+        z-index: 9;
+        width: 60px;
+        height: 60px;
+        opacity: 0;
+        overflow: visible;
+      }
+      .left-icon:hover,
+      .button-icon:hover {
+        cursor: pointer;
+      }
+
+      img {
+        align-items: left;
+        height: 87%;
+        border-radius: 1.5rem;
+      }
+    }
+
+    .right {
+      grid-area: right;
+    }
+  }
+
+  &__description {
+    height: 80px;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid $field_color;
+    border-radius: 20px;
+    line-height: 20px;
+    width: 100%;
+    padding: 11px 20px;
+    box-sizing: border-box;
+    font-family: $montserrat;
+    font-weight: 500;
+    font-size: 13px;
+    background-color: $field_color;
+  }
+
+  input,
+  select {
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    border: 1px solid $field_color;
+    padding: 7px 20px;
+    box-sizing: border-box;
+    font-family: $montserrat;
+    font-weight: 500;
+    font-size: 13px;
+    background-color: $field_color;
+  }
+
+  label {
+    font-size: 13px;
+    font-weight: bold;
+    font-family: $montserrat;
+    margin-bottom: 1%;
+    display: block;
+    color: $field_color;
+    margin-left: 2%;
+  }
+
+  h2 {
+    line-height: 1.66;
+    color: $field_color;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 2%;
+    margin-top: 2%;
+  }
+  #file-input {
+  }
+  .clear {
+    clear: both;
+  }
+
+  .register-form {
+    width: 100%;
+    background-color: $blue;
+    padding: 15px 30px;
+    border-radius: 20px 20px 20px 20px;
+
+    @media screen and (max-width: 992px) {
+      border-radius: 20px;
+      padding: 30px;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    outline: none;
+    appearance: unset !important;
+    -moz-appearance: unset !important;
+    -webkit-appearance: unset !important;
+    -o-appearance: unset !important;
+    -ms-appearance: unset !important;
+    color: grey;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -o-box-shadow: none !important;
+    -ms-box-shadow: none !important;
+  }
+
+  input[type="radio"] {
+    appearance: radio !important;
+    -moz-appearance: radio !important;
+    -webkit-appearance: radio !important;
+    -o-appearance: radio !important;
+    -ms-appearance: radio !important;
+  }
+
+  input:-webkit-autofill {
+    box-shadow: 0 0 0 30px transparent inset;
+    -moz-box-shadow: 0 0 0 30px transparent inset;
+    -webkit-box-shadow: 0 0 0 30px transparent inset;
+    -o-box-shadow: 0 0 0 30px transparent inset;
+    -ms-box-shadow: 0 0 0 30px transparent inset;
+  }
+
+  input[type="radio"] {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  input[type="radio"]:checked ~ .container__radio-check {
+    border: 2px solid white;
+    background: white;
+  }
+
+  input[type="radio"]:checked ~ .container__radio-check::before {
+    background: $blue;
+  }
+
+  @media screen and (max-width: 992px) {
+    .container {
+      width: calc(100% - 40px);
+      max-width: 100%;
+
+      &__signup {
+        flex-direction: column;
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        -o-flex-direction: column;
+        -ms-flex-direction: column;
+
+        &-content {
+          width: 100%;
+        }
+      }
+
+      &radio {
+        &-item {
+          margin: 20%;
+          display: flex;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    .container__signup-img {
+      display: none;
+      visibility: hidden;
+      clear: both;
+
+      &__radio-item1 {
+        display: inline-block;
+      }
+    }
+    .register-form {
+      padding: 50px 40px 50px 40px;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    .container {
+      &__row {
+        flex-direction: column;
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        -o-flex-direction: column;
+        -ms-flex-direction: column;
+        margin: 0px;
+      }
+
+      &__row &__group {
+        width: 100%;
+        padding: 0px;
+      }
+
+      &__radio-label {
+        padding-right: 10%;
+      }
+
+      &___radio-item {
+        margin-right: 15%;
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .container {
+      &__radio-item1 {
+        flex-direction: column;
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        -o-flex-direction: column;
+        -ms-flex-direction: column;
+      }
+    }
+
+    .submit {
+      width: 100%;
+    }
+  }
+}

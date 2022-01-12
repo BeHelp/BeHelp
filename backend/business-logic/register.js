@@ -33,6 +33,14 @@ const registerManager = {
             console.log(err.message);
         }
     },
+    getUserById: async (userId) => {
+        try {
+          const user = await User.findById(userId);
+          return user;
+        } catch (err) {
+          console.log(err.message);
+        }
+      },
 }
 
 module.exports = registerManager;
