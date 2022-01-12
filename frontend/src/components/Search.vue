@@ -42,7 +42,7 @@ export default {
           })
         );
 
-        const res = await fetch("http://localhost:5000/users/", {
+        const res = await fetch("${window.location.origin}/api/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -17,10 +17,11 @@ export default {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
+    
     logout() {
       const token = localStorage.getItem("token");
       const userId = this.user.userId;
-      fetch(`http://localhost:5000/users/logout/${userId}`, {
+      fetch(`${window.location.origin}/api/logout/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
