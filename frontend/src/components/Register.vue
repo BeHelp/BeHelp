@@ -204,9 +204,6 @@ export default {
                 label="name"
                 required
               />
-              <span class="container__select-icon"
-                ><i class="zmdi zmdi-chevron-down"></i
-              ></span>
             </div>
           </div>
 
@@ -232,9 +229,7 @@ export default {
                 label="name"
                 required
               />
-              <span class="container__select-icon"
-                ><i class="zmdi zmdi-chevron-down"></i
-              ></span>
+            
             </div>
           </div>
           <div class="container__group">
@@ -248,9 +243,7 @@ export default {
                 label="name"
                 
               />
-              <span class="container__select-icon"
-                ><i class="zmdi zmdi-chevron-down"></i
-              ></span>
+
             </div>
           </div>
 
@@ -261,7 +254,7 @@ export default {
           ></textarea>
         
           <div class="container__submit">
-            <button  class="submit"
+            <button class="submit" 
               name="submit"
               id="submit"
               type="submit" 
