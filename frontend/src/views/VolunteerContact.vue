@@ -31,31 +31,6 @@ export default {
 </script>
 
 <template>
-<<<<<<< HEAD
-  <div v-if="result" class="container__volunteer-contact">
-    <div class="volunteer__box">
-    <div class="volunteer__box1">
-      <img v-bind:src="result.photoURL" class="volunteer__img" />
-      <div class="profile__detail-text">
-      
-        <h2 class="volunteer__name">{{ result.firstName }}</h2>
-        <p><b>Nationality: </b>{{ result.nationality }}</p>
-        <p><b>City:</b> {{ result.location[1]}}</p>
-        <p><b>Languages: </b>
-        
-         <ul class="lang__list">
-         <li v-for="lang in result.languages"> {{ lang }} </li>
-         </ul>>
-        </P>
-      </div>
-      <div class="profile__text">
-        <p><b>Skills: </b>
-        
-          <ul>
-          <li v-for="skill in result.skills"> {{ skill }} </li>
-          </ul>
-        </p>
-=======
 <div v-if="result" class="container__volunteer-contact">
     <div class="volunteer__box">
       <div class="volunteer__top">
@@ -76,7 +51,6 @@ export default {
         <li v-for="skill in result.skills"> {{ skill }} </li>
 
         </ul></p>
->>>>>>> 9997060cfcba82e1ff9b04f4666032876f157718
 
         <p><b>Description:</b>{{ result.description }}</p>
       </div>
