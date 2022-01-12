@@ -213,7 +213,7 @@
 
     .left {
       grid-area: left;
-      background-color: $field_color;
+      background-color: $input_color;
       border-radius: 20px;
       margin-bottom: 20px;
       margin-right: 20px;
@@ -260,7 +260,7 @@
     height: 80px;
     padding: 10px;
     outline: 0;
-    border: 1px solid $field_color;
+    border: 1px solid $input_color;
     border-radius: 20px;
     line-height: 20px;
     width: 100%;
@@ -269,7 +269,7 @@
     font-family: $montserrat;
     font-weight: 500;
     font-size: 13px;
-    background-color: $field_color;
+    background-color: $input_color;
   }
 
   input,
@@ -277,13 +277,13 @@
     border-radius: 20px;
     display: block;
     width: 100%;
-    border: 1px solid $field_color;
+    border: 1px solid $input_color;
     padding: 7px 20px;
     box-sizing: border-box;
     font-family: $montserrat;
     font-weight: 500;
     font-size: 13px;
-    background-color: $field_color;
+    background-color: $input_color;
   }
 
   label {
@@ -292,13 +292,13 @@
     font-family: $montserrat;
     margin-bottom: 1%;
     display: block;
-    color: $field_color;
+    color: $input_color;
     margin-left: 2%;
   }
 
   h2 {
     line-height: 1.66;
-    color: $field_color;
+    color: $input_color;
     font-size: 28px;
     text-transform: uppercase;
     margin-bottom: 2%;
@@ -376,7 +376,7 @@
   }
 .afterimage{
   border-radius: 20px;
-  background-color:$field_color;
+  background-color:$input_color;
   margin-bottom: 20px;
   margin-right: 20px;
   margin-left: 35px;
