@@ -18,9 +18,9 @@ export default {
       nationality : '',
       selected: '',
       picked: '',
-      filterCities: {},
-      filterLanguages:{},
-      filterSkills:{},
+      filterCities: '',
+      filterLanguages:'',
+      filterSkills:'',
       description: '',
       languageOptions: languages,
       cityOptions: cities,
@@ -59,6 +59,7 @@ export default {
         },
    );
    const body = await res.json();
+   console.log(body.json);
    if(res.status === 400){
      alert(body.message);
    }
