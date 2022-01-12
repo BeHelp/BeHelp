@@ -17,11 +17,10 @@ export default {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
-    
     logout() {
       const token = localStorage.getItem("token");
       const userId = this.user.userId;
-      fetch(`${window.location.origin}/api/logout/${userId}`, {
+      fetch(`${import.meta.env.VITE_API}/logout/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

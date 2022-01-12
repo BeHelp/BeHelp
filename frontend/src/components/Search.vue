@@ -42,7 +42,7 @@ export default {
           })
         );
 
-        const res = await fetch("${window.location.origin}/api/users", {
+        const res = await fetch(`${import.meta.env.VITE_API}/users`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
