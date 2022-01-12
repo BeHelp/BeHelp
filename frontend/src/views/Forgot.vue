@@ -1,5 +1,16 @@
 <script>
+export default {
+    name: 'Forgot',
+    data() {
+        return {
+            email: '',
+            }
+    },
+    methods: {
+        forgot() {
+            method: "POST",
 
+    }
 </script>
 
 <template>
@@ -8,7 +19,13 @@
     <h2 class="forgot__page-text">Reset Password</h2>
     <p> Enter your email to reset password </p>
     <form @submit.prevent="handleSubmit" class="forgot__page-form">
-            <input v-model="email" type="email" class="forgot__page-emailbox" placeholder="E-mail"/>
+            <input 
+                v-model="email" 
+                type="email" 
+                class="forgot__page-emailbox" 
+                placeholder="E-mail"
+                required
+            />
             <button class="forgot__page-btn" type="submit">RESET</button>
         </form>
 </div>
