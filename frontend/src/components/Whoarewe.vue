@@ -4,7 +4,7 @@
       <div class="home__about-container">
         <div class="home__about-header-div">
           <h1 class="home__about-h1">BeHelp</h1>
-          <h2 class="home__about-h2">WHO ARE WE?</h2>
+          <h2 class="home__about-h2">{{ $t("whoarewe") }}</h2>
         </div>
         <div class="home__about-logo-div">
           <img
@@ -16,11 +16,10 @@
       </div>
       <div>
         <p class="home__about-text">
-          BeHelp is a service that connects refugees and asylum seekers to local
-          volunteers who are willing to share their expertise and skills pro
-          bono. <br />
+          {{ $t("aboutbehelp1") }}
           <br />
-          On BeHelp, you can find helpers from all around Belgium.
+          <br />
+          {{ $t("aboutbehelp2") }}
         </p>
       </div>
     </div>
@@ -28,5 +27,5 @@
 </template>
 
 <style>
-@import '../components/styles/layout/_about.scss';
+@import "../components/styles/layout/_about.scss";
 </style>

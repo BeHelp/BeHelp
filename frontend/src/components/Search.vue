@@ -103,8 +103,8 @@ export default {
         class="search__background-img"
       ></div>
       <div class="search__background-decor">
-        <h1 v-if="$route.name === 'Home'">FIND YOUR VOLUNTEER</h1>
-        <h1 v-else>VOLUNTEERS WHO CAN HELP</h1>
+        <h1 v-if="$route.name === 'Home'">{{ $t("findyourvolunteer") }}</h1>
+        <h1 v-else>{{ $t("volunteerswhocanhelp") }}</h1>
 
         <div class="search__background-panel">
           <div class="search__dropdown">
@@ -113,7 +113,7 @@ export default {
                 class="style-chooser"
                 v-model="filterSkills"
                 :options="skillOptions"
-                :placeholder="'Skill'"
+                :placeholder="$t('skill')"
                 label="name"
               />
             </div>
@@ -124,7 +124,7 @@ export default {
                 class="style-chooser"
                 v-model="filterCities"
                 :options="cityOptions"
-                :placeholder="'City'"
+                :placeholder="$t('city')"
                 label="city"
               />
             </div>
@@ -135,7 +135,7 @@ export default {
                 class="style-chooser"
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="'Language'"
+                :placeholder="$t('language')"
                 label="name"
               />
             </div>
