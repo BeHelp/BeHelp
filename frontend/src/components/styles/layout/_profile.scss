@@ -271,12 +271,26 @@
     height: 150px;
 
     .leftside {
+<<<<<<< HEAD
       overflow: hidden;
       & img {
         align-items: left;
         height: 87%;
         border-radius: 1.5rem;
       }
+=======
+      grid-area: left;
+      margin-top: 3px;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 80%;
+      width: 85%;
+      overflow: hidden;
+>>>>>>> 2eca9105b5a49cea5e32ac01871361db7f152310
 
       .left-icon {
         background: url("../assets/fas/camera-solid.svg"), no-repeat;
@@ -299,9 +313,16 @@
         cursor: pointer;
       }
 
+<<<<<<< HEAD
       p {
         margin: 0;
         color: $dark-grey;
+=======
+      img {
+        align-items: left;
+        height: 87%;
+        border-radius: 1.5rem;
+>>>>>>> 2eca9105b5a49cea5e32ac01871361db7f152310
       }
     }
 
