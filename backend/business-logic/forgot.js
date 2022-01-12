@@ -1,12 +1,8 @@
 const sendEmail = require('../middleware/email');
 const baseURL = process.env.BASE_URL;
 const { User }  = require('../data-access/db');
-// const Token = require('../data-access/db');
 const ResetToken = require('../models/ResetToken');
-const bcrypt = require('bcryptjs');
-const hashing = require('../middleware/hashing');
 const crypto = require('crypto');
-// const jwt = require('jsonwebtoken');
 
 const forgotManager = {
     sendResetLink: async (email) => {
@@ -18,7 +14,6 @@ const forgotManager = {
 
             //create reset token and hash it
             let resetToken = crypto.randomBytes(32).toString('hex'); 
-            // const hash = await hashing(resetToken); using hash middleware
 
             await ResetToken.create({
                 userId: user._id,
@@ -35,6 +30,7 @@ const forgotManager = {
                 'behelp.be@gmail.com', 
                 'Reset your password',
                 `<div style="color: blue"> Click to reset your password: ${link}. <br>
+                <br>
                 If you didn't request to reset your password, ignore this email. </div>`
                 );
     },
@@ -53,7 +49,6 @@ const forgotManager = {
             console.log(passwordResetToken)
 
             // check if the user who followed the link and the user who requested password change are the same
-            
             const isValid = userId === passwordResetToken.userId;
             if(isValid == false) {
                 throw new Error("Invalid user");
