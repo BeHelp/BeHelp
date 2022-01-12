@@ -8,6 +8,6 @@ forgotRoutes.use((req, res, next) => {
 });
 
 forgotRoutes.post('', forgotPasswordController.sendResetLink);
-forgotRoutes.post('/reset-password/:token', forgotPasswordController.resetPassword),
+forgotRoutes.post('/reset/:token', forgotPasswordController.resetPassword),
 
 module.exports = forgotRoutes;

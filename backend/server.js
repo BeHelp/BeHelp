@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 //routes
 app.use('/email', require('./routes/email'));
-app.use('/forgot', require('./routes/forgot'));
+app.use('/forgot-password', require('./routes/forgot'));
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));
 

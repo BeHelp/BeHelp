@@ -44,7 +44,7 @@ export default {
           this.$notify({
             title: "Incorrect email or password!",
             type: "error",
-           });
+          });
         });
     },
   },

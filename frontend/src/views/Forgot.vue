@@ -1,16 +1,21 @@
 <script>
+import axios from 'axios';
 export default {
-    name: 'Forgot',
-    data() {
+    name: "Forgot",
+    data: function () {
         return {
             email: '',
             }
     },
     methods: {
-        forgot() {
-            method: "POST",
-
+        async handleSubmit() {
+            const response = await axios.post('forgot', {
+                email: this.email
+            });
+        console.log(response);
+        }
     }
+}
 </script>
 
 <template>
@@ -20,7 +25,7 @@ export default {
     <p> Enter your email to reset password </p>
     <form @submit.prevent="handleSubmit" class="forgot__page-form">
             <input 
-                v-model="email" 
+                v-model="this.email" 
                 type="email" 
                 class="forgot__page-emailbox" 
                 placeholder="E-mail"
