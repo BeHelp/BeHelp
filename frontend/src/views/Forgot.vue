@@ -1,20 +1,44 @@
 <script>
-import axios from 'axios';
+import { mapState } from "vuex";
+
 export default {
     name: "Forgot",
     data: function () {
         return {
             email: '',
             }
-    },
+        },
     methods: {
-        async handleSubmit() {
-            const response = await axios.post('forgot', {
+        forgot () {
+            fetch("http://localhost:5000/forgot-password, {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
                 email: this.email
-            });
-        console.log(response);
-        }
-    }
+                },
+            })
+                .then((res) => {
+
+                })
+
+                .then{() => {
+                    this.$notify({
+                    title: "Password reset link is sent to your email!",
+                    type: "success",
+                    });
+                })
+                .then(() => {
+                    this.$router.push("");
+                })
+
+                .catch((err) => {
+                    console.log(err);
+                    this.$notify({
+                        title: "Incorrect email address!",
+                        type: "error",
+                    });
+                });
+        });
 }
 </script>
 
