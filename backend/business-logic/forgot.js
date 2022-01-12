@@ -1,7 +1,8 @@
 const sendEmail = require('../middleware/email');
+const baseURL = process.env.BASE_URL;
 const { User }  = require('../data-access/db');
 // const Token = require('../data-access/db');
-const ResetToken = require('../data-access/db');
+const ResetToken = require('../models/ResetToken');
 const bcrypt = require('bcryptjs');
 const hashing = require('../middleware/hashing');
 const crypto = require('crypto');
@@ -9,32 +10,25 @@ const crypto = require('crypto');
 
 const forgotManager = {
     sendResetLink: async (email) => {
-        try {
-            const user = User.findOne({email: email});
+            const user = await User.findOne({email: email});
+            console.log(user);
             if(!user) {
-                return res.status(400).send({error: 'User not found'}) 
+                throw new Error('User not found'); 
             }
 
             //create reset token and hash it
             let resetToken = crypto.randomBytes(32).toString('hex'); 
-            const hash = hashing(resetToken); // using hash middleware
+            // const hash = await hashing(resetToken); using hash middleware
 
             await ResetToken.create({
                 userId: user._id,
-                token: hash,
+                token: resetToken,
                 expiryDate: new Date(Date.now() + 86400000),
                 });
             console.log('reset token saved to db');
 
-            const link = `/passwordReset?token=${resetToken}&id=${user._id}`;
+            const link = `${baseURL}/passwordReset?token=${resetToken}&id=${user._id}`;
             console.log(link);
-            
-            // check if token exists and delete it
-            // let token = await Token.findOne({ userId: user._id });
-            // console.log(token);  
-            // if (token) { 
-            //     await token.deleteOne()
-            //     };
 
             await sendEmail (
                 email, 
@@ -43,49 +37,34 @@ const forgotManager = {
                 `<div style="color: blue"> Click to reset your password: ${link}. <br>
                 If you didn't request to reset your password, ignore this email. </div>`
                 );
-            return res.status(200).send(`SUCCESS: Password reset link successfully sent!`)
-        } catch (error) {
-            res.status(500).send(err);
-            console.error(err.message);
-        }
     },
-    resetPassword: async(userId, token, newPassword) => {
-        try {
+    resetPassword: async(userId, token, newPassword, confirmPassword) => {
+            const isEqual = (newPassword === confirmPassword);
+            if(isEqual == false) {
+                throw new Error("Password does not match");
+            }
+            console.log(token);
             // find the reset token and compare it to the existing one
-            let passwordResetToken = await ResetToken.findOne({ userId });
+            let passwordResetToken = await ResetToken.findOne({ token });
             if(!passwordResetToken) {
-                res.status(400).send("Invalid or expired password reset token");
+                throw new Error("Invalid or expired password reset token");
             }
 
-            const isValid = await bcrypt.compare(token, passwordResetToken);
-            if(!isValid) {
-                res.status(400).send("Invalid or expired password reset token");
+            console.log(passwordResetToken)
+
+            // check if the user who followed the link and the user who requested password change are the same
+            
+            const isValid = userId === passwordResetToken.userId;
+            if(isValid == false) {
+                throw new Error("Invalid user");
             }
 
-            const hash = hashing(newPassword);
+            const hash = await hashing(newPassword);
             await User.updateOne (
                 { _id: userId },
                 { $set: { password: hash } },
                 { new: true }
             );
-
-            const user = await User.findOne({ _id: userId });
-            if(!user) {
-                res.status(400).send('User does not exist');
-            }
-            await sendEmail (
-                user.email, 
-                'behelp.be@gmail.com', 
-                'Reset your password',
-                `<div style="color: blue"> Click to reset your password: ${link}. <br>
-                If you didn't request to reset your password, ignore this email. </div>`
-                );
-                return res.status(200).send(`SUCCESS: Password successfully updated!`)
-            } catch (err) {
-            res.status(500).send(err);
-            console.error(err.message);
-        }
     }
 }
-
 module.exports = forgotManager;

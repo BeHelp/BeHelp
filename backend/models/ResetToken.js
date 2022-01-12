@@ -3,10 +3,7 @@ const User = require('../models/User');
 
 const ResetTokenSchema = new mongoose.Schema({
     token: String,
-    user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    },
+    userId: String,
     expiryDate: Date,
 });
 

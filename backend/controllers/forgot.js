@@ -6,12 +6,12 @@ const ResetToken = require('../data-access/db');
 const forgotPasswordController = {
     sendResetLink: async (req, res) => {
         try {
-            const email = req.body;
-            const result = forgotManager.sendResetLink(email);
-            res.status(200).send(`Reset link sent!`)
+            const email = req.body.recipient;
+            const result = await forgotManager.sendResetLink(email);
+            res.status(200).json({"message": "Reset link sent!"});
         } catch (error) {
             console.error(error);
-            res.status(500).send(error);
+            res.status(500).send(error.message);
         }
     },
     resetPassword: async (req, res) => {
@@ -19,12 +19,13 @@ const forgotPasswordController = {
             await forgotManager.resetPassword (
                 req.body._id,
                 req.body.token,
-                req.body.password
+                req.body.password,
+                req.body.confirmPassword
             );
-            return res.json(resetPasswordService);
+            return res.json({"message": "password reset successful!"});
         } catch (error) {
             console.error(error);
-            res.status(500).send(error);
+            res.status(500).send(error.message);
         }
     },
 }
