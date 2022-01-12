@@ -57,7 +57,7 @@
     </div>
   </section>
 </template>
-<style lang="scss">
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_services.scss';
+<style scoped lang="scss">
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_services.scss";
 </style>

@@ -1,3 +1,9 @@
+img {
+  width: 100%;
+  max-height: 25rem;
+  object-fit: cover;
+}
+
 .contactUs {
   &__content {
     display: flex;
@@ -22,25 +28,19 @@
     }
 
     &-image {
+      display: flex;
+      background-color: blue;
       position: relative;
+      width: 60%;
+      height: 30%;
       left: 2em;
-      height: 400px;
-      width: 800px;
       @media (max-width: $tablet) {
-        height: 200px;
-        width: 400px;
-        max-width: 80%;
+        width: 100%;
         margin: 1rem auto;
       }
       @media (max-width: 1180px) {
-        height: 300px;
-        width: 500px;
+        width: 100%;
       }
-    }
-
-    &-image img {
-      height: 80%;
-      object-fit: cover;
     }
 
     // styles for the right side

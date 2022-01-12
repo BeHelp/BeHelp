@@ -1,13 +1,13 @@
 <script>
-import languages from '../assets/jsondata/languages.json';
-import cities from '../assets/jsondata/cities.json';
-import skills from '../assets/jsondata/skills.json';
-import genders from '../assets/jsondata/genders.json';
+import languages from "../assets/jsondata/languages.json";
+import cities from "../assets/jsondata/cities.json";
+import skills from "../assets/jsondata/skills.json";
+import genders from "../assets/jsondata/genders.json";
 
 export default {
   data() {
     return {
-      selected: '',
+      selected: "",
       languageOptions: languages,
       cityOptions: cities,
       skillOptions: skills,
@@ -16,22 +16,22 @@ export default {
   },
   methods: {
     uploadImage(event) {
-      const URL = 'https://api.cloudinary.com/v1_1/behelp/image/upload';
+      const URL = "https://api.cloudinary.com/v1_1/behelp/image/upload";
 
       let data = new FormData();
-      data.append('file', event.target.files[0]);
-      data.append('upload_preset', 'behelp_web');
+      data.append("file", event.target.files[0]);
+      data.append("upload_preset", "behelp_web");
 
       fetch(URL, {
-        method: 'POST',
+        method: "POST",
         body: data,
       })
         .then((response) => {
           return response.json();
         })
         .then((data) => {
-          console.log(data['secure_url']);
-          return data['secure_url'];
+          console.log(data["secure_url"]);
+          return data["secure_url"];
         });
     },
   },
@@ -130,7 +130,7 @@ export default {
 
           <div class="container__group">
             <div class="container__select">
-            <v-select
+              <v-select
                 class="style-chooser"
                 v-model="filterCities"
                 :options="genderOptions"
@@ -204,10 +204,10 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
-@import '../components/styles/abstract/_base.scss';
-@import '../components/styles/abstract/_variables.scss';
-@import '../components/styles/layout/_register.scss';
-@import '../components/styles/layout/_dropdown.scss';
-@import 'vue-select/src/scss/vue-select.scss';
+<style scoped lang="scss">
+@import "../components/styles/abstract/_base.scss";
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_register.scss";
+@import "../components/styles/layout/_dropdown.scss";
+@import "vue-select/src/scss/vue-select.scss";
 </style>
