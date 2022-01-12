@@ -57,18 +57,31 @@ export default {
                 photoURL: this.photoURL
               }),
         },
-   );
+   )
+
    const body = await res.json();
    console.log(body.json);
    if(res.status === 400){
-     alert(body.message);
+    this.$notify({
+            title: body.message,
+            type: "error",
+           });
    }
-  } 
+   else if(res.status === 201){
+    this.$notify({
+            title: "You have successfully registered!",
+            type: "success",
+          }); 
+   }
+   this.$router.push('/login')
+  }
       catch(error){
-        console.log("***",error);
+        console.log(error);
+        
       }
 
     },
+
 
     uploadImage(event) {
       const URL = 'https://api.cloudinary.com/v1_1/behelp/image/upload';
