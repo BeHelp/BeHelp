@@ -43,6 +43,7 @@ export default {
         console.log(error);
       }
     },
+    
     async getUser() {
       try {
         const token = localStorage.getItem("token");
