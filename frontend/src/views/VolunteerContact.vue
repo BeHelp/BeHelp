@@ -31,6 +31,7 @@ export default {
 </script>
 
 <template>
+<<<<<<< HEAD
   <div v-if="result" class="container__volunteer-contact">
     <div class="volunteer__box">
     <div class="volunteer__box1">
@@ -54,6 +55,28 @@ export default {
           <li v-for="skill in result.skills"> {{ skill }} </li>
           </ul>
         </p>
+=======
+<div v-if="result" class="container__volunteer-contact">
+    <div class="volunteer__box">
+      <div class="volunteer__top">
+        <img v-bind:src="result.photoURL" class="volunteer__img" />
+        <div class="profile__detail-text">
+          <h2>{{ result.firstName }}</h2>
+          <p><b>Nationality: </b>{{ result.nationality }}</p>
+          <p><b>City:</b> {{ result.location[1]}}</p>
+          <p><b>Languages: </b>
+          <ul>
+          <li v-for="lang in result.languages"> {{ lang }} </li>
+          </ul></p>
+        </div>
+      </div>
+      <div class="profile__text">
+        <p><b>Skills: </b>
+        <ul>
+        <li v-for="skill in result.skills"> {{ skill }} </li>
+
+        </ul></p>
+>>>>>>> 9997060cfcba82e1ff9b04f4666032876f157718
 
         <p><b>Description:</b>{{ result.description }}</p>
       </div>
@@ -63,7 +86,7 @@ export default {
     <div class="volunteer__box">
       <div class="volunteer__message-box">
         <form @submit.prevent="sendEmail">
-          <p class="contact__text">HERE YOU CAN CONTACT WITH YOUR VOLUNTEER</p>
+          <p class="contact__text">CONTACT THIS VOLUNTEER</p>
           <div class="behelp__logo">
             <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
           </div>
@@ -94,7 +117,7 @@ export default {
       </div>
     </div>
   </div>
-</template>
+  </template>
 
 <style lang="scss">
 @import "../components/styles/abstract/_base.scss";
