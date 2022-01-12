@@ -20,7 +20,7 @@ export default {
     logout() {
       const token = localStorage.getItem("token");
       const userId = this.user.userId;
-      fetch(`http://localhost:5000/users/logout/${userId}`, {
+      fetch(`${import.meta.env.VITE_API}/logout/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

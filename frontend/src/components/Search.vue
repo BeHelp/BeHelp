@@ -64,7 +64,7 @@ export default {
           })
         );
 
-        const res = await fetch("http://localhost:5000/users/", {
+        const res = await fetch(`${import.meta.env.VITE_API}/users`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -81,8 +81,6 @@ export default {
           this.$store.commit("searchResult", searchResults);
         }
         this.$store.commit("searchResult", searchResults);
-        // results = searchResult[0].firstName;
-        // console.log(results);
       } catch (error) {
         console.log(error);
       }
