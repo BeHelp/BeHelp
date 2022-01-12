@@ -271,15 +271,12 @@
     height: 150px;
 
     .leftside {
-      grid-area: left;
-      margin-bottom: 20px;
-      margin-right: 20px;
-      margin-left: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 65%;
-      width: 85%;
+      overflow: hidden;
+      & img {
+        align-items: left;
+        height: 87%;
+        border-radius: 1.5rem;
+      }
 
       .left-icon {
         background: url("../assets/fas/camera-solid.svg"), no-repeat;
@@ -302,14 +299,10 @@
         cursor: pointer;
       }
 
-      p {
-        margin: 0;
-        color: $dark-grey;
-      }
-
       img {
-        overflow: hidden;
-        position: relative;
+        align-items: left;
+        height: 87%;
+        border-radius: 1.5rem;
       }
     }
 

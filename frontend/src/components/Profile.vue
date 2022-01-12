@@ -306,4 +306,8 @@ export default {
 @import "../components/styles/layout/_profile.scss";
 @import "../components/styles/layout/_dropdown.scss";
 @import "vue-select/src/scss/vue-select.scss";
+
+.left {
+  background-color: chartreuse;
+}
 </style>
