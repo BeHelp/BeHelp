@@ -1,23 +1,15 @@
 <script>
 import Search from "../components/Search.vue";
 import Card from "../components/Card.vue";
+import { mapState } from "vuex";
 
 export default {
-  data() {
-    return {
-      volunteers: [],
-    };
-  },
   components: {
     Search,
     Card,
   },
-
-  methods: {
-    searchCompleted: function (results) {
-      this.volunteers = results;
-      console.log(results);
-    },
+  computed: {
+    ...mapState(["searchResult"]),
   },
 };
 </script>
@@ -25,20 +17,24 @@ export default {
 <template>
   <div>
     <div class="volunteers">
-      <Search v-on:searchCompleted="searchCompleted" />
+      <Search />
       <div class="volunteers__container">
         <div class="volunteers__searchresults">
-          <div class="volunteers__searchresults-h1">Results:</div>
-          <pre id="json">
-          <!-- {{ this.results }} -->
-          
-        </pre>
-          <Card v-for="volunteer in volunteers" v-bind:volunteer="volunteer" />
+          <div class="volunteers__searchresults-h1"></div>
+
+          <div class="cards__columns">
+            <Card
+              v-for="volunteer in searchResult"
+              v-bind:volunteer="volunteer"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
-@import '../components/styles/abstract/_variables.scss';
+@import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/layout/_card.scss";
 </style>

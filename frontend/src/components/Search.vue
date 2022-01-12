@@ -6,14 +6,36 @@ import skills from "../assets/jsondata/skills.json";
 export default {
   data() {
     return {
-      results: "",
       languageOptions: languages,
       cityOptions: cities,
       skillOptions: skills,
-      filterLanguages: "",
-      filterCities: "",
-      filterSkills: "",
     };
+  },
+  computed: {
+    filterLanguages: {
+      get() {
+        return this.$store.state.filterLanguages;
+      },
+      set(value) {
+        this.$store.commit("updateLanguages", value);
+      },
+    },
+    filterCities: {
+      get() {
+        return this.$store.state.filterCities;
+      },
+      set(value) {
+        this.$store.commit("updateCities", value);
+      },
+    },
+    filterSkills: {
+      get() {
+        return this.$store.state.filterSkills;
+      },
+      set(value) {
+        this.$store.commit("updateSkills", value);
+      },
+    },
   },
   methods: {
     async filterBtn() {
@@ -30,9 +52,9 @@ export default {
           return;
         }
         const filter = {
-          skills: this.filterSkills["name"],
-          location: this.filterCities["city"],
-          languages: this.filterLanguages["name"],
+          skills: this.filterSkills.name,
+          location: this.filterCities.city,
+          languages: this.filterLanguages.name,
         };
         console.log(
           JSON.stringify({
@@ -53,10 +75,12 @@ export default {
             languages: filter.languages,
           }),
         });
-        const searchResult = await res.json();
-        this.$emit("searchCompleted", searchResult);
-        // this.results = searchResult[0].firstName;
-        // console.log(this.results);
+        const searchResults = await res.json();
+        if (this.$route.fullPath === "/") {
+          this.$router.push("/volunteers");
+          this.$store.commit("searchResult", searchResults);
+        }
+        this.$store.commit("searchResult", searchResults);
       } catch (error) {
         console.log(error);
       }
