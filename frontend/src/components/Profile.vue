@@ -22,13 +22,39 @@ export default {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
-    deleteProfile() {},
+    async deleteProfile() {
+      try {
+        if (confirm("Are you sure you want to delete your profile?")) {
+          if (confirm("Please confirm to delete your profile.")) {
+            const userId = this.user.userId;
+            const res = await fetch(
+              `${import.meta.env.VITE_API}/users/${userId}`,
+              {
+                method: "DELETE",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+            alert("Profile deleted");
+            localStorage.removeItem("token");
+            this.$store.commit("loggedOut");
+            this.$router.push("/");
+          }
+        } else {
+          return;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     async getUser() {
       try {
         const token = localStorage.getItem("token");
         const userId = this.user.userId;
         this.email = this.user.email;
-        const res = await fetch(`http://localhost:5000/users/${userId}`, {
+        const res = await fetch(`${import.meta.env.VITE_API}/users/${userId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
