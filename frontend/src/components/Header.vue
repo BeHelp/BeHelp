@@ -17,27 +17,25 @@ export default {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
-    async logout() {
-      try {
-        const token = localStorage.getItem("token");
-        const userId = this.user.userId;
-        const res = await fetch(
-          `http://localhost:5000/users/logout/${userId}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        console.log(res);
-        localStorage.removeItem("token");
-        this.$store.commit("loggedOut");
-        this.$router.push("/");
-      } catch (error) {
-        console.log(error);
-      }
+    logout() {
+      const token = localStorage.getItem("token");
+      const userId = this.user.userId;
+      fetch(`${import.meta.env.VITE_API}/logout/${userId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          localStorage.removeItem("token");
+          this.$store.commit("loggedOut");
+          this.$router.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
@@ -82,19 +80,21 @@ export default {
             <option class="header__nav-features option">ENG</option>
             <option class="header__nav-features option">FR</option>
             <option class="header__nav-features option">NL</option>
+            <option class="header__nav-features option">ESP</option>
+            <option class="header__nav-features option">عربي</option>
           </select>
         </li>
         <li v-if="isLoggedIn !== true" class="header__nav-features signup">
           <router-link to="/signup"
             ><button class="header__nav-features btn-signup">
-              Sign Up
+              {{ $t("signup") }}
             </button></router-link
           >
         </li>
         <li v-if="isLoggedIn !== true" class="header__nav-features login">
           <router-link to="/login"
             ><button class="header__nav-features btn-login">
-              Log In
+              {{ $t("login") }}
             </button></router-link
           >
         </li>
