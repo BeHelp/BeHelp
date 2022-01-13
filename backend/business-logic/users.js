@@ -1,5 +1,5 @@
-const { User } = require('../data-access/db.js');
-const RefreshToken = require('../models/RefreshToken.js');
+const { User } = require("../data-access/db.js");
+const RefreshToken = require("../models/RefreshToken.js");
 
 const userManager = {
   getUser: async (userData) => {
@@ -7,7 +7,7 @@ const userManager = {
       const searchQuery = {};
 
       if (
-        userData.location !== '' &&
+        userData.location !== "" &&
         userData.location !== undefined &&
         userData.location !== null &&
         userData.location !== []
@@ -15,7 +15,7 @@ const userManager = {
         searchQuery.location = userData.location;
       }
       if (
-        userData.languages !== '' &&
+        userData.languages !== "" &&
         userData.languages !== undefined &&
         userData.languages !== null &&
         userData.languages !== []
@@ -23,7 +23,7 @@ const userManager = {
         searchQuery.languages = userData.languages;
       }
       if (
-        userData.skills !== '' &&
+        userData.skills !== "" &&
         userData.skills !== undefined &&
         userData.skills !== null &&
         userData.skills !== []
@@ -45,7 +45,7 @@ const userManager = {
   },
   getAllVolunteers: async () => {
     try {
-      const volunteers = await User.find({ userType: 'volunteer' });
+      const volunteers = await User.find({ userType: "volunteer" });
       return volunteers;
     } catch (err) {
       console.log(err.message);
@@ -53,21 +53,26 @@ const userManager = {
   },
   putUser: async (userId, userData) => {
     try {
-      const updatedUser = await User.findByIdAndUpdate(userId, {
-        email: userData.email,
-        password: userData.password,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        dob: userData.dob,
-        gender: userData.gender,
-        nationality: userData.nationality,
-        photoURL: userData.photoURL,
-        userType: userData.userType,
-        location: userData.location,
-        skills: userData.skills,
-        languages: userData.languages,
-        description: userData.description,
-      });
+      console.log("Inside");
+      const updatedUser = await User.findByIdAndUpdate(
+        userId,
+        {
+          email: userData.email,
+          password: userData.password,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          dob: userData.dob,
+          gender: userData.gender,
+          nationality: userData.nationality,
+          photoURL: userData.photoURL,
+          userType: userData.userType,
+          location: userData.location,
+          skills: userData.skills,
+          languages: userData.languages,
+          description: userData.description,
+        },
+        { new: true }
+      );
       return updatedUser;
     } catch (err) {
       console.log(err.message);
@@ -83,7 +88,7 @@ const userManager = {
   },
   getUserEmailById: async (userId) => {
     try {
-      const user = await User.findById(userId).select('+email');
+      const user = await User.findById(userId).select("+email");
       return user;
     } catch (err) {
       console.log(err.message);
@@ -102,10 +107,10 @@ const userManager = {
       const response = await RefreshToken.find({ user: userId }).deleteMany();
       console.log(response);
       if (response.deletedCount === 0) {
-        console.log('user not found');
+        console.log("user not found");
         return false;
       }
-      console.log('user refreshtoken deleted');
+      console.log("user refreshtoken deleted");
     } catch (err) {
       console.log(err.message);
     }
