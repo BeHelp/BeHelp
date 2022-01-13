@@ -1,44 +1,41 @@
 <script>
-import { mapState } from "vuex";
 
 export default {
     name: "Forgot",
-    data: function () {
+    data() {
         return {
             email: '',
             }
         },
     methods: {
-        forgot () {
-            fetch("http://localhost:5000/forgot-password, {
-                method: "POST",
-                headers: {
-                "Content-Type": "application/json",
-                email: this.email
-                },
+    async forgot() {
+        const res = await fetch('http://localhost:5000/forgot-password', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            },
+        body: JSON.stringify({
+            recipient: this.email,
+            }),
+        })
+        .then((res) => {
+            console.log(res)
             })
-                .then((res) => {
-
-                })
-
-                .then{() => {
-                    this.$notify({
-                    title: "Password reset link is sent to your email!",
+            .then(() => {
+                this.$notify({
+                    title: "Reset password link is sent!",
                     type: "success",
-                    });
-                })
-                .then(() => {
-                    this.$router.push("");
-                })
-
-                .catch((err) => {
-                    console.log(err);
-                    this.$notify({
-                        title: "Incorrect email address!",
-                        type: "error",
-                    });
                 });
-        });
+            })
+            .catch((err) => {
+                console.log(err);
+                this.$notify({
+                    title: "Error requesting password reset",
+                    type: "error",
+                });
+            });
+        }
+    }
 }
 </script>
 
@@ -47,7 +44,7 @@ export default {
 <div class = "forgot__page">
     <h2 class="forgot__page-text">Reset Password</h2>
     <p> Enter your email to reset password </p>
-    <form @submit.prevent="handleSubmit" class="forgot__page-form">
+    <form @submit.prevent="forgot" class="forgot__page-form">
             <input 
                 v-model="this.email" 
                 type="email" 

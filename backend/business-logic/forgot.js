@@ -3,6 +3,7 @@ const baseURL = process.env.BASE_URL;
 const { User }  = require('../data-access/db');
 const ResetToken = require('../models/ResetToken');
 const crypto = require('crypto');
+const hashing = require('../middleware/hashing');
 
 const forgotManager = {
     sendResetLink: async (email) => {
@@ -11,7 +12,7 @@ const forgotManager = {
             if(!user) {
                 throw new Error('User not found'); 
             }
-
+            
             //create reset token and hash it
             let resetToken = crypto.randomBytes(32).toString('hex'); 
 
@@ -34,6 +35,7 @@ const forgotManager = {
                 If you didn't request to reset your password, ignore this email. </div>`
                 );
     },
+
     resetPassword: async(userId, token, newPassword, confirmPassword) => {
             const isEqual = (newPassword === confirmPassword);
             if(isEqual == false) {

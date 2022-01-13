@@ -69,12 +69,10 @@ app.get("/", (req, res) => {
 });
 
 //routes
-<<<<<<< HEAD
 app.use('/email', require('./routes/email'));
 app.use('/forgot-password', require('./routes/forgot'));
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));
-
 app.use('/refreshtoken', refreshToken);
 app.use('/users', require('./routes/users'));
 app.use('*', (req, res) => {
