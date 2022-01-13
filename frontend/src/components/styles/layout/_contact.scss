@@ -24,22 +24,28 @@
     &-image {
       position: relative;
       left: 2em;
-      height: 400px;
-      width: 800px;
+      height: 500px;
+      width: 1000px;
+      @media (max-width: 1200px) {
+        height: 400px;
+        width: 800px;
+      }
       @media (max-width: $tablet) {
-        height: 200px;
-        width: 400px;
+        height: 300px;
+        width: 500px;
         max-width: 80%;
         margin: 1rem auto;
       }
-      @media (max-width: 1180px) {
-        height: 300px;
-        width: 500px;
+      @media (max-width: 600px) {
+        height: 200px;
+        width: 300px;
+        max-width: 80%;
+        left: -3em;
       }
     }
 
     &-image img {
-      height: 80%;
+      height: 100%;
       object-fit: cover;
     }
 
@@ -51,13 +57,14 @@
       background-color: $blue;
       max-width: 30%;
 
+      @media (max-width: 1200px) {
+        max-width: 50%;
+        margin: 1rem auto;
+        margin-right: 4rem;
+      }
       @media (max-width: $tablet) {
         max-width: 80%;
-        margin: 0.2rem auto;
-      }
-      @media (max-width: 1100px) {
-        max-width: 60%;
-        margin: 1rem auto;
+        margin: 0.8rem auto;
       }
       margin-left: 50rem;
       margin-right: 6rem;
