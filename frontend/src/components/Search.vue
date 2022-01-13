@@ -63,7 +63,7 @@ export default {
             languages: filter.languages,
           })
         );
-
+        console.log(`${import.meta.env.VITE_API}/users`);
         const res = await fetch(`${import.meta.env.VITE_API}/users`, {
           method: "POST",
           headers: {

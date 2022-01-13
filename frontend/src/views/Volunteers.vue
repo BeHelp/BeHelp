@@ -11,19 +11,13 @@ export default {
   computed: {
     ...mapState(["searchResult"]),
   },
-  // methods: {
-  //   searchCompleted: function (results) {
-  //     this.volunteers = searchResult;
-  //     console.log(results);
-  //   },
-  // },
 };
 </script>
 
 <template>
   <div>
     <div class="volunteers">
-      <Search v-on:searchCompleted="searchCompleted" />
+      <Search />
       <div class="volunteers__container">
         <div class="volunteers__searchresults">
           <div class="volunteers__searchresults-h1">Results:</div>
@@ -40,6 +34,6 @@ export default {
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../components/styles/abstract/_variables.scss";
 </style>
