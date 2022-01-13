@@ -56,7 +56,6 @@ app.use(
         },
       },
     ],
-    verbose: true,
   })
 );
 

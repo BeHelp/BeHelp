@@ -81,6 +81,8 @@ export default {
           this.$store.commit("searchResult", searchResults);
         }
         this.$store.commit("searchResult", searchResults);
+        // results = searchResult[0].firstName;
+        // console.log(results);
       } catch (error) {
         console.log(error);
       }
