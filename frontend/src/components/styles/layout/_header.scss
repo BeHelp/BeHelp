@@ -154,10 +154,6 @@
     align-items: center;
   }
 
-  .mobileheader img {
-    margin-right: 8rem;
-  }
-
   .header__nav {
     display: none;
   }
@@ -234,7 +230,7 @@
   .hamburger {
     display: block;
     position: fixed;
-    left: 93%;
+    left: 92%;
     cursor: pointer;
   }
   /* Adding styling for the active class. */

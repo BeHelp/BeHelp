@@ -1,13 +1,11 @@
 .home__about {
+  display: flex;
   box-sizing: border-box;
   border-radius: 20px;
   position: relative;
-  height: auto;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  margin-left: 8%;
-  padding: 2%;
+  // top: 14rem;
   background: #f5f4ef80;
+  margin: 0 auto;
   width: 60%;
 
   &-container {
