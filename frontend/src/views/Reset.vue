@@ -1,8 +1,6 @@
 <script>
-import axios from 'axios'
-
 export default {
-    name: 'Reset',
+    name: "Reset",
     data() {
         return {
             password: '',
@@ -10,12 +8,29 @@ export default {
             }
     },
     methods: {
-        async handleSubmit() {
-            const response = await axios.post('reset', {
-                password: this.password,
-                password_confirm: this.password_confirm,
-            });
-            console.log(response);
+        async reset() {
+            const res = fetch(`${import.meta.env.VITE_API}/passwordReset?token=${}&id={}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    },
+                body: JSON.stringify({
+                    password: this.password,
+                    password_confirm: this.password_confirm,
+                    })
+                })
+                    .then(() => {
+                        this.$notify({
+                        title: "Password is updated!",
+                        type: "success",
+                    })
+                })
+                    .catch((err) => {
+                        this.$notify({
+                        title: "Error requesting password reset",
+                        type: "error",
+                    })
+                })
         }
     }
 }
@@ -23,7 +38,7 @@ export default {
 
 <template>
 <div class="reset">
-    <form @submit.prevent="handleSubmit" class="reset__form">
+    <form @submit.prevent="reset" class="reset__form">
         <h3 class="reset__h3">Reset password</h3>
             <div class = reset__form-part>
                 <label>New Password</label>

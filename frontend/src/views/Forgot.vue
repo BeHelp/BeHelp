@@ -9,30 +9,26 @@ export default {
         },
     methods: {
     async forgot() {
-        const res = await fetch('http://localhost:5000/forgot-password', {
+        const res = await fetch(`${import.meta.env.VITE_API}/forgot-password`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             },
         body: JSON.stringify({
             recipient: this.email,
-            }),
-        })
-        .then((res) => {
-            console.log(res)
             })
+        })
             .then(() => {
                 this.$notify({
                     title: "Reset password link is sent!",
                     type: "success",
-                });
+                })
             })
             .catch((err) => {
-                console.log(err);
                 this.$notify({
                     title: "Error requesting password reset",
                     type: "error",
-                });
+                })
             });
         }
     }
