@@ -281,7 +281,7 @@ export default {
           </div>
           <div class="container__modify-edit">
             <button
-              @click="
+              @click.prevent="
                 isDisabled = false;
                 isHidden = false;
               "
