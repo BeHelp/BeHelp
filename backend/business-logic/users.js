@@ -1,5 +1,6 @@
 const { User } = require("../data-access/db.js");
 const RefreshToken = require("../models/RefreshToken.js");
+const hashing = require('../middleware/hashing');
 
 const userManager = {
   getUser: async (userData) => {
@@ -58,7 +59,7 @@ const userManager = {
         userId,
         {
           email: userData.email,
-          password: userData.password,
+          password: await hashing(userData.password),
           firstName: userData.firstName,
           lastName: userData.lastName,
           dob: userData.dob,
