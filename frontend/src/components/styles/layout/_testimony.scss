@@ -31,7 +31,7 @@
       padding-left: 0%;
     }
     @media screen and (max-width: $tablet) {
-      padding-left: 4%;
+      padding-left: 5%;
     }
     @media screen and (max-width: 400px) {
       padding-left: 6%;
@@ -49,6 +49,7 @@
 
     @media screen and (max-width: $tablet) {
       margin: 5% auto;
+      margin-left: -0.1rem;
       // width: 65%;
     }
     @media screen and (max-width: 400px) {

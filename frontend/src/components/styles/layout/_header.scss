@@ -155,17 +155,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     // background-color: blue;
   }
 
   .header__nav-logo {
     width: 9rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
 
   .header__nav-features {
-    margin-right: 10rem;
+    margin-right: 7rem;
   }
   .header__nav-features select {
     width: 4rem;
@@ -175,7 +175,7 @@
   .hamburger {
     display: block;
     position: fixed;
-    right: 7rem;
+    right: 4rem;
     cursor: pointer;
   }
 
@@ -252,7 +252,7 @@
   }
 
   .hamburger {
-    right: 5rem;
+    right: 2rem;
   }
 }
 
