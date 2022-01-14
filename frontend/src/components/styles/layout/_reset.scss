@@ -7,13 +7,17 @@
         justify-content: center;
         align-content: center;
         padding: 3rem;
-        width: 50%;
+        width: 30%;
         height: 20rem;
         background: #f5f2ef;
         box-sizing: border-box;
         border-radius: 20px;
         margin: 3rem auto;
         
+        @media screen and (max-width: $tablet) {
+            width: 50%;
+        }
+
         &-h2 {
             width: 100%;
             text-align: left;
