@@ -116,10 +116,7 @@ export default {
                 required
               />
               <div class="left-icon"></div>
-              <p>
-                Upload your <br />
-                profile picture
-              </p>
+              <p>{{ $t("profilephoto") }}</p>
             </div>
             <div v-if="this.photoURL" class="afterimage">
               <button v-on:click="this.photoURL = null">X</button>
@@ -129,7 +126,7 @@ export default {
               <div class="container__group">
                 <input
                   type="text"
-                  placeholder="First name*"
+                  :placeholder="$t('firstname_')"
                   name="firstname"
                   v-model="firstname"
                   id="firstname"
@@ -139,7 +136,7 @@ export default {
               <div class="container__group">
                 <input
                   type="text"
-                  placeholder="Last name*"
+                  :placeholder="$t('lastname_')"
                   name="lastname"
                   v-model="lastname"
                   id="lastname"
@@ -152,7 +149,7 @@ export default {
                   class="style-chooser"
                   v-model="filterCities"
                   :options="cityOptions"
-                  :placeholder="'City'"
+                  :placeholder="$t('city')"
                   label="city"
                   required
                 />
@@ -161,7 +158,9 @@ export default {
           </div>
 
           <div class="container__radio">
-            <label for="usertype" class="radio-label">Status*</label>
+            <label for="usertype" class="radio-label"
+              >{{ $t("status_") }}*</label
+            >
             <div class="container__radio-item1">
               <input
                 type="radio"
@@ -171,7 +170,7 @@ export default {
                 id="newcomer"
                 checked
               />
-              <label for="newcomer">Newcomer</label>
+              <label for="newcomer">{{ $t("newcomer") }}</label>
               <span class="container__radio-check"></span>
             </div>
 
@@ -183,7 +182,7 @@ export default {
                 value="volunteer"
                 id="volunteer"
               />
-              <label for="volunteer">Volunteer</label>
+              <label for="volunteer">{{ $t("volunteer") }}</label>
               <span class="container__radio-check"></span>
             </div>
           </div>
@@ -191,7 +190,7 @@ export default {
           <div class="container__group">
             <input
               type="email"
-              placeholder="E-mail*"
+              :placeholder="$t('email_')"
               name="email"
               v-model="email"
               id="email"
@@ -201,7 +200,7 @@ export default {
           <div class="container__group">
             <input
               type="password"
-              placeholder="Password*"
+              :placeholder="$t('password_')"
               name="password"
               v-model="password"
               id="password"
@@ -215,7 +214,7 @@ export default {
                 class="style-chooser"
                 v-model="gender"
                 :options="genderOptions"
-                :placeholder="'Gender*'"
+                :placeholder="$t('gender_')"
                 label="name"
                 required
               />
@@ -225,7 +224,7 @@ export default {
           <div class="container__group">
             <input
               type="text"
-              placeholder="Nationality"
+              :placeholder="$t('nationality')"
               v-model="nationality"
               name="nationality"
               id="nationality"
@@ -240,7 +239,7 @@ export default {
                 multiple
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="'Languages'"
+                :placeholder="$t('languages')"
                 label="name"
                 required
               />
@@ -253,7 +252,7 @@ export default {
                 multiple
                 v-model="filterSkills"
                 :options="skillOptions"
-                :placeholder="'Skills'"
+                :placeholder="$t('skills')"
                 label="name"
               />
             </div>
@@ -261,7 +260,7 @@ export default {
 
           <textarea
             class="container__description"
-            placeholder="Description"
+            :placeholder="$t('description')"
             v-model="description"
           ></textarea>
 
@@ -273,7 +272,7 @@ export default {
               type="submit"
               @click.stop.prevent="submit()"
             >
-              SEND
+              {{ $t("send") }}
             </button>
           </div>
         </form>

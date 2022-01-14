@@ -26,5 +26,19 @@
   "mentalhealth": "Mental health",
   "hostfamilies": "Host families for refugees",
   "educationservices": "Education services",
-  "socialassistance": "Social assistance"
+  "socialassistance": "Social assistance",
+  "profilephoto": "Click here to upload your profile picture",
+  "firstname_": "First name*",
+  "lastname_": "Last name*",
+  "status_": "Status*",
+  "newcomer": "Newcomer",
+  "volunteer": "Volunteer",
+  "email_": "E-mail*",
+  "password_": "Password*",
+  "gender_": "Gender*",
+  "nationality": "Nationality",
+  "skills": "Skills",
+  "languages": "Languages",
+  "description": "Description",
+  "send": "SEND"
 }
