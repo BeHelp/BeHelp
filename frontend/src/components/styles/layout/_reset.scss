@@ -2,15 +2,50 @@
     text-align: center;
 
     &__page {
-        display: inline-block;
-        text-align: left;
-        padding-left: 40px;
-        width: 480px;
-        height: 280px;
-        background: $primary;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        padding: 3rem;
+        width: 50%;
+        height: 20rem;
+        background: #f5f2ef;
         box-sizing: border-box;
         border-radius: 20px;
-        margin-top: 4rem;
-        margin-bottom: 4rem;
+        margin: 3rem auto;
+        
+        &-h2 {
+            width: 100%;
+            text-align: left;
+            padding-bottom: 1rem;
+        }
+
+        &-form {
+            padding-bottom: 1rem;
+            text-align: left;
+
+            &-part {
+                width: 100%;
+                text-align: start;
+            }
+        };
+
+        &-pass {
+            padding: 1rem;
+        };
+
+        &-btn {
+            width: 120px;
+            height: 44px;
+            background: $orange;
+            margin-top: 15px;
+            border-radius: 20px;
+            border-style: hidden;
+            font-size: 0.8rem;
+        }
+
+        label {
+            padding-bottom: 1rem;
+        }
 }
 }

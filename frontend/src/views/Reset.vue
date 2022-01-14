@@ -9,14 +9,16 @@ export default {
     },
     methods: {
         async reset() {
-            const res = fetch(`${import.meta.env.VITE_API}/${this.$route.token}`, {
+            const res = await fetch(`${import.meta.env.VITE_API}/forgot-password/reset/${this.$route.params.token}/${this.$route.params.id}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "id": this.id,
+                    "token": this.token,
                     },
                 body: JSON.stringify({
-                    password: this.password,
-                    password_confirm: this.password_confirm,
+                    newPassword: this.password,
+                    confirmPassword: this.passconfirm,
                     })
                 })
                     .then(() => {
@@ -24,6 +26,9 @@ export default {
                         title: "Password is updated!",
                         type: "success",
                     })
+                })
+                .then(() => {
+                    this.$router.push("/");
                 })
                     .catch((err) => {
                         this.$notify({
@@ -39,10 +44,11 @@ export default {
 <template>
 <div class="reset">
 <div class = "reset__page">
-<h2 class="reset__page-h3">Reset password</h2>
+<h2 class="reset__page-h2">Reset password</h2>
     <form @submit.prevent="reset" class="reset__page-form">
-            <div class = reset__form-part>
+            <div class = reset__page-part>
             <label>New password</label>
+            <br>
                 <input  
                     v-model="password"
                     type="password"
@@ -50,16 +56,17 @@ export default {
                     required 
                 />
             </div>
-            <div class = reset__form-part>
+            <div class = reset__page-part>
                 <label>Confirm Password</label>
+                <br>
                 <input 
                     type="password" 
                     class="reset__page-pass" 
-                    v-model="password_confirm"
+                    v-model="passconfirm"
                     required
                 />
             </div>
-            <button class="forgot__btn" type="submit">Submit</button>
+            <button class="reset__page-btn" type="submit">Submit</button>
         </form>
     </div>
 </div>

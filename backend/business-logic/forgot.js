@@ -38,6 +38,8 @@ const forgotManager = {
 
     resetPassword: async(userId, token, newPassword, confirmPassword) => {
             const isEqual = (newPassword === confirmPassword);
+            console.log(newPassword);
+            console.log(confirmPassword);
             if(isEqual == false) {
                 throw new Error("Password does not match");
             }
