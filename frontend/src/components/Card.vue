@@ -26,7 +26,8 @@ export default {
         />
         {{ volunteer.location[1] }}
       </div>
-      <a class="card__contact-btn" href="#" role="button">CONTACT ME</a>
+      <a class="card__contact-btn" 
+v-bind:href="'/volunteer/' + volunteer._id" role="button">CONTACT ME</a>
     </div>
   </div>
 </template>

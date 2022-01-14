@@ -31,39 +31,38 @@ export default {
 </script>
 
 <template>
-<div v-if="result" class="container__volunteer-contact">
+  <div v-if="result" class="container__volunteer-contact">
     <div class="volunteer__box">
-      <div class="volunteer__top">
-        <img v-bind:src="result.photoURL" class="volunteer__img" />
-        <div class="profile__detail-text">
-          <h2>{{ result.firstName }}</h2>
-          <p><b>Nationality: </b>{{ result.nationality }}</p>
-          <p><b>City:</b> {{ result.location[1]}}</p>
-          <p><b>Languages: </b>
-          <ul>
-          <li v-for="lang in result.languages"> {{ lang }} </li>
-          </ul></p>
-        </div>
+    
+      <img v-bind:src="result.photoURL" class="volunteer__img" />
+      <div class="profile__detail-text">
+      
+        <h2 class="volunteer__name">{{ result.firstName }}</h2>
+        <p><b>Nationality: </b>{{ result.nationality }}</p>
+        <p><b>City:</b> {{ result.location[1]}}</p>
+        <p><b>Languages: </b>
+        
+         <ul class="lang__list">
+         <li v-for="lang in result.languages"> {{ lang }} </li>
+         </ul>>
+        </P>
       </div>
       <div class="profile__text">
         <p><b>Skills: </b>
-        <ul>
-        <li v-for="skill in result.skills"> {{ skill }} </li>
-
-        </ul></p>
+        
+          <ul>
+          <li v-for="skill in result.skills"> {{ skill }} </li>
+          </ul>
+        </p>
 
         <p><b>Description:</b>{{ result.description }}</p>
       </div>
     </div>
-</div>
   
     <div class="volunteer__box">
-      <div class="volunteer__message-box">
+      <p class="contact__text">CONTACT THIS VOLUNTEER</p>
+      <img class="logo__img" src="../assets/logos/Logo_small_blue.svg" alt="profile logo" />
         <form @submit.prevent="sendEmail">
-          <p class="contact__text">CONTACT THIS VOLUNTEER</p>
-          <div class="behelp__logo">
-            <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
-          </div>
           <input
             class="subject__box"
             type="text"
@@ -90,12 +89,10 @@ export default {
         </form>
       </div>
     </div>
-  </div>
-  </template>
 
-<style lang="scss">
-@import "../components/styles/abstract/_base.scss";
+</template>
+
+<style  lang="scss" scoped>
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_volunteerContact.scss";
-@import "vue-select/src/scss/vue-select.scss";
 </style>

@@ -8,14 +8,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     "@kyvg/vue3-notification": "^2.3.4",
->>>>>>> 358a0b83ada5682d785c478c07135685b8bba39a
-=======
-    "@kyvg/vue3-notification": "^2.3.4",
->>>>>>> 9997060cfcba82e1ff9b04f4666032876f157718
     "@sendgrid/mail": "^7.6.0",
     "@splidejs/vue-splide": "^0.5.15",
     "axios": "^0.24.0",
