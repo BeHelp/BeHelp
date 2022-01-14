@@ -25,11 +25,11 @@
         </p>
       </div>
       <div class="footer__cont2-icons">
-        <a href="#"><i class="bx bxl-facebook"></i></a>
+        <a href="#"><img src="../assets/fas/facebook.svg" class="fa" /></a>
         <!-- <a href="#"><img src="../assets/fas/facebook.svg" class="fa" /></a> -->
-        <a href="#"> <i class="bx bxl-twitter"></i></a>
+        <a href="#"> <img src="../assets/fas/twitter.svg" class="fa" /></a>
         <!-- <a href="#"><img src="../assets/fas/twitter.svg" class="fa" /></a> -->
-        <a href="#"><i class="bx bxl-instagram"></i></a>
+        <a href="#"><img src="../assets/fas/instagram.svg" class="fa" /></a>
         <!-- <a href="#"><img src="../assets/fas/instagram.svg" class="fa" /></a> -->
       </div>
     </div>
