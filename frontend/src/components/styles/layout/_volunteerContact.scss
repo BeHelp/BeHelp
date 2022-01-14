@@ -105,17 +105,20 @@
 }
 
 .logo__img {
-  width: 150px;
+  width: 100px;
+  height: 100px;
   float: right;
+  overflow: hidden;
+  margin-right: 10px;
 }
 
 form {
-  width: 350px;
-  padding-top: 40px;
+  width: 380px
+  
 }
 
 .subject__box {
-  width: 300px;
+  width: 380px;
   margin-left: 20px;
   height: 59px;
   background: #F5F4EF;
@@ -128,7 +131,7 @@ form {
   margin-left: 20px;
   margin-bottom: 10px;
   padding-left: 20px;
-  padding-top: 20px;
+  padding-top: 5px;
   background: #F5F4EF;
   border-radius: 20px;
 }

@@ -12,7 +12,7 @@ export default {
     async getUser() {
       try {
         const res = await fetch(
-          `http://localhost:5000/users/${this.$route.params._id}`,
+          `http://localhost:5000/api/users/${this.$route.params._id}`,
           {
             method: "GET",
             headers: {
@@ -60,7 +60,9 @@ export default {
     </div>
   
     <div class="volunteer__box">
+    
       <p class="contact__text">CONTACT THIS VOLUNTEER</p>
+
       <img class="logo__img" src="../assets/logos/Logo_small_blue.svg" alt="profile logo" />
         <form @submit.prevent="sendEmail">
           <input
@@ -87,6 +89,7 @@ export default {
           />
           <input class="message__button" type="submit" value="Send" />
         </form>
+        
       </div>
     </div>
 
