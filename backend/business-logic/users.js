@@ -54,7 +54,6 @@ const userManager = {
   },
   putUser: async (userId, userData) => {
     try {
-      console.log("Inside");
       const updatedUser = await User.findByIdAndUpdate(
         userId,
         {
