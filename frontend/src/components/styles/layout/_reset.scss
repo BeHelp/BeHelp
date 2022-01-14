@@ -1,0 +1,16 @@
+.reset {
+    text-align: center;
+
+    &__page {
+        display: inline-block;
+        text-align: left;
+        padding-left: 40px;
+        width: 480px;
+        height: 280px;
+        background: $primary;
+        box-sizing: border-box;
+        border-radius: 20px;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+}
+}

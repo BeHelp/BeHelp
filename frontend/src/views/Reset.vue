@@ -9,7 +9,7 @@ export default {
     },
     methods: {
         async reset() {
-            const res = fetch(`${import.meta.env.VITE_API}/passwordReset?token=${}&id={}`, {
+            const res = fetch(`${import.meta.env.VITE_API}/${this.$route.token}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -38,18 +38,30 @@ export default {
 
 <template>
 <div class="reset">
-    <form @submit.prevent="reset" class="reset__form">
-        <h3 class="reset__h3">Reset password</h3>
+<div class = "reset__page">
+<h2 class="reset__page-h3">Reset password</h2>
+    <form @submit.prevent="reset" class="reset__page-form">
             <div class = reset__form-part>
-                <label>New Password</label>
-                <input type="password" class="reset__password-box" v-model="password" placeholder="New password"/>
+            <label>New password</label>
+                <input  
+                    v-model="password"
+                    type="password"
+                    class="reset__page-pass"
+                    required 
+                />
             </div>
             <div class = reset__form-part>
                 <label>Confirm Password</label>
-                <input type="password" class="reset__password-box" v-model="password_confirm" placeholder="Confirm password"/>
+                <input 
+                    type="password" 
+                    class="reset__page-pass" 
+                    v-model="password_confirm"
+                    required
+                />
             </div>
             <button class="forgot__btn" type="submit">Submit</button>
         </form>
+    </div>
 </div>
 </template>
 

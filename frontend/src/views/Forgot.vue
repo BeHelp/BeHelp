@@ -38,7 +38,7 @@ export default {
 <template>
 <div class="forgot">
 <div class = "forgot__page">
-    <h2 class="forgot__page-text">Reset Password</h2>
+    <h2 class="forgot__page-h2">Reset Password</h2>
     <p> Enter your email to reset password </p>
     <form @submit.prevent="forgot" class="forgot__page-form">
             <input 

@@ -9,7 +9,6 @@ import Reset from '../views/Reset.vue';
 import Volunteers from '../views/Volunteers.vue';
 import Thankyou from '../views/Thankyou.vue';
 
-
 const routes = [
   {
     path: '/',
@@ -47,7 +46,7 @@ const routes = [
     component: Forgot,
   },
   {
-    path: '/reset/:token',
+    path: '/forgot-password/reset/:id/:token',
     name: 'Reset',
     component: Reset,
   },

@@ -23,7 +23,7 @@ const forgotManager = {
                 });
             console.log('reset token saved to db');
 
-            const link = `${baseURL}/passwordReset?token=${resetToken}&id=${user._id}`;
+            const link = `${baseURL}/forgot-password/reset/${user._id}/${resetToken}`;
             console.log(link);
 
             await sendEmail (
