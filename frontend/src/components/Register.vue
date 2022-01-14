@@ -64,6 +64,7 @@ export default {
             title: body.message,
             type: "error",
            });
+           return;
    }
    else if(res.status === 201){
     this.$notify({
