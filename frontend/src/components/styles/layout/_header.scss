@@ -143,29 +143,44 @@
 }
 
 @media (max-width: 1024px) {
-  .mobileheader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .header__nav-logo {
-    width: 9rem;
-    margin-left: -1rem;
-  }
-
-  .header__nav {
-    display: none;
-  }
   .header {
+    padding: 1rem;
     position: absolute;
     z-index: 999;
     // border-bottom: 1px solid #e2e8f0;
     background-color: white;
   }
 
+  .mobileheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    // background-color: blue;
+  }
+
+  .header__nav-logo {
+    width: 9rem;
+    margin-left: 1rem;
+  }
+
+  .header__nav-features {
+    margin-right: 10rem;
+  }
   .header__nav-features select {
-    margin-right: 4rem;
+    width: 4rem;
+    margin-right: 1rem;
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    right: 7rem;
+    cursor: pointer;
+  }
+
+  .header__nav {
+    display: none;
   }
 
   li {
@@ -181,9 +196,7 @@
     align-items: center;
     padding: 1rem 1.5rem;
   }
-  // .hamburger {
-  //   display: none;
-  // }
+
   .bar {
     display: block;
     width: 25px;
@@ -223,38 +236,44 @@
     left: 0;
   }
   .nav-item {
-    margin-left: 5rem;
     margin: 1rem 0;
     height: 3rem;
   }
+}
+
+@media (max-width: $tablet) {
+  .header__nav-features select {
+    // background-color: blue;
+    margin-right: 1rem;
+  }
+  .header__nav-features select {
+    width: 4rem;
+    margin-right: -2rem;
+  }
 
   .hamburger {
-    display: block;
-    position: fixed;
     right: 5rem;
-    cursor: pointer;
+  }
+}
+
+@media (max-width: $mobile) {
+  .header__nav-features select {
+    background-color: blue;
+    margin-right: 0;
   }
 
-  @media (max-width: $mobile) {
-    .hamburger {
-      right: 2rem;
-    }
+  .hamburger {
+    right: 2rem;
   }
+}
 
-  @media (max-width: $tablet) {
-    .hamburger {
-      right: 5rem;
-    }
-  }
-
-  /* Adding styling for the active class. */
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+/* Adding styling for the active class. */
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }

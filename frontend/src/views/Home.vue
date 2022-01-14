@@ -8,9 +8,9 @@ export default {
   name: "Home",
   components: {
     Search,
-    Whoarewe,
-    Services,
-    Testimony,
+    // Whoarewe,
+    // Services,
+    // Testimony,
   },
 };
 </script>
