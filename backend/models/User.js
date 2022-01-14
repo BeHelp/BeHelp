@@ -15,14 +15,13 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true, minlength: 6, select: false },
   firstName: { type: String, required: true, minlength: 1, maxlength: 20 },
   lastName: { type: String, required: true, minlength: 1, maxlength: 20 },
-  dob: { type: Date, required: true },
   gender: { type: String, required: true },
   nationality: String,
   photoURL: String,
   userType: String,
-  location: [String],
-  skills: [String],
-  languages: [{ _id: false, type: String }],
+  location: { type: Object, required: true },
+  skills: { type: Object, required: true },
+  languages: [{ _id: false, type: Object }],
   description: { type: String, required: false, minlength: 10, maxlength: 200 },
 });
 
