@@ -8,7 +8,7 @@ export default {
   name: "Home",
   components: {
     Search,
-    // Whoarewe,
+    Whoarewe,
     // Services,
     // Testimony,
   },
