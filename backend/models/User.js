@@ -19,9 +19,9 @@ const userSchema = new mongoose.Schema({
   nationality: String,
   photoURL: String,
   userType: String,
-  location: { type: Object, required: true },
-  skills: { type: Object, required: true },
-  languages: [{ _id: false, type: Object }],
+  location: [String],
+  skills: [String],
+  languages: [{ _id: false, type: String }],
   description: { type: String, required: false, minlength: 10, maxlength: 200 },
 });
 
