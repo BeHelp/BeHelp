@@ -12,7 +12,7 @@ export default {
     async getUser() {
       try {
         const res = await fetch(
-          `http://localhost:5000/users/${this.$route.params._id}`,
+          `${import.meta.env.VITE_API}/users/${this.$route.params._id}`,
           {
             method: "GET",
             headers: {

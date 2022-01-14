@@ -20,7 +20,7 @@ export default {
     logout() {
       const token = localStorage.getItem("token");
       const userId = this.user.userId;
-      fetch(`http://localhost:5000/users/logout/${userId}`, {
+      fetch(`${import.meta.env.VITE_API}/logout/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -80,19 +80,21 @@ export default {
             <option class="header__nav-features option">ENG</option>
             <option class="header__nav-features option">FR</option>
             <option class="header__nav-features option">NL</option>
+            <option class="header__nav-features option">ESP</option>
+            <option class="header__nav-features option">عربي</option>
           </select>
         </li>
         <li v-if="isLoggedIn !== true" class="header__nav-features signup">
           <router-link to="/signup"
             ><button class="header__nav-features btn-signup">
-              Sign Up
+              {{ $t("signup") }}
             </button></router-link
           >
         </li>
         <li v-if="isLoggedIn !== true" class="header__nav-features login">
           <router-link to="/login"
             ><button class="header__nav-features btn-login">
-              Log In
+              {{ $t("login") }}
             </button></router-link
           >
         </li>
