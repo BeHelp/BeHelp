@@ -69,6 +69,7 @@ export default {
             <button class="reset__page-btn" type="submit">Submit</button>
         </form>
     </div>
+    
 </div>
 </template>
 

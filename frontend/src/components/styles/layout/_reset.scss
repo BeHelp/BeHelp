@@ -21,7 +21,6 @@
         }
 
         &-form {
-            padding-bottom: 1rem;
             text-align: left;
 
             &-part {
@@ -31,21 +30,23 @@
         };
 
         &-pass {
-            padding: 1rem;
+            margin-bottom: 0.8rem;
+            width: 100%;
         };
 
         &-btn {
             width: 120px;
             height: 44px;
             background: $orange;
-            margin-top: 15px;
+            margin-top: 20px;
             border-radius: 20px;
             border-style: hidden;
-            font-size: 0.8rem;
+            font-size: 20px;
+            padding: 0.2rem;
         }
 
-        label {
-            padding-bottom: 1rem;
+        &-btn:hover {
+            background-color: #cd5300;
         }
-}
+    }
 }
