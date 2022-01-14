@@ -34,9 +34,7 @@ export default {
   methods: {
     async submit(){
       try{
-      const res = await fetch(
-          'http://localhost:5000/register',
-          {
+        const res = await fetch(`${import.meta.env.VITE_API}/register`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
