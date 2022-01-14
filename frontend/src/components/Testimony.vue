@@ -4,7 +4,7 @@
       {{ $t("comments") }}<br />
       {{ $t("howwework") }}
     </h2>
-    <Splide :options="{ rewind: true }">
+    <Splide class="splidecontent" :options="{ rewind: true }">
       <SplideSlide>
         <div class="testimony-content">
           <img

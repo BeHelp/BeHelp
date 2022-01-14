@@ -9,8 +9,8 @@ export default {
   components: {
     Search,
     Whoarewe,
-    // Services,
-    // Testimony,
+    Services,
+    Testimony,
   },
 };
 </script>
