@@ -26,7 +26,7 @@
       height: 4em;
 
       .link {
-        width: 7rem;
+        width: 9rem;
       }
       .item {
         align-items: center;
@@ -70,7 +70,7 @@
 
       .btn-signup {
         border: 3px solid $orange;
-        width: 100px;
+        width: 120px;
         box-sizing: border-box;
       }
 
@@ -80,7 +80,7 @@
       }
 
       .btn-login {
-        width: 80px;
+        width: 130px;
         border: none;
         text-decoration: underline;
       }
@@ -221,12 +221,12 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    left: -100%;
+    left: -140%;
     top: 5rem;
     flex-direction: column;
     background-color: #fff;
     opacity: 0.85;
-    width: 100%;
+    width: 120%;
     border-radius: 10px;
     text-align: center;
     transition: 0.3s;
@@ -234,6 +234,13 @@
   }
   .nav-menu.active {
     left: 0;
+
+    @media (max-width: 1024px) {
+      left: -21%;
+    }
+    @media (max-width: 400px) {
+      left: -30%;
+    }
   }
   .nav-item {
     margin: 1rem 0;

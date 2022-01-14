@@ -104,7 +104,7 @@ export default {
       </div>
       <div class="container__signup-content">
         <form class="register-form" id="register-form">
-          <h2>REGISTRATION FORM</h2>
+          <h2>{{ $t("registrationform") }}</h2>
           <div class="container__first">
             <div class="left" v-if="!this.photoURL">
               <input
