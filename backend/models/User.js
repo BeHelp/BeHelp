@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -13,8 +13,8 @@ const userSchema = new mongoose.Schema({
     select: false,
   },
   password: { type: String, required: true, minlength: 6, select: false },
-  firstName: { type: String, required: true, minlength: 2, maxlength: 20 },
-  lastName: { type: String, required: true, minlength: 2, maxlength: 20 },
+  firstName: { type: String, required: true, minlength: 1, maxlength: 20 },
+  lastName: { type: String, required: true, minlength: 1, maxlength: 20 },
   dob: { type: Date, required: true },
   gender: { type: String, required: true },
   nationality: String,
@@ -26,4 +26,4 @@ const userSchema = new mongoose.Schema({
   description: { type: String, required: false, minlength: 10, maxlength: 200 },
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
