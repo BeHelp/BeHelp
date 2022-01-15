@@ -25,12 +25,6 @@ The application connects international protection seekers with volunteers and or
       - [Projects and websites](#projects-and-websites)
       - [Articles](#articles)
   - [Authors](#authors)
-      - [Project manager](#project-manager)
-      - [Wireframes/Design/UX](#wireframesdesignux)
-      - [Frontend](#frontend-1)
-      - [Backend](#backend-1)
-      - [Full stack (Backend/Frontend)](#full-stack-backendfrontend)
-      - [Devops](#devops-1)
 
 ## General info
 
@@ -103,6 +97,7 @@ The backend server is using separate endpoints for registration, login, logout, 
 The frontend is using Vue 3 single page components. Here is a look at the script tag for the header:
 
 ```js
+<script>
 import { mapState } from "vuex";
 
 export default {
@@ -110,6 +105,7 @@ export default {
     return {
       hidden: true,
       locale: "ENG",
+      activeToggle: false,
     };
   },
   watch: {
@@ -121,30 +117,29 @@ export default {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
-    async logout() {
-      try {
-        const token = localStorage.getItem("token");
-        const userId = this.user.userId;
-        const res = await fetch(
-          `http://localhost:5000/users/logout/${userId}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        console.log(res);
-        localStorage.removeItem("token");
-        this.$store.commit("loggedOut");
-        this.$router.push("/");
-      } catch (error) {
-        console.log(error);
-      }
+    logout() {
+      const token = localStorage.getItem("token");
+      const userId = this.user.userId;
+      fetch(`${import.meta.env.VITE_API}/logout/${userId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          localStorage.removeItem("token");
+          this.$store.commit("loggedOut");
+          this.$router.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
+</script>
 ```
 
 ## Inspiration
@@ -166,41 +161,52 @@ export default {
 
 ## Authors
 
-#### Project manager
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/2686028?v=4">
 
-- [Ekaterina](https://github.com/katsmamina)
-- [Daniel (tech lead)](https://github.com/danielhalasz)
+- [Anthony](https://github.com/Toinne) // Coach
 
-#### Wireframes/Design/UX
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/78535490?v=4">
 
-- [Katia (lead)](https://github.com/Dabrytskaya)
-- [Francis](https://github.com/Osimef849)
-- [Walter](https://github.com/WalterAlvar)
+- [Daniel](https://github.com/danielhalasz) // Manager, Frontend, Backend & DevOps
 
-#### Frontend
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/78304222?v=4">
 
-- [Emely (lead)](https://github.com/emelysalmeron)
-- [Daniel (Vue lead)](https://github.com/danielhalasz)
+- [Ekaterina](https://github.com/katsmamina) // Manager & Frontend
 
-#### Backend
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/78135546?v=4">
 
-- [Daniel (lead)](https://github.com/danielhalasz)
+- [Tugba](https://github.com/yildiztugba) // Backend & DevOps
 
-#### Full stack (Backend/Frontend)
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/66687378?v=4">
 
-- [Tugba](https://github.com/yildiztugba)
-- [Senait](https://github.com/Senait-coding)
-- [Tatsiana](https://github.com/TatsianaRud)
-- [Ekaterina](https://github.com/katsmamina)
-- [Francis](https://github.com/Osimef849)
-- [Michael](https://github.com/Mika215)
-- [Deepa](https://github.com/deepa-thomas)
-- [Walter](https://github.com/WalterAlvar)
+- [Emely](https://github.com/emelysalmeron) // Frontend & Research
 
-#### Devops
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/77326649?v=4">
 
-- [Tugba](https://github.com/yildiztugba)
-- [Daniel](https://github.com/danielhalasz)
-- [Anthony Meirlaen](https://github.com/Toinne)
+- [Senait](https://github.com/Senait-coding) // Frontend
+
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/78364046?v=4">
+
+- [Deepa](https://github.com/deepa-thomas) // Frontend & Backend
+
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/78484923?v=4">
+
+- [Tatsiana](https://github.com/TatsianaRud) // Frontend & Research
+
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/75224973?v=4">
+
+- [Michael](https://github.com/Mika215) // Frontend & Backend
+
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/77118418?v=4">
+
+- [Katia](https://github.com/Dabrytskaya) Lead Design - UX/UI
+
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/77468682?v=4">
+
+- [Francis](https://github.com/Osimef849) // UX/UI
+
+<img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/78143706?v=4">
+
+- [Walter](https://github.com/WalterAlvar) // UX/UI
 
 ---
