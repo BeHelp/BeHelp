@@ -22,8 +22,8 @@ The application connects international protection seekers with volunteers and or
   - [API routes](#api-routes)
   - [Sample Vue code](#sample-vue-code)
   - [Inspiration](#inspiration)
-      - [Projects and websites](#projects-and-websites)
-      - [Articles](#articles)
+    - [Projects and websites](#projects-and-websites)
+    - [Articles](#articles)
   - [Authors](#authors)
 
 ## General info
@@ -184,7 +184,7 @@ export default {
 
 <img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/77326649?v=4">
 
-- [Senait](https://github.com/Senait-coding) // Frontend
+- [Senait](https://github.com/Senait-coding) // Frontend & Backend
 
 <img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/78364046?v=4">
 
@@ -192,7 +192,7 @@ export default {
 
 <img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/78484923?v=4">
 
-- [Tatsiana](https://github.com/TatsianaRud) // Frontend & Research
+- [Tatsiana](https://github.com/TatsianaRud) // Frontend & Backend & Research
 
 <img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/75224973?v=4">
 
