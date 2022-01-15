@@ -18,9 +18,13 @@
   background: #ffffff;
   padding: 1rem;
   flex-wrap: nowrap;
-  flex-basis: 500px;
+  flex-basis: 35%;
   margin: 0 auto;
   margin-bottom: 2rem;
+
+  @media (max-width: 400px) {
+    flex-basis: 95%;
+  }
 }
 
 .card__body {
