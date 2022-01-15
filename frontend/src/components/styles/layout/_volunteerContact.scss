@@ -1,10 +1,8 @@
 .container__volunteer-contact {
   display: flex;
-  margin-bottom: 20px;
-  margin-right: 250px;
-  margin-left: 250px;
-  margin: top 20px;
-
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 2%;
 }
 
 .volunteer__box {
@@ -12,154 +10,154 @@
 }
 
 .volunteer__box:first-child {
-  position: relative;
-  margin-right: 5px;
-  background: #F5F4EF;
-  border: 3px solid #99C5E8;
-  box-sizing: border-box;
-  border-radius: 20px;
 
-  @media screen and (max-width: $tablet) {
-    margin: 5% auto;
-    margin-bottom: 10px;
+  background: #f5f4ef;
+  border: 3px solid #99c5e8;
+  border-radius: 1.5rem;
 
-  }
 }
 
 .volunteer__box:nth-child(2) {
-  position: relative;
-  margin-right: 5px;
-  float: right;
-  background: #99C5E8;
-  border-radius: 20px;
-
-  @media screen and (max-width: $tablet) {
-    margin: 5% auto;
-
-  }
+  margin-left: 0.18rem;
+  background: #99c5e8;
+  border-radius: 1.5rem;
 }
 
-.volunteer__name {
-  width: 204.73px;
-  height: 28.03px;
-  margin-bottom: 30px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.625rem;
-  line-height: 32px;
-  text-transform: uppercase;
-  color: #424651;
-}
-
-.profile__detail-text {
-  position: relative;
-  padding-top: 40px;
-  padding-left: 250px;
-  max-width: 900px;
-
+.volunteer__top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .volunteer__img {
-  float: left;
-  margin-top: 40px;
-  margin-left: 20px;
-  width: 200px;
-  height: 258px;
-  background: #C4C4C4;
-  border-radius: 20px;
+  object-fit: cover;
+  width: 40%;
+  border-radius: 1.5rem;
+  margin-right: 1rem;
 }
 
-.p {
- font-family: Montserrat;
-  font-style: normal;
-  font-size: 1rem;
-  line-height: 22px;
-  color: #424651;
+.profile__detail-text {
+  margin-left: 1rem;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: $dark-grey;
+  margin-bottom: 2rem;
+}
+
+p {
+  line-height: 1.5rem;
+  color: $dark-grey;
 }
 
 .profile__text {
-  padding-left: 40px;
-  padding-bottom: 60px;
+  padding: 2.5rem;
 }
 
-.lang__list {
-  text-indent: 60px;
-  white-space: 30px;
-  line-height: 1.8;
-  padding-bottom: 20px;
-  padding-left: 20px;
+ul {
+  margin-top: -1.5rem;
+  margin-left: 4.5rem;
 }
 
 .contact__text {
-  width: 480px;
-  height: 64px;
-  margin-top: 40px;
-  padding-left: 20px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.2rem;
-  font-variant: small-caps;
-  color: #424651;
+  margin-top: 2.5rem;
+  padding-left: 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.03rem;
+  color: $dark-grey;
 }
 
-.logo__img {
-  width: 100px;
-  height: 100px;
+
+img {
   float: right;
-  overflow: hidden;
-  margin-right: 10px;
-}
+  padding-top: 2rem;
+  width: 20%;
+  height: 20%;
 
-form {
-  width: 380px
-  
 }
 
 .subject__box {
-  width: 380px;
-  margin-left: 20px;
+  width: 300px;
   height: 59px;
-  background: #F5F4EF;
+  margin-top: 50px;
+  margin-left: 20px;
+  padding-left: 20px;
+  background: #f5f4ef;
   border-radius: 20px;
 }
 
 .message__box {
-  width: 465px;
+
+  width: 430px;
   height: 200px;
   margin-left: 20px;
   margin-bottom: 10px;
   padding-left: 20px;
-  padding-top: 5px;
-  background: #F5F4EF;
+  padding-top: 20px;
+  background: #f5f4ef;
   border-radius: 20px;
 }
 
 .user__email-box {
-  width: 465px;
+  border: 0;
+
+  width: 430px;
   height: 77px;
   margin-left: 20px;
   margin-bottom: 10px;
   padding-left: 20px;
   padding-top: 20px;
-  background: #F5F4EF;
+  background: #f5f4ef;
   border-radius: 20px;
 }
 
 .message__button {
-  width: 200px;
-  height: 69.23px;
+  width: 180px;
+  height: 60px;
   margin-left: 140px;
   margin-bottom: 10px;
   align-content: center;
-  background: #E99140;
+
+  background: #e99140;
   border-radius: 20px;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 1024px) {
   .container__volunteer-contact {
     flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .volunteer__box:first-child {
+margin-top: 8rem;
+  }
 
+img {
+    float: right;
+    padding-bottom: 1rem;
+    width: 30%;
+  }
+  .message__box,
+  .user__email-box,
+  .contact__text {
+    width: 90%;
+  }
+.subject__box {
+width: 60%;
+margin-bottom: 1rem;
+
+  }
+
+.message__button {
+    width: 40%;
+    margin-left: 6rem;
   }
 }

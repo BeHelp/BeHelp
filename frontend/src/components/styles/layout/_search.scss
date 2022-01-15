@@ -17,26 +17,36 @@
     text-align: center;
     color: $white;
     width: 100%;
-    height: 100%;
+    // height: 24rem;
 
     &-img {
-      object-fit: cover;
       width: 100%;
+      height: 24rem;
+      object-fit: cover;
+      @media (max-width: 1024px) {
+        height: 32rem;
+      }
+      @media (max-width: 700px) {
+        height: 36rem;
+      }
+    }
+
+    &-img img {
     }
 
     &-decor {
       position: absolute;
       width: 100%;
+      height: 100%;
       @media (max-width: $desktop) {
         height: 50%;
       }
       @media (max-width: $tablet) {
         height: 75%;
       }
-      margin: 0 auto;
-      padding: 2em;
+      padding: 6em;
       background: rgba(66, 70, 81, 0.3);
-      border-radius: 20px;
+      // border-radius: 20px;
     }
 
     &-panel {
@@ -90,5 +100,11 @@
     .search-icon {
       height: 1.2rem;
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .search__background {
+    height: 200px;
   }
 }

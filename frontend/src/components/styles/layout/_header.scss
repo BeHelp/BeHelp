@@ -131,8 +131,149 @@
     }
   }
 }
-.header::after {
-  content: "";
-  display: inline-block;
-  width: 100%;
+
+// styles for the mobile header
+
+@media (min-width: 1024px) {
+  .mobilemenu,
+  .mobileheader,
+  .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 1rem;
+    position: absolute;
+    z-index: 999;
+    // border-bottom: 1px solid #e2e8f0;
+    background-color: white;
+  }
+
+  .mobileheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    // background-color: blue;
+  }
+
+  .header__nav-logo {
+    width: 9rem;
+    margin-left: 2rem;
+  }
+
+  .header__nav-features {
+    margin-right: 7rem;
+  }
+  .header__nav-features select {
+    width: 4rem;
+    margin-right: 1rem;
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    right: 4rem;
+    cursor: pointer;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+  }
+
+  .nav-link {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: $dark-grey;
+  }
+  .nav-link:hover {
+    color: $orange;
+  }
+
+  .nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    left: -100%;
+    top: 5rem;
+    flex-direction: column;
+    background-color: #fff;
+    opacity: 0.85;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  }
+  .nav-menu.active {
+    left: 0;
+  }
+  .nav-item {
+    margin: 1rem 0;
+    height: 3rem;
+  }
+}
+
+@media (max-width: $tablet) {
+  .header__nav-features select {
+    // background-color: blue;
+    margin-right: 1rem;
+  }
+  .header__nav-features select {
+    width: 4rem;
+    margin-right: -2rem;
+  }
+
+  .hamburger {
+    right: 2rem;
+  }
+}
+
+@media (max-width: $mobile) {
+  .header__nav-features select {
+    background-color: blue;
+    margin-right: 0;
+  }
+
+  .hamburger {
+    right: 2rem;
+  }
+}
+
+/* Adding styling for the active class. */
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }

@@ -1,19 +1,3 @@
-<template>
-  <div class="card mb-3" style="max-width: 540px h-100">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img
-          v-bind:src="volunteer.photoURL"
-          class="img-fluid rounded-start"
-          alt="..."
-        />
-      </div>
-      <a class="card__contact-btn" 
-v-bind:href="'/volunteer/' + volunteer._id" role="button">CONTACT ME</a>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   name: "Card",
@@ -21,6 +5,31 @@ export default {
   components: {},
 };
 </script>
+
+<template>
+  <div class="cards">
+    <div class="cards__picture">
+      <img v-bind:src="volunteer.photoURL" alt="volunteer-profile-picture" />
+    </div>
+    <div class="card__body">
+      <h5 class="card__title">
+        {{ volunteer.firstName }} {{ volunteer.lastName }}
+      </h5>
+      <p class="card__text">
+        {{ volunteer.description }}
+      </p>
+      <div class="geo__text">
+        <img
+          class="geo__logo"
+          src="../assets/logos/geo__logo.svg"
+          alt="geo logo"
+        />
+        {{ volunteer.location[1] }}
+      </div>
+      <a class="card__contact-btn" v-bind:href="'/volunteer/' + volunteer._id" role="button">CONTACT ME</a>
+    </div>
+  </div>
+</template>
 
 <style lang="scss">
 @import "../components/styles/abstract/_variables.scss";

@@ -1,68 +1,237 @@
 .footer {
-  background: $dark-grey;
-  width: 100%;
-  padding: 0em 4em;
   display: flex;
-  flex-direction: row;
-  // position: fixed;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $dark-grey;
+  height: auto;
+  width: 100%;
   bottom: 0;
+
+  @media (max-width: $tablet) {
+    flex-direction: column;
+    padding: 8%;
+    padding-top: 4rem;
+    border-radius: 20px 20px 0px 0px;
+  }
 
   &__logos {
     display: flex;
-    justify-content: left;
-    text-align: center;
+
+    justify-content: flex-start;
     width: 40%;
 
+    align-items: center;
+    margin-left: -5%;
+    @media (max-width: $tablet) {
+      justify-content: flex-start;
+      padding-bottom: 4%;
+      margin-left: 0%;
+    }
+    @media (max-width: 400px) {
+      justify-content: flex-start;
+      padding-bottom: 4%;
+      margin-left: 0%;
+    }
+
     &-behelp {
-      width: 200px;
-      height: 53.02px;
-      margin: auto 0;
+      width: 38%;
+      margin-right: 2rem;
+      @media (max-width: 1024px) {
+        width: 40%;
+        margin-left: 4rem;
+        margin-right: 2rem;
+      }
+      @media (max-width: $tablet) {
+        width: 60%;
+      }
+      @media (max-width: 400px) {
+        width: 50%;
+        margin-left: 2.4rem;
+      }
     }
     &-hyf {
-      width: 77px;
-      height: 41.47px;
+      width: 20%;
       background-color: $primary;
-      margin: auto 20px;
+      padding: 0.4rem;
+    }
+    @media (max-width: 1024px) {
+      width: 50%;
+    }
+    @media (max-width: $tablet) {
+      width: 90%;
+    }
+    @media (max-width: 400px) {
+      width: 120%;
     }
   }
-  &__text {
-    margin: 4px 0;
-    color: $primary;
-    text-align: center;
-    width: 50%;
-
-    &-p {
-      margin: 0px;
-      font-family: $montserrat;
-      font-weight: 700;
-      font-style: normal;
-      font-size: 14px;
-    }
-  }
-
-  &__icons {
+  &__cont2 {
     display: flex;
-    text-align: center;
-    margin: auto 0;
-    
-    a {
-      background-color: $primary;
-      height: 25px;
-      width: 25px;
-      border-radius: 10px;
-      margin: 0 5px;
+    justify-content: space-between;
+    align-items: center;
 
-    .fa {
-      border-radius: 10px;
-      height: 25px;
-      width: 25px;
-      font-size: 24px;
-      text-align: center;
-      margin: 0px;
+    @media (max-width: $tablet) {
+      padding-bottom: 2%;
+      justify-content: space-between;
+    }
+    &-text {
+      margin: 4px 0;
+      width: 100%;
+      @media (max-width: $tablet) {
+        width: 100%;
+        flex-wrap: unset;
+      }
+
+      & p {
+        margin: 0px;
+        font-family: $montserrat;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 1rem;
+        color: $primary;
+        line-height: 2.3rem;
+        text-align: justify;
+      }
+    }
+
+    &-icons {
+      display: flex;
+
+      padding-top: 10%;
+
+      @media (max-width: $tablet) {
+        padding-top: 10%;
+        margin-right: -2%;
+      }
+      a {
+        display: flex;
+        background-color: $primary;
+        height: 25px;
+        width: 25px;
+        border-radius: 50px;
+        justify-content: space-between;
+        margin-right: 0.5rem;
+
+        .fa {
+          height: 100%;
+          width: 100%;
+          padding-right: 0.6rem;
+        }
+      }
+      .fa :hover {
+        opacity: 0.7;
+      }
     }
   }
-    .fa:hover {
-      opacity: 0.7;
+}
+
+.sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $dark-grey;
+  width: 100%;
+  padding: 0.5rem 3rem;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+
+  &__element {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem;
+
+    &-login {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      .btn-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0px;
+        width: 120px;
+        height: 45px;
+        padding: 1rem;
+        background: $dark-grey;
+        color: $white;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-decoration: underline;
+        margin-right: 1rem;
+      }
+
+      .btn-login:hover {
+        background: #5a5656;
+        border-radius: 20px;
+      }
     }
+    &-signup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      .btn-signup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background: $dark-grey;
+        color: $white;
+        border: 3px solid $orange;
+        width: 120px;
+        height: 45px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-right: 1rem;
+      }
+
+      .btn-signup:hover {
+        background: $orange;
+        color: $white;
+      }
+    }
+  }
+
+  &__element li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sign {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    position: relative;
+    bottom: 60px;
+    height: 200px;
+    align-items: center;
+  }
+}
+@media (max-width: $tablet) {
+  .footer {
+    position: relative;
+    bottom: 60px;
+    height: 240px;
+    align-items: center;
+    margin-top: 4rem;
   }
 }
