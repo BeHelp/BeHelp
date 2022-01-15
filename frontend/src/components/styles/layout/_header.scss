@@ -221,12 +221,12 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    left: -140%;
+    left: -100%;
     top: 5rem;
     flex-direction: column;
     background-color: #fff;
     opacity: 0.85;
-    width: 120%;
+    width: 100%;
     border-radius: 10px;
     text-align: center;
     transition: 0.3s;
@@ -236,10 +236,10 @@
     left: 0;
 
     @media (max-width: 1024px) {
-      left: -21%;
+      left: 0;
     }
     @media (max-width: 400px) {
-      left: -30%;
+      left: 0;
     }
   }
   .nav-item {
