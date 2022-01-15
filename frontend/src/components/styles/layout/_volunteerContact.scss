@@ -1,0 +1,101 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  @media (max-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__volunteer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 20px;
+    border-color: $blue;
+    border-width: 1px;
+    background-color: lightgray;
+
+    @media (max-width: $tablet) {
+      width: 90%;
+      margin: 1rem auto;
+    }
+
+      &-h2 {
+        font-weight: 700;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        color: $dark-grey;
+        margin-bottom: 2rem;
+      }
+
+      &-top {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        @media (max-width: 1165px) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      &-photo {
+        // border-radius: 20px;
+        width: 40%;
+        border-radius: 10px;
+        margin-right: 1rem;
+
+        @media (max-width: 1165px) {
+          width: 80%;
+          margin: 1rem auto;
+        }
+      }
+    }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 1rem;
+    background-color: $blue;
+    border-radius: 20px;
+
+    @media (max-width: $tablet) {
+      width: 90%;
+      margin: 1rem auto;
+    }
+
+      &-messagebox {
+        padding: 1rem;
+      }
+
+    &-logo {
+      width: 20%;
+      float: right;
+    }
+
+    &-button {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-btn {
+      width: 120px;
+      height: 44px;
+      background: #e99140;
+      margin-top: 15px;
+      border-radius: 20px;
+      border-style: hidden;
+      font-size: 0.8rem;
+      align-content: center;
+    }
+
+    &-btn:hover{
+      background-color: #cd5300;
+    }
+  }
+}
