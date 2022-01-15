@@ -12,6 +12,6 @@ userRoutes.delete("/:userId", userController.delete);
 // auth route for getting user email
 userRoutes.get("/contactinfo/:userId", authCheck, userController.getEmailById);
 // auth route for user logout
-userRoutes.get("/logout/:userId", userController.logout);
+userRoutes.get("/logout/:userId", authCheck, userController.logout);
 
 module.exports = userRoutes;
