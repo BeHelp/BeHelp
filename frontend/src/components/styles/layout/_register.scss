@@ -113,7 +113,7 @@
     &-check:before {
       position: absolute;
       display: block;
-      content: '';
+      content: "";
       width: 80%;
       height: 80%;
       border-radius: 50%;
@@ -144,41 +144,6 @@
       cursor: pointer;
       border: none;
     }
-
-    &-icon {
-      z-index: 50;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      justify-content: center;
-      -moz-justify-content: center;
-      -webkit-justify-content: center;
-      -o-justify-content: center;
-      -ms-justify-content: center;
-      align-items: center;
-      -moz-align-items: center;
-      -webkit-align-items: center;
-      -o-align-items: center;
-      -ms-align-items: center;
-
-      i {
-        justify-content: center;
-        -moz-justify-content: center;
-        -webkit-justify-content: center;
-        -o-justify-content: center;
-        -ms-justify-content: center;
-        align-items: center;
-        -moz-align-items: center;
-        -webkit-align-items: center;
-        -o-align-items: center;
-        -ms-align-items: center;
-        width: 40px;
-        height: 20px;
-        font-size: 18px;
-        color: #999;
-      }
-    }
   }
 
   &__submit {
@@ -186,14 +151,15 @@
     padding-top: 2%;
 
     .submit {
-      width: 25%;
-      height: 10%;
+      width: 30%;
+      height: 8%;
       display: inline-block;
       font-weight: 400;
       font-size: 20px;
       padding: 8px;
       border: none;
       cursor: pointer;
+      border-radius: 20px;
     }
 
     #submit {
@@ -209,7 +175,7 @@
   &__first {
     display: grid;
     grid-template-columns: 45% 55%;
-    grid-template-areas: 'left right';
+    grid-template-areas: "left right";
 
     .left {
       grid-area: left;
@@ -225,7 +191,7 @@
       text-align: center;
 
       .left-icon {
-        background: url('../assets/fas/camera-solid.svg'), no-repeat;
+        background: url("../assets/fas/camera-solid.svg"), no-repeat;
         background-size: 60px;
         margin-top: -49px;
         width: 60px;
@@ -240,14 +206,18 @@
         height: 60px;
         opacity: 0;
       }
-      .left-icon:hover,
-      .button-icon:hover {
-        cursor: pointer;
-      }
 
       p {
         margin: 0;
+        width: 60%;
+        line-height: 1.2rem;
         color: $dark-grey;
+      }
+
+      .left-icon:hover,
+      .button-icon:hover,
+      p {
+        cursor: pointer;
       }
     }
 
@@ -304,8 +274,7 @@
     margin-bottom: 2%;
     margin-top: 2%;
   }
-  #file-input {
-  }
+
   .clear {
     clear: both;
   }
@@ -345,7 +314,7 @@
     -ms-box-shadow: none !important;
   }
 
-  input[type='radio'] {
+  input[type="radio"] {
     appearance: radio !important;
     -moz-appearance: radio !important;
     -webkit-appearance: radio !important;
@@ -361,20 +330,41 @@
     -ms-box-shadow: 0 0 0 30px transparent inset;
   }
 
-  input[type='radio'] {
+  input[type="radio"] {
     position: absolute;
     visibility: hidden;
   }
 
-  input[type='radio']:checked ~ .container__radio-check {
+  input[type="radio"]:checked ~ .container__radio-check {
     border: 2px solid white;
     background: white;
   }
 
-  input[type='radio']:checked ~ .container__radio-check::before {
+  input[type="radio"]:checked ~ .container__radio-check::before {
     background: $blue;
   }
+  .afterimage {
+    border-radius: 20px;
+    background-color: $field_color;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 35px;
+    width: 55%;
 
+    img {
+      border-radius: 20px;
+      width: 100%;
+      padding: 2%;
+    }
+
+    button {
+      margin-left: 13%;
+      border-radius: 20%;
+      margin-top: 0.7%;
+      position: absolute;
+      border: none;
+    }
+  }
   @media screen and (max-width: 992px) {
     .container {
       width: calc(100% - 40px);
@@ -473,6 +463,10 @@
 
     .submit {
       width: 100%;
+      border-radius: 20px;
     }
   }
+}
+
+::placeholder {
 }

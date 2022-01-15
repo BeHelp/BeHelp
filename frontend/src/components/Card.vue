@@ -1,8 +1,26 @@
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "Card",
   props: ["volunteer"],
   components: {},
+  computed: {
+    ...mapState(["isLoggedIn"]),
+  },
+  methods: {
+    accessBtn() {
+      if (this.isLoggedIn !== true) {
+        this.$notify({
+          title:
+            "Please login to access the full profile and to write a message",
+          type: "error",
+        });
+      } else {
+        this.$router.push(`/volunteer/` + this.volunteer._id);
+      }
+    },
+  },
 };
 </script>
 
@@ -26,7 +44,9 @@ export default {
         />
         {{ volunteer.location[1] }}
       </div>
-      <a class="card__contact-btn" href="#" role="button">CONTACT ME</a>
+      <a class="card__contact-btn" @click="accessBtn" role="button"
+        >CONTACT ME</a
+      >
     </div>
   </div>
 </template>

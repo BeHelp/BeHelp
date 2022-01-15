@@ -1,5 +1,5 @@
-const { User } = require('../data-access/db.js');
-const RefreshToken = require('../models/RefreshToken.js');
+const { User } = require("../data-access/db.js");
+const RefreshToken = require("../models/RefreshToken.js");
 
 const userManager = {
   getUser: async (userData) => {
@@ -7,7 +7,7 @@ const userManager = {
       const searchQuery = {};
 
       if (
-        userData.location !== '' &&
+        userData.location !== "" &&
         userData.location !== undefined &&
         userData.location !== null &&
         userData.location !== []
@@ -15,7 +15,7 @@ const userManager = {
         searchQuery.location = userData.location;
       }
       if (
-        userData.languages !== '' &&
+        userData.languages !== "" &&
         userData.languages !== undefined &&
         userData.languages !== null &&
         userData.languages !== []
@@ -23,13 +23,14 @@ const userManager = {
         searchQuery.languages = userData.languages;
       }
       if (
-        userData.skills !== '' &&
+        userData.skills !== "" &&
         userData.skills !== undefined &&
         userData.skills !== null &&
         userData.skills !== []
       ) {
         searchQuery.skills = userData.skills;
       }
+      console.log(searchQuery.languages);
       const user = await User.find({
         $and: [
           { languages: { $all: searchQuery.languages } },
@@ -45,7 +46,7 @@ const userManager = {
   },
   getAllVolunteers: async () => {
     try {
-      const volunteers = await User.find({ userType: 'volunteer' });
+      const volunteers = await User.find({ userType: "volunteer" });
       return volunteers;
     } catch (err) {
       console.log(err.message);
@@ -83,7 +84,7 @@ const userManager = {
   },
   getUserEmailById: async (userId) => {
     try {
-      const user = await User.findById(userId).select('+email');
+      const user = await User.findById(userId).select("+email");
       return user;
     } catch (err) {
       console.log(err.message);
@@ -102,10 +103,10 @@ const userManager = {
       const response = await RefreshToken.find({ user: userId }).deleteMany();
       console.log(response);
       if (response.deletedCount === 0) {
-        console.log('user not found');
+        console.log("user not found");
         return false;
       }
-      console.log('user refreshtoken deleted');
+      console.log("user refreshtoken deleted");
     } catch (err) {
       console.log(err.message);
     }

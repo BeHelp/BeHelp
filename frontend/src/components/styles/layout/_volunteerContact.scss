@@ -1,0 +1,124 @@
+.container__volunteer-contact {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.volunteer__box {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+.volunteer__box:first-child {
+  margin-right: 1rem;
+  background: #f5f4ef;
+  border: 3px solid #99c5e8;
+  border-radius: 1.5rem;
+}
+
+.volunteer__box:nth-child(2) {
+  margin-left: 1rem;
+  background: #99c5e8;
+  border-radius: 1.5rem;
+}
+
+.volunteer__top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.volunteer__img {
+  object-fit: cover;
+  width: 40%;
+  border-radius: 1.5rem;
+  margin-right: 1rem;
+}
+
+.profile__detail-text {
+  margin-left: 1rem;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: $dark-grey;
+  margin-bottom: 2rem;
+}
+
+p {
+  line-height: 1.5rem;
+  color: $dark-grey;
+}
+
+.profile__text {
+  padding: 2.5rem;
+}
+
+ul {
+  margin-top: -1.5rem;
+  margin-left: 4.5rem;
+}
+
+.contact__text {
+  margin-top: 2.5rem;
+  padding-left: 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.03rem;
+  color: $dark-grey;
+}
+
+.behelp__logo {
+  width: 20%;
+  float: right;
+}
+
+.subject__box {
+  height: 59px;
+  border: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  background: #f5f4ef;
+  border-radius: 20px;
+}
+
+.message__box {
+  border: 0;
+  width: 430px;
+  height: 200px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
+  background: #f5f4ef;
+  border-radius: 20px;
+}
+
+.user__email-box {
+  border: 0;
+
+  width: 430px;
+  height: 77px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
+  background: #f5f4ef;
+  border-radius: 20px;
+}
+
+.message__button {
+  width: 200px;
+  height: 69.23px;
+  margin-left: 140px;
+  margin-bottom: 10px;
+  align-content: center;
+
+  background: #e99140;
+  border-radius: 20px;
+}
