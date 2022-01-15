@@ -113,7 +113,7 @@
     &-check:before {
       position: absolute;
       display: block;
-      content: '';
+      content: "";
       width: 80%;
       height: 80%;
       border-radius: 50%;
@@ -175,7 +175,7 @@
   &__first {
     display: grid;
     grid-template-columns: 45% 55%;
-    grid-template-areas: 'left right';
+    grid-template-areas: "left right";
 
     .left {
       grid-area: left;
@@ -191,7 +191,7 @@
       text-align: center;
 
       .left-icon {
-        background: url('../assets/fas/camera-solid.svg'), no-repeat;
+        background: url("../assets/fas/camera-solid.svg"), no-repeat;
         background-size: 60px;
         margin-top: -49px;
         width: 60px;
@@ -206,14 +206,18 @@
         height: 60px;
         opacity: 0;
       }
-      .left-icon:hover,
-      .button-icon:hover {
-        cursor: pointer;
-      }
 
       p {
         margin: 0;
+        width: 60%;
+        line-height: 1.2rem;
         color: $dark-grey;
+      }
+
+      .left-icon:hover,
+      .button-icon:hover,
+      p {
+        cursor: pointer;
       }
     }
 
@@ -310,7 +314,7 @@
     -ms-box-shadow: none !important;
   }
 
-  input[type='radio'] {
+  input[type="radio"] {
     appearance: radio !important;
     -moz-appearance: radio !important;
     -webkit-appearance: radio !important;
@@ -326,46 +330,42 @@
     -ms-box-shadow: 0 0 0 30px transparent inset;
   }
 
-  input[type='radio'] {
+  input[type="radio"] {
     position: absolute;
     visibility: hidden;
   }
 
-  input[type='radio']:checked ~ .container__radio-check {
+  input[type="radio"]:checked ~ .container__radio-check {
     border: 2px solid white;
     background: white;
   }
 
-  input[type='radio']:checked ~ .container__radio-check::before {
+  input[type="radio"]:checked ~ .container__radio-check::before {
     background: $blue;
   }
-.afterimage{
-  border-radius: 20px;
-  background-color:$field_color;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  margin-left: 35px;
-  width: 55%;
-
-
-  img{
+  .afterimage {
     border-radius: 20px;
-    width: 100%;
-    padding: 2%;
-   
-  }
+    background-color: $field_color;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 35px;
+    width: 55%;
 
-  button{
-    margin-left: 13%; 
-    border-radius: 20%;
-    margin-top: 0.7%;
-    position: absolute; 
-    border: none;
-  }
+    img {
+      border-radius: 20px;
+      width: 100%;
+      padding: 2%;
+    }
 
-}
+    button {
+      margin-left: 13%;
+      border-radius: 20%;
+      margin-top: 0.7%;
+      position: absolute;
+      border: none;
+    }
+  }
   @media screen and (max-width: 992px) {
-
     .container {
       width: calc(100% - 40px);
       max-width: 100%;
@@ -464,7 +464,9 @@
     .submit {
       width: 100%;
       border-radius: 20px;
-
     }
   }
+}
+
+::placeholder {
 }

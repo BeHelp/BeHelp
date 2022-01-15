@@ -1,5 +1,5 @@
 const userManager = require("../business-logic/users");
-const registerManager = require('../business-logic/register');
+const registerManager = require("../business-logic/register");
 
 const userController = {
   get: async (req, res) => {
@@ -24,7 +24,7 @@ const userController = {
     try {
       const userId = req.params.userId;
       const result = await userManager.getUserEmailById(userId);
-      res.status(200).send(result.email);
+      res.status(200).json(result.email);
     } catch (error) {
       res.status(500).send(error);
     }
@@ -42,6 +42,7 @@ const userController = {
     try {
       const userId = req.params.userId;
       const userData = req.body;
+      console.log(userData);
       const userFromDB = await registerManager.getUserByEmail(userData.email);
       if (
         !userData.firstName ||

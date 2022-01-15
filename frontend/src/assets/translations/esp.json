@@ -26,5 +26,20 @@
   "mentalhealth": "Salud mental",
   "hostfamilies": "Familias invitadas",
   "educationservices": "Servicios educativos",
-  "socialassisstance": "Asistencia social"
+  "socialassisstance": "Asistencia social",
+  "registrationform": "FORMULARIO DE INSCRIPCIÓN",
+  "profilephoto": "Haga clic aquí para subir su foto de perfil",
+  "firstname_": "Nombre*",
+  "lastname_": "Apellido*",
+  "status_": "Estado*",
+  "newcomer": "Recién llegado",
+  "volunteer": "Voluntario",
+  "email_": "E-mail*",
+  "password_": "Contraseña*",
+  "gender_": "Género*",
+  "nationality": "Nacionalidad",
+  "skills": "Habilidades",
+  "languages": "Idiomas",
+  "description": "Descripción",
+  "send": "ENVIAR"
 }

@@ -17,14 +17,14 @@ export default {
       isHidden: true,
       firstName: "",
       lastName: "",
-      filterCities: "",
+      filterCities: [],
       userType: "",
       email: "",
       password: "",
       gender: "",
       nationality: "",
-      filterLanguages: "",
-      filterSkills: "",
+      filterLanguages: [],
+      filterSkills: [],
       description: "",
       photoURL: "",
     };
@@ -36,6 +36,10 @@ export default {
     async updateProfile() {
       try {
         const userId = this.user.userId;
+        const languageArray = this.filterLanguages.map((a) => a.name);
+        const skillsArray = this.filterSkills.map((a) => a.name);
+        console.log("filterLang", this.filterLanguages);
+        console.log("langArrays", languageArray);
         const res = await fetch(`${import.meta.env.VITE_API}/users/${userId}`, {
           method: "PUT",
           headers: {
@@ -49,9 +53,9 @@ export default {
             gender: this.gender,
             nationality: this.nationality,
             userType: this.userType,
-            location: this.filterCities,
-            skills: this.filterSkills,
-            languages: this.filterLanguages,
+            location: this.filterCities.city,
+            skills: skillsArray,
+            languages: languageArray,
             description: this.description,
             photoURL: this.photoURL,
           }),
@@ -201,7 +205,7 @@ export default {
             <div class="container__city">
               <v-select
                 class="style-chooser"
-                v-model="this.filterCities"
+                v-model="this.filterCities.city"
                 :options="cityOptions"
                 :placeholder="'City'"
                 label="city"
@@ -275,7 +279,7 @@ export default {
             <v-select
               class="style-chooser"
               multiple
-              v-model="this.filterLanguages"
+              v-model="this.filterLanguages.name"
               :options="languageOptions"
               :placeholder="'Languages'"
               label="name"
@@ -291,7 +295,7 @@ export default {
             <v-select
               class="style-chooser"
               multiple
-              v-model="this.filterSkills"
+              v-model="this.filterSkills.name"
               :options="skillOptions"
               :placeholder="'Skills'"
               label="name"
@@ -329,7 +333,7 @@ export default {
               EDIT
             </button>
           </div>
-          <div class="container__modify-save" >
+          <div class="container__modify-save">
             <button
               @click.prevent="updateProfile"
               class="save-button"

@@ -6,6 +6,7 @@ export default {
     return {
       hidden: true,
       locale: "ENG",
+      activeToggle: false,
     };
   },
   watch: {
@@ -20,7 +21,7 @@ export default {
     logout() {
       const token = localStorage.getItem("token");
       const userId = this.user.userId;
-      fetch(`${import.meta.env.VITE_API}/logout/${userId}`, {
+      fetch(`${import.meta.env.VITE_API}/users/logout/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -50,14 +51,13 @@ export default {
           src="../assets/logos/Logo_wb.svg"
           alt="logo"
       /></router-link>
-
       <ul class="header__nav-list">
         <li class="header__nav-list item">
           <router-link
             v-if="$route.name !== 'Home'"
             to="/"
             class="header__nav-list link"
-            >About</router-link
+            >{{ $t("about") }}</router-link
           >
           <a v-else href="#about" class="header__nav-list link">{{
             $t("about")
@@ -132,14 +132,59 @@ export default {
         </li>
       </ul>
     </nav>
+    <div class="mobilemenu">
+      <ul class="nav-menu" :class="{ active: activeToggle }">
+        <li class="nav-item">
+          <router-link v-if="$route.name !== 'Home'" to="/" class="nav-link">{{
+            $t("about")
+          }}</router-link>
+          <a v-else href="#about" class="nav-link">{{ $t("about") }}</a>
+        </li>
+        <li class="nav-item">
+          <router-link to="/volunteers" class="nav-link">{{
+            $t("volunteers")
+          }}</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/contacts" class="nav-link">{{
+            $t("contactus")
+          }}</router-link>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mobileheader">
+      <router-link to="/"
+        ><img
+          class="header__nav-logo"
+          src="../assets/logos/Logo_wb.svg"
+          alt="logo"
+      /></router-link>
+
+      <li class="header__nav-features select">
+        <select v-model="locale">
+          <option class="header__nav-features option">ENG</option>
+          <option class="header__nav-features option">FR</option>
+          <option class="header__nav-features option">NL</option>
+          <option class="header__nav-features option">ESP</option>
+          <option class="header__nav-features option">عربي</option>
+        </select>
+      </li>
+
+      <div
+        @click="activeToggle = !activeToggle"
+        class="hamburger"
+        :class="{ active: activeToggle }"
+      >
+        <span class="bar" :class="{ active: activeToggle }"></span>
+        <span class="bar" :class="{ active: activeToggle }"></span>
+        <span class="bar" :class="{ active: activeToggle }"></span>
+      </div>
+    </div>
   </header>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_header.scss";
-
-.foo-hover {
-  display: none;
-}
 </style>

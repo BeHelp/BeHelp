@@ -31,11 +31,13 @@ const userManager = {
       ) {
         searchQuery.skills = userData.skills;
       }
+      console.log(searchQuery.languages);
       const user = await User.find({
         $and: [
           { languages: { $all: searchQuery.languages } },
           { skills: { $all: searchQuery.skills } },
           { location: { $all: searchQuery.location } },
+          { userType: "volunteer" },
         ],
       });
       console.log(user);
@@ -59,6 +61,7 @@ const userManager = {
       } else {
         passwordToUpdate = await hashing(userData.password);
       }
+
       let data = {
         email: userData.email,
         password: passwordToUpdate,
@@ -74,11 +77,18 @@ const userManager = {
         languages: userData.languages,
         description: userData.description,
       };
+      console.log(data);
       for (let field in data) {
         if (!data[field]) {
           delete data[field];
         }
       }
+      for (let item in data.skills) {
+        if (!data.skills[item] || data.skills[item] === null) {
+          delete data.skills[item];
+        }
+      }
+      console.log(data);
       const updatedUser = await User.findByIdAndUpdate(userId, data, {
         new: true,
       });
