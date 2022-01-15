@@ -68,7 +68,6 @@ export default {
         <p><b>Description: </b>{{ result.description }}</p>
       </div>
     </div>
-    <button @click="getUserEmail">click me</button>
 
     <div class="container__contact">
       <div class="container__contact-messagebox">
