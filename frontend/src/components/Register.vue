@@ -4,17 +4,84 @@ import cities from '../assets/jsondata/cities.json';
 import skills from '../assets/jsondata/skills.json';
 import genders from '../assets/jsondata/genders.json';
 
+
+
 export default {
   data() {
     return {
+      errors: [],
+      firstname : '',
+      lastname : '',
+      email : '',
+      gender: '',
+      password : '',
+      nationality : '',
       selected: '',
+      picked: '',
+      filterCities: '',
+      filterLanguages:'',
+      filterSkills:'',
+      description: '',
       languageOptions: languages,
       cityOptions: cities,
       skillOptions: skills,
       genderOptions: genders,
+      photoURL: ''
+      
     };
   },
+
   methods: {
+    async submit(){
+      try{
+        const res = await fetch(`${import.meta.env.VITE_API}/register`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(
+              {
+                email: this.email,
+                password: this.password,
+                firstName: this.firstname,
+                lastName: this.lastname,
+                gender: this.gender,
+                nationality: this.nationality,
+                userType: this.picked,
+                location: this.filterCities,
+                skills: this.filterSkills,
+                languages: this.filterLanguages,
+                description: this.description,
+                photoURL: this.photoURL
+              }),
+        },
+   )
+
+   const body = await res.json();
+   console.log(body.json);
+   if(res.status === 400){
+    this.$notify({
+            title: body.message,
+            type: "error",
+           });
+           return;
+   }
+   else if(res.status === 201){
+    this.$notify({
+            title: "You have successfully registered!",
+            type: "success",
+          }); 
+   }
+   this.$router.push('/login')
+  }
+      catch(error){
+        console.log(error);
+        
+      }
+
+    },
+
+
     uploadImage(event) {
       const URL = 'https://api.cloudinary.com/v1_1/behelp/image/upload';
 
@@ -31,6 +98,7 @@ export default {
         })
         .then((data) => {
           console.log(data['secure_url']);
+          this.photoURL = data['secure_url'];
           return data['secure_url'];
         });
     },
@@ -45,16 +113,17 @@ export default {
         <img src="../assets/signup-img.png" alt="signup" class="img" />
       </div>
       <div class="container__signup-content">
-        <form method="POST" class="register-form" id="register-form">
+        <form class="register-form" id="register-form" >
           <h2>REGISTRATION FORM</h2>
           <div class="container__first">
-            <div class="left">
+            <div class="left"  v-if="!this.photoURL">
               <input
                 type="file"
                 accept="image/*"
                 id="file-input"
                 @change="uploadImage($event)"
                 class="button-icon"
+                required
               />
               <div class="left-icon"></div>
               <p>
@@ -62,12 +131,17 @@ export default {
                 profile picture
               </p>
             </div>
+            <div v-if="this.photoURL" class="afterimage">
+              <button v-on:click="this.photoURL = null" > X </button>
+              <img v-bind:src="this.photoURL">
+            </div>
             <div class="right">
               <div class="container__group">
                 <input
                   type="text"
                   placeholder="First name*"
                   name="firstname"
+                  v-model= "firstname" 
                   id="firstname"
                   required
                 />
@@ -77,6 +151,7 @@ export default {
                   type="text"
                   placeholder="Last name*"
                   name="lastname"
+                  v-model= "lastname" 
                   id="lastname"
                   required
                 />
@@ -85,10 +160,11 @@ export default {
               <div class="container__city">
                 <v-select
                   class="style-chooser"
-                  v-model="filterCities"
-                  :options="cityOptions"
+                  v-model= "filterCities"
+                  :options= "cityOptions"
                   :placeholder="'City'"
                   label="city"
+                  required
                 />
               </div>
             </div>
@@ -97,13 +173,13 @@ export default {
           <div class="container__radio">
             <label for="usertype" class="radio-label">Status*</label>
             <div class="container__radio-item1">
-              <input type="radio" name="status" id="newcomer" checked />
+              <input type="radio" v-model= "picked" name="status" value="newcomer" id="newcomer" checked />
               <label for="newcomer">Newcomer</label>
               <span class="container__radio-check"></span>
             </div>
 
             <div class="container__radio-item1">
-              <input type="radio" name="status" id="volunteer" />
+              <input type="radio" v-model= "picked" name="status" value="volunteer" id="volunteer" />
               <label for="volunteer">Volunteer</label>
               <span class="container__radio-check"></span>
             </div>
@@ -114,6 +190,7 @@ export default {
               type="email"
               placeholder="E-mail*"
               name="email"
+              v-model= "email" 
               id="email"
               required
             />
@@ -123,6 +200,7 @@ export default {
               type="password"
               placeholder="Password*"
               name="password"
+              v-model= "password" 
               id="password"
               required
             />
@@ -132,15 +210,12 @@ export default {
             <div class="container__select">
             <v-select
                 class="style-chooser"
-                v-model="filterCities"
-                :options="genderOptions"
+                v-model= "gender"
+                :options= "genderOptions"
                 :placeholder="'Gender*'"
                 label="name"
                 required
               />
-              <span class="container__select-icon"
-                ><i class="zmdi zmdi-chevron-down"></i
-              ></span>
             </div>
           </div>
 
@@ -148,8 +223,10 @@ export default {
             <input
               type="text"
               placeholder="Nationality"
+              v-model= "nationality"
               name="nationality"
               id="nationality"
+              required
             />
           </div>
 
@@ -158,14 +235,13 @@ export default {
               <v-select
                 class="style-chooser"
                 multiple
-                v-model="filterLanguages"
-                :options="languageOptions"
+                v-model= "filterLanguages"
+                :options= "languageOptions"
                 :placeholder="'Languages'"
                 label="name"
+                required
               />
-              <span class="container__select-icon"
-                ><i class="zmdi zmdi-chevron-down"></i
-              ></span>
+            
             </div>
           </div>
           <div class="container__group">
@@ -173,30 +249,30 @@ export default {
               <v-select
                 class="style-chooser"
                 multiple
-                v-model="filterSkills"
-                :options="skillOptions"
+                v-model= "filterSkills"
+                :options= "skillOptions"
                 :placeholder="'Skills'"
                 label="name"
+                
               />
-              <span class="container__select-icon"
-                ><i class="zmdi zmdi-chevron-down"></i
-              ></span>
+
             </div>
           </div>
 
           <textarea
             class="container__description"
-            placeholder="Description"
+            placeholder= "Description"
+            v-model= "description" 
           ></textarea>
-
+        
           <div class="container__submit">
-            <input
-              type="submit"
-              value="SEND"
-              class="submit"
+            <button class="submit" 
               name="submit"
               id="submit"
-            />
+              type="submit" 
+              @click.stop.prevent="submit()">
+              SEND
+            </button>
           </div>
         </form>
       </div>

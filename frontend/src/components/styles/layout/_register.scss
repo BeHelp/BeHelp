@@ -144,41 +144,6 @@
       cursor: pointer;
       border: none;
     }
-
-    &-icon {
-      z-index: 50;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      justify-content: center;
-      -moz-justify-content: center;
-      -webkit-justify-content: center;
-      -o-justify-content: center;
-      -ms-justify-content: center;
-      align-items: center;
-      -moz-align-items: center;
-      -webkit-align-items: center;
-      -o-align-items: center;
-      -ms-align-items: center;
-
-      i {
-        justify-content: center;
-        -moz-justify-content: center;
-        -webkit-justify-content: center;
-        -o-justify-content: center;
-        -ms-justify-content: center;
-        align-items: center;
-        -moz-align-items: center;
-        -webkit-align-items: center;
-        -o-align-items: center;
-        -ms-align-items: center;
-        width: 40px;
-        height: 20px;
-        font-size: 18px;
-        color: #999;
-      }
-    }
   }
 
   &__submit {
@@ -186,14 +151,15 @@
     padding-top: 2%;
 
     .submit {
-      width: 25%;
-      height: 10%;
+      width: 30%;
+      height: 8%;
       display: inline-block;
       font-weight: 400;
       font-size: 20px;
       padding: 8px;
       border: none;
       cursor: pointer;
+      border-radius: 20px;
     }
 
     #submit {
@@ -304,8 +270,7 @@
     margin-bottom: 2%;
     margin-top: 2%;
   }
-  #file-input {
-  }
+
   .clear {
     clear: both;
   }
@@ -374,8 +339,33 @@
   input[type='radio']:checked ~ .container__radio-check::before {
     background: $blue;
   }
+.afterimage{
+  border-radius: 20px;
+  background-color:$field_color;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 35px;
+  width: 55%;
 
+
+  img{
+    border-radius: 20px;
+    width: 100%;
+    padding: 2%;
+   
+  }
+
+  button{
+    margin-left: 13%; 
+    border-radius: 20%;
+    margin-top: 0.7%;
+    position: absolute; 
+    border: none;
+  }
+
+}
   @media screen and (max-width: 992px) {
+
     .container {
       width: calc(100% - 40px);
       max-width: 100%;
@@ -473,6 +463,8 @@
 
     .submit {
       width: 100%;
+      border-radius: 20px;
+
     }
   }
 }
