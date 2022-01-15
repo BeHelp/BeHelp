@@ -263,6 +263,25 @@
   }
 }
 
+@media (max-width: 400px) {
+  .header {
+    top: 0;
+    &__nav {
+      &-logo {
+        width: 9rem;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .header__nav-features select {
+    margin-left: 1rem;
+  }
+
+  .hamburger {
+    right: 2rem;
+  }
+}
 @media (max-width: $mobile) {
   .header__nav-features select {
     background-color: blue;
