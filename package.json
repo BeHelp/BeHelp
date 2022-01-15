@@ -50,6 +50,10 @@
     "type": "git",
     "url": "git+https://github.com/BeHelp/BeHelp.git"
   },
+  "engine": {
+    "node": "17.3.0",
+    "npm": "8.3.0"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
