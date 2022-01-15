@@ -56,6 +56,12 @@
       z-index: 99;
       background-color: $blue;
       max-width: 30%;
+      margin-left: 50rem;
+      margin-right: 6rem;
+      margin-top: -14rem;
+      margin-bottom: 4rem;
+
+      padding: 2rem;
 
       @media (max-width: 1200px) {
         max-width: 50%;
@@ -63,15 +69,15 @@
         margin-right: 4rem;
       }
       @media (max-width: $tablet) {
+        z-index: 0;
         max-width: 80%;
         margin: 0.8rem auto;
       }
-      margin-left: 50rem;
-      margin-right: 6rem;
-      margin-top: -14rem;
-      margin-bottom: 4rem;
-
-      padding: 2rem;
+      @media (max-width: 400px) {
+        z-index: 0;
+        max-width: 80%;
+        margin: 0.8rem auto;
+      }
 
       & p {
         font-weight: 500;
