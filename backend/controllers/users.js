@@ -1,4 +1,4 @@
-const userManager = require('../business-logic/users');
+const userManager = require("../business-logic/users");
 
 const userController = {
   get: async (req, res) => {
@@ -23,7 +23,7 @@ const userController = {
     try {
       const userId = req.params.userId;
       const result = await userManager.getUserEmailById(userId);
-      res.status(200).send(result.email);
+      res.status(200).json(result.email);
     } catch (error) {
       res.status(500).send(error);
     }
@@ -52,7 +52,7 @@ const userController = {
       const userId = req.params.userId;
       const user = await userManager.getUserById(userId);
       if (user === undefined || user === null) {
-        res.status(404).send({ error: 'User not found' });
+        res.status(404).send({ error: "User not found" });
       } else {
         await userManager.deleteUser(user);
         res.status(200).send(
@@ -69,7 +69,7 @@ const userController = {
     try {
       const userId = req.params.userId;
       if (userId === undefined || userId === null) {
-        res.status(404).send({ error: 'userId empty' });
+        res.status(404).send({ error: "userId empty" });
       } else {
         await userManager.logoutUser(userId);
         res.status(200).send(

@@ -26,6 +26,21 @@ export default {
         console.log(error);
       }
     },
+    getUserEmail() {
+       fetch(
+          `${import.meta.env.VITE_API}/users/contactinfo/${this.$route.params._id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        ).then(response => response.json())
+        .then(data => {
+          console.log(data);
+        });
+    },
   },
 };
 </script>
@@ -53,6 +68,7 @@ export default {
         <p><b>Description: </b>{{ result.description }}</p>
       </div>
     </div>
+    <button @click="getUserEmail">click me</button>
 
     <div class="container__contact">
       <div class="container__contact-messagebox">
