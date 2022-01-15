@@ -1,124 +1,101 @@
-.container__volunteer-contact {
+.container {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
-}
 
-.volunteer__box {
-  display: flex;
-  flex-direction: column;
-  width: 33%;
-}
+  @media (max-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+  }
 
-.volunteer__box:first-child {
-  margin-right: 1rem;
-  background: #f5f4ef;
-  border: 3px solid #99c5e8;
-  border-radius: 1.5rem;
-}
+  &__volunteer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 20px;
+    border-color: $blue;
+    border-width: 1px;
+    background-color: lightgray;
 
-.volunteer__box:nth-child(2) {
-  margin-left: 1rem;
-  background: #99c5e8;
-  border-radius: 1.5rem;
-}
+    @media (max-width: $tablet) {
+      width: 90%;
+      margin: 1rem auto;
+    }
 
-.volunteer__top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-}
+      &-h2 {
+        font-weight: 700;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        color: $dark-grey;
+        margin-bottom: 2rem;
+      }
 
-.volunteer__img {
-  object-fit: cover;
-  width: 40%;
-  border-radius: 1.5rem;
-  margin-right: 1rem;
-}
+      &-top {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
 
-.profile__detail-text {
-  margin-left: 1rem;
-}
+        @media (max-width: 1165px) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
 
-h2 {
-  font-weight: 700;
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  color: $dark-grey;
-  margin-bottom: 2rem;
-}
+      &-photo {
+        // border-radius: 20px;
+        width: 40%;
+        border-radius: 10px;
+        margin-right: 1rem;
 
-p {
-  line-height: 1.5rem;
-  color: $dark-grey;
-}
+        @media (max-width: 1165px) {
+          width: 80%;
+          margin: 1rem auto;
+        }
+      }
+    }
 
-.profile__text {
-  padding: 2.5rem;
-}
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 1rem;
+    background-color: $blue;
+    border-radius: 20px;
 
-ul {
-  margin-top: -1.5rem;
-  margin-left: 4.5rem;
-}
+    @media (max-width: $tablet) {
+      width: 90%;
+      margin: 1rem auto;
+    }
 
-.contact__text {
-  margin-top: 2.5rem;
-  padding-left: 2rem;
-  font-size: 1.5rem;
-  letter-spacing: 0.03rem;
-  color: $dark-grey;
-}
+      &-messagebox {
+        padding: 1rem;
+      }
 
-.behelp__logo {
-  width: 20%;
-  float: right;
-}
+    &-logo {
+      width: 20%;
+      float: right;
+    }
 
-.subject__box {
-  height: 59px;
-  border: 0;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  background: #f5f4ef;
-  border-radius: 20px;
-}
+    &-button {
+      display: flex;
+      justify-content: center;
+    }
 
-.message__box {
-  border: 0;
-  width: 430px;
-  height: 200px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  padding-top: 20px;
-  background: #f5f4ef;
-  border-radius: 20px;
-}
+    &-btn {
+      width: 120px;
+      height: 44px;
+      background: #e99140;
+      margin-top: 15px;
+      border-radius: 20px;
+      border-style: hidden;
+      font-size: 0.8rem;
+      align-content: center;
+    }
 
-.user__email-box {
-  border: 0;
-
-  width: 430px;
-  height: 77px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  padding-top: 20px;
-  background: #f5f4ef;
-  border-radius: 20px;
-}
-
-.message__button {
-  width: 200px;
-  height: 69.23px;
-  margin-left: 140px;
-  margin-bottom: 10px;
-  align-content: center;
-
-  background: #e99140;
-  border-radius: 20px;
+    &-btn:hover{
+      background-color: #cd5300;
+    }
+  }
 }
