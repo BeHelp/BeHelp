@@ -42,6 +42,12 @@
         max-width: 80%;
         left: -3em;
       }
+      @media (max-width: 400px) {
+        height: 200px;
+        width: 280px;
+        max-width: 80%;
+        left: -3.5em;
+      }
     }
 
     &-image img {
@@ -56,11 +62,11 @@
       z-index: 99;
       background-color: $blue;
       max-width: 30%;
-      margin-left: 50rem;
+      margin-left: 57rem;
       margin-right: 6rem;
-      margin-top: -14rem;
+      margin-top: -31.2rem;
       margin-bottom: 4rem;
-
+      height: 500px;
       padding: 2rem;
 
       @media (max-width: 1200px) {
