@@ -36,6 +36,7 @@ const userManager = {
           { languages: { $all: searchQuery.languages } },
           { skills: { $all: searchQuery.skills } },
           { location: { $all: searchQuery.location } },
+          { userType: "volunteer" },
         ],
       });
       console.log(user);
