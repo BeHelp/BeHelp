@@ -12,7 +12,7 @@ The application connects international protection seekers with volunteers and or
   - [BeHelp](#behelp)
   - [Table of contents](#table-of-contents)
   - [General info](#general-info)
-  - [Screenshots](#screenshots)
+  - [Design protoype](#design-protoype)
   - [Tools and Technologies](#tools-and-technologies)
     - [UX/UI](#uxui)
     - [Frontend](#frontend)
@@ -41,7 +41,7 @@ The application will include the search tool that will filter available voluntee
 
 ---
 
-## Screenshots
+## Design protoype
 
 [Our project prototype on FIGMA](https://www.figma.com/file/cv6SW8QHlObVd6a8PUas2k/HYF_GR2_refugee)
 
@@ -86,6 +86,7 @@ MONGO_URI=
 ACCESS_TOKENSECRET=
 REFRESH_TOKENSECRET=
 SENDGRID_API_KEY=
+BASE_URL=
 ```
 
 ## API routes
@@ -199,7 +200,7 @@ export default {
 
 <img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/77118418?v=4">
 
-- [Katia](https://github.com/Dabrytskaya) Lead Design - UX/UI
+- [Katia](https://github.com/Dabrytskaya) // Lead Design - UX/UI
 
 <img style="border-radius: 50%; width: 100px; margin-left: 2rem" src="https://avatars.githubusercontent.com/u/77468682?v=4">
 
