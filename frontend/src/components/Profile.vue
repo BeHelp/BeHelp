@@ -4,7 +4,6 @@ import cities from "../assets/jsondata/cities.json";
 import skills from "../assets/jsondata/skills.json";
 import genders from "../assets/jsondata/genders.json";
 import { mapState } from "vuex";
-
 export default {
   data: function () {
     return {
@@ -16,12 +15,63 @@ export default {
       genderOptions: genders,
       isDisabled: true,
       isHidden: true,
+      firstName: "",
+      lastName: "",
+      filterCities: "",
+      userType: "",
+      email: "",
+      password: "",
+      gender: "",
+      nationality: "",
+      filterLanguages: "",
+      filterSkills: "",
+      description: "",
+      photoURL: "",
     };
   },
   computed: {
     ...mapState(["isLoggedIn", "user"]),
   },
   methods: {
+    async updateProfile() {
+      try {
+        const userId = this.user.userId;
+        const res = await fetch(`${import.meta.env.VITE_API}/users/${userId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: this.email,
+            password: this.password,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            gender: this.gender,
+            nationality: this.nationality,
+            userType: this.userType,
+            location: this.filterCities,
+            skills: this.filterSkills,
+            languages: this.filterLanguages,
+            description: this.description,
+            photoURL: this.photoURL,
+          }),
+        });
+        const body = await res.json();
+        if (res.status === 400) {
+          this.$notify({
+            title: body.message,
+            type: "error",
+          });
+        } else if (res.status === 201) {
+          alert("Profile is updated successfully");
+          localStorage.removeItem("token");
+          this.$store.commit("loggedOut");
+          this.$router.push("/");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async deleteProfile() {
       try {
         if (confirm("Are you sure you want to delete your profile?")) {
@@ -48,7 +98,6 @@ export default {
         console.log(error);
       }
     },
-
     async getUser() {
       try {
         const token = localStorage.getItem("token");
@@ -61,20 +110,25 @@ export default {
           },
         });
         this.result = await res.json();
-        this.result.location = this.result.location[1];
-        this.result.languages = this.result.languages;
-        this.result.skills = this.result.skills;
+        this.firstName = this.result.firstName;
+        this.lastName = this.result.lastName;
+        this.userType = this.result.userType;
+        this.filterCities = this.result.location;
+        this.gender = this.result.gender;
+        this.nationality = this.result.nationality;
+        this.filterLanguages = this.result.languages;
+        this.filterSkills = this.result.skills;
+        this.description = this.result.description;
+        this.photoURL = this.result.photoURL;
       } catch (error) {
         console.log(error);
       }
     },
     uploadImage(event) {
       const URL = "https://api.cloudinary.com/v1_1/behelp/image/upload";
-
       let data = new FormData();
       data.append("file", event.target.files[0]);
       data.append("upload_preset", "behelp_web");
-
       fetch(URL, {
         method: "POST",
         body: data,
@@ -84,6 +138,7 @@ export default {
         })
         .then((data) => {
           console.log(data["secure_url"]);
+          this.photoURL = data["secure_url"];
           return data["secure_url"];
         });
     },
@@ -93,29 +148,37 @@ export default {
   },
 };
 </script>
-
 <template>
   <div class="container">
     <div class="container__profile">
       <form method="POST" class="register-form" id="register-form">
         <h2>MY PROFILE</h2>
         <div class="container__firstset">
-          <div class="leftside">
-            <img :src="user.photoURL" />
-            <div class="left-icon" v-if="!isHidden">
-              <input
-                type="file"
-                accept="image/*"
-                id="file-input"
-                @change="uploadImage($event)"
-                class="button-icon"
-              />
-            </div>
+          <div class="left" v-if="!this.photoURL">
+            <input
+              type="file"
+              accept="image/*"
+              id="file-input"
+              @change="uploadImage($event)"
+              class="button-icon"
+              required
+            />
+            <div class="left-icon"></div>
+            <p>
+              Upload your <br />
+              profile picture
+            </p>
+          </div>
+          <div v-if="this.photoURL" class="afterimage">
+            <button v-on:click="this.photoURL = null" v-if="!isHidden">
+              X
+            </button>
+            <img v-bind:src="this.photoURL" />
           </div>
           <div class="right">
             <div class="container__group">
               <input
-                v-bind:value="result.firstName"
+                v-model="this.firstName"
                 type="text"
                 placeholder="First name*"
                 name="firstname"
@@ -126,7 +189,7 @@ export default {
             </div>
             <div class="container__group">
               <input
-                v-bind:value="result.lastName"
+                v-model="this.lastName"
                 type="text"
                 placeholder="Last name*"
                 name="lastname"
@@ -135,11 +198,10 @@ export default {
                 :disabled="isDisabled"
               />
             </div>
-
             <div class="container__city">
               <v-select
                 class="style-chooser"
-                v-model="result.location"
+                v-model="this.filterCities"
                 :options="cityOptions"
                 :placeholder="'City'"
                 label="city"
@@ -148,31 +210,24 @@ export default {
             </div>
           </div>
         </div>
-
         <div class="container__group">
           <div class="container__select">
-            <select
-              name="Status"
-              id="status"
-              placeholder="Status*"
-              required
+            <v-select
+              class="style-chooser"
+              v-model="this.userType"
+              :options="['newcomer', 'volunteer']"
+              :placeholder="'Status*'"
+              label="status"
               :disabled="isDisabled"
-            >
-              <option value="Status" selected>
-                {{ result.userType }}
-              </option>
-              <option value="Newcomer">Newcomer</option>
-              <option value="Volunteer">Volunteer</option>
-            </select>
+            />
             <span class="container__select-icon"
               ><i class="zmdi zmdi-chevron-down"></i
             ></span>
           </div>
         </div>
-
         <div class="container__group">
           <input
-            v-bind:value="this.email"
+            v-model="this.email"
             type="email"
             placeholder="E-mail*"
             name="email"
@@ -181,48 +236,33 @@ export default {
             :disabled="isDisabled"
           />
         </div>
-
         <div class="container__password">
           <div class="container__password-text">
             <input
+              v-model="this.password"
               type="password"
               placeholder="***********"
               name="password"
               id="password"
-              required
-              disabled
+              :disabled="isDisabled"
             />
           </div>
-          <div class="container__password-button">
-            <button
-              class="changepassword-button"
-              v-if="!isHidden"
-              name="changepassword"
-            >
-              Change Password
-            </button>
-          </div>
         </div>
-
         <div class="container__group">
           <div class="container__select">
-            <select name="Gender" id="gender" required :disabled="isDisabled">
-              <option value="Gender" selected>
-                {{ result.gender }}
-              </option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-            </select>
-            <span class="container__select-icon"
-              ><i class="zmdi zmdi-chevron-down"></i
-            ></span>
+            <v-select
+              class="style-chooser"
+              v-model="this.gender"
+              :options="genderOptions"
+              :placeholder="'Gender*'"
+              label="name"
+              :disabled="isDisabled"
+            />
           </div>
         </div>
-
         <div class="container__group">
           <input
-            v-bind:value="result.nationality"
+            v-model="this.nationality"
             type="text"
             placeholder="Nationality"
             name="nationality"
@@ -230,13 +270,12 @@ export default {
             :disabled="isDisabled"
           />
         </div>
-
         <div class="container__group">
           <div class="container__select">
             <v-select
               class="style-chooser"
               multiple
-              v-model="result.languages"
+              v-model="this.filterLanguages"
               :options="languageOptions"
               :placeholder="'Languages'"
               label="name"
@@ -252,7 +291,7 @@ export default {
             <v-select
               class="style-chooser"
               multiple
-              v-model="result.skills"
+              v-model="this.filterSkills"
               :options="skillOptions"
               :placeholder="'Skills'"
               label="name"
@@ -264,12 +303,11 @@ export default {
           </div>
         </div>
         <textarea
-          v-bind:value="result.description"
+          v-model="this.description"
           class="container__description"
           placeholder="Description"
           :disabled="isDisabled"
         ></textarea>
-
         <div class="container__modify">
           <div class="container__modify-delete">
             <button
@@ -291,22 +329,27 @@ export default {
               EDIT
             </button>
           </div>
-          <div class="container__modify-save">
-            <button class="save-button" name="save">SAVE</button>
+          <div class="container__modify-save" >
+            <button
+              @click.prevent="updateProfile"
+              class="save-button"
+              name="save"
+              :disabled="isDisabled"
+            >
+              SAVE
+            </button>
           </div>
         </div>
       </form>
     </div>
   </div>
 </template>
-
 <style lang="scss">
 @import "../components/styles/abstract/_base.scss";
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_profile.scss";
 @import "../components/styles/layout/_dropdown.scss";
 @import "vue-select/src/scss/vue-select.scss";
-
 .left {
   background-color: chartreuse;
 }

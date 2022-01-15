@@ -1,6 +1,6 @@
 const { User } = require("../data-access/db.js");
 const RefreshToken = require("../models/RefreshToken.js");
-const hashing = require('../middleware/hashing');
+const hashing = require("../middleware/hashing");
 
 const userManager = {
   getUser: async (userData) => {
@@ -54,25 +54,34 @@ const userManager = {
   },
   putUser: async (userId, userData) => {
     try {
-      const updatedUser = await User.findByIdAndUpdate(
-        userId,
-        {
-          email: userData.email,
-          password: await hashing(userData.password),
-          firstName: userData.firstName,
-          lastName: userData.lastName,
-          dob: userData.dob,
-          gender: userData.gender,
-          nationality: userData.nationality,
-          photoURL: userData.photoURL,
-          userType: userData.userType,
-          location: userData.location,
-          skills: userData.skills,
-          languages: userData.languages,
-          description: userData.description,
-        },
-        { new: true }
-      );
+      if (!userData.password) {
+        passwordToUpdate = null;
+      } else {
+        passwordToUpdate = await hashing(userData.password);
+      }
+      let data = {
+        email: userData.email,
+        password: passwordToUpdate,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        dob: userData.dob,
+        gender: userData.gender,
+        nationality: userData.nationality,
+        photoURL: userData.photoURL,
+        userType: userData.userType,
+        location: userData.location,
+        skills: userData.skills,
+        languages: userData.languages,
+        description: userData.description,
+      };
+      for (let field in data) {
+        if (!data[field]) {
+          delete data[field];
+        }
+      }
+      const updatedUser = await User.findByIdAndUpdate(userId, data, {
+        new: true,
+      });
       return updatedUser;
     } catch (err) {
       console.log(err.message);
