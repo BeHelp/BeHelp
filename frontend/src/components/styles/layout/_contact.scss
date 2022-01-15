@@ -3,32 +3,32 @@
 
   @media (max-width: $tablet) {
     margin: 1rem;
-  }  
+  }
 
   &__h1 {
     text-align: left;
-    color:$dark-grey;
-    margin-top: 4rem;
+    color: $dark-grey;
+    margin-bottom: 2rem;
 
     @media (max-width: 1200px) {
       margin-top: 4rem;
       margin-bottom: 1rem;
     }
 
-      @media (max-width: $tablet) {
+    @media (max-width: $tablet) {
       //   max-width: 80%;
       // margin-top: 12rem;
       margin: 1rem;
       //   z-index: 0;
-      }
-  };
+    }
+  }
 
   &__content {
     display: flex;
 
     @media (max-width: $tablet) {
       margin: 1rem;
-    } 
+    }
 
     // styles for the left side
     &-image {
@@ -36,7 +36,7 @@
       height: 400px;
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
-      
+
       @media (max-width: 1200px) {
         width: 300px;
       }
@@ -46,7 +46,7 @@
         // margin: 1rem auto;
       }
 
-      @media(max-width: 860px){
+      @media (max-width: 860px) {
         display: none;
       }
     }
