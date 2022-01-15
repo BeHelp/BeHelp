@@ -30,16 +30,26 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isLoggedIn", "user"]),
+    ...mapState(["user"]),
   },
   methods: {
     async updateProfile() {
       try {
         const userId = this.user.userId;
-        const languageArray = this.filterLanguages.map((a) => a.name);
-        const skillsArray = this.filterSkills.map((a) => a.name);
-        console.log("filterLang", this.filterLanguages);
-        console.log("langArrays", languageArray);
+        const languageArray = this.filterLanguages.map((a) => {
+          if (!a.name) {
+            return a;
+          } else {
+            return a.name;
+          }
+        });
+        const skillsArray = this.filterSkills.map((a) => {
+          if (!a.name) {
+            return a;
+          } else {
+            return a.name;
+          }
+        });
         const res = await fetch(`${import.meta.env.VITE_API}/users/${userId}`, {
           method: "PUT",
           headers: {
@@ -205,7 +215,7 @@ export default {
             <div class="container__city">
               <v-select
                 class="style-chooser"
-                v-model="this.filterCities.city"
+                v-model="this.filterCities"
                 :options="cityOptions"
                 :placeholder="'City'"
                 label="city"
@@ -279,7 +289,7 @@ export default {
             <v-select
               class="style-chooser"
               multiple
-              v-model="this.filterLanguages.name"
+              v-model="this.filterLanguages"
               :options="languageOptions"
               :placeholder="'Languages'"
               label="name"
@@ -295,7 +305,7 @@ export default {
             <v-select
               class="style-chooser"
               multiple
-              v-model="this.filterSkills.name"
+              v-model="this.filterSkills"
               :options="skillOptions"
               :placeholder="'Skills'"
               label="name"
