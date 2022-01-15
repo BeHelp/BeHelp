@@ -1,5 +1,5 @@
 const userManager = require("../business-logic/users");
-const registerManager = require('../business-logic/register');
+const registerManager = require("../business-logic/register");
 
 const userController = {
   get: async (req, res) => {
@@ -42,6 +42,7 @@ const userController = {
     try {
       const userId = req.params.userId;
       const userData = req.body;
+      console.log(userData);
       const userFromDB = await registerManager.getUserByEmail(userData.email);
       if (
         !userData.firstName ||
@@ -51,6 +52,9 @@ const userController = {
       ) {
         console.log("Please fill in all fields");
         res.status(400).send({ message: "Please fill in all fields" });
+      } else if (userFromDB && userData.email != userData.oldEmail) {
+        console.log("email already exists");
+        res.status(400).send({ message: "email already exists" });
       } else if (userData.password && userData.password.length < 6) {
         return res
           .status(400)
