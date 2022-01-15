@@ -16,9 +16,9 @@ export default {
       nationality: "",
       selected: "",
       picked: "",
-      filterCities: "",
-      filterLanguages: "",
-      filterSkills: "",
+      filterCities: [],
+      filterLanguages: [],
+      filterSkills: [],
       description: "",
       languageOptions: languages,
       cityOptions: cities,
@@ -31,6 +31,9 @@ export default {
   methods: {
     async submit() {
       try {
+        const languageArray = this.filterLanguages.map((a) => a.name);
+        const skillsArray = this.filterSkills.map((a) => a.name);
+
         const res = await fetch(`${import.meta.env.VITE_API}/register`, {
           method: "POST",
           headers: {
@@ -45,15 +48,15 @@ export default {
             nationality: this.nationality,
             userType: this.picked,
             location: this.filterCities.city,
-            skills: this.filterSkills.name,
-            languages: this.filterLanguages.name,
+            skills: skillsArray,
+            languages: languageArray,
             description: this.description,
             photoURL: this.photoURL,
           }),
         });
 
         const body = await res.json();
-        console.log(body.json);
+        console.log(body);
         if (res.status === 400) {
           this.$notify({
             title: body.message,
