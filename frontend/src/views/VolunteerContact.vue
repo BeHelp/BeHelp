@@ -53,7 +53,7 @@ export default {
         <img v-bind:src="result.photoURL" class="container__volunteer-photo" />
         <div class="container__volunteer-profile">
           <p><b>Nationality: </b>{{ result.nationality }}</p>
-          <p><b>City:</b> {{ result.location[1]}}</p>
+          <p><b>City:</b> {{ result.location[0]}}</p>
           <p><b>Languages: </b>
           <ul>
           <li v-for="lang in result.languages"> {{ lang }} </li>
