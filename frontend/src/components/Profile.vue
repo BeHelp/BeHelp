@@ -57,6 +57,7 @@ export default {
           },
           body: JSON.stringify({
             email: this.email,
+            oldEmail: this.user.email,
             password: this.password,
             firstName: this.firstName,
             lastName: this.lastName,

@@ -52,6 +52,9 @@ const userController = {
       ) {
         console.log("Please fill in all fields");
         res.status(400).send({ message: "Please fill in all fields" });
+      } else if (userFromDB && userData.email != userData.oldEmail) {
+        console.log("email already exists");
+        res.status(400).send({ message: "email already exists" });
       } else if (userData.password && userData.password.length < 6) {
         return res
           .status(400)
