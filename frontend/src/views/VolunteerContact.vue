@@ -71,38 +71,23 @@ export default {
 
     <div class="container__contact">
       <div class="container__contact-messagebox">
-        <form @submit.prevent="sendEmail">
+        <form class="container__contact-form" @submit.prevent="sendEmail">
           <h2 class="container__contact-h2">CONTACT THIS VOLUNTEER</h2>
-          <div class="container__contact-logo">
-            <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
-          </div>
-          <div class = "container__contact-name">
-          <input
-            class="subject__box"
-            type="text"
-            v-model="name"
-            name="name"
-            placeholder="Your Name"
-          />
-          </div>
-
+            <div class="container__contact-logo">
+              <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
+            </div>
+        
           <textarea
             class="container__contact-message"
             name="message"
+            cols="30"
+            rows="8"
             v-model="message"
             placeholder="Message"
           >
           </textarea>
-          <input
-            class="container__contact-email"
-            type="email"
-            v-model="email"
-            name="email"
-            placeholder="Your Email"
-          />
-          <div class = container__contact-button>
-          <button class="container__contact-btn">Send</button>
-          </div>
+        
+          <input type="submit" value="Send" />
         </form>
       </div>
     </div>
