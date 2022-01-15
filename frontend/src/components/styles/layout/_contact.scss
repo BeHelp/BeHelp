@@ -1,93 +1,85 @@
 .contactUs {
+  margin: 4rem;
+
+  @media (max-width: $tablet) {
+    margin: 1rem;
+  }  
+
+  &__h1 {
+    text-align: left;
+    color:$dark-grey;
+    margin-top: 4rem;
+
+    @media (max-width: 1200px) {
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+    }
+
+      @media (max-width: $tablet) {
+      //   max-width: 80%;
+      // margin-top: 12rem;
+      margin: 1rem;
+      //   z-index: 0;
+      }
+  };
+
   &__content {
     display: flex;
-    flex-direction: column;
+
+    @media (max-width: $tablet) {
+      margin: 1rem;
+    } 
 
     // styles for the left side
-
-    &-leftcontainer {
-      display: inline-block;
-      margin-left: 2rem;
-    }
-
-    &-leftcontainer h1 {
-      text-transform: uppercase;
-      text-align: left;
-      line-height: 2.6rem;
-      color: $dark-grey;
-      font-size: 2rem;
-      font-weight: 700;
-      padding: 2rem;
-      padding-top: 0;
-    }
-
     &-image {
-      position: relative;
-      left: 2em;
-      height: 500px;
-      width: 1000px;
+      // position: relative;
+      height: 400px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      
       @media (max-width: 1200px) {
-        height: 400px;
-        width: 800px;
+        width: 300px;
       }
       @media (max-width: $tablet) {
-        height: 300px;
-        width: 500px;
-        max-width: 80%;
-        margin: 1rem auto;
+        width: 100px;
+        // max-width: 80%;
+        // margin: 1rem auto;
       }
-      @media (max-width: 600px) {
-        height: 200px;
-        width: 300px;
-        max-width: 80%;
-        left: -3em;
+
+      @media(max-width: 860px){
+        display: none;
       }
     }
 
     &-image img {
       height: 100%;
       object-fit: cover;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
     }
 
     // styles for the right side
-
     &-rightcontainer {
-      display: inline-block;
-      z-index: 99;
+      display: flex;
       background-color: $blue;
-      max-width: 30%;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
 
-      @media (max-width: 1200px) {
-        max-width: 50%;
-        margin: 1rem auto;
-        margin-right: 4rem;
+      @media (max-width: 860px) {
+        border-radius: 20px;
       }
-      @media (max-width: $tablet) {
-        max-width: 80%;
-        margin: 0.8rem auto;
-      }
-      margin-left: 50rem;
-      margin-right: 6rem;
-      margin-top: -14rem;
-      margin-bottom: 4rem;
 
       padding: 2rem;
-
-      & p {
-        font-weight: 500;
-        color: $dark-grey;
-      }
     }
   }
 }
 
 // styles for the inputs
-
 input[type="text"],
 [type="email"],
 textarea {
   border-radius: 20px;
-  display: block;
+  // display: block;
   width: 100%;
   border: 1px solid #f5f4ef;
   padding: 7px 20px;
@@ -97,7 +89,6 @@ textarea {
   font-size: 13px;
   background-color: #f5f4ef;
   margin-bottom: 16px;
-  padding-bottom: 20px;
 }
 
 input[type="submit"] {
@@ -107,10 +98,7 @@ input[type="submit"] {
   margin-top: 15px;
   margin-bottom: 15px;
   border-radius: 20px;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;
+  border-style: hidden;
   font-size: 0.8rem;
   text-transform: uppercase;
 }

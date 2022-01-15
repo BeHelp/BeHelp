@@ -16,8 +16,8 @@ export default {
 
 <template>
   <div>
-    <div class="volunteers">
       <Search />
+      <div class="volunteers">
       <div class="volunteers__container">
         <div class="volunteers__searchresults">
           <div class="volunteers__searchresults-h1"></div>
