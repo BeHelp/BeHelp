@@ -326,7 +326,7 @@ export default {
         <div class="container__modify">
           <div class="container__modify-delete">
             <button
-              @click="deleteProfile"
+              @click.prevent="deleteProfile"
               class="container__modify-delete-button"
             >
               Delete My Profile
