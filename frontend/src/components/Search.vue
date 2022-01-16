@@ -63,7 +63,7 @@ export default {
             languages: filter.languages,
           })
         );
-
+        console.log(`${import.meta.env.VITE_API}/users`);
         const res = await fetch(`${import.meta.env.VITE_API}/users`, {
           method: "POST",
           headers: {
@@ -99,11 +99,7 @@ export default {
         src="../assets/homepage-search.png"
         class="search__background-img"
       />
-      <div
-        v-else
-        style="margin-top: 200px"
-        class="search__background-img"
-      ></div>
+      <div v-else class="search__background-img"></div>
       <div class="search__background-decor">
         <h1 v-if="$route.name === 'Home'">{{ $t("findyourvolunteer") }}</h1>
         <h1 v-else>{{ $t("volunteerswhocanhelp") }}</h1>
@@ -153,7 +149,7 @@ export default {
   </section>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/abstract/_base.scss";
 @import "../components/styles/layout/_search.scss";

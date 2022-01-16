@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: center;
+  margin: 0 auto;
   margin-bottom: 2rem;
 
   @media (max-width: $tablet) {
@@ -24,37 +24,37 @@
       margin: 1rem auto;
     }
 
-      &-h2 {
-        font-weight: 700;
-        font-size: 1.8rem;
-        text-transform: uppercase;
-        color: $dark-grey;
-        margin-bottom: 2rem;
-      }
+    &-h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: $dark-grey;
+      margin-bottom: 2rem;
+    }
 
-      &-top {
+    &-top {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      @media (max-width: 1165px) {
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
-
-        @media (max-width: 1165px) {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-
-      &-photo {
-        // border-radius: 20px;
-        width: 40%;
-        border-radius: 10px;
-        margin-right: 1rem;
-
-        @media (max-width: 1165px) {
-          width: 80%;
-          margin: 1rem auto;
-        }
+        flex-direction: column;
       }
     }
+
+    &-photo {
+      // border-radius: 20px;
+      width: 40%;
+      border-radius: 10px;
+      margin-right: 1rem;
+
+      @media (max-width: 1165px) {
+        width: 80%;
+        margin: 1rem auto;
+      }
+    }
+  }
 
   &__contact {
     display: flex;
@@ -69,12 +69,26 @@
       margin: 1rem auto;
     }
 
-      &-messagebox {
-        padding: 1rem;
-      }
+    &-messagebox {
+      padding: 1rem;
+    }
 
-    &-logo {
-      width: 20%;
+    &-h2 {
+      font-weight: 500;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: $primary;
+      padding-left: 0.5rem;
+      // margin-bottom: 2rem;
+    }
+
+    &-name {
+      display: flex;
+      margin-top: 5rem;
+    }
+
+    &-logo img {
+      width: 5rem;
       float: right;
     }
 
@@ -94,8 +108,48 @@
       align-content: center;
     }
 
-    &-btn:hover{
+    &-btn:hover {
       background-color: #cd5300;
     }
   }
+}
+
+// styles for the inputs
+
+input[type="text"],
+[type="email"],
+textarea {
+  border-radius: 20px;
+  display: block;
+  width: 100%;
+  border: 1px solid #f5f4ef;
+  padding: 7px 20px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  background-color: #f5f4ef;
+  margin-bottom: 16px;
+  margin-top: 10rem;
+  padding-bottom: 20px;
+}
+
+input[type="submit"] {
+  width: 120px;
+  height: 44px;
+  background: #e99140;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: $dark-grey;
+}
+input[type="submit"]:hover {
+  background-color: #f3eee9;
 }

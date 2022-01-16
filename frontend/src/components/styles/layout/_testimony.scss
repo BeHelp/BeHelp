@@ -1,56 +1,73 @@
 .testimony {
-    justify-content: center;
-    position: relative;
-    height: auto;
-    width: 100%;
-    background-color: $primary;
-    
-    h2 {
-        padding-top: 2%;
-        padding-left: 2%;
-        margin-left: 8%;
-        color: $orange;
+  justify-content: center;
+  position: relative;
+  height: auto;
+  width: 100%;
+  background-color: $primary;
+
+  h2 {
+    padding-top: 2%;
+    padding-left: 2%;
+    margin-left: 8%;
+    color: $orange;
+  }
+
+  .testimony-content {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $tablet) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
+  }
 
-    .testimony-content {
-        display: flex;
-        align-items: center;
+  .splide {
+    padding: 2%;
 
-        @media screen and (max-width: $tablet) {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    @media screen and (max-width: 1024px) {
+      margin-left: 4%;
+      padding-left: 0%;
     }
-
-    .splide {
-        padding: 3%;
+    @media screen and (max-width: $tablet) {
+      padding-left: 5%;
     }
-
-    .splide__slide {
-        margin-left: 8%;
-        margin-right: 8%;
+    @media screen and (max-width: 400px) {
+      padding-left: 6%;
     }
+  }
 
-    .testimony-img {
-        margin-right: 4%;
-        border-radius: 20px;
+  .splide__slide {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
 
-        @media screen and (max-width: $tablet) {
-            margin: 5% auto;
-            // width: 65%;
-        }
+  .testimony-img {
+    margin-right: 4%;
+    border-radius: 20px;
+
+    @media screen and (max-width: $tablet) {
+      margin: 5% auto;
+      margin-left: -0.1rem;
+      // width: 65%;
     }
+    @media screen and (max-width: 400px) {
+      margin: 0 auto;
+      margin-left: -0.1rem;
+      margin-bottom: 1rem;
+    }
+  }
 
-    .testimony-p {
-        width: 70%;
-        font-size: 16px;
+  .testimony-p {
+    width: 70%;
+    font-size: 16px;
 
-        @media screen and (max-width: $mobile) {
-            width: 80%;
-        }
-    } 
-    ul {
+    @media screen and (max-width: $mobile) {
+      width: 80%;
+    }
+  }
+  ul {
     padding-inline-start: 40px;
-    }
+  }
 }

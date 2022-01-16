@@ -26,6 +26,21 @@ export default {
         console.log(error);
       }
     },
+    getUserEmail() {
+       fetch(
+          `${import.meta.env.VITE_API}/users/contactinfo/${this.$route.params._id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        ).then(response => response.json())
+        .then(data => {
+          console.log(data);
+        });
+    },
   },
 };
 </script>
@@ -38,7 +53,7 @@ export default {
         <img v-bind:src="result.photoURL" class="container__volunteer-photo" />
         <div class="container__volunteer-profile">
           <p><b>Nationality: </b>{{ result.nationality }}</p>
-          <p><b>City:</b> {{ result.location[1]}}</p>
+          <p><b>City:</b> {{ result.location[0]}}</p>
           <p><b>Languages: </b>
           <ul>
           <li v-for="lang in result.languages"> {{ lang }} </li>
@@ -56,47 +71,31 @@ export default {
 
     <div class="container__contact">
       <div class="container__contact-messagebox">
-        <form @submit.prevent="sendEmail">
+        <form class="container__contact-form" @submit.prevent="sendEmail">
           <h2 class="container__contact-h2">CONTACT THIS VOLUNTEER</h2>
-          <div class="container__contact-logo">
-            <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
-          </div>
-          <div class = "container__contact-name">
-          <input
-            class="subject__box"
-            type="text"
-            v-model="name"
-            name="name"
-            placeholder="Your Name"
-          />
-          </div>
-
+            <div class="container__contact-logo">
+              <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
+            </div>
+        
           <textarea
             class="container__contact-message"
             name="message"
+            cols="30"
+            rows="8"
             v-model="message"
             placeholder="Message"
           >
           </textarea>
-          <input
-            class="container__contact-email"
-            type="email"
-            v-model="email"
-            name="email"
-            placeholder="Your Email"
-          />
-          <div class = container__contact-button>
-          <button class="container__contact-btn">Send</button>
-          </div>
+        
+          <input type="submit" value="Send" />
         </form>
       </div>
     </div>
   </div>
   </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../components/styles/abstract/_base.scss";
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_volunteerContact.scss";
-// @import "vue-select/src/scss/vue-select.scss";
 </style>

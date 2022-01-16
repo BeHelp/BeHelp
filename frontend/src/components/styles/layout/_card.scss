@@ -1,32 +1,69 @@
+.volunteers__searchresults {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
+.cards__columns {
+  display: flex;
+  max-width: 100vw;
+  flex-wrap: wrap;
+}
 
-.card__container{
+.cards {
+  display: flex;
+  max-width: 100%;
   border-radius: 25px;
-  border: 2px solid #ad9821;
-  padding: 20px;
-  width: 200px;
-  height: 150px;
-}
-.card-body {
-  p {
-    margin: 0;
+  border: 0.25rem solid #99c5e8;
+  background: #ffffff;
+  padding: 1rem;
+  flex-wrap: nowrap;
+  flex-basis: 35%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+
+  @media (max-width: 400px) {
+    flex-basis: 95%;
   }
 }
 
-.card-image {
-  img {
-    width: 100%;
-  }
+.card__body {
+  display: flex;
+  max-width: 60%;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-grow: 1;
+  row-gap: 1rem;
 }
 
-.geo__logo {
-  height: 24px;
-  width: 24px;
+.cards__picture {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
 }
-
-
-img {
+.cards__picture > img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  }
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.card__contact-btn {
+  align-self: center;
+  border-radius: 20px;
+  background-color: $orange;
+  padding: 0.5em 2em;
+}
+
+.card__contact-btn {
+  margin-top: 3rem;
+  align-self: flex-start;
+  border-radius: 20px;
+  background-color: $orange;
+  padding: 0.5em 2em;
+  color: $white;
+  font-size: 0.9rem;
+}

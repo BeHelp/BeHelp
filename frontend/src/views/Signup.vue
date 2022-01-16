@@ -1,32 +1,11 @@
 <script>
-import Register from '../components/Register.vue';
+import Register from "../components/Register.vue";
 
 export default {
-
-components: {  Register },
-
-  mounted() {
-    const plugin = document.createElement('script');
-    plugin.setAttribute('src', '../src/assets/js/cloudinary.js');
-    plugin.async = true;
-    document.head.appendChild(plugin);
-  },
+  components: { Register },
 };
 </script>
 
 <template>
-<div><Register />
-</div>
- <!-- <div>
-    <h1>Signup</h1>
-    <p>Signup part of the application</p>
-    <div>
-      <form method="post" enctype="multipart/form-data">
-        <input type="file" name="file" />
-        <input type="submit" value="Upload File" name="submit" />
-      </form>
-
-      <p id="data"></p>
-    </div>
-  </div>-->
+  <div><Register /></div>
 </template>
