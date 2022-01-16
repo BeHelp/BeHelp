@@ -38,9 +38,6 @@ export default {
             type: "success",
           });
         })
-        .then(() => {
-          this.$router.push("/thankyou");
-        })
         .catch((err) => {
           console.log(err);
           this.$notify({
