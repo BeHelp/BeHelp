@@ -51,7 +51,7 @@ app.use(
       {
         from: /^\/api\/.*$/,
         to: function (context) {
-          console.log("context", context);
+          // console.log("context", context);
           return context.parsedUrl.path;
         },
       },

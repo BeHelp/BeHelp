@@ -26,5 +26,20 @@
   "mentalhealth": "Geestelijke gezondheid",
   "hostfamilies": "Host familiën",
   "educationservices": "Onderwijs diensten",
-  "socialassisstance": "Sociale zaken"
+  "socialassisstance": "Sociale zaken",
+  "registrationform": "INSCHRIJVINGSFORMULIER",
+  "profilephoto": "Klik hier om uw profielfoto te uploaden",
+  "firstname_": "Voornaam*",
+  "lastname_": "Achternaam*",
+  "status_": "Status*",
+  "newcomer": "Nieuwkomer",
+  "volunteer": "Vrijwilliger",
+  "email_": "E-mail*",
+  "password_": "Wachtwoord*",
+  "gender_": "Geslacht*",
+  "nationality": "Nationaliteit",
+  "skills": "Vaardigheden",
+  "languages": "Talen",
+  "description": "Description",
+  "send": "STUREN"
 }
