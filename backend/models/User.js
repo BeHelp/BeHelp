@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
   photoURL: String,
   userType: String,
   location: [{ _id: false, type: String, required: true }],
-  skills: [{ _id: false, type: String, required: true }],
+  skills: [{ _id: false, type: String }],
   languages: [{ _id: false, type: String, required: true }],
   description: { type: String, required: false, minlength: 10, maxlength: 200 },
 });

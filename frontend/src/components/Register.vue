@@ -57,6 +57,7 @@ export default {
 
         const body = await res.json();
         console.log(body);
+        
         if (res.status === 400) {
           this.$notify({
             title: body.message,
