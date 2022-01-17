@@ -345,6 +345,7 @@
   input[type="radio"]:checked ~ .container__radio-check::before {
     background: $blue;
   }
+ 
   .afterimage {
     border-radius: 20px;
     background-color: $field_color;

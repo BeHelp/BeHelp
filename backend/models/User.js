@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
   location: [{ _id: false, type: String, required: true }],
   skills: [{ _id: false, type: String }],
   languages: [{ _id: false, type: String, required: true }],
-  description: { type: String, required: false, minlength: 10, maxlength: 200 },
+  description: { type: String, required: false, maxlength: 200 },
 });
 
 module.exports = mongoose.model("User", userSchema);
