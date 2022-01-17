@@ -1,3 +1,13 @@
+<script>
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState(["isLoggedIn", "user"]),
+  },
+};
+</script>
+
 <template>
   <footer class="footer">
     <div class="footer__logos">
