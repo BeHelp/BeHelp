@@ -67,15 +67,6 @@ export default {
       </div>
 
       <div class="contactUs__content-rightcontainer">
-        <p>
-          We want to hear from you!
-          <br />
-          <br />
-
-          Kindly reach out to us via our CONTACT FORM or any of our media
-          channels below
-        </p>
-
         <form
           class="contactUs__content-rightcontainer-form"
           @submit.prevent="sendEmail"
@@ -101,7 +92,7 @@ export default {
             v-model="message"
             cols="30"
             rows="5"
-            placeholder="Message"
+            placeholder="Your Message"
           >
           </textarea>
 
@@ -114,5 +105,6 @@ export default {
 
 <style scoped lang="scss">
 @import "../components/styles/abstract/_variables.scss";
+@import "../components/styles/abstract/_base.scss";
 @import "../components/styles/layout/_contact.scss";
 </style>
