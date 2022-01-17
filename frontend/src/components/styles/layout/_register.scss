@@ -132,6 +132,7 @@
   &__select {
     position: relative;
     border-radius: 20px;
+   
 
     select {
       appearance: none !important;
@@ -281,6 +282,7 @@
 
   .register-form {
     width: 100%;
+    height: 100%;
     background-color: $blue;
     padding: 15px 30px;
     border-radius: 0px 20px 20px 0px;
@@ -343,6 +345,19 @@
   input[type="radio"]:checked ~ .container__radio-check::before {
     background: $blue;
   }
+  input:-webkit-autofill {
+    -webkit-text-fill-color: $field_color;
+  }
+  input:-moz-autofill {
+    -moz-text-fill-color: $field_color;
+  }
+  input:-o-autofill {
+    -o-text-fill-color: $field_color;
+  }
+  input:-khtml-autofill {
+    -khtml-text-fill-color: $field_color;
+  }
+
   .afterimage {
     border-radius: 20px;
     background-color: $field_color;
@@ -363,6 +378,7 @@
       margin-top: 0.7%;
       position: absolute;
       border: none;
+      background: $blue;
     }
   }
   @media screen and (max-width: 992px) {
