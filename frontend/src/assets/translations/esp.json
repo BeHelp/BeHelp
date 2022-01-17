@@ -38,8 +38,8 @@
   "password_": "Contraseña*",
   "gender_": "Género*",
   "nationality": "Nacionalidad",
-  "skills": "Habilidades",
-  "languages": "Idiomas",
+  "skills_": "Habilidades*",
+  "languages_": "Idiomas*",
   "description": "Descripción",
   "send": "ENVIAR"
 }

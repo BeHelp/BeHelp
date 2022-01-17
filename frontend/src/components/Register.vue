@@ -34,12 +34,12 @@ export default {
         const languageArray = this.filterLanguages.map((a) => a.name);
         const skillsArray = this.filterSkills.map((a) => a.name);
 
-        if(this.picked === 'volunteer'){
-          if(!this.skillsArray){
+        if (this.picked === "volunteer") {
+          if (!this.skillsArray) {
             this.$notify({
-            title: 'skills are required',
-            type: "error",
-          });       
+              title: "skills are required",
+              type: "error",
+            });
           }
           return;
         }
@@ -67,7 +67,7 @@ export default {
 
         const body = await res.json();
         console.log(body);
-        
+
         if (res.status === 400) {
           this.$notify({
             title: body.message,
@@ -172,9 +172,9 @@ export default {
           </div>
 
           <div class="container__radio">
-            <label for="usertype" class="radio-label"
-              >{{ $t("status_") }}</label
-            >
+            <label for="usertype" class="radio-label">{{
+              $t("status_")
+            }}</label>
             <div class="container__radio-item1">
               <input
                 type="radio"
@@ -252,7 +252,7 @@ export default {
                 multiple
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="$t('Languages*')"
+                :placeholder="$t('languages_')"
                 label="name"
                 required
               />
@@ -265,7 +265,7 @@ export default {
                 multiple
                 v-model="filterSkills"
                 :options="skillOptions"
-                :placeholder="$t('Skills*')"
+                :placeholder="$t('skills_')"
                 label="name"
               />
             </div>

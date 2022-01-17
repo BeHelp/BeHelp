@@ -38,8 +38,8 @@
   "password_": "Wachtwoord*",
   "gender_": "Geslacht*",
   "nationality": "Nationaliteit",
-  "skills": "Vaardigheden",
-  "languages": "Talen",
+  "skills_": "Vaardigheden*",
+  "languages_": "Talen*",
   "description": "Description",
   "send": "STUREN"
 }

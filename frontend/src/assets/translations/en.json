@@ -38,8 +38,8 @@
   "password_": "Password*",
   "gender_": "Gender*",
   "nationality": "Nationality",
-  "skills": "Skills",
-  "languages": "Languages",
+  "skills_": "Skills*",
+  "languages_": "Languages*",
   "description": "Description",
   "send": "SEND"
 }

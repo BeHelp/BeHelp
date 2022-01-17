@@ -38,8 +38,8 @@
   "password_": "*كلمة المرور",
   "gender_": "*جنس تذكير أو تأنيث",
   "nationality": "جنسية",
-  "skills": "مهارات",
-  "languages": "اللغات",
+  "skills_": "مهارات",
+  "languages_": "اللغات",
   "description": "وصف",
   "send": "إرسال"
 }
