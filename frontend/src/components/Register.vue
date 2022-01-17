@@ -44,7 +44,7 @@ export default {
           return;
         }
         if (this.picked === "volunteer") {
-          if(!this.description){
+          if (!this.description) {
             this.$notify({
               title: "Description should be at least 6 characters!",
               type: "error",
@@ -52,7 +52,6 @@ export default {
           }
           return;
         }
-
 
         const res = await fetch(`${import.meta.env.VITE_API}/register`, {
           method: "POST",
@@ -173,7 +172,7 @@ export default {
                   class="style-chooser"
                   v-model="filterCities"
                   :options="cityOptions"
-                  :placeholder="$t('city')"
+                  :placeholder="$t('city_')"
                   label="city"
                   required
                 />
