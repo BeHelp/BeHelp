@@ -13,7 +13,7 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         "default-src": ["'self'"],
-        "connect-src": ["behelp-cli-test.herokuapp.com/"],
+        "connect-src": ["*.herokuapp.com"],
         "script-src": [
           "'self'",
           "cdn.jsdelivr.net",
