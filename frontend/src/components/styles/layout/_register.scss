@@ -345,7 +345,19 @@
   input[type="radio"]:checked ~ .container__radio-check::before {
     background: $blue;
   }
- 
+  input:-webkit-autofill {
+    -webkit-text-fill-color: $field_color;
+  }
+  input:-moz-autofill {
+    -moz-text-fill-color: $field_color;
+  }
+  input:-o-autofill {
+    -o-text-fill-color: $field_color;
+  }
+  input:-khtml-autofill {
+    -khtml-text-fill-color: $field_color;
+  }
+
   .afterimage {
     border-radius: 20px;
     background-color: $field_color;
