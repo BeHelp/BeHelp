@@ -12,7 +12,7 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        "default-src": ["'self'"],
+        "default-src": ["'self'", "behelp.herokuapp.com"],
         "script-src": [
           "'self'",
           "cdn.jsdelivr.net",
