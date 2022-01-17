@@ -23,7 +23,7 @@ const userController = {
     try {
       const userId = req.params.userId;
       const result = await userManager.getUserEmailById(userId);
-      res.status(200).send(result.email);
+      res.status(200).json(result.email);
     } catch (error) {
       res.status(500).send(error);
     }

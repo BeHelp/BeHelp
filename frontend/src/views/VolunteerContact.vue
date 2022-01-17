@@ -1,9 +1,15 @@
 <script>
+import emailjs from "@emailjs/browser";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
       result: undefined,
+      message: "",
     };
+  },
+  computed: {
+    ...mapState(["user"]),
   },
   mounted() {
     this.getUser();
@@ -26,8 +32,43 @@ export default {
         console.log(error);
       }
     },
-  },
-};
+    async getVolunteerEmail() { 
+          const result = await fetch(
+            `${import.meta.env.VITE_API}/users/contactinfo/${this.$route.params._id}`,
+          {
+              method: "GET",
+              headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          );
+          const jsonResult = await result.json();
+          return jsonResult;
+    },
+    async sendEmail() {
+      const emailParams = {
+        volunteer: this.result.firstName,
+        volunteer_email: await this.getVolunteerEmail(this.result),
+        user: this.user.firstName,
+        user_email: this.user.email,
+        message: this.message,
+      };
+      try {
+        const emailResult = await emailjs.
+        send(
+          "service_pzlpw8l", 
+          "template_v41ffao", 
+          emailParams, 
+          "user_SCLlJSB3i254iOQqEu5xe");
+        console.log(emailResult);
+        this.$router.push("/thankyou");
+      } catch(err){
+        console.log(err);
+      }
+    }
+  }
+}
 </script>
 
 <template>
@@ -38,7 +79,7 @@ export default {
         <img v-bind:src="result.photoURL" class="container__volunteer-photo" />
         <div class="container__volunteer-profile">
           <p><b>Nationality: </b>{{ result.nationality }}</p>
-          <p><b>City:</b> {{ result.location[1]}}</p>
+          <p><b>City:</b> {{ result.city}}</p>
           <p><b>Languages: </b>
           <ul>
           <li v-for="lang in result.languages"> {{ lang }} </li>
@@ -61,15 +102,6 @@ export default {
           <div class="container__contact-logo">
             <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
           </div>
-          <div class = "container__contact-name">
-          <input
-            class="subject__box"
-            type="text"
-            v-model="name"
-            name="name"
-            placeholder="Your Name"
-          />
-          </div>
 
           <textarea
             class="container__contact-message"
@@ -78,13 +110,6 @@ export default {
             placeholder="Message"
           >
           </textarea>
-          <input
-            class="container__contact-email"
-            type="email"
-            v-model="email"
-            name="email"
-            placeholder="Your Email"
-          />
           <div class = container__contact-button>
           <button class="container__contact-btn">Send</button>
           </div>
