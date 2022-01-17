@@ -57,10 +57,10 @@ export default {
       try {
         const emailResult = await emailjs.
         send(
-          "service_pzlpw8l", 
-          "template_v41ffao", 
-          emailParams, 
-          "user_SCLlJSB3i254iOQqEu5xe");
+          "service_0xqmyuc", 
+          "template_lgf3xs6", 
+          emailParams,
+          "user_bqOiafJ3RyGJLlBUxuy6A");
         console.log(emailResult);
         this.$router.push("/thankyou");
       } catch(err){
