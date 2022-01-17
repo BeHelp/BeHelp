@@ -12,7 +12,8 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        "default-src": ["'self'", "behelp.herokuapp.com"],
+        "default-src": ["'self'"],
+        "connect-src": ["behelp-cli-test.herokuapp.com/"],
         "script-src": [
           "'self'",
           "cdn.jsdelivr.net",
