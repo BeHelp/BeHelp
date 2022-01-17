@@ -132,7 +132,6 @@
   &__select {
     position: relative;
     border-radius: 20px;
-   
 
     select {
       appearance: none !important;
@@ -346,16 +345,16 @@
     background: $blue;
   }
   input:-webkit-autofill {
-    -webkit-text-fill-color: $field_color;
+    -webkit-text-fill-color: grey;
   }
   input:-moz-autofill {
-    -moz-text-fill-color: $field_color;
+    -moz-text-fill-color: grey;
   }
   input:-o-autofill {
-    -o-text-fill-color: $field_color;
+    -o-text-fill-color: grey;
   }
   input:-khtml-autofill {
-    -khtml-text-fill-color: $field_color;
+    -khtml-text-fill-color: grey;
   }
 
   .afterimage {
