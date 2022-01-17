@@ -1,3 +1,13 @@
+<script>
+import { Icon } from "@iconify/vue";
+
+export default {
+  components: {
+    Icon,
+  },
+};
+</script>
+
 <template>
   <section class="services">
     <div class="services__left">
@@ -13,43 +23,33 @@
         <li class="services__list-item">
           <span>
             <a href="#"
-              ><img src="../assets/fas/briefcase.svg" class="fa"
-            /></a> </span
+              ><Icon class="fa" icon="mdi-light:briefcase" />
+            </a> </span
           >{{ $t("legalassistance") }}
         </li>
         <li class="services__list-item">
           <span>
-            <a href="#"
-              ><img src="../assets/fas/bullhorn.svg" class="fa"
-            /></a> </span
+            <a href="#"><Icon class="fa" icon="mdi-light:bullhorn" /></a> </span
           >{{ $t("translations") }}
         </li>
         <li class="services__list-item">
           <span>
-            <a href="#"
-              ><img src="../assets/fas/user.svg" class="fa"
-            /></a> </span
+            <a href="#"><Icon class="fa" icon="mdi-light:account" /></a> </span
           >{{ $t("mentalhealth") }}
         </li>
         <li class="services__list-item">
           <span>
-            <a href="#"
-              ><img src="../assets/fas/house.svg" class="fa"
-            /></a> </span
+            <a href="#"><Icon class="fa" icon="mdi-light:home" /></a> </span
           >{{ $t("hostfamilies") }}
         </li>
         <li class="services__list-item">
           <span class="service__list-icon">
-            <a href="#"
-              ><img src="../assets/fas/archway.svg" class="fa"
-            /></a> </span
+            <a href="#"><Icon class="fa" icon="mdi-light:bank" /></a> </span
           >{{ $t("educationservices") }}
         </li>
         <li class="services__list-item">
           <span>
-            <a href="#"
-              ><img src="../assets/fas/thumbs-up.svg" class="fa"
-            /></a> </span
+            <a href="#"><Icon class="fa" icon="mdi-light:thumb-up" /></a> </span
           >{{ $t("socialassistance") }}
         </li>
       </ul>
