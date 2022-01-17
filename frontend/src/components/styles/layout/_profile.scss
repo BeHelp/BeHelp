@@ -270,39 +270,43 @@
     grid-template-areas: "left right";
     height: 150px;
 
-    .leftside {
-      overflow: hidden;
-      & img {
-        align-items: left;
-        height: 87%;
-        border-radius: 1.5rem;
-      }
+    .left {
+      grid-area: left;
+      background-color: $field_color;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      text-align: center;
 
       .left-icon {
-        background: url("../assets/fas/camera-solid.svg"), no-repeat;
+        background: url('../assets/fas/camera-solid.svg'), no-repeat;
         background-size: 60px;
         margin-top: -49px;
         width: 60px;
         height: 60px;
         border: none;
-        position: relative;
+        position: absolute;
       }
       .button-icon {
+        float: left;
         z-index: 9;
         width: 60px;
         height: 60px;
         opacity: 0;
-        overflow: visible;
       }
       .left-icon:hover,
       .button-icon:hover {
         cursor: pointer;
       }
 
-      img {
-        align-items: left;
-        height: 87%;
-        border-radius: 1.5rem;
+      p {
+        margin: 0;
+        color: $dark-grey;
       }
     }
 

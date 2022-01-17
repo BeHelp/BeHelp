@@ -42,7 +42,7 @@ export default {
           src="../assets/logos/geo__logo.svg"
           alt="geo logo"
         />
-        {{ volunteer.location[1] }}
+        {{ volunteer.location[0] }}
       </div>
       <a class="card__contact-btn" @click="accessBtn" role="button"
         >CONTACT ME</a
@@ -51,7 +51,7 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_card.scss";
 </style>

@@ -34,6 +34,25 @@ export default {
         const languageArray = this.filterLanguages.map((a) => a.name);
         const skillsArray = this.filterSkills.map((a) => a.name);
 
+        if (this.picked === "volunteer") {
+          if (!this.skillsArray) {
+            this.$notify({
+              title: "skills are required",
+              type: "error",
+            });
+          }
+          return;
+        }
+        if (this.picked === "volunteer") {
+          if (!this.description) {
+            this.$notify({
+              title: "Description should be at least 6 characters!",
+              type: "error",
+            });
+          }
+          return;
+        }
+
         const res = await fetch(`${import.meta.env.VITE_API}/register`, {
           method: "POST",
           headers: {
@@ -57,6 +76,7 @@ export default {
 
         const body = await res.json();
         console.log(body);
+
         if (res.status === 400) {
           this.$notify({
             title: body.message,
@@ -152,7 +172,7 @@ export default {
                   class="style-chooser"
                   v-model="filterCities"
                   :options="cityOptions"
-                  :placeholder="$t('city')"
+                  :placeholder="$t('city_')"
                   label="city"
                   required
                 />
@@ -161,9 +181,9 @@ export default {
           </div>
 
           <div class="container__radio">
-            <label for="usertype" class="radio-label"
-              >{{ $t("status_") }}*</label
-            >
+            <label for="usertype" class="radio-label">{{
+              $t("status_")
+            }}</label>
             <div class="container__radio-item1">
               <input
                 type="radio"
@@ -231,7 +251,6 @@ export default {
               v-model="nationality"
               name="nationality"
               id="nationality"
-              required
             />
           </div>
 
@@ -242,26 +261,27 @@ export default {
                 multiple
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="$t('languages')"
+                :placeholder="$t('languages_')"
                 label="name"
                 required
               />
             </div>
           </div>
-          <div class="container__group">
+          <div class="container__group" v-if="this.picked === 'volunteer'">
             <div class="container__select">
               <v-select
                 class="style-chooser"
                 multiple
                 v-model="filterSkills"
                 :options="skillOptions"
-                :placeholder="$t('skills')"
+                :placeholder="$t('skills_')"
                 label="name"
               />
             </div>
           </div>
 
           <textarea
+            v-if="this.picked === 'volunteer'"
             class="container__description"
             :placeholder="$t('description')"
             v-model="description"

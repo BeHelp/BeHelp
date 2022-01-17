@@ -1,85 +1,106 @@
 .contactUs {
-  margin: 4rem;
-
-  @media (max-width: $tablet) {
-    margin: 1rem;
-  }
-
-  &__h1 {
-    text-align: left;
-    color: $dark-grey;
-    margin-bottom: 2rem;
-
-    @media (max-width: 1200px) {
-      margin-top: 4rem;
-      margin-bottom: 1rem;
-    }
-
-    @media (max-width: $tablet) {
-      //   max-width: 80%;
-      // margin-top: 12rem;
-      margin: 1rem;
-      //   z-index: 0;
-    }
-  }
-
   &__content {
     display: flex;
-
-    @media (max-width: $tablet) {
-      margin: 1rem;
-    }
+    flex-direction: column;
 
     // styles for the left side
-    &-image {
-      // position: relative;
-      height: 400px;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
 
+    &-leftcontainer {
+      display: inline-block;
+      margin-left: 2rem;
+    }
+
+    &-leftcontainer h1 {
+      text-transform: uppercase;
+      text-align: left;
+      line-height: 2.6rem;
+      color: $dark-grey;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 2rem;
+      padding-top: 0;
+    }
+
+    &-image {
+      position: relative;
+      left: 2em;
+      height: 500px;
+      width: 1000px;
       @media (max-width: 1200px) {
-        width: 300px;
+        height: 400px;
+        width: 800px;
       }
       @media (max-width: $tablet) {
-        width: 100px;
-        // max-width: 80%;
-        // margin: 1rem auto;
+        height: 300px;
+        width: 500px;
+        max-width: 80%;
+        margin: 1rem auto;
       }
-
-      @media (max-width: 860px) {
-        display: none;
+      @media (max-width: 600px) {
+        height: 200px;
+        width: 300px;
+        max-width: 80%;
+        left: -3em;
+      }
+      @media (max-width: 400px) {
+        height: 200px;
+        width: 280px;
+        max-width: 80%;
+        left: -3.5em;
       }
     }
 
     &-image img {
       height: 100%;
       object-fit: cover;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
     }
 
     // styles for the right side
-    &-rightcontainer {
-      display: flex;
-      background-color: $blue;
-      border-top-right-radius: 20px;
-      border-bottom-right-radius: 20px;
 
-      @media (max-width: 860px) {
-        border-radius: 20px;
+    &-rightcontainer {
+      display: inline-block;
+      z-index: 99;
+      background-color: $blue;
+      max-width: 30%;
+      margin-left: 57rem;
+      margin-right: 6rem;
+      margin-top: -31.2rem;
+      margin-bottom: 4rem;
+      height: 500px;
+      padding: 2rem;
+
+      @media (max-width: 1200px) {
+        max-width: 50%;
+        margin: 1rem auto;
+        margin-right: 4rem;
+      }
+      @media (max-width: $tablet) {
+        z-index: 0;
+        max-width: 80%;
+        margin: 0.8rem auto;
+      }
+      @media (max-width: 400px) {
+        z-index: 0;
+        max-width: 80%;
+        margin: 0.8rem auto;
+        height: 550px;
       }
 
-      padding: 2rem;
+      & p {
+        font-weight: 500;
+        color: $dark-grey;
+      }
     }
   }
 }
 
 // styles for the inputs
+
 input[type="text"],
 [type="email"],
 textarea {
   border-radius: 20px;
-  // display: block;
+  display: block;
   width: 100%;
   border: 1px solid #f5f4ef;
   padding: 7px 20px;
@@ -89,6 +110,7 @@ textarea {
   font-size: 13px;
   background-color: #f5f4ef;
   margin-bottom: 16px;
+  padding-bottom: 20px;
 }
 
 input[type="submit"] {
@@ -98,7 +120,10 @@ input[type="submit"] {
   margin-top: 15px;
   margin-bottom: 15px;
   border-radius: 20px;
-  border-style: hidden;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
   font-size: 0.8rem;
   text-transform: uppercase;
 }

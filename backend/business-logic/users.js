@@ -1,5 +1,6 @@
 const { User } = require("../data-access/db.js");
 const RefreshToken = require("../models/RefreshToken.js");
+const hashing = require("../middleware/hashing");
 
 const userManager = {
   getUser: async (userData) => {
@@ -36,6 +37,7 @@ const userManager = {
           { languages: { $all: searchQuery.languages } },
           { skills: { $all: searchQuery.skills } },
           { location: { $all: searchQuery.location } },
+          { userType: "volunteer" },
         ],
       });
       console.log(user);
@@ -54,9 +56,15 @@ const userManager = {
   },
   putUser: async (userId, userData) => {
     try {
-      const updatedUser = await User.findByIdAndUpdate(userId, {
+      if (!userData.password) {
+        passwordToUpdate = null;
+      } else {
+        passwordToUpdate = await hashing(userData.password);
+      }
+
+      let data = {
         email: userData.email,
-        password: userData.password,
+        password: passwordToUpdate,
         firstName: userData.firstName,
         lastName: userData.lastName,
         dob: userData.dob,
@@ -68,6 +76,21 @@ const userManager = {
         skills: userData.skills,
         languages: userData.languages,
         description: userData.description,
+      };
+      console.log(data);
+      for (let field in data) {
+        if (!data[field]) {
+          delete data[field];
+        }
+      }
+      for (let item in data.skills) {
+        if (!data.skills[item] || data.skills[item] === null) {
+          delete data.skills[item];
+        }
+      }
+      console.log(data);
+      const updatedUser = await User.findByIdAndUpdate(userId, data, {
+        new: true,
       });
       return updatedUser;
     } catch (err) {

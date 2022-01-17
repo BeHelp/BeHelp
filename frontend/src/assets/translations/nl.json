@@ -8,6 +8,7 @@
   "volunteerswhocanhelp": "VRIJWILLIGERS WELKE HET KAN HELPEN",
   "skill": "Vaardigheid",
   "city": "Stad",
+  "city_": "Stad*",
   "language": "Taal",
   "whoarewe": "WIE ZIJN WE?",
   "aboutbehelp1": "BeHelp is een dienst die reisden en asielverzoekers verbindt met vrijwilligers die zich kunnen delen met hun ervaring en vaardigheden pro bono.",
@@ -38,8 +39,8 @@
   "password_": "Wachtwoord*",
   "gender_": "Geslacht*",
   "nationality": "Nationaliteit",
-  "skills": "Vaardigheden",
-  "languages": "Talen",
-  "description": "Description",
+  "skills_": "Vaardigheden*",
+  "languages_": "Talen*",
+  "description": "Beschrijving",
   "send": "STUREN"
 }

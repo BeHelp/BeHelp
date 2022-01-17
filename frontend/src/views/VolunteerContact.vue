@@ -79,7 +79,11 @@ export default {
         <img v-bind:src="result.photoURL" class="container__volunteer-photo" />
         <div class="container__volunteer-profile">
           <p><b>Nationality: </b>{{ result.nationality }}</p>
+<<<<<<< HEAD
           <p><b>City:</b> {{ result.city}}</p>
+=======
+          <p><b>City:</b> {{ result.location[0]}}</p>
+>>>>>>> 9ee59190970b70a9c561d4a6336be9ba577e0e28
           <p><b>Languages: </b>
           <ul>
           <li v-for="lang in result.languages"> {{ lang }} </li>
@@ -97,31 +101,44 @@ export default {
 
     <div class="container__contact">
       <div class="container__contact-messagebox">
-        <form @submit.prevent="sendEmail">
+        <form class="container__contact-form" @submit.prevent="sendEmail">
           <h2 class="container__contact-h2">CONTACT THIS VOLUNTEER</h2>
+<<<<<<< HEAD
           <div class="container__contact-logo">
             <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
           </div>
 
+=======
+            <div class="container__contact-logo">
+              <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
+            </div>
+        
+>>>>>>> 9ee59190970b70a9c561d4a6336be9ba577e0e28
           <textarea
             class="container__contact-message"
             name="message"
+            cols="30"
+            rows="8"
             v-model="message"
             placeholder="Message"
           >
           </textarea>
+<<<<<<< HEAD
           <div class = container__contact-button>
           <button class="container__contact-btn">Send</button>
           </div>
+=======
+        
+          <input type="submit" value="Send" />
+>>>>>>> 9ee59190970b70a9c561d4a6336be9ba577e0e28
         </form>
       </div>
     </div>
   </div>
   </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../components/styles/abstract/_base.scss";
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_volunteerContact.scss";
-// @import "vue-select/src/scss/vue-select.scss";
 </style>
