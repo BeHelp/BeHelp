@@ -22,8 +22,8 @@ The application connects international protection seekers with volunteers and or
   - [API routes](#api-routes)
   - [Sample Vue code](#sample-vue-code)
   - [Inspiration](#inspiration)
-    - [Projects and websites](#projects-and-websites)
-    - [Articles](#articles)
+      - [Projects and websites](#projects-and-websites)
+      - [Articles](#articles)
   - [Authors](#authors)
 
 ## General info
