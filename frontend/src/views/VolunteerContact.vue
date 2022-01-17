@@ -79,11 +79,7 @@ export default {
         <img v-bind:src="result.photoURL" class="container__volunteer-photo" />
         <div class="container__volunteer-profile">
           <p><b>Nationality: </b>{{ result.nationality }}</p>
-<<<<<<< HEAD
           <p><b>City:</b> {{ result.city}}</p>
-=======
-          <p><b>City:</b> {{ result.location[0]}}</p>
->>>>>>> 9ee59190970b70a9c561d4a6336be9ba577e0e28
           <p><b>Languages: </b>
           <ul>
           <li v-for="lang in result.languages"> {{ lang }} </li>
@@ -103,17 +99,10 @@ export default {
       <div class="container__contact-messagebox">
         <form class="container__contact-form" @submit.prevent="sendEmail">
           <h2 class="container__contact-h2">CONTACT THIS VOLUNTEER</h2>
-<<<<<<< HEAD
           <div class="container__contact-logo">
             <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
           </div>
 
-=======
-            <div class="container__contact-logo">
-              <img src="../assets/logos/Logo_small_blue.svg" alt="logo" />
-            </div>
-        
->>>>>>> 9ee59190970b70a9c561d4a6336be9ba577e0e28
           <textarea
             class="container__contact-message"
             name="message"
@@ -123,14 +112,9 @@ export default {
             placeholder="Message"
           >
           </textarea>
-<<<<<<< HEAD
           <div class = container__contact-button>
           <button class="container__contact-btn">Send</button>
           </div>
-=======
-        
-          <input type="submit" value="Send" />
->>>>>>> 9ee59190970b70a9c561d4a6336be9ba577e0e28
         </form>
       </div>
     </div>
