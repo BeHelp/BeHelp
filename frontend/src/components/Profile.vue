@@ -78,7 +78,10 @@ export default {
             type: "error",
           });
         } else if (res.status === 201) {
-          alert("Profile is updated successfully");
+          this.$notify({
+              title: "Profile is updated successfully",
+              type: "success",
+            });
           localStorage.removeItem("token");
           this.$store.commit("loggedOut");
           this.$router.push("/");
