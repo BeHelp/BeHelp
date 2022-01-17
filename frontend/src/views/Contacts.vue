@@ -52,12 +52,12 @@ export default {
 
 <template>
   <div class="contactUs">
-    <h1 class = contactUs__h1>
-      Do you have questions?<br />
-      Contact Us
-    </h1>
     <div class="contactUs__content">
       <div class="contactUs__content-leftcontainer">
+        <h1>
+          Do you have questions?<br />
+          Contact Us:
+        </h1>
         <div class="contactUs__content-image">
           <img
             src="../assets/img/5d8d941e933874bb0b403ffc5ac47e08.jpeg"
