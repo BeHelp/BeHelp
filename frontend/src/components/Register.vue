@@ -163,7 +163,7 @@ export default {
                   class="style-chooser"
                   v-model="filterCities"
                   :options="cityOptions"
-                  :placeholder="$t('City*')"
+                  :placeholder="$t('city')"
                   label="city"
                   required
                 />
@@ -173,7 +173,7 @@ export default {
 
           <div class="container__radio">
             <label for="usertype" class="radio-label"
-              >{{ $t("status_") }}</label
+              >{{ $t("status_") }}*</label
             >
             <div class="container__radio-item1">
               <input
@@ -252,7 +252,7 @@ export default {
                 multiple
                 v-model="filterLanguages"
                 :options="languageOptions"
-                :placeholder="$t('Languages*')"
+                :placeholder="$t('languages')"
                 label="name"
                 required
               />
@@ -265,7 +265,7 @@ export default {
                 multiple
                 v-model="filterSkills"
                 :options="skillOptions"
-                :placeholder="$t('Skills*')"
+                :placeholder="$t('skills')"
                 label="name"
               />
             </div>
