@@ -163,7 +163,7 @@ export default {
                   class="style-chooser"
                   v-model="filterCities"
                   :options="cityOptions"
-                  :placeholder="$t('City*')"
+                  :placeholder="$t('city')"
                   label="city"
                   required
                 />
