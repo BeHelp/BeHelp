@@ -7,7 +7,7 @@
   "findyourvolunteer": "TROUVER VOTRE BÉNÉVOLE",
   "volunteerswhocanhelp": "BÉNÉVOLES QUI PEUVENT AIDER",
   "skill": "Compétence",
-  "city": "Ville",
+  "city": "Ville*",
   "language": "Langue",
   "whoarewe": "QUI SOMMES-NOUS?",
   "aboutbehelp1": "BeHelp est un service qui relie les réfugiés et les demandeurs d'asile à des bénévoles locaux qui sont prêts à partager leurs compétences et leurs savoir-faire.",
@@ -38,8 +38,8 @@
   "password_": "Mot de passe*",
   "gender_": "Sexe*",
   "nationality": "Nationalité",
-  "skills": "Compétences",
-  "languages": "Langues",
+  "skills_": "Compétences*",
+  "languages_": "Langues*",
   "description": "Description",
   "send": "ENVOI"
 }
