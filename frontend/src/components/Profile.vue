@@ -82,8 +82,7 @@ export default {
               title: "Profile is updated successfully",
               type: "success",
             });
-          localStorage.removeItem("token");
-          this.$store.commit("loggedOut");
+            
           this.$router.push("/");
         }
       } catch (error) {
