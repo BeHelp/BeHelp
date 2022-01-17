@@ -13,7 +13,7 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         "default-src": ["'self'"],
-        "connect-src": ["*.herokuapp.com"],
+        "connect-src": ["self", "*.herokuapp.com"],
         "script-src": [
           "'self'",
           "cdn.jsdelivr.net",
