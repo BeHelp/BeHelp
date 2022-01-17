@@ -118,11 +118,13 @@ export default {
             id="usermenu-list"
             class="usermenu-list"
             :class="{ 'foo-hover': hidden }"
+            v-if="hidden === false"
           >
             <router-link
               to="/myprofile"
               class="usermenu-a"
               id="usermenu-profile"
+              @click.prevent="hidden = true"
               >My profile</router-link
             ><br />
             <a @click="logout" href="#" class="usermenu-a" id="usermenu-logout"
