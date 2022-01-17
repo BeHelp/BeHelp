@@ -22,8 +22,8 @@ The application connects international protection seekers with volunteers and or
   - [API routes](#api-routes)
   - [Sample Vue code](#sample-vue-code)
   - [Inspiration](#inspiration)
-    - [Projects and websites](#projects-and-websites)
-    - [Articles](#articles)
+      - [Projects and websites](#projects-and-websites)
+      - [Articles](#articles)
   - [Authors](#authors)
 
 ## General info
@@ -57,6 +57,7 @@ The application will include the search tool that will filter available voluntee
 - Vue Router
 - Vite build tool
 - Vuex state management
+- Vuex persisted state
 - i18n JSON localization
 - Cloudinary photo upload
 - SCSS with BEM naming conventions
@@ -66,9 +67,11 @@ The application will include the search tool that will filter available voluntee
 - Node
 - Express
 - MongoDB Atlas
-- Mongoose ORM
-- Sendgrid email service
-- Postman & Thundercat API testing
+- MongoDB Compass
+- Mongoose ODM
+- Sendgrid email API
+- Postman & Thunder Client API testing
+- Helmet CSP security headers
 - JWT authentication tokens & bcrypt hashing
 
 ### Devops
