@@ -25,17 +25,19 @@ export default {
       skillOptions: skills,
       genderOptions: genders,
       photoURL: "",
+      languageArray: [],
+      skillsArray: [],
     };
   },
 
   methods: {
     async submit() {
       try {
-        const languageArray = this.filterLanguages.map((a) => a.name);
-        const skillsArray = this.filterSkills.map((a) => a.name);
+        this.languageArray = this.filterLanguages.map((a) => a.name);
+        this.skillsArray = this.filterSkills.map((a) => a.name);
 
         if (this.picked === "volunteer") {
-          if (!this.skillsArray) {
+          if (this.skillsArray.length === 0) {
             this.$notify({
               title: "skills are required",
               type: "error",
@@ -67,8 +69,8 @@ export default {
             nationality: this.nationality,
             userType: this.picked,
             location: this.filterCities.city,
-            skills: skillsArray,
-            languages: languageArray,
+            skills: this.skillsArray,
+            languages: this.languageArray,
             description: this.description,
             photoURL: this.photoURL,
           }),
