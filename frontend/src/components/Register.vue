@@ -16,7 +16,7 @@ export default {
       nationality: "",
       selected: "",
       picked: "",
-      filterCities: "",
+      filterCities: [],
       filterLanguages: [],
       filterSkills: [],
       description: "",
@@ -36,8 +36,9 @@ export default {
         this.languageArray = this.filterLanguages.map((a) => a.name);
         this.skillsArray = this.filterSkills.map((a) => a.name);
 
+        console.log(this.filterCities);
+
         if (this.picked === "volunteer") {
-          console.log("skillsArray", this.skillsArray);
           if (this.skillsArray.length === 0) {
             this.$notify({
               title: "skills are required",
