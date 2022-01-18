@@ -460,25 +460,37 @@
       }
     }
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 400px) {
     .container {
       &__signup-img {
         display: none;
         visibility: hidden;
         clear: both;
       }
-      &__radio-item1 {
-        flex-direction: column;
-        -moz-flex-direction: column;
-        -webkit-flex-direction: column;
-        -o-flex-direction: column;
-        -ms-flex-direction: column;
+      &__first{
+        display:block;
       }
+      &__radio-item1{
+        label{
+          margin-left: -10px;
+          padding-left: 44%;
+        }
+      }
+      &__radio-check{
+        left: 3%;
+      }
+      
     }
 
     .submit {
       width: 100%;
       border-radius: 20px;
+    }
+    .register-form{
+      h2{
+        text-align: center;
+     
+      }
     }
   }
 }
