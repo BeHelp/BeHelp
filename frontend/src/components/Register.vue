@@ -35,7 +35,7 @@ export default {
         const skillsArray = this.filterSkills.map((a) => a.name);
 
         if (this.picked === "volunteer") {
-          if (!this.skillsArray) {
+          if (this.skillsArray.length === 0) {
             this.$notify({
               title: "skills are required",
               type: "error",
