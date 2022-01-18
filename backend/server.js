@@ -12,7 +12,20 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        "default-src": ["'self'"],
+        "default-src": [
+          "'self'",
+          "api.cloudinary.com",
+          "api.iconify.design",
+          "api.simplesvg.com",
+          "api.unisvg.com",
+        ],
+        "connect-src": [
+          "'self'",
+          "api.cloudinary.com",
+          "api.iconify.design",
+          "api.simplesvg.com",
+          "api.unisvg.com",
+        ],
         "script-src": [
           "'self'",
           "cdn.jsdelivr.net",
