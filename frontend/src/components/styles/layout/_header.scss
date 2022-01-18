@@ -233,6 +233,7 @@
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
   }
   .nav-menu.active {
+    z-index: 889;
     left: 0;
 
     @media (max-width: 1024px) {
@@ -302,4 +303,13 @@
 }
 .hamburger.active .bar:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
+}
+
+.hamburger {
+  // position: absolute;
+  z-index: 888;
+}
+
+.nav-menu.active {
+  // z-index: 889;
 }

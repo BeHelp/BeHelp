@@ -1,31 +1,45 @@
 .login {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8rem;
 }
 
 .login__page {
-  display: inline-block;
-  text-align: left;
-  padding-left: 40px;
-  width: 480px;
-  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  padding: 0rem 2rem;
   background: #f5f4ef;
   box-sizing: border-box;
   border-radius: 20px;
   margin-bottom: 5rem;
+
+  @media (max-width: 800px) {
+    width: 80%;
+  }
 }
 
 .sign__text {
-  width: 200px;
+  width: 100%;
   margin-top: 45px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
+  margin-bottom: 30px;
+  font-weight: 700;
   font-size: 2rem;
   text-transform: uppercase;
   color: #424651;
 }
 
+.form__group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 input {
+  display: flex;
+  width: 100%;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
@@ -34,16 +48,16 @@ input {
 }
 
 .email__box {
-  padding-block: 2px;
-  width: 400px;
+  // padding-block: 2px;
+  width: 100%;
   font-size: 0.8rem;
 }
 
 .password__box {
-  margin-block: 6px;
+  // margin-block: 6px;
   margin-top: 20px;
-  padding-block: 2px;
-  width: 400px;
+  // padding-block: 2px;
+  width: 100%;
   font-size: 0.8rem;
 }
 
@@ -65,22 +79,22 @@ input {
 }
 
 .p1 {
-  width: 500px;
-  height: 22px;
+  // width: 500px;
+  // height: 22px;
   padding-top: 10px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
+  // font-family: Montserrat;
+  // font-style: normal;
+  // font-weight: normal;
   font-size: 0.8rem;
 
   color: #c4c4c4;
 }
 
 .p2 {
-  width: 300px;
-  height: 22px;
-  font-family: Montserrat;
-  font-style: normal;
+  // width: 300px;
+  // height: 22px;
+  // font-family: Montserrat;
+  // font-style: normal;
   font-size: 0.8rem;
   margin-top: 6px;
   text-decoration-line: underline;

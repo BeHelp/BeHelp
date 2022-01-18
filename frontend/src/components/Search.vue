@@ -120,7 +120,7 @@ export default {
     <div class="search__background">
       <img
         v-if="$route.name === 'Home'"
-        src="../assets/homepage-search.png"
+        src="../assets/homepage-search.jpg"
         class="search__background-img"
       />
       <div v-else class="search__background-img"></div>
