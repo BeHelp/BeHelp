@@ -15,7 +15,7 @@ export default {
       password: "",
       nationality: "",
       selected: "",
-      picked: "",
+      picked: "newcomer",
       filterCities: [],
       filterLanguages: [],
       filterSkills: [],
@@ -190,7 +190,7 @@ export default {
             <div class="container__radio-item1">
               <input
                 type="radio"
-                v-model="picked"
+                v-model="this.picked"
                 name="status"
                 value="newcomer"
                 id="newcomer"
@@ -203,7 +203,7 @@ export default {
             <div class="container__radio-item1">
               <input
                 type="radio"
-                v-model="picked"
+                v-model="this.picked"
                 name="status"
                 value="volunteer"
                 id="volunteer"
