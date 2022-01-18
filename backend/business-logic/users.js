@@ -57,7 +57,7 @@ const userManager = {
   putUser: async (userId, userData) => {
     try {
       if (!userData.password) {
-        passwordToUpdate = null;
+        passwordToUpdate = undefined;
       } else {
         passwordToUpdate = await hashing(userData.password);
       }
@@ -77,9 +77,8 @@ const userManager = {
         languages: userData.languages,
         description: userData.description,
       };
-      console.log(data);
       for (let field in data) {
-        if (!data[field]) {
+        if (data[field] === undefined) {
           delete data[field];
         }
       }
@@ -88,7 +87,6 @@ const userManager = {
           delete data.skills[item];
         }
       }
-      console.log(data);
       const updatedUser = await User.findByIdAndUpdate(userId, data, {
         new: true,
       });

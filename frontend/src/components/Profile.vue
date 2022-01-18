@@ -79,12 +79,9 @@ export default {
           });
         } else if (res.status === 201) {
           this.$notify({
-              title: "Profile is updated successfully",
-              type: "success",
-            });
-          localStorage.removeItem("token");
-          this.$store.commit("loggedOut");
-          this.$router.push("/");
+            title: "Profile is updated successfully",
+            type: "success",
+          });
         }
       } catch (error) {
         console.log(error);
@@ -104,7 +101,10 @@ export default {
                 },
               }
             );
-            alert("Profile deleted");
+            this.$notify({
+              title: "Profile is deleted",
+              type: "success",
+            });
             localStorage.removeItem("token");
             this.$store.commit("loggedOut");
             this.$router.push("/");
@@ -178,8 +178,8 @@ export default {
               accept="image/*"
               id="file-input"
               @change="uploadImage($event)"
-              class="button-icon"
-              required
+              class="button-icon" 
+              :disabled="isDisabled"
             />
             <div class="left-icon"></div>
             <p>
@@ -304,7 +304,7 @@ export default {
             ></span>
           </div>
         </div>
-        <div class="container__group">
+        <div class="container__group" v-if="this.userType === 'volunteer'">
           <div class="container__select">
             <v-select
               class="style-chooser"
@@ -321,6 +321,7 @@ export default {
           </div>
         </div>
         <textarea
+          v-if="this.userType === 'volunteer'"
           v-model="this.description"
           class="container__description"
           placeholder="Description"

@@ -42,7 +42,6 @@ const userController = {
     try {
       const userId = req.params.userId;
       const userData = req.body;
-      console.log(userData);
       const userFromDB = await registerManager.getUserByEmail(userData.email);
       if (
         !userData.firstName ||
@@ -59,7 +58,15 @@ const userController = {
         return res
           .status(400)
           .send({ message: "Password should be at least 6 characters!" });
-      } else if (userData.description.length < 10) {
+      } else if (
+        userData.userType === "volunteer" &&
+        userData.skills.length === 0
+      ) {
+        return res.status(400).send({ message: "Skills are required" });
+      } else if (
+        (userData.userType === "volunteer" && !userData.description) ||
+        (userData.userType === "volunteer" && userData.description.length < 6)
+      ) {
         return res
           .status(400)
           .send({ message: "Description should be at least 6 characters!" });
