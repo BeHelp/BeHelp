@@ -16,7 +16,7 @@ export default {
       nationality: "",
       selected: "",
       picked: "",
-      filterCities: [],
+      filterCities: "",
       filterLanguages: [],
       filterSkills: [],
       description: "",
@@ -25,16 +25,19 @@ export default {
       skillOptions: skills,
       genderOptions: genders,
       photoURL: "",
+      languageArray: [],
+      skillsArray: [],
     };
   },
 
   methods: {
     async submit() {
       try {
-        const languageArray = this.filterLanguages.map((a) => a.name);
-        const skillsArray = this.filterSkills.map((a) => a.name);
+        this.languageArray = this.filterLanguages.map((a) => a.name);
+        this.skillsArray = this.filterSkills.map((a) => a.name);
 
         if (this.picked === "volunteer") {
+          console.log("skillsArray", this.skillsArray);
           if (this.skillsArray.length === 0) {
             this.$notify({
               title: "skills are required",
@@ -53,29 +56,29 @@ export default {
           return;
         }
 
-        const res = await fetch(`${import.meta.env.VITE_API}/register`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password,
-            firstName: this.firstname,
-            lastName: this.lastname,
-            gender: this.gender,
-            nationality: this.nationality,
-            userType: this.picked,
-            location: this.filterCities.city,
-            skills: skillsArray,
-            languages: languageArray,
-            description: this.description,
-            photoURL: this.photoURL,
-          }),
-        });
+        // const res = await fetch(`${import.meta.env.VITE_API}/register`, {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({
+        //     email: this.email,
+        //     password: this.password,
+        //     firstName: this.firstname,
+        //     lastName: this.lastname,
+        //     gender: this.gender,
+        //     nationality: this.nationality,
+        //     userType: this.picked,
+        //     location: this.filterCities.city,
+        //     skills: skillsArray,
+        //     languages: languageArray,
+        //     description: this.description,
+        //     photoURL: this.photoURL,
+        //   }),
+        // });
 
-        const body = await res.json();
-        console.log(body);
+        // const body = await res.json();
+        // console.log(body);
 
         if (res.status === 400) {
           this.$notify({
