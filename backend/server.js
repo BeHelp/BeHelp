@@ -18,6 +18,7 @@ app.use(
           "api.iconify.design",
           "api.simplesvg.com",
           "api.unisvg.com",
+          "api.emailjs.com",
         ],
         "connect-src": [
           "'self'",
@@ -25,6 +26,7 @@ app.use(
           "api.iconify.design",
           "api.simplesvg.com",
           "api.unisvg.com",
+          "api.emailjs.com",
         ],
         "script-src": [
           "'self'",
