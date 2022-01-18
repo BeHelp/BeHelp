@@ -1,10 +1,20 @@
 .container {
   display: flex;
   max-width: 70%;
+  // width: 100%;
   margin-bottom: 3.35%;
   position: relative;
   border-radius: 20px;
+  margin: 1rem auto;
+  margin-bottom: 3rem;
   font-family: $montserrat;
+
+  @media (max-width: 1024px) {
+    .container {
+      // max-width: 70%;
+      // width: 100%;
+    }
+  }
 
   display-flex,
   &__signup,
@@ -383,7 +393,7 @@
   @media screen and (max-width: 992px) {
     .container {
       width: calc(100% - 40px);
-      max-width: 100%;
+      max-width: 70%;
 
       &__signup-img {
         display: none;
@@ -462,34 +472,43 @@
   }
   @media screen and (max-width: 400px) {
     .container {
+      max-width: 100%;
+      width: 100%;
+
       &__signup-img {
         display: none;
         visibility: hidden;
         clear: both;
       }
-      &__first{
-        display:block;
+      &__first {
+        display: block;
       }
-      &__radio-item1{
-        label{
+      &__radio-item1 {
+        label {
           margin-left: -10px;
           padding-left: 44%;
         }
       }
-      &__radio-check{
+      &__radio-check {
         left: 3%;
       }
-      
     }
 
+    .register-form {
+      padding: 1rem;
+    }
+
+    .left {
+      margin: 1rem auto;
+    }
     .submit {
       width: 100%;
       border-radius: 20px;
     }
-    .register-form{
-      h2{
+    .register-form {
+      h2 {
         text-align: center;
-     
+        font-size: 1.2rem;
       }
     }
   }
