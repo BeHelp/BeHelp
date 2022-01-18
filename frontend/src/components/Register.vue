@@ -57,29 +57,29 @@ export default {
           return;
         }
 
-        // const res = await fetch(`${import.meta.env.VITE_API}/register`, {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({
-        //     email: this.email,
-        //     password: this.password,
-        //     firstName: this.firstname,
-        //     lastName: this.lastname,
-        //     gender: this.gender,
-        //     nationality: this.nationality,
-        //     userType: this.picked,
-        //     location: this.filterCities.city,
-        //     skills: skillsArray,
-        //     languages: languageArray,
-        //     description: this.description,
-        //     photoURL: this.photoURL,
-        //   }),
-        // });
+        const res = await fetch(`${import.meta.env.VITE_API}/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: this.email,
+            password: this.password,
+            firstName: this.firstname,
+            lastName: this.lastname,
+            gender: this.gender,
+            nationality: this.nationality,
+            userType: this.picked,
+            location: this.filterCities.city,
+            skills: skillsArray,
+            languages: languageArray,
+            description: this.description,
+            photoURL: this.photoURL,
+          }),
+        });
 
-        // const body = await res.json();
-        // console.log(body);
+        const body = await res.json();
+        console.log(body);
 
         if (res.status === 400) {
           this.$notify({
