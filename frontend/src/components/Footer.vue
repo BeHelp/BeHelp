@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <footer class="footer">
+  <footer :class="$route.name === 'Login' ? 'fixedFooter' : ''" class="footer">
     <div class="footer__logos">
       <img
         class="footer__logos-behelp"
