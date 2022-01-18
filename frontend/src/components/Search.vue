@@ -37,6 +37,26 @@ export default {
       },
     },
   },
+  mounted: async function () {
+    try {
+      if (this.$route.fullPath === "/volunteers") {
+        const res = await fetch(
+          `${import.meta.env.VITE_API}/users/volunteers`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const searchResults = await res.json();
+        this.$store.commit("searchResult", searchResults);
+        console.log(searchResults);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
   methods: {
     async filterBtn() {
       try {
