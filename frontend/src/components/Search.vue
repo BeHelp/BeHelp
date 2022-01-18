@@ -48,7 +48,11 @@ export default {
           this.filterLanguages === null ||
           this.filterCities === null
         ) {
-          alert("Please select one filter for each category");
+          this.$notify({
+            title: "Please select one filter for each category!",
+            type: "warn",
+          });
+          // alert("Please select one filter for each category");
           return;
         }
         const filter = {
