@@ -73,6 +73,7 @@ export default {
         });
         const body = await res.json();
         this.$store.commit("updatePhotoURL", this.photoURL);
+        this.$store.commit("updateFirstName", this.firstName);
         if (res.status === 400) {
           this.$notify({
             title: body.message,

@@ -46,6 +46,9 @@ const store = createStore({
     updatePhotoURL(state, message) {
       state.user.photoURL = message;
     },
+    updateFirstName(state, message) {
+      state.user.firstName = message;
+    },
   },
 });
 
