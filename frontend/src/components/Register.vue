@@ -36,8 +36,6 @@ export default {
         this.languageArray = this.filterLanguages.map((a) => a.name);
         this.skillsArray = this.filterSkills.map((a) => a.name);
 
-        console.log(this.filterCities);
-
         if (this.picked === "volunteer") {
           if (this.skillsArray.length === 0) {
             this.$notify({
@@ -45,7 +43,7 @@ export default {
               type: "error",
             });
           }
-          return;
+          // return;
         }
         if (this.picked === "volunteer") {
           if (!this.description) {
@@ -54,9 +52,10 @@ export default {
               type: "error",
             });
           }
-          return;
+          // return;
         }
 
+        console.log("starting fetch");
         const res = await fetch(`${import.meta.env.VITE_API}/register`, {
           method: "POST",
           headers: {
@@ -71,8 +70,8 @@ export default {
             nationality: this.nationality,
             userType: this.picked,
             location: this.filterCities.city,
-            skills: skillsArray,
-            languages: languageArray,
+            skills: this.skillsArray,
+            languages: this.languageArray,
             description: this.description,
             photoURL: this.photoURL,
           }),
