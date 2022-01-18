@@ -62,15 +62,17 @@ export default {
           >
         </li>
 
+        <!--
         <li
           v-if="isLoggedIn === true"
           @click="hidden = !hidden"
           class="footer__nav-features"
         >
           <p class="footer__nav-features p-username" id="header-username">
-            {{ user.firstName }}
+            <br />
           </p>
         </li>
+
         <li v-if="isLoggedIn === true" class="footer__nav-features usermenu">
           <img
             @click="hidden = !hidden"
@@ -95,6 +97,7 @@ export default {
             >
           </div>
         </li>
+                    -->
       </ul>
     </div>
   </div>
