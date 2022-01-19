@@ -26,6 +26,9 @@
   margin: 0 auto;
   margin-bottom: 2rem;
 
+  @media (max-width: 800px) {
+    flex-basis: 80%;
+  }
   @media (max-width: 400px) {
     flex-basis: 95%;
   }
