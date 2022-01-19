@@ -21,6 +21,7 @@ The application connects international protection seekers with volunteers and or
   - [Setup](#setup)
   - [API routes](#api-routes)
   - [Sample Vue code](#sample-vue-code)
+  - [App demo video](#app-demo-video)
   - [Inspiration](#inspiration)
       - [Projects and websites](#projects-and-websites)
       - [Articles](#articles)
@@ -145,6 +146,10 @@ export default {
 };
 </script>
 ```
+
+## App demo video
+
+[https://www.youtube.com/watch?v=nteRsasUq10![https://www.youtube.com/watch?v=nteRsasUq10](https://img.youtube.com/vi/nteRsasUq10/0.jpg)](https://www.youtube.com/watch?v=nteRsasUq10)
 
 ## Inspiration
 
