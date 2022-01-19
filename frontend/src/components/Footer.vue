@@ -5,6 +5,28 @@ export default {
   computed: {
     ...mapState(["isLoggedIn", "user"]),
   },
+  methods: {
+    logout() {
+      const token = localStorage.getItem("token");
+      const userId = this.user.userId;
+      fetch(`${import.meta.env.VITE_API}/users/logout/${userId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          localStorage.removeItem("token");
+          this.$store.commit("loggedOut");
+          this.$router.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 };
 </script>
 
@@ -47,22 +69,29 @@ export default {
   <div>
     <div id="sign" class="sign">
       <ul class="sign__element">
-        <li class="sign__element-signup">
+        <li v-if="isLoggedIn !== true" class="sign__element-signup">
           <router-link to="/signup"
             ><button class="sign__elements-login btn-signup">
               Sign Up
             </button></router-link
           >
         </li>
-        <li class="sign__element-login">
+        <li v-if="isLoggedIn !== true" class="sign__element-login">
           <router-link to="/login"
             ><button class="sign__elements-login btn-login">
               Log In
             </button></router-link
           >
         </li>
-
-        <!--
+        <li v-if="isLoggedIn === true" class="sign__element-signup">
+          ><button
+            @click="logout"
+            href="#"
+            class="sign__elements-signup btn-signup"
+          >
+            Log Out
+          </button>
+          <!--
         <li
           v-if="isLoggedIn === true"
           @click="hidden = !hidden"
@@ -98,6 +127,7 @@ export default {
           </div>
         </li>
                     -->
+        </li>
       </ul>
     </div>
   </div>
