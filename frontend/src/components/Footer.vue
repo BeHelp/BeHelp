@@ -47,14 +47,14 @@ export default {
   <div>
     <div id="sign" class="sign">
       <ul class="sign__element">
-        <li v-if="isLoggedIn !== true" class="sign__element-signup">
+        <li class="sign__element-signup">
           <router-link to="/signup"
             ><button class="sign__elements-login btn-signup">
               Sign Up
             </button></router-link
           >
         </li>
-        <li v-if="isLoggedIn !== true" class="sign__element-login">
+        <li class="sign__element-login">
           <router-link to="/login"
             ><button class="sign__elements-login btn-login">
               Log In
