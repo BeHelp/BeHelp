@@ -523,3 +523,21 @@
   object-fit: cover;
   border: 2px solid $primary;
 }
+
+#register-form > div.container__firstset > div.afterimage > img {
+  width: 52%;
+  border-radius: 25px;
+  object-fit: cover;
+  border: 2px solid $primary;
+}
+
+#register-form > div.container__firstset > div.afterimage > button {
+  position: relative;
+  top: -50px;
+  right: -5px;
+  border-radius: 25px;
+  border: 0;
+  background-color: $primary;
+  padding: 1px;
+  color: $dark-grey;
+}
