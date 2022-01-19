@@ -307,7 +307,7 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../components/styles/abstract/_base.scss";
 @import "../components/styles/abstract/_variables.scss";
 @import "../components/styles/layout/_register.scss";
