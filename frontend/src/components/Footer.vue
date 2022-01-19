@@ -84,7 +84,7 @@ export default {
           >
         </li>
         <li v-if="isLoggedIn === true" class="sign__element-signup">
-          ><button
+          <button
             @click="logout"
             href="#"
             class="sign__elements-signup btn-signup"
