@@ -190,10 +190,10 @@ export default {
             </p>
           </div>
           <div v-if="this.photoURL" class="afterimage">
+            <img v-bind:src="this.photoURL" />
             <button v-on:click="this.photoURL = null" v-if="!isHidden">
               X
             </button>
-            <img v-bind:src="this.photoURL" />
           </div>
           <div class="right">
             <div class="container__group">

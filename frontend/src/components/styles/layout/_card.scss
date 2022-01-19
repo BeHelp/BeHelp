@@ -71,3 +71,10 @@
   color: $white;
   font-size: 0.9rem;
 }
+
+div.cards__picture {
+  max-width: 40%;
+  max-height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}

@@ -100,3 +100,16 @@ input {
   text-decoration-line: underline;
   color: #c4c4c4;
 }
+
+.email__box:focus {
+  outline: none;
+  color: #da6900;
+  font-weight: 400;
+  border-bottom: 0.125rem solid $orange;
+}
+.password__box:focus {
+  outline: none;
+  color: #da6900;
+  font-weight: 400;
+  border-bottom: 0.125rem solid $orange;
+}

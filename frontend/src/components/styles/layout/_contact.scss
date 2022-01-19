@@ -130,3 +130,13 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #f3eee9;
 }
+
+#app
+  > div
+  > div.contactUs
+  > div
+  > div.contactUs__content-rightcontainer
+  > form
+  > input[type="submit"]:nth-child(4) {
+  justify-content: center;
+}

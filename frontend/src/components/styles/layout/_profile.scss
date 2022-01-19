@@ -284,7 +284,7 @@
       text-align: center;
 
       .left-icon {
-        background: url('../assets/fas/camera-solid.svg'), no-repeat;
+        background: url("../assets/fas/camera-solid.svg"), no-repeat;
         background-size: 60px;
         margin-top: -49px;
         width: 60px;
@@ -515,4 +515,29 @@
       width: 100%;
     }
   }
+}
+
+.afterimage > img:nth-child(1) {
+  width: 52%;
+  border-radius: 25px;
+  object-fit: cover;
+  border: 2px solid $primary;
+}
+
+#register-form > div.container__firstset > div.afterimage > img {
+  width: 52%;
+  border-radius: 25px;
+  object-fit: cover;
+  border: 2px solid $primary;
+}
+
+#register-form > div.container__firstset > div.afterimage > button {
+  position: relative;
+  top: -50px;
+  right: -5px;
+  border-radius: 25px;
+  border: 0;
+  background-color: $primary;
+  padding: 1px;
+  color: $dark-grey;
 }
