@@ -43,6 +43,12 @@ const store = createStore({
     searchResult(state, message) {
       state.searchResult = message;
     },
+    updatePhotoURL(state, message) {
+      state.user.photoURL = message;
+    },
+    updateFirstName(state, message) {
+      state.user.firstName = message;
+    },
   },
 });
 

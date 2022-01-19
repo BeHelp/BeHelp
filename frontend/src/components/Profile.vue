@@ -72,6 +72,8 @@ export default {
           }),
         });
         const body = await res.json();
+        this.$store.commit("updatePhotoURL", this.photoURL);
+        this.$store.commit("updateFirstName", this.firstName);
         if (res.status === 400) {
           this.$notify({
             title: body.message,
@@ -178,7 +180,7 @@ export default {
               accept="image/*"
               id="file-input"
               @change="uploadImage($event)"
-              class="button-icon" 
+              class="button-icon"
               :disabled="isDisabled"
             />
             <div class="left-icon"></div>
